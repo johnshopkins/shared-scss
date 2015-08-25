@@ -1,0 +1,14 @@
+{
+    "name": "johnshopkins/shared-scss",
+    "description": "SCSS that is shared across our projects.",
+    "type": "css-lib",
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@github.com:johnshopkins/css-installer.git"
+      }
+    ],
+    "require": {
+      "johnshopkins/css-installer": "dev-master"
+    }
+}
