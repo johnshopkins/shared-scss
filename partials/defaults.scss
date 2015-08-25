@@ -1,0 +1,72 @@
+@import "utils/main";
+
+/* Typography and Spacing Defaults
+========================================================================== */
+
+html {
+  font-family: $gentona;
+  font-size: 100%;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {}
+
+b, strong { font-weight: 500; }
+
+em { font-style: italic; }
+
+.page-container {
+  background-color: $white;
+  font-size: 1em;
+  @include breakpoint_lap_width() {
+    @include breakpoint_lap_height() { font-size: 1.1em; }
+  }
+  @include breakpoint_desk_width() {
+    @include breakpoint_desk_height() { font-size: 1.2em; }
+  }
+  @include breakpoint_wall_width() {
+    @include breakpoint_wall_height() { font-size: 1.3em; }
+  }
+  @include breakpoint_jumbotron_width() {
+    @include breakpoint_jumbotron_height() { font-size: 1.4em; }
+  }
+}
+
+.section {
+  display: block;
+  clear: both;
+  position: relative;
+  z-index: $stack_normal;
+}
+
+.center {
+  position: relative;
+  z-index: $stack-normal;
+}
+
+.icon-fallback {
+  text-decoration: none;
+  display: none;
+  visibility: hidden;
+}
+
+
+
+/* Utility Classes
+========================================================================== */
+
+/**
+ * Force-clear floats
+ */
+.force:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+* html .force             { zoom: 1; } /* IE6 */
+*:first-child+html .force { zoom: 1; } /* IE7 */
+
+.hide { display: none; }

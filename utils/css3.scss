@@ -1,0 +1,412 @@
+/**
+ * Border Radius
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+ *
+ */
+
+@mixin border-radius($radii...) {
+  -webkit-border-radius: $radii;
+  -moz-border-radius: $radii;
+  border-radius: $radii;
+}
+
+
+/**
+ * Background Size
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
+ *
+ */
+
+@mixin background-size($value...) {
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  -o-background-size: $value;
+  -ms-background-size: $value;
+  background-size: $value;
+}
+
+/**
+ * Font Smoothing
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+ *
+ */
+
+@mixin font-smoothing($value...) {
+  -webkit-font-smoothing: $value;
+  -moz-font-smoothing: $value;
+  -o-font-smoothing: $value;
+  -ms-font-smoothing: $value;
+  font-smoothing: $value;
+}
+
+/**
+ * Transition
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+ *
+ */
+@mixin transition($transitions...) {
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}
+
+@mixin transition-delay($delay...) {
+  -webkit-transition-delay: $delay;
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+@mixin transition-duration($duration...) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+@mixin transition-property($properties...) {
+  -webkit-transition-property: $properties;
+  -moz-transition-property: $properties;
+  -o-transition-property: $properties;
+  transition-property: $properties;
+}
+
+@mixin transition-timing-function($timing...) {
+  -webkit-transition-timing-function: $timing;
+  -moz-transition-timing-function: $timing;
+  -o-transition-timing-function: $timing;
+  transition-timing-function: $timing;
+}
+
+/**
+ * Transform
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+ *
+ */
+
+@mixin transform($transforms...) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+/**
+ * Backface Visibility
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
+ *
+ */
+
+@mixin backface-visibility($visibility) {
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  -o-backface-visibility: $visibility;
+  -ms-backface-visibility: $visibility;
+  backface-visibility: $visibility;
+}
+
+/**
+ * Gradients
+ *
+ *
+ *
+ */
+
+@mixin linear-gradient($fallback, $destination, $colors...) {
+
+  $direction-map: (
+    to top: bottom,
+    to top right: bottom left,
+    to right: left,
+    to bottom right: top left,
+    to bottom: top,
+    to bottom left: top right,
+    to left: right,
+    to top left: bottom right
+  );
+
+  $starting-point: top;
+
+  @if map-has-key($direction-map, $destination) {
+    $starting-point: map-get($direction-map, $destination);
+  }
+
+  background-color: $fallback; /* fallback color if gradients are not supported */
+  background-image: -webkit-linear-gradient($starting-point, $colors); /* For Chrome and Safari */
+  background-image: -moz-linear-gradient($starting-point, $colors); /* For old Fx (3.6 to 15) */
+  background-image: -ms-linear-gradient($starting-point, $colors); /* For pre-releases of IE 10*/
+  background-image: -o-linear-gradient($starting-point, $colors); /* For old Opera (11.1 to 12.0) */
+  background-image: linear-gradient($destination, $colors);
+
+}
+
+/**
+* Margin / Padding destruction
+*
+*
+*
+*/
+
+@mixin no-margin() {
+  margin: 0;
+  margin-top: 0;
+  margin-right : 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+@mixin no-padding() {
+  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+/**
+* Opacity
+*
+*
+*
+*/
+
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity-ie)";
+  filter: alpha(opacity=$opacity-ie); //IE8
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+
+
+
+
+
+
+
+/**
+* Animations
+*
+*
+*
+*/
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation-name, $duration, $transition, $delay, $iteration, $direction, $play-state, $fill-mode) {
+  -webkit-animation-name: $animation-name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-timing-function: $transition;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-iteration-count: $iteration;
+  -webkit-animation-direction: $direction;
+  -webkit-animation-play-state: $play-state;
+  -webkit-animation-fill-mode: $fill-mode;
+
+  -moz-animation-name: $animation-name;
+  -moz-animation-duration: $duration;
+  -moz-animation-timing-function: $transition;
+  -moz-animation-delay: $delay;
+  -moz-animation-iteration-count: $iteration;
+  -moz-animation-direction: $direction;
+  -moz-animation-play-state: $play-state;
+  -moz-animation-fill-mode: $fill-mode;
+
+  -o-animation-name: $animation-name;
+  -o-animation-duration: $duration;
+  -o-animation-timing-function: $transition;
+  -o-animation-delay: $delay;
+  -o-animation-iteration-count: $iteration;
+  -o-animation-direction: $direction;
+  -o-animation-play-state: $play-state;
+  -o-animation-fill-mode: $fill-mode;
+
+  animation-name: $animation-name;
+  animation-duration: $duration;
+  animation-timing-function: $transition;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration;
+  animation-direction: $direction;
+  animation-play-state: $play-state;
+  animation-fill-mode: $fill-mode;
+}
+
+@mixin animation-name($animation-name) {
+  -webkit-animation-name: $animation-name;
+  -moz-animation-name: $animation-name;
+  -o-animation-name: $animation-name;
+  animation-name: $animation-name;
+}
+
+@mixin animation-duration($animation-duration) {
+  -webkit-animation-duration: $animation-duration;
+  -moz-animation-duration: $animation-duration;
+  -o-animation-duration: $animation-duration;
+  animation-duration: $animation-duration;
+}
+
+@mixin animation-timing-function($animation-timing-function) {
+  -webkit-animation-timing-function: $animation-timing-function;
+  -moz-animation-timing-function: $animation-timing-function;
+  -o-animation-timing-function: $animation-timing-function;
+  animation-timing-function: $animation-timing-function;
+}
+
+@mixin animation-delay($animation-delay) {
+  -webkit-animation-delay: $animation-delay;
+  -moz-animation-delay: $animation-delay;
+  -o-animation-delay: $animation-delay;
+  animation-delay: $animation-delay;
+}
+
+@mixin animation-iteration-count($animation-iteration-count) {
+  -webkit-animation-iteration-count: $animation-iteration-count;
+  -moz-animation-iteration-count: $animation-iteration-count;
+  -o-animation-iteration-count: $animation-iteration-count;
+  animation-iteration-count: $animation-iteration-count;
+}
+
+@mixin animation-direction($animation-direction) {
+  -webkit-animation-direction: $animation-direction;
+  -moz-animation-direction: $animation-direction;
+  -o-animation-direction: $animation-direction;
+  animation-direction: $animation-direction;
+}
+
+@mixin animation-play-state($animation-play-state) {
+  -webkit-animation-play-state: $animation-play-state;
+  -moz-animation-play-state: $animation-play-state;
+  -o-animation-play-state: $animation-play-state;
+  animation-play-state: $animation-play-state;
+}
+
+@mixin animation-fill-mode($animation-fill-mode) {
+  -webkit-animation-fill-mode: $animation-fill-mode;
+  -moz-animation-fill-mode: $animation-fill-mode;
+  -o-animation-fill-mode: $animation-fill-mode;
+  animation-fill-mode: $animation-fill-mode;
+}
+
+@mixin animation-none() {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  -o-animation: none;
+  animation: none;
+}
+
+/**
+* Box Shadows
+*
+*/
+
+@mixin box-shadow($string...) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow: $string;
+  -ms-box-shadow: $string;
+  -o-box-shadow: $string;
+  box-shadow: $string;
+}
+
+/**
+* Text Shadows
+*
+*/
+
+@mixin text-shadow($string...) {
+  -webkit-text-shadow: $string;
+  -moz-text-shadow: $string;
+  -ms-text-shadow: $string;
+  -o-text-shadow: $string;
+  text-shadow: $string;
+}
+
+/**
+* Long Shadows
+*
+* http://codepen.io/awesomephant/pen/mAxHz
+*
+*/
+
+// How to use
+// .my-thing {
+//   @include long-shadow($type: text, $color: indigo, $length: 50, $fadeout: false, $skew: true, $direction: right);
+// }
+
+@mixin long-shadow($type, $color, $length, $fadeout: true, $fade-start: 1, $skew: false, $direction: right){
+  $shadow: '';
+  @if $skew == false or $type == text {
+    @if $direction == right {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+    @if $direction == left {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+  }
+  @if $fadeout == true {
+    $shadow: '';
+    @for $i from 1 to $length - 1 {
+      @if $type == text or $skew == false {
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - ($i / $length)) * $fade-start)) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - ($i / $length)) * $fade-start)) + ',';
+        }
+      }
+      @if ($type == box) and $skew == true {
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+    }
+  }
+  @if $fadeout == false {
+    @if $skew == true and ( $type == box ){
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .1 + 'px ' + $color + ',';
+      }
+    }
+  }
+  $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba(0,0,0,0);
+  $shadow: unquote($shadow);
+  @if $type == 'box' {box-shadow: $shadow;}
+  @if $type == 'text' {text-shadow: $shadow;}
+}

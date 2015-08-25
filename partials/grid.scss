@@ -1,0 +1,44 @@
+@import "utils/grid";
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.center {
+  max-width: $maxwidth + 0px;
+  margin: 0 auto;
+}
+
+/**
+ * Unnecessary data attribute selectors, use @include span() instead
+ */
+// @for $i from 1 through $columns {
+//   [data-colspan="#{$i}"] {
+//     @include span($i of $columns);
+//   }
+// }
+
+// If you mention a colspan or use the column class,
+// activate the column settings
+.column {
+  margin-left: 0;
+  margin-right: $gutter;
+  float: left;
+
+  &.last {
+    margin-right: 0;
+  }
+}
+
+// "Spacer" columns need at least a 1px height so
+// they maintain their space in the float
+.column.spacer {
+  height: 1px;
+}
+
+.row {
+  width: 100%;
+  // clearfix thing
+  overflow: hidden;
+}
