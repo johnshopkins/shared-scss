@@ -39,6 +39,16 @@
 
 .row {
   width: 100%;
-  // clearfix thing
-  overflow: hidden;
+  display: block; 
+
+  &:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+  }
 }
+
+* html .row             { zoom: 1; } /* IE6 */
+*:first-child+html .row { zoom: 1; } /* IE7 */
