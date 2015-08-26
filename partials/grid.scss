@@ -39,6 +39,7 @@
 
 .row {
   width: 100%;
+  display: block; 
 
   &:after {
     visibility: hidden;
