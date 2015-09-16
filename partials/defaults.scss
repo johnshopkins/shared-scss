@@ -53,12 +53,66 @@ em { font-style: italic; }
 
 
 
+/* Search Boxes
+========================================================================== */
+
+.search-box {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  background-color: transparent;
+
+  form {
+    width: 100%;
+    background-color: $sparta;
+  }
+
+  label { display: none; }
+
+  input,
+  button {
+    margin: 0;
+    border-style: solid;
+    border-color: $sparta;
+    font-weight: 400;
+    line-height: 100%;
+    @include border-radius(0);
+  }
+
+  input {
+    @include search_input(stacked);
+    height: #{$standard_spacing / $large}em; // font math
+    font-size: $large;
+  }
+
+  button {
+    @include search_button(stacked);
+    background-color: $sparta;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    @include transition(background-color);
+    @include transition-duration($run);
+    @include transition-timing-function(ease-in-out);
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+
+    .fa {
+      margin-right: ($standard_spacing / 12);
+      color: inherit !important;
+    }
+  }
+}
+
+
+
 /* Utility Classes
 ========================================================================== */
 
-/**
- * Force-clear floats
- */
+// Force-clear floats
 .force:after {
   visibility: hidden;
   display: block;
