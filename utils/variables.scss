@@ -99,7 +99,6 @@ $xxx-large: ($xx-large * (1 + (1/3))); // 2.666em  | h1 (article/page title)
 
 
 
-
 //\\//\\//\\//\\//\\//\\//\\
 //\\ STROKE WEIGHTS //\\//\\
 //\\//\\//\\//\\//\\//\\//\\
@@ -112,3 +111,40 @@ $semibold: ($medium * (1 + (1/2)));   // 0.375em
 $bold:     ($semibold * (1 + (1/3))); // 0.5em
 $heavy:    ($bold * (1 + (1/2)));     // 0.75em
 $ultra:    ($heavy * (1 + (1/3)));    // 1em
+
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ Spacing VARIABLES \//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$standard_spacing: 3em;
+
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ TABLE VARIABLES /\\//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$table_cell_border_width: $hairline;
+$table_outline_width: $light;
+$table_cell_border_style: solid;
+$table_outline_style: $table_cell_border_style;
+$table_cell_border_color: $gray1;
+$table_outline_color: $black;
+$table_cell_border: $table_cell_border_width $table_cell_border_style $table_cell_border_color;
+$table_outline: $table_outline_width $table_outline_style $table_outline_color;
