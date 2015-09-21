@@ -102,7 +102,7 @@ $color_jumbotron: $new_academic_gold;
 
   &:before,
   &:after {
-    padding: ($menu_spacing / 6);
+    padding: ($standard_spacing / 6);
     background-color: $color_hand;
     display: inline-block;
   }
