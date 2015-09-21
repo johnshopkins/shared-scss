@@ -140,7 +140,8 @@ $standard_spacing: 3em;
 //\\ TIMING VARIABLES \\//\\
 //\\//\\//\\//\\//\\//\\//\\
 
-$soft_bounce: ease-in-out;
+// $soft_bounce:    cubic-bezier(0.175, 0.885, 0.320, 1.275); // orig. was a bit much.
+$soft_bounce: cubic-bezier(0.175, 0.885, 0.320, 1.14);
 
 
 
