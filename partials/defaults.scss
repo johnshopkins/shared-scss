@@ -83,6 +83,7 @@ em { font-style: italic; }
     @include search_input(stacked);
     height: #{$standard_spacing / $large}em; // font math
     font-size: $large;
+    color: $black;
   }
 
   button {
