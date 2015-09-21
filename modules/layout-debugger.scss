@@ -1,0 +1,133 @@
+@import "../utils/main";
+
+// Colors to show breakpoint changes, dev only
+$color_hand: $new_medical_gloves;
+$color_lap: $red_clay;
+$color_desk: $burnt_orange;
+$color_wall: $creamsicle;
+$color_jumbotron: $new_academic_gold;
+
+.column-master-super-awesome-grid {
+  @include pad_ratio(of 12, top, 1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $stack_super_top;
+  display: none;
+
+  .row {
+    @include pad_ratio(of 12, top, 0.25);
+
+    &:first-child { @include pad_ratio(of 12, top, 0); }
+
+    .column {
+      @include pad_ratio(of 12, top bottom, 0.125);
+      text-align: center;
+      color: $white;
+      border-top: solid 0.5em;
+
+      // &.twelve { @include span(12 of 12); border-top-color: $cty_green; }
+      // &.eleven { @include span(11 of 12); border-top-color: $cty_green; }
+      // &.ten { @include span(10 of 12); border-top-color: $cty_green; }
+      // &.nine { @include span(9 of 12); border-top-color: $cty_green; }
+      // &.eight { @include span(8 of 12); border-top-color: $cty_green; }
+      // &.seven { @include span(7 of 12); border-top-color: $cty_green; }
+      &.six { @include span(6 of 12); border-top-color: $cty_green; }
+      &.five { @include span(5 of 12); border-top-color: $oak_leaves; }
+      &.four { @include span(4 of 12); border-top-color: $magnolia_leaves; }
+      &.three { @include span(3 of 12); border-top-color: $spearmint; }
+      &.two { @include span(2 of 12); border-top-color: $new_copper_petina; }
+      &.one { @include span(1 of 12); border-top-color: $bright_turquoise;}
+
+      &:last-child { margin-right: 0; }
+    }
+  }
+}
+
+.width-breakpoint-totally-tubular-stripes,
+.height-breakpoint-totally-tubular-stripes {
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $stack_super_top;
+  overflow: visible;
+  display: none;
+}
+
+.width-breakpoint-totally-tubular-stripes {
+
+  .stripe {
+    height: 100%;
+    width: 2px;
+    position: fixed;
+    left: 0;
+    z-index: $stack_super_top;
+    background-color: $color_hand;
+
+    &.lap { left: $breakpoint_lap_width_value; background-color: $color_lap; }
+    &.desk { left: $breakpoint_desk_width_value; background-color: $color_desk; }
+    &.wall { left: $breakpoint_wall_width_value; background-color: $color_wall; }
+    &.jumbotron { left: $breakpoint_jumbotron_width_value; background-color: $color_jumbotron; }
+  }
+}
+
+.height-breakpoint-totally-tubular-stripes {
+
+  .stripe {
+    width: 100%;
+    height: 2px;
+    position: fixed;
+    left: 0;
+    z-index: $stack_super_top;
+    background-color: $color_hand;
+
+    &.lap { top: $breakpoint_lap_height_value; background-color: $color_lap; }
+    &.desk { top: $breakpoint_desk_height_value; background-color: $color_desk; }
+    &.wall { top: $breakpoint_wall_height_value; background-color: $color_wall; }
+    &.jumbotron { top: $breakpoint_jumbotron_height_value; background-color: $color_jumbotron; }
+  }
+}
+
+.breakpoint-checker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $stack_super_top;
+  color: $white;
+  line-height: 1em;
+  display: none;
+
+  &:before,
+  &:after {
+    padding: ($menu_spacing / 6);
+    background-color: $color_hand;
+    display: inline-block;
+  }
+
+  &:before {
+    content: "width: hand";
+    @include breakpoint_lap_width() { background-color: $color_lap; content: "width: lap"; }
+    @include breakpoint_desk_width() { background-color: $color_desk; content: "width: desk"; }
+    @include breakpoint_wall_width() { background-color: $color_wall; content: "width: wall"; }
+    @include breakpoint_jumbotron_width() { background-color: $color_jumbotron; content: "width: jumbotron"; }
+  }
+
+  &:after {
+    content: "height: hand";
+    @include breakpoint_lap_height() { background-color: $color_lap; content: "height: lap"; }
+    @include breakpoint_desk_height() { background-color: $color_desk; content: "height: desk"; }
+    @include breakpoint_wall_height() { background-color: $color_wall; content: "height: wall"; }
+    @include breakpoint_jumbotron_height() { background-color: $color_jumbotron; content: "height: jumbotron"; }
+  }
+}
+
+body.debug-breakpoints {
+
+  .column-master-super-awesome-grid,
+  .width-breakpoint-totally-tubular-stripes,
+  .height-breakpoint-totally-tubular-stripes,
+  .breakpoint-checker { display: block; }
+}
