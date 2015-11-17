@@ -1,7 +1,7 @@
 // Variables
 // --------------------------
 
-$fa-font-path:        "../fonts/font-awesome/" !default;
+$fa-font-path:        "${$fonts_dir}/font-awesome/" !default;
 //$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts" !default; // for referencing Bootstrap CDN font files directly
 $fa-css-prefix:       fa !default;
 $fa-version:          "4.0.3" !default;
@@ -378,4 +378,3 @@ $fa-var-wheelchair: "\f193";
 $fa-var-vimeo-square: "\f194";
 $fa-var-try: "\f195";
 $fa-var-plus-square-o: "\f196";
-
