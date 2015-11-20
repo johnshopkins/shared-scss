@@ -89,7 +89,7 @@ em { font-style: italic; }
   button {
     @include search_button(stacked);
     background-color: $sparta;
-    color: $white;
+    color: $white !important;
     text-align: center;
     text-transform: uppercase;
     @include transition(background-color);
@@ -98,7 +98,7 @@ em { font-style: italic; }
 
     &:hover {
       background-color: $black;
-      color: $white;
+      color: $white !important;
     }
 
     .fa {
