@@ -1,20 +1,21 @@
 @import "../utils/main";
 
 // Colors to show breakpoint changes, dev only
-$color_hand: $new_medical_gloves;
-$color_lap: $red_clay;
-$color_desk: $burnt_orange;
-$color_wall: $creamsicle;
-$color_jumbotron: $new_academic_gold;
+$color_hand: $stained_glass;
+$color_lap: $sparta;
+$color_desk: $ballpoint;
+$color_wall: $pathway_brick;
+$color_jumbotron: $tricias_pants;
 
-.column-master-super-awesome-grid {
+#layout-debugger { display: none; }
+
+#column-master-super-awesome-grid {
   @include pad_ratio(of 12, top, 1);
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: $stack_super_top;
-  display: none;
 
   .row {
     @include pad_ratio(of 12, top, 0.25);
@@ -27,12 +28,12 @@ $color_jumbotron: $new_academic_gold;
       color: $white;
       border-top: solid 0.5em;
 
-      // &.twelve { @include span(12 of 12); border-top-color: $cty_green; }
-      // &.eleven { @include span(11 of 12); border-top-color: $cty_green; }
-      // &.ten { @include span(10 of 12); border-top-color: $cty_green; }
-      // &.nine { @include span(9 of 12); border-top-color: $cty_green; }
-      // &.eight { @include span(8 of 12); border-top-color: $cty_green; }
-      // &.seven { @include span(7 of 12); border-top-color: $cty_green; }
+      &.twelve { @include span(12 of 12); border-top-color: $burnt_orange; }
+      &.eleven { @include span(11 of 12); border-top-color: $tangerine; }
+      &.ten { @include span(10 of 12); border-top-color: $creamsicle; }
+      &.nine { @include span(9 of 12); border-top-color: $sunlight; }
+      &.eight { @include span(8 of 12); border-top-color: $new_academic_gold; }
+      &.seven { @include span(7 of 12); border-top-color: $lemon; }
       &.six { @include span(6 of 12); border-top-color: $cty_green; }
       &.five { @include span(5 of 12); border-top-color: $oak_leaves; }
       &.four { @include span(4 of 12); border-top-color: $magnolia_leaves; }
@@ -45,8 +46,8 @@ $color_jumbotron: $new_academic_gold;
   }
 }
 
-.width-breakpoint-totally-tubular-stripes,
-.height-breakpoint-totally-tubular-stripes {
+#width-breakpoint-totally-tubular-stripes,
+#height-breakpoint-totally-tubular-stripes {
   width: 0;
   height: 0;
   position: fixed;
@@ -54,10 +55,9 @@ $color_jumbotron: $new_academic_gold;
   left: 0;
   z-index: $stack_super_top;
   overflow: visible;
-  display: none;
 }
 
-.width-breakpoint-totally-tubular-stripes {
+#width-breakpoint-totally-tubular-stripes {
 
   .stripe {
     height: 100%;
@@ -74,7 +74,7 @@ $color_jumbotron: $new_academic_gold;
   }
 }
 
-.height-breakpoint-totally-tubular-stripes {
+#height-breakpoint-totally-tubular-stripes {
 
   .stripe {
     width: 100%;
@@ -91,14 +91,13 @@ $color_jumbotron: $new_academic_gold;
   }
 }
 
-.breakpoint-checker {
+#breakpoint-checker {
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: $stack_super_top;
   color: $white;
   line-height: 1em;
-  display: none;
 
   &:before,
   &:after {
@@ -124,10 +123,7 @@ $color_jumbotron: $new_academic_gold;
   }
 }
 
-body.debug-breakpoints {
+.debug-breakpoints {
 
-  .column-master-super-awesome-grid,
-  .width-breakpoint-totally-tubular-stripes,
-  .height-breakpoint-totally-tubular-stripes,
-  .breakpoint-checker { display: block; }
+  #layout-debugger { display: block; }
 }

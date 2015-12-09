@@ -10,28 +10,39 @@ html {
   font-style: normal;
 }
 
-body {}
+body {
+
+  // Now that main-nav, modals, and overlays are outside of .page-container for
+  // accessibility purposes, they must specifically be given the same font-size
+  // changes at each breakpoint.
+  > * {
+    font-size: 1em;
+
+    @include breakpoint_lap_width() {
+      @include breakpoint_lap_height() { font-size: 1.1em; }
+    }
+
+    @include breakpoint_desk_width() {
+      @include breakpoint_desk_height() { font-size: 1.2em; }
+    }
+
+    @include breakpoint_wall_width() {
+      @include breakpoint_wall_height() { font-size: 1.3em; }
+    }
+
+    @include breakpoint_jumbotron_width() {
+      @include breakpoint_jumbotron_height() { font-size: 1.4em; }
+    }
+  }
+
+  #layout-debugger { font-size: 1em !important; }
+}
 
 b, strong { font-weight: 500; }
 
 em { font-style: italic; }
 
-.page-container {
-  background-color: $white;
-  font-size: 1em;
-  @include breakpoint_lap_width() {
-    @include breakpoint_lap_height() { font-size: 1.1em; }
-  }
-  @include breakpoint_desk_width() {
-    @include breakpoint_desk_height() { font-size: 1.2em; }
-  }
-  @include breakpoint_wall_width() {
-    @include breakpoint_wall_height() { font-size: 1.3em; }
-  }
-  @include breakpoint_jumbotron_width() {
-    @include breakpoint_jumbotron_height() { font-size: 1.4em; }
-  }
-}
+.page-container { background-color: $white; }
 
 .section {
   display: block;
