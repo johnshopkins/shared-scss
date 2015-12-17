@@ -51,6 +51,15 @@ p {
 
 h1, h2, h3, h4, h5, h6 { line-height: 1em; }
 
+a,
+button,
+.button {
+  background: transparent;
+  font-size: 1em;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 b, strong { font-weight: 500; }
 
 em { font-style: italic; }
