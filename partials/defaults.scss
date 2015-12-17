@@ -38,6 +38,19 @@ body {
   #layout-debugger { font-size: 1em !important; }
 }
 
+p, h1, h2, h3, h4, h5, h6 {
+  &:first-child { margin-top: 0 !important; }
+  &:last-child  { margin-bottom: 0 !important; }
+}
+
+p {
+  margin: ($menu_spacing / 12) 0 ($menu_spacing / 3) 0;
+
+  a { font-weight: 400; }
+}
+
+h1, h2, h3, h4, h5, h6 { line-height: 1em; }
+
 b, strong { font-weight: 500; }
 
 em { font-style: italic; }
