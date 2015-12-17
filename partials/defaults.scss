@@ -52,7 +52,8 @@ ul {
   li {
     margin-bottom: ($standard_spacing / 12);
 
-    &:last-child { margin-bottom: 0; }
+    &:first-child { margin-top: 0 !important; }
+    &:last-child { margin-bottom: 0 !important; }
   }
 }
 
