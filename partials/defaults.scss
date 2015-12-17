@@ -42,6 +42,20 @@ b, strong { font-weight: 500; }
 
 em { font-style: italic; }
 
+ul {
+  margin: ($menu_spacing / 12) 0 ($menu_spacing / 3) 0;
+  padding: 0;
+
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+
+  li {
+    margin-bottom: ($menu_spacing / 12);
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
 .page-container { background-color: $white; }
 
 .section {
