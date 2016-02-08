@@ -6,7 +6,7 @@
 }
 
 .center {
-  max-width: $maxwidth + 0px;
+  max-width: #{$maxwidth}px;
   margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@
 
 .row {
   width: 100%;
-  display: block; 
+  display: block;
 
   &:after {
     visibility: hidden;
