@@ -6,7 +6,7 @@
     width: 100%;
     padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
     border-width: #{$semibold / $large}em; // math for font size
-    border-right-width: #{$semibold / $large}em; // font size math
+    // border-right-width: #{$semibold / $large}em; // font size math
     border-bottom-width: 0;
     float: none;
 
@@ -14,7 +14,7 @@
     width: percentage(2 / 3);
     padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
     border-width: #{$semibold / $large}em; // math for font size
-    border-right-width: 0;
+    // border-right-width: 0;
     border-bottom-width: #{$semibold / $large}em; // font size math
     float: left;
   }
@@ -43,7 +43,9 @@
     // Target height in this case is $standard_spacing value but is not required.
     height: #{((($standard_spacing / 8) * 2) + ($semibold * 2) + ($standard_spacing / 2)) / $regular}em; // font-size math
     padding: #{($standard_spacing / 8) / $regular}em; // math for font size
+    // padding-left: #{(($standard_spacing / 8) + $semibold) / $regular}em; // math for font size
     border-width: #{$semibold / $regular}em; // math for font size
+    border-left-width: 0;
     font-size: $regular;
     line-height: #{($standard_spacing / 2) / $regular}em; //font-math
     float: right;
