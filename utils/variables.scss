@@ -83,7 +83,8 @@ $creep:  ($stroll * 5);         // 5000ms
 $regular:   1em;		                   // 1em      | body
 
 $small:     ($regular * (13/16));	     // 0.8125em | overline, date, image caption
-$x-small:   ($regular * (5/8));	       // 0.625em  | global navigation, tiny meta
+$x-small:   ($regular * (3/4));	       // 0.75em   | global navigation
+$xx-small:   ($regular * (5/8));	     // 0.625em  | tiny meta
 
 $large:     ($regular * (1 + (1/4)));	 // 1.25em   | h4 (sidebar headers), h5 (rail titles)
 $x-large:   ($large * (1 + (3/10)));	 // 1.666em  | article subhead, h3 (subheadline), blockquote
