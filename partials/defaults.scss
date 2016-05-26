@@ -55,7 +55,7 @@ a,
 button,
 .button {
   background: transparent;
-  font-size: 1em;
+  font-size: 1em; // undo user agent font size in chrome
   text-decoration: none;
   cursor: pointer;
 }
