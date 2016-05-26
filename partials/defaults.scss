@@ -55,7 +55,7 @@ a,
 button,
 .button {
   background: transparent;
-  /*font-size: 1em;*/
+  font-size: 1em;
   text-decoration: none;
   cursor: pointer;
 }
@@ -180,14 +180,24 @@ table {
     @include transition-duration($run);
     @include transition-timing-function(ease-in-out);
 
-    &:hover {
-      background-color: $black;
-      color: $white !important;
-    }
-
     .fa {
       margin-right: ($standard_spacing / 12);
       color: inherit !important;
+    }
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  .search-box {
+
+    button {
+
+      &:hover {
+        background-color: $black;
+        color: $white !important;
+      }
     }
   }
 }
@@ -220,14 +230,14 @@ table {
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*
@@ -237,10 +247,10 @@ table {
  */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
