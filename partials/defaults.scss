@@ -1,7 +1,7 @@
 @import "../utils/main";
 
-/* Typography and Spacing Defaults
-========================================================================== */
+// Typography and Spacing Defaults
+// ==========================================================================
 
 html {
   font-family: $gentona;
@@ -137,8 +137,8 @@ table {
 
 
 
-/* Search Boxes
-========================================================================== */
+// Search Boxes
+// ==========================================================================
 
 .search-box {
   width: 100%;
@@ -203,8 +203,8 @@ table {
 
 
 
-/* Utility Classes
-========================================================================== */
+// Utility Classes
+// ==========================================================================
 
 // Force-clear floats
 .force:after {
@@ -218,16 +218,13 @@ table {
 * html .force             { zoom: 1; } /* IE6 */
 *:first-child+html .force { zoom: 1; } /* IE7 */
 
-/*
- * Recommendation from HTML5 boilerplate and originally from
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
+// Recommendation from HTML5 boilerplate and originally from
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 .hide { display: none; }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
+// Hide only visually, but have it available for screen readers:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -239,11 +236,10 @@ table {
   width: 1px;
 }
 
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
+// Extends the .visuallyhidden class to allow the element
+// to be focusable when navigated to via the keyboard:
+// https://www.drupal.org/node/897638
+
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
