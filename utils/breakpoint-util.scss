@@ -1,0 +1,58 @@
+#breakpoint {
+
+  .hand { display: block; }
+
+  .lap,
+  .desk,
+  .wall,
+  .jumbotron { display: none; }
+
+  .width {
+
+    @include breakpoint_lap_width() {
+      .hand { display: none; }
+      .lap { display: block; }
+    }
+
+    @include breakpoint_desk_width() {
+      .lap { display: none; }
+      .desk { display: block; }
+    }
+
+    @include breakpoint_wall_width() {
+      .desk { display: none; }
+      .wall { display: block; }
+    }
+
+    @include breakpoint_jumbotron_width() {
+      .wall { display: none; }
+      .jumbotron { display: block; }
+    }
+
+  }
+
+  .height {
+
+    @include breakpoint_lap_height() {
+      .hand { display: none; }
+      .lap { display: block; }
+    }
+
+    @include breakpoint_desk_height() {
+      .lap { display: none; }
+      .desk { display: block; }
+    }
+
+    @include breakpoint_wall_height() {
+      .desk { display: none; }
+      .wall { display: block; }
+    }
+
+    @include breakpoint_jumbotron_height() {
+      .wall { display: none; }
+      .jumbotron { display: block; }
+    }
+
+  }
+
+}
