@@ -87,6 +87,16 @@ table {
   &:first-child { margin-top: 0; }
   &:last-child { margin-bottom: 0; }
 
+  caption {
+    padding: ($standard_spacing / 6); // math for font-size
+    background-color: $black;
+    font-size: $regular;
+    font-weight: 700;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   tr {
     border-bottom: $table_cell_border;
 
@@ -101,10 +111,10 @@ table {
     }
 
     th {
-      padding: (($standard_spacing / 6) / 0.8); // math for font-size
+      padding: (($standard_spacing / 6) / $small); // math for font-size
       background-color: $gray5;
       // border-color: $gray4;
-      font-size: 0.8em;
+      font-size: $small;
       font-weight: 500;
       color: $white;
       text-align: center;
