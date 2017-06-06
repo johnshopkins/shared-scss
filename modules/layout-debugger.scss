@@ -18,12 +18,14 @@ $color_jumbotron: $tricias_pants;
   z-index: $stack_super_top;
 
   .row {
-    @include pad_ratio(of 12, top, 0.25);
 
-    &:first-child { @include pad_ratio(of 12, top, 0); }
+    + .row {
+      @include pad_ratio(of 12, top, 0.25);
+      margin-top: 0;
+    }
 
     .column {
-      @include pad_ratio(of 12, top bottom, 0.125);
+      @include pad_ratio(of 12, top, 0.125);
       text-align: center;
       color: $white;
       border-top: solid 0.5em;
