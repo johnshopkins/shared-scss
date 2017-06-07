@@ -89,10 +89,10 @@ $small:     ($regular * (13/16));	     // 0.8125em | overline, date, image capti
 $x-small:   ($regular * (3/4));	       // 0.75em   | global navigation
 $xx-small:   ($regular * (5/8));	     // 0.625em  | tiny meta
 
-$large:     ($regular * (1 + (1/4)));	 // 1.25em   | h4 (sidebar headers), h5 (rail titles)
-$x-large:   ($large * (1 + (3/10)));	 // 1.666em  | article subhead, h3 (subheadline), blockquote
-$xx-large:  ($x-large * (1 + (1/5)));	 // 2em      | h2 (rail headers)
-$xxx-large: ($xx-large * (1 + (1/3))); // 2.666em  | h1 (article/page title)
+$large:     ($regular * (1 + (1/5)));	 // 1.2em   | h4 (sidebar headers), h5 (rail titles)
+$x-large:   ($large * (1 + (1/4)));	 // 1.5em  | article subhead, h3 (subheadline), blockquote
+$xx-large:  ($x-large * (1 + (1/3)));	 // 2em      | h2 (rail headers)
+$xxx-large: ($xx-large * (1 + (3/8))); // 2.75em  | h1 (article/page title)
 
 
 
