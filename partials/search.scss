@@ -93,23 +93,20 @@
   }
 }
 
-.gsa {
+.key-matches {
 
-  &.key-matches {
+  .fa {
+    width: #{1em / $x-small}em;
+    margin-left: #{(1em / $x-small) * -1}em;
+    font-size: $x-small;
+    line-height: #{1.125em / $x-small}em;
+    text-align: left;
+    color: $new_academic_gold;
+    display: block;
+    float: left;
 
-    .fa {
-      width: #{1em / $x-small}em;
-      margin-left: #{(1em / $x-small) * -1}em;
-      font-size: $x-small;
-      line-height: #{1.125em / $x-small}em;
-      text-align: left;
-      color: $new_academic_gold;
-      display: block;
-      float: left;
-
-      @include breakpoint_lap_width() {
-        line-height: #{$large / $x-small}em; // matches h4 font-size changes to maintain vertical spacing
-      }
+    @include breakpoint_lap_width() {
+      line-height: #{$large / $x-small}em; // matches h4 font-size changes to maintain vertical spacing
     }
   }
 }
