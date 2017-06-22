@@ -4,7 +4,7 @@
 .search-result {
 
   & + .search-result {
-    margin-top: ($menu_spacing / 3);
+    margin-top: ($standard_spacing / 3);
   }
 }
 
@@ -56,12 +56,12 @@
 
 .results-count {
   margin-top: 0;
-  margin-bottom: #{($menu_spacing / 3) / $x-small}em;
+  margin-bottom: #{($standard_spacing / 3) / $x-small}em;
   font-size: $x-small;
 }
 
 .search-pagination {
-  margin: ($menu_spacing / 3) 0;
+  margin: ($standard_spacing / 3) 0;
   padding: 0;
   font-weight: 400;
   list-style: none;
@@ -77,8 +77,8 @@
   // }
 
   .prev-next {
-    margin-right: ($menu_spacing / 6);
-    margin-left: ($menu_spacing / 6);
+    margin-right: ($standard_spacing / 6);
+    margin-left: ($standard_spacing / 6);
     text-transform: uppercase;
   }
 
@@ -117,13 +117,13 @@
 .search-result {
 
   .title {
-    margin: ($menu_spacing / 3) 0 ($menu_spacing / 12) 0;
+    margin: ($standard_spacing / 3) 0 ($standard_spacing / 12) 0;
     font-family: $gentona;
     font-weight: 600;
     font-size: $regular;
 
     @include breakpoint_lap_width() {
-      margin: #{($menu_spacing / 3) / $large}em 0 #{($menu_spacing / 12) / $large}em 0;
+      margin: #{($standard_spacing / 3) / $large}em 0 #{($standard_spacing / 12) / $large}em 0;
       font-size: $large;
     }
 
@@ -145,24 +145,24 @@
   }
 
   .button {
-    margin-top: ($menu_spacing / 12);
+    margin-top: ($standard_spacing / 12);
 
     &.small {
-      margin-top: #{($menu_spacing / 12) / $x-small}em; //font-size math
+      margin-top: #{($standard_spacing / 12) / $x-small}em; //font-size math
     }
   }
 }
 
 .not-who,
 .cant-find {
-  margin-top: ($menu_spacing / 3);
-  padding-top: ($menu_spacing / 6);
+  margin-top: ($standard_spacing / 3);
+  padding-top: ($standard_spacing / 6);
   border-top: solid $thin rgba($black, 0.1);
   text-align: center;
 }
 
 .not-who {
-  padding-bottom: ($menu_spacing / 3);
+  padding-bottom: ($standard_spacing / 3);
   border-bottom: $medium solid $black;
 }
 
