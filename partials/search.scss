@@ -158,6 +158,9 @@
   .snippet {
     margin-bottom: 0;
     font-size: $x-small;
+    font-style: italic;
+
+    b { font-style: normal; }
   }
 
   .url {
