@@ -1,12 +1,27 @@
 @import "utils/main";
 
 .search-box,
+.search-results,
+.key-matches,
 .search-result {
 
-  & + .search-result {
+  + .search-box,
+  + .search-results,
+  + .key-matches,
+  + .search-result {
+    margin-top: ($standard_spacing / 3);
+  }
+}
+
+.search-results,
+.key-matches,
+.search-result {
+
+  + .search-results,
+  + .key-matches,
+  + .search-result {
     padding-top: ($standard_spacing / 3);
     border-top: $hairline $gray1 solid;
-    margin-top: ($standard_spacing / 3);
   }
 }
 
@@ -148,6 +163,7 @@
   .url {
     font-size: $xx-small;
     font-weight: 400;
+    overflow: hidden;
   }
 }
 
