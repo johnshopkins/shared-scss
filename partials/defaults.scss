@@ -79,6 +79,73 @@ ul {
   }
 }
 
+// Button Sizes
+.button,
+form button,
+input[type="button"],
+input[type="submit"] {
+
+  &.inherit { font-size: 1em; }
+
+  &.xx-small {
+    margin: #{($standard_spacing / 12) / $xx-small}em 0 #{($standard_spacing / 3) / $xx-small}em 0; // makes margins add up to 1em of parent font size.
+    padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em; // font-size math
+    border-width: #{$thin / $xx-small}em; // font-size math
+    font-size: $xx-small;
+    font-weight: 500;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &.x-small {
+    margin: #{($standard_spacing / 6) / $x-small}em 0 #{($standard_spacing / 3) / $x-small}em 0; // makes margins add up to 1em of parent font size.
+    padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em; // font-size math
+    border-width: #{$thin / $x-small}em; // font-size math
+    font-size: $x-small;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &.small {
+    margin: #{($standard_spacing / 6) / $small}em 0 #{($standard_spacing / 3) / $small}em 0; // makes margins add up to 1em of parent font size.
+    padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em; // font-size math
+    border-width: #{$thin / $small}em; // font-size math
+    font-size: $small;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &.medium { font-size: 1em; }
+
+  &.large {
+    margin: #{($standard_spacing / 6) / $large}em 0 #{($standard_spacing / 3) / $large}em 0; // makes margins add up to 1em of parent font size.
+    padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em; // font-size math
+    border-width: #{$medium / $large}em; // font-size math
+    font-size: $large;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &.x-large {
+    width: 100%;
+    margin: #{($standard_spacing / 6) / $x-large}em 0 #{($standard_spacing / 3) / $x-large}em 0; // makes margins add up to 1em of parent font size.
+    padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em; // font-size math
+    border-width: #{$semibold / $x-large}em; // font-size math
+    font-size: $x-large;
+    font-weight: 500;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  + button,
+  + .button { margin-top: 0; }
+}
+
 table {
   width: 100%;
   margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
@@ -143,72 +210,6 @@ table {
   text-decoration: none;
   display: none;
   visibility: hidden;
-}
-
-
-
-// Search Boxes
-// ==========================================================================
-
-.search-box {
-  width: 100%;
-  margin: 0;
-  position: relative;
-  background-color: transparent;
-
-  form {
-    width: 100%;
-    background-color: $sparta;
-  }
-
-  input[type="text"],
-  button {
-    margin: 0;
-    border-style: solid;
-    border-color: $sparta;
-    font-weight: 400;
-    line-height: 100%;
-    @include border-radius(0);
-  }
-
-  input[type="text"] {
-    @include search_input(stacked);
-    height: #{$standard_spacing / $large}em; // font math
-    background-color: $white;
-    font-size: $large;
-    color: $black;
-  }
-
-  button {
-    @include search_button(stacked);
-    background-color: $sparta;
-    color: $white !important;
-    text-align: center;
-    text-transform: uppercase;
-    @include transition(background-color);
-    @include transition-duration($run);
-    @include transition-timing-function(ease-in-out);
-
-    .fa {
-      margin-right: ($standard_spacing / 12);
-      color: inherit !important;
-    }
-  }
-}
-
-.no-js,
-.no-touchevents {
-
-  .search-box {
-
-    button {
-
-      &:hover {
-        background-color: $black;
-        color: $white !important;
-      }
-    }
-  }
 }
 
 
