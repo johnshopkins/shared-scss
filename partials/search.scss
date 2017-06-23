@@ -140,15 +140,25 @@
 .search-result {
 
   .media-heading,
+  .title,
+  .description,
+  .snippet,
+  .url {
+    margin: 0;
+  }
+
+  .media-heading,
   .title {
-    margin: ($standard_spacing / 3) 0 ($standard_spacing / 12) 0;
     font-family: $gentona;
     font-weight: 600;
     font-size: $regular;
 
-    @include breakpoint_lap_width() {
-      margin: #{($standard_spacing / 3) / $large}em 0 #{($standard_spacing / 12) / $large}em 0;
-      font-size: $large;
+    @include breakpoint_lap_width() { font-size: $large; }
+
+    + .description,
+    + .snippet,
+    + .url {
+      margin-top: $standard_spacing / 12;
     }
 
     a { font-weight: inherit; }
@@ -158,7 +168,6 @@
 
   .description,
   .snippet {
-    margin-bottom: 0;
     font-size: $x-small;
     font-style: italic;
 
@@ -166,8 +175,10 @@
   }
 
   .url {
+    font-family: $gentona;
     font-size: $xx-small;
     font-weight: 400;
+    color: $sparta;
     overflow: hidden;
   }
 }
