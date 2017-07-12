@@ -18,21 +18,10 @@ body {
   > * {
     font-size: 1em;
 
-    @include breakpoint_lap_width() {
-      @include breakpoint_lap_height() { font-size: $breakpoint_lap_font_size; }
-    }
-
-    @include breakpoint_desk_width() {
-      @include breakpoint_desk_height() { font-size: $breakpoint_desk_font_size; }
-    }
-
-    @include breakpoint_wall_width() {
-      @include breakpoint_wall_height() { font-size: $breakpoint_wall_font_size; }
-    }
-
-    @include breakpoint_jumbotron_width() {
-      @include breakpoint_jumbotron_height() { font-size: $breakpoint_jumbotron_font_size; }
-    }
+    @include breakpoint_lap_width() { font-size: $breakpoint_lap_font_size; }
+    @include breakpoint_desk_width() { font-size: $breakpoint_desk_font_size; }
+    @include breakpoint_wall_width() { font-size: $breakpoint_wall_font_size; }
+    @include breakpoint_jumbotron_width() { font-size: $breakpoint_jumbotron_font_size; }
   }
 
   #layout-debugger { font-size: 1em !important; }
