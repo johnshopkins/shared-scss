@@ -27,18 +27,45 @@ body {
   #layout-debugger { font-size: 1em !important; }
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  &:first-child { margin-top: 0 !important; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+.teaser {
+  // &:first-child { margin-top: 0 !important; }
   // &:last-child  { margin-bottom: 0 !important; }
+  margin: 0;
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6,
+  + p,
+  + ul,
+  + ol,
+  + .teaser {
+    margin-top: ($standard_spacing / 3);
+  }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { line-height: 1em; }
+
 p {
-  margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
 
   a { font-weight: 400; }
 }
-
-h1, h2, h3, h4, h5, h6 { line-height: 1em; }
 
 a,
 button,
@@ -53,8 +80,8 @@ b, strong { font-weight: 500; }
 
 em { font-style: italic; }
 
-ul {
-  margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
+ul, ol {
+  // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
   padding: 0;
 
   &:first-child { margin-top: 0; }
