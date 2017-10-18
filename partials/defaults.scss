@@ -41,6 +41,13 @@ ol,
   // &:last-child  { margin-bottom: 0 !important; }
   margin: 0;
 
+  + * {
+    margin-top: ($standard_spacing / 3);
+  }
+}
+
+* {
+
   + h1,
   + h2,
   + h3,
