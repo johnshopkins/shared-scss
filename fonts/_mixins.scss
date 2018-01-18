@@ -9,8 +9,10 @@
     font-family: $family;
     src: url('#{$dir}/#{$file}.eot');
     src: url('#{$dir}/#{$file}.eot?#iefix') format('embedded-opentype'),
+         url('#{$dir}/#{$file}.woff2') format('woff2'),
          url('#{$dir}/#{$file}.woff') format('woff'),
-         url('#{$dir}/#{$file}.ttf') format('truetype');
+         url('#{$dir}/#{$file}.ttf') format('truetype'),
+         url('#{$dir}/#{$file}.svg') format('woff');
     font-weight: $weight;
     font-style: unquote($style);
   }
