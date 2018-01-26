@@ -5,17 +5,17 @@
   @if $layout == stacked {
     width: 100%;
     padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
-    border-width: #{$semibold / $large}em; // math for font size
-    // border-right-width: #{$semibold / $large}em; // font size math
+    border-width: #{$semi-bold / $large}em; // math for font size
+    // border-right-width: #{$semi-bold / $large}em; // font size math
     border-bottom-width: 0;
     float: none;
 
   } @else {
     width: percentage(2 / 3);
     padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
-    border-width: #{$semibold / $large}em; // math for font size
+    border-width: #{$semi-bold / $large}em; // math for font size
     // border-right-width: 0;
-    border-bottom-width: #{$semibold / $large}em; // font size math
+    border-bottom-width: #{$semi-bold / $large}em; // font size math
     float: left;
   }
 }
@@ -28,9 +28,9 @@
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{((($standard_spacing / 8) * 2) + ($semibold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
+    height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
     padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
-    border-width: #{$semibold / $large}em; // math for font size
+    border-width: #{$semi-bold / $large}em; // math for font size
     font-size: $large;
     line-height: #{($standard_spacing / 2) / $large}em; //font-math
     float: none;
@@ -41,10 +41,10 @@
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{((($standard_spacing / 8) * 2) + ($semibold * 2) + ($standard_spacing / 2)) / $regular}em; // font-size math
+    height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $regular}em; // font-size math
     padding: #{($standard_spacing / 8) / $regular}em; // math for font size
-    // padding-left: #{(($standard_spacing / 8) + $semibold) / $regular}em; // math for font size
-    border-width: #{$semibold / $regular}em; // math for font size
+    // padding-left: #{(($standard_spacing / 8) + $semi-bold) / $regular}em; // math for font size
+    border-width: #{$semi-bold / $regular}em; // math for font size
     border-left-width: 0;
     font-size: $regular;
     line-height: #{($standard_spacing / 2) / $regular}em; //font-math

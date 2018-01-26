@@ -157,7 +157,7 @@ input[type="submit"] {
     width: 100%;
     margin: #{($standard_spacing / 6) / $x-large}em 0 #{($standard_spacing / 3) / $x-large}em 0; // makes margins add up to 1em of parent font size.
     padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em; // font-size math
-    border-width: #{$semibold / $x-large}em; // font-size math
+    border-width: #{$semi-bold / $x-large}em; // font-size math
     font-size: $x-large;
     font-weight: 500;
 

@@ -108,14 +108,15 @@ $xxx-large: ($xx-large * (1 + (3/8))); // 2.75em
 //\\ STROKE WEIGHTS //\\//\\
 //\\//\\//\\//\\//\\//\\//\\
 
-$hairline: 1px;                       // set to px instead of ems because sometimes 0.0625em calculate out to 0px
-$thin:     0.125em;                   // 0.125em, duh
-$light:    ($thin * (1 + (1/2)));     // 0.1875em
-$medium:   ($light * (1 + (1/3)));    // 0.25em
-$semibold: ($medium * (1 + (1/2)));   // 0.375em
-$bold:     ($semibold * (1 + (1/3))); // 0.5em
-$heavy:    ($bold * (1 + (1/2)));     // 0.75em
-$ultra:    ($heavy * (1 + (1/3)));    // 1em
+$hairline:   1px;                        // set to px instead of ems because sometimes 0.0625em calculate out to 0px
+$thin:       0.125em;                    // 0.125em, duh
+$light:      ($thin * (1 + (1/2)));      // 0.1875em
+$medium:     ($light * (1 + (1/3)));     // 0.25em
+$semi-bold:  ($medium * (1 + (1/2)));    // 0.375em
+$bold:       ($semi-bold * (1 + (1/3))); // 0.5em
+$extra-bold: ($bold * (1 + (1/4)));      // 0.625em
+$heavy:      ($bold * (1 + (1/2)));      // 0.75em
+$ultra:      ($heavy * (1 + (1/3)));     // 1em
 
 
 
