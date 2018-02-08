@@ -112,8 +112,8 @@ $hairline: 1px;                       // set to px instead of ems because someti
 $thin:     0.125em;                   // 0.125em, duh
 $light:    ($thin * (1 + (1/2)));     // 0.1875em
 $medium:   ($light * (1 + (1/3)));    // 0.25em
-$semibold: ($medium * (1 + (1/2)));   // 0.375em
-$bold:     ($semibold * (1 + (1/3))); // 0.5em
+$semi-bold: ($medium * (1 + (1/2)));   // 0.375em
+$bold:     ($semi-bold * (1 + (1/3))); // 0.5em
 $heavy:    ($bold * (1 + (1/2)));     // 0.75em
 $ultra:    ($heavy * (1 + (1/3)));    // 1em
 
