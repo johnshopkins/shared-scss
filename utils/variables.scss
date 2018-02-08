@@ -24,10 +24,10 @@ $breakpoint_desk_height_value:      36em;
 $breakpoint_wall_height_value:      48em;
 $breakpoint_jumbotron_height_value: 60em;
 
-$breakpoint_lap_font_size:          1.1em;
-$breakpoint_desk_font_size:         1.2em;
-$breakpoint_wall_font_size:         1.3em;
-$breakpoint_jumbotron_font_size:    1.4em;
+$breakpoint_lap_font_size:          1.05em;
+$breakpoint_desk_font_size:         1.1em;
+$breakpoint_wall_font_size:         1.2em;
+$breakpoint_jumbotron_font_size:    1.333em;
 
 
 
@@ -63,7 +63,7 @@ $stack_super_top:    1000;  // temporary focus "ULTIMATE SUPER LEVEL"
 //\\ TRANSITION SPEEDS \//\\
 //\\//\\//\\//\\//\\//\\//\\
 
-$sprint: 125ms;                 // 125ms, doy
+$sprint: 125ms;                 // 125ms
 $run:    ($sprint * 2);         // 250ms
 $jog:    ($run * 2);            // 500ms
 $walk:   ($jog * (1 + (1/2)));  // 750ms
