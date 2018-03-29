@@ -72,6 +72,10 @@ h6 { line-height: 1em; }
 p {
 
   a { font-weight: 400; }
+
+  &:empty {
+    display: none;
+  }
 }
 
 a,
