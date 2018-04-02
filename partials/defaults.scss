@@ -147,18 +147,13 @@ ul, ol {
 form button,
 input[type="button"],
 input[type="submit"] {
+  border-width: $thin;
+  font-size: 1em;
+  font-weight: 500;
+  padding: ($standard_spacing / 6) ($standard_spacing / 5);
 
-  ,
-  &.inherit,
-  &.medium {
-    border-width: $thin;
-    font-size: 1em;
-    font-weight: 500;
-    padding: ($standard_spacing / 6) ($standard_spacing / 5);
-
-    + * {
-      margin-top: ($standard_spacing / 3);
-    }
+  + * {
+    margin-top: ($standard_spacing / 3);
   }
 
   &.xx-small {
