@@ -114,12 +114,7 @@ ul, ol {
 * + .button,
 * + input[type="button"],
 * + input[type="submit"] {
-
-  ,
-  &.inherit,
-  &.medium {
-    margin-top: $standard_spacing / 6;
-  }
+  margin-top: $standard_spacing / 6;
 
   &.xx-small {
     margin-top: #{($standard_spacing / 6) / $xx-small}em;
