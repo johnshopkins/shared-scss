@@ -18,13 +18,26 @@ body {
   > * {
     font-size: 1em;
 
-    @include breakpoint_lap_width() { font-size: $breakpoint_lap_font_size; }
-    @include breakpoint_desk_width() { font-size: $breakpoint_desk_font_size; }
-    @include breakpoint_wall_width() { font-size: $breakpoint_wall_font_size; }
-    @include breakpoint_jumbotron_width() { font-size: $breakpoint_jumbotron_font_size; }
+    @include breakpoint_lap_width() {
+      font-size: $breakpoint_lap_font_size;
+    }
+
+    @include breakpoint_desk_width() {
+      font-size: $breakpoint_desk_font_size;
+    }
+
+    @include breakpoint_wall_width() {
+      font-size: $breakpoint_wall_font_size;
+    }
+
+    @include breakpoint_jumbotron_width() {
+      font-size: $breakpoint_jumbotron_font_size;
+    }
   }
 
-  #layout-debugger { font-size: 1em !important; }
+  #layout-debugger {
+    font-size: 1em !important;
+  }
 }
 
 h1,
@@ -67,11 +80,15 @@ h2,
 h3,
 h4,
 h5,
-h6 { line-height: 1em; }
+h6 {
+  line-height: 1em;
+}
 
 p {
 
-  a { font-weight: 400; }
+  a {
+    font-weight: 400;
+  }
 
   &:empty {
     display: none;
@@ -87,11 +104,17 @@ button,
   cursor: pointer;
 }
 
-b, strong { font-weight: 500; }
+b,
+strong {
+  font-weight: 500;
+}
 
-em { font-style: italic; }
+em {
+  font-style: italic;
+}
 
-ul, ol {
+ul,
+ol {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
   padding: 0;
 
@@ -110,30 +133,33 @@ ul, ol {
   }
 }
 
-* + button,
-* + .button,
-* + input[type="button"],
-* + input[type="submit"] {
-  margin-top: $standard_spacing / 6;
+* {
 
-  &.xx-small {
-    margin-top: #{($standard_spacing / 6) / $xx-small}em;
-  }
+  + button,
+  + .button,
+  + input[type="button"],
+  + input[type="submit"] {
+    margin-top: $standard_spacing / 3;
 
-  &.x-small {
-    margin-top: #{($standard_spacing / 6) / $x-small}em;
-  }
+    &.xx-small {
+      margin-top: #{($standard_spacing / 3) / $xx-small}em;
+    }
 
-  &.small {
-    margin-top: #{($standard_spacing / 6) / $small}em;
-  }
+    &.x-small {
+      margin-top: #{($standard_spacing / 3) / $x-small}em;
+    }
 
-  &.large {
-    margin-top: #{($standard_spacing / 6) / $large}em;
-  }
+    &.small {
+      margin-top: #{($standard_spacing / 3) / $small}em;
+    }
 
-  &.x-large {
-    margin-top: #{($standard_spacing / 6) / $x-large}em;
+    &.large {
+      margin-top: #{($standard_spacing / 3) / $large}em;
+    }
+
+    &.x-large {
+      margin-top: #{($standard_spacing / 3) / $x-large}em;
+    }
   }
 }
 
@@ -182,12 +208,42 @@ input[type="submit"] {
     width: 100%;
   }
 
+  + button,
+  + .button,
+  + input[type="button"],
+  + input[type="submit"] {
+    margin-top: $standard_spacing / 6;
+
+    &.xx-small {
+      margin-top: #{($standard_spacing / 6) / $xx-small}em;
+    }
+
+    &.x-small {
+      margin-top: #{($standard_spacing / 6) / $x-small}em;
+    }
+
+    &.small {
+      margin-top: #{($standard_spacing / 6) / $small}em;
+    }
+
+    &.large {
+      margin-top: #{($standard_spacing / 6) / $large}em;
+    }
+
+    &.x-large {
+      margin-top: #{($standard_spacing / 6) / $x-large}em;
+    }
+  }
+
   // + button,
   // + .button { margin-top: 0; }
 }
 
-* + table {
-  margin-top: $standard_spacing / 6;
+* {
+
+  + table {
+    margin-top: $standard_spacing / 6;
+  }
 }
 
 table {
@@ -199,10 +255,6 @@ table {
 
   // &:first-child { margin-top: 0; }
   // &:last-child { margin-bottom: 0; }
-
-  + * {
-    margin-top: $standard_spacing / 3;
-  }
 
   caption {
     padding: ($standard_spacing / 6); // math for font-size
@@ -217,13 +269,18 @@ table {
   tr {
     border-bottom: $table_cell_border;
 
-    &:last-child { border-bottom: 0; }
+    &:last-child {
+      border-bottom: 0;
+    }
 
-    th, td {
+    th,
+    td {
       border-right: $table_cell_border;
       overflow: hidden;
 
-      &:last-child { border-right: none; }
+      &:last-child {
+        border-right: none;
+      }
     }
 
     th {
@@ -242,6 +299,10 @@ table {
       padding: #{($standard_spacing / 6) / $small}em;
       width: auto;
     }
+  }
+
+  + * {
+    margin-top: $standard_spacing / 3;
   }
 }
 
@@ -284,7 +345,9 @@ table {
 
 // Recommendation from HTML5 boilerplate and originally from
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-.hide { display: none; }
+.hide {
+  display: none;
+}
 
 // Hide only visually, but have it available for screen readers:
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -298,18 +361,20 @@ table {
   padding: 0;
   position: absolute;
   width: 1px;
-}
 
-// Extends the .visuallyhidden class to allow the element
-// to be focusable when navigated to via the keyboard:
-// https://www.drupal.org/node/897638
+  // Extends the .visuallyhidden class to allow the element
+  // to be focusable when navigated to via the keyboard:
+  // https://www.drupal.org/node/897638
+  &.focusable {
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+    &:active,
+    &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+  }
 }
