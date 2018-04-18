@@ -38,10 +38,6 @@
   position: relative;
   background-color: transparent;
 
-  + * {
-    margin-top: 1em;
-  }
-
   form {
     width: 100%;
     background-color: $sparta;
@@ -55,6 +51,10 @@
     font-weight: 400;
     line-height: 100%;
     @include border-radius(0);
+
+    + button {
+      margin-top: 0 !important;
+    }
   }
 
   input[type="text"] {
@@ -79,6 +79,10 @@
       margin-right: ($standard_spacing / 12);
       color: inherit !important;
     }
+  }
+
+  + * {
+    margin-top: 1em;
   }
 }
 
