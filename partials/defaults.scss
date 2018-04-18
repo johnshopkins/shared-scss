@@ -40,18 +40,17 @@ body {
   }
 }
 
+dl,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
+ol,
 p,
 ul,
-ol,
 .teaser {
-  // &:first-child { margin-top: 0 !important; }
-  // &:last-child  { margin-bottom: 0 !important; }
   margin: 0;
 
   + * {
@@ -61,15 +60,16 @@ ol,
 
 * {
 
+  + dl,
   + h1,
   + h2,
   + h3,
   + h4,
   + h5,
   + h6,
+  + ol,
   + p,
   + ul,
-  + ol,
   + .teaser {
     margin-top: ($standard_spacing / 3);
   }
@@ -111,6 +111,35 @@ strong {
 
 em {
   font-style: italic;
+}
+
+dl {
+  font-family: $gentona;
+
+  dd {
+    margin-left: 0.5em;
+
+    + dd {
+      margin-top: 0.25em;
+    }
+
+    + dt {
+      margin-top: #{0.5em / $x-small}em;
+    }
+  }
+
+  dt {
+    font-size: $x-small;
+    font-weight: 700;
+
+    + dd {
+      margin-top: 0;
+    }
+
+    + dt {
+      margin-top: #{0.25em / $x-small}em;
+    }
+  }
 }
 
 ul,
@@ -180,12 +209,14 @@ input[type="submit"] {
   &.xx-small {
     border-width: #{$thin / $xx-small}em;
     font-size: $xx-small;
+    font-weight: 600;
     padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
   }
 
   &.x-small {
     border-width: #{$thin / $x-small}em;
     font-size: $x-small;
+    font-weight: 600;
     padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
   }
 
@@ -204,6 +235,7 @@ input[type="submit"] {
   &.x-large {
     border-width: #{$semi-bold / $x-large}em;
     font-size: $x-large;
+    font-weight: 400;
     padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
     width: 100%;
   }
