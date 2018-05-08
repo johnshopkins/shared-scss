@@ -1,11 +1,18 @@
 // Neutral Color Palette
+// $original_white: #FFFFFF;
+$original_gray1: #E5E2E0;
+// $original_gray2: #B4B2AD;
+// $original_gray3: #7E7E7C;
+// $original_gray4: #4A484C;
+// $original_gray5: #2C2C33;
+// $original_black: #000000;
 $white: #FFFFFF;
-$gray1: #E5E2E0;
-$gray2: #B4B2AD;
-$gray3: #7E7E7C;
-$gray4: #4A484C;
-$gray5: #2C2C33;
-$black: #000000;
+$gray1: #D7D2CB;                // Warm Gray 1 C
+$gray2: #9b938a;                // 402 C // OG hex: #9D968D, darkened 1% to meet 3:1 w/ $white & 4.5:1 w/ $black
+$gray3: #7e746a;                // 404 C // OG hex: #776E64, lightened 2.5% to meet 4.5:1 w/ $white & 3:1 w/ $black
+$gray4: #5E514D;                // 411 C
+$gray5: #453536;                // 439 C
+$black: #2c221a;                // Black 4 C // OG hex: #31261D, darkened 1.5% for better contrast
 $nursing_stairwell: #D9C89E;    // 7501 C
 $new_custard: #CBA052;          // 7407 C
 $telescope_ceiling: #DDA46F;    // 721 C
@@ -13,12 +20,16 @@ $building_brick: #AA8066;       // 479 C
 $mason_doors: #9E5330;          // 7586 C
 
 // Standard Color Palette
-$basin: #003D4C;                // 548 C
-$stained_glass: #6399AE;        // 7696 C
+// $original_basin: #003D4C;       // 548 C
+// $test_basin: lighten($original_basin, 15%); // #007a99
+$basin: #007a99;                // 7468 C // OG hex: #007398, lightened to meet 3:1 w/ $black
+// $original_stained_glass: #6399AE;        // 7696 C
+// $test_stained_glass: mix($original_basin, $original_stained_glass, 39%); // #3c7588
+$stained_glass: #41748D;        // 7698 C
 $jay: #6CACE4;                  // 284 C
 $logo_blue: #002D72;            // 288 C
-$sparta: #005EB8;               // 300 C
-// $sparta: #0070CC;               // 285 C
+// $sparta: #005EB8;               // 300 C
+$sparta: #0072CE;               // 285 C
 $brody_wall: #418FDE;           // 279 C
 $slate: #A7BCD6;                // 651 C
 $light_purple: #7C7FAB;         // 7675 C
