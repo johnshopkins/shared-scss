@@ -18,6 +18,7 @@ $asphalt: $gray4;
 $gray5: #453536;                // 439 C
 $space: $gray5;
 $black: #2c221a;                // Black 4 C // OG hex: #31261D, darkened 1.5% for better contrast
+// $black: #101820;                // Black 4 C // OG hex: #31261D, darkened ??% for better contrast
 $sable: $black;
 // $nursing_stairwell: #D9C89E;    // 7501 C
 // $new_custard: #CBA052;          // 7407 C
@@ -49,11 +50,9 @@ $logo_blue: #002D72;            // 288 C
 $johns_blue: $logo_blue;        // Establishing names for key brand colors
 $basin: $logo_blue;             // Consolidating colors
 // $sparta: #005EB8;               // 300 C
-$sparta: #0072CE;               // 285 C
-$sparta: $logo_blue;
+$sparta: #0070CC;               // 285 C  // OG hex: #0072CE, darkened to maintain 4.5:1 w/ white
 $brody_chair: $sparta;
 $brody_wall: #418FDE;           // 279 C
-$brody_wall: $jay;
 // $slate: #A7BCD6;                // 651 C
 $slate: $jay;                   // Consolidating colors
 // $light_purple: #7C7FAB;         // 7675 C

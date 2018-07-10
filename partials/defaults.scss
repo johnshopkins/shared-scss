@@ -16,22 +16,22 @@ body {
   // accessibility purposes, they must specifically be given the same font-size
   // changes at each breakpoint.
   > * {
-    font-size: 1em;
+    font-size: 16px;
 
     @include breakpoint_lap_width() {
-      font-size: $breakpoint_lap_font_size;
+      font-size: 17px;
     }
 
     @include breakpoint_desk_width() {
-      font-size: $breakpoint_desk_font_size;
+      font-size: 18px;
     }
 
     @include breakpoint_wall_width() {
-      font-size: $breakpoint_wall_font_size;
+      font-size: 19px;
     }
 
     @include breakpoint_jumbotron_width() {
-      font-size: $breakpoint_jumbotron_font_size;
+      font-size: 21px;
     }
   }
 
