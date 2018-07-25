@@ -84,14 +84,12 @@
   + * {
     margin-top: 1em;
   }
-
-  + .results-count {
-    margin-top: #{($standard_spacing / 6) / $x-small}em;
-  }
 }
 
 .results-count {
   font-size: $x-small;
+  margin-top: #{($standard_spacing / 6) / $x-small}em;
+
 }
 
 .search-results,
