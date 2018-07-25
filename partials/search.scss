@@ -84,56 +84,14 @@
   + * {
     margin-top: 1em;
   }
+
+  + .results-count {
+    margin-top: #{($standard_spacing / 6) / $x-small}em;
+  }
 }
 
 .results-count {
-  margin-top: 0;
-  margin-bottom: #{($standard_spacing / 3) / $x-small}em;
   font-size: $x-small;
-}
-
-.pagination {
-  margin: ($standard_spacing / 3) 0;
-  padding: 0;
-  font-weight: 400;
-  list-style: none;
-  text-align: center;
-  clear: both;
-
-  li {
-    display: inline;
-  }
-
-  a,
-  button,
-  .button {
-
-    .fa {
-      line-height: 0.8125em;
-    }
-
-    + a,
-    + button,
-    + .button {
-      margin-top: 0;
-    }
-  }
-
-  .prev-next {
-    margin-right: ($standard_spacing / 6);
-    margin-left: ($standard_spacing / 6);
-    text-transform: uppercase;
-  }
-
-  .prev {
-    margin-left: 0;
-    float: left;
-  }
-
-  .next {
-    margin-right: 0;
-    float: right;
-  }
 }
 
 .search-results,
