@@ -196,11 +196,17 @@ ol {
 .button,
 form button,
 input[type="button"],
-input[type="submit"] {
-  border-width: $thin;
-  font-size: 1em;
+input[type="submit"],
+input[type="reset"] {
+  background-color: transparent;
+  border: $light solid $black;
+  color: $black;
+  display: inline-block;
+  font-size: $regular;
   font-weight: 500;
+  line-height: 1em;
   padding: ($standard_spacing / 6) ($standard_spacing / 5);
+  text-align: center;
 
   + * {
     margin-top: ($standard_spacing / 3);
@@ -209,33 +215,35 @@ input[type="submit"] {
   &.xx-small {
     border-width: #{$thin / $xx-small}em;
     font-size: $xx-small;
-    font-weight: 600;
+    font-weight: 400;
     padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
   }
 
   &.x-small {
     border-width: #{$thin / $x-small}em;
     font-size: $x-small;
-    font-weight: 600;
+    font-weight: 400;
     padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
   }
 
   &.small {
-    border-width: #{$thin / $small}em;
+    border-width: $light;
     font-size: $small;
+    // font-weight: 500;
     padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
   }
 
   &.large {
     border-width: #{$medium / $large}em;
     font-size: $large;
+    font-weight: 600;
     padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
   }
 
   &.x-large {
     border-width: #{$semi-bold / $x-large}em;
     font-size: $x-large;
-    font-weight: 400;
+    font-weight: 600;
     padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
     width: 100%;
   }
@@ -243,7 +251,8 @@ input[type="submit"] {
   + button,
   + .button,
   + input[type="button"],
-  + input[type="submit"] {
+  + input[type="submit"],
+  + input[type="reset"] {
     margin-top: $standard_spacing / 6;
 
     &.xx-small {
@@ -338,7 +347,9 @@ table {
   }
 }
 
-.page-container { background-color: $white; }
+.page-container {
+  background-color: $white;
+}
 
 .section {
   display: block;
