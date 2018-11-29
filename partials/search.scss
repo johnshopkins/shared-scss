@@ -204,11 +204,107 @@
   border-bottom: $medium solid $black;
 }
 
+#googleSearchBox,
 #googleSearchResults {
 
   table {
+    border: none;
     outline: none;
   }
+}
+
+#googleSearchBox {
+
+  .gsc-search-box {
+    font-size: $regular;
+    margin: 0;
+
+    td,
+    .gsc-input {
+      border: none;
+      font-size: $regular;
+      padding: 0;
+    }
+
+    td.gsc-input {
+      padding: $semi-bold;
+      padding-right: 0;
+    }
+
+    input {
+
+      &.gsc-input {
+        background-color: transparent !important;
+        border-right-width: 0 !important;
+        font-size: $large;
+        font-weight: 400;
+        height: auto !important;
+        padding: ((($standard_spacing / 6) / $large) * 1em) ((($standard_spacing / 4) / $large) * 1em) !important;
+      }
+    }
+
+    .gsc-input-box {
+      border: none;
+    }
+
+    .gsc-search-button {
+      margin: 0;
+    }
+
+    td.gsc-search-button {
+      width: auto;
+    }
+
+    button.gsc-search-button {
+      border-width: 0 (($semi-bold / $large) * 1em);
+      font-size: $large;
+      height: (2.5em / $large) * 1em;
+      padding: ($semi-bold / $large) * 1em;
+      text-align: center;
+
+      svg {
+        height: 1.25em;
+        padding-top: 0.25em;
+        width: 1em;
+      }
+    }
+  }
+
+  .gsib_a,
+  .gsib_b {
+    font-size: $regular;
+  }
+
+  .gsst_b {
+    font-size: $regular !important;
+    padding: 0 !important;
+  }
+
+  a.gsst_a {
+    font-size: $large !important;
+    padding: ((($standard_spacing / 8) / $large) * 1em) ((($standard_spacing / 8) / $large) * 1em) 0 !important;
+
+    &:hover,
+    &:focus {
+      background: transparent;
+
+      .gscb_a {
+        color: $black;
+      }
+    }
+
+    .gscb_a {
+      color: $sparta;
+    }
+  }
+
+  .gsst_a {
+    border: none;
+    padding: 0;
+  }
+}
+
+#googleSearchResults {
 
   .gsc-above-wrapper-area {
     padding: $bold 0;
