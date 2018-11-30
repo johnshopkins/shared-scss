@@ -304,6 +304,32 @@
   }
 }
 
+.gssb_c {
+  border: none;
+  font-size: $regular;
+  margin-left: $hairline;
+  margin-top: $thin;
+  outline: solid $sparta $semi-bold;
+
+  table,
+  td,
+  .gsc-completion-container {
+    border: none;
+    font-size: $regular;
+    outline: none;
+  }
+
+  .gssb_a {
+    padding: 0 0.75em;
+
+    td {
+      font-size: $small;
+      line-height: (2em / $small) * 1em;
+      padding: 0;
+    }
+  }
+}
+
 #googleSearchResults {
 
   .gsc-above-wrapper-area {
