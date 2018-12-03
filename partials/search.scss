@@ -337,12 +337,18 @@
 
     .gsc-result-info-container,
     .gsc-result-info {
+      border-right: 0;
       padding: 0;
     }
 
     .gsc-result-info {
       color: $gray4;
       font-size: $small;
+    }
+
+    .gsc-orderby-container {
+      overflow: visible;
+      padding: 0 0 0 ($standard_spacing / 6);
     }
   }
 
