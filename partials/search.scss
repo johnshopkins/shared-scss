@@ -234,12 +234,25 @@
     input {
 
       &.gsc-input {
-        background-color: transparent !important;
+        background: none !important;
         border-right-width: 0 !important;
         font-size: $large;
         font-weight: 400;
         height: auto !important;
         padding: ((($standard_spacing / 6) / $large) * 1em) ((($standard_spacing / 4) / $large) * 1em) !important;
+
+        &::-webkit-input-placeholder { /* WebKit browsers */
+          color: transparent;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color: transparent;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color: transparent;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+           color: transparent;
+        }
       }
     }
 
@@ -499,6 +512,7 @@
 
       b {
         font-weight: 800;
+        @include transition(color $run ease-in-out);
       }
     }
   }
@@ -524,6 +538,14 @@
 
       &, * {
         text-decoration: none;
+      }
+    }
+
+    &.gs-promotion {
+      border: solid $light $sunlight;
+
+      .gs-promotion-text-cell {
+        padding: $standard_spacing / 4;
       }
     }
   }
@@ -595,7 +617,10 @@
     .gs-title a {
 
       &:hover {
-        color: $white;
+
+        &, * {
+          color: $white;
+        }
       }
     }
 
