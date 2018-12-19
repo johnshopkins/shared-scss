@@ -498,10 +498,8 @@
     font-family: $gentona;
     font-size: $regular;
 
-    .gs-spelling,
     .gs-result .gs-title,
     .gs-result .gs-title * {
-      color: $black;
       font-size: $large;
       font-weight: 600;
 
@@ -514,6 +512,10 @@
         font-weight: 800;
         @include transition(color $run ease-in-out);
       }
+    }
+
+    .gs-spelling {
+      color: $black;
     }
   }
 
@@ -613,16 +615,16 @@
 
   #googleSearchResults {
 
-    a.gs-title,
-    .gs-title a {
-
-      &:hover {
-
-        &, * {
-          color: $white;
-        }
-      }
-    }
+    // a.gs-title,
+    // .gs-title a {
+    //
+    //   &:hover {
+    //
+    //     &, * {
+    //       color: $white;
+    //     }
+    //   }
+    // }
 
     .gsc-results {
 
