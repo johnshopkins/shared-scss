@@ -338,6 +338,16 @@
   box-shadow: $string;
 }
 
+// Fixes missing shadow on the ends of wrapped text
+@mixin box-decoration-break($string...) {
+  -webkit-box-decoration-break: $string;
+  -moz-box-decoration-break: $string;
+  -ms-box-decoration-break: $string;
+  -o-box-decoration-break: $string;
+  box-decoration-break: $string;
+
+}
+
 /**
 * Text Shadows
 *

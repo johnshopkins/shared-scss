@@ -71,9 +71,9 @@
     color: $white !important;
     text-align: center;
     text-transform: uppercase;
-    @include transition(background-color);
-    @include transition-duration($run);
-    @include transition-timing-function(ease-in-out);
+    @include transition(background-color, border-color, color);
+    @include transition-duration($run, $run, $run);
+    @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out);
 
     .fa {
       margin-right: ($standard_spacing / 12);
