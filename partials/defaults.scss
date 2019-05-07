@@ -106,7 +106,7 @@ button,
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 em {
@@ -203,7 +203,7 @@ input[type="reset"] {
   color: $black;
   display: inline-block;
   font-size: $regular;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1em;
   padding: ($standard_spacing / 6) ($standard_spacing / 5);
   text-align: center;
@@ -229,7 +229,7 @@ input[type="reset"] {
   &.small {
     border-width: $light;
     font-size: $small;
-    // font-weight: 500;
+    // font-weight: 600;
     padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
   }
 
@@ -329,7 +329,7 @@ table {
       // border-color: $gray4;
       color: $white;
       font-size: $x-small;
-      font-weight: 500;
+      font-weight: 600;
       padding: #{($standard_spacing / 6) / $x-small}em;
       text-align: center;
       text-transform: uppercase;
