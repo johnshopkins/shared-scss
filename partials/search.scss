@@ -388,8 +388,9 @@
     }
 
     .gsc-tabHeader {
-      border: solid (($light / $small) * 1em);
+      border: solid $black (($light / $small) * 1em);
       border-bottom: none;
+      color: $black;
       font-size: $small;
       font-weight: 600;
       height: auto;
