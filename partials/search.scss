@@ -490,6 +490,7 @@
 
   .cse .gsc-control-cse,
   .gsc-control-cse {
+    background: transparent;
     border: none;
     padding: 0;
   }
@@ -563,6 +564,7 @@
     }
 
     .gsc-cursor-page {
+      background: transparent;
       border-bottom: solid $thin transparent;
       color: $sparta;
       font-size: $regular;
@@ -590,7 +592,9 @@
       }
     }
   }
-  .gcsc-branding {
+
+  .gcsc-branding,
+  .gcsc-more-maybe-branding-root {
     display: none;
   }
 }
