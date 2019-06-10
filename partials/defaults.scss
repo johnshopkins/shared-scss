@@ -41,6 +41,7 @@ body {
 }
 
 dl,
+figure,
 h1,
 h2,
 h3,
@@ -61,6 +62,7 @@ ul,
 * {
 
   + dl,
+  + figure,
   + h1,
   + h2,
   + h3,
@@ -162,6 +164,70 @@ ol {
   }
 }
 
+figure {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+
+  figcaption {
+    // border-bottom: solid $black $light;
+    color: $gray3;
+    font-size: $x-small;
+    padding: #{($standard_spacing / 8) / $x-small}em 0 0 0;
+  }
+
+  iframe {
+    display: block;
+    // height: auto;
+    // width: 100%;
+  }
+
+  &.is-type-video {
+
+    &.wp-embed-aspect-4-3,
+    &.wp-embed-aspect-16-9 {
+
+      figcaption {
+        border-bottom: solid $gray1 #{$thin / $x-small}em;
+        padding-bottom: #{($standard_spacing / 8) / $x-small}em;
+      }
+
+      iframe {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: $stack_normal;
+      }
+
+      .wp-block-embed__wrapper {
+        height: 0;
+        position: relative;
+        width: 100%;
+        z-index: $stack_normal;
+      }
+    }
+
+    &.wp-embed-aspect-4-3 {
+
+      .wp-block-embed__wrapper {
+        padding-bottom: 75%;
+      }
+    }
+
+
+    &.wp-embed-aspect-16-9 {
+
+      .wp-block-embed__wrapper {
+        padding-bottom: percentage(9/16);
+      }
+    }
+  }
+}
+
+
+// Button Sizes
 * {
 
   + button,
@@ -192,7 +258,6 @@ ol {
   }
 }
 
-// Button Sizes
 .button,
 form button,
 input[type="button"],
