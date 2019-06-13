@@ -224,6 +224,23 @@ figure {
       }
     }
   }
+
+  &.wp-block-image {
+
+    a,
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      border: none;
+    }
+
+    img {
+      height: auto;
+    }
+  }
 }
 
 
