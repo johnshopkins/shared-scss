@@ -97,6 +97,24 @@ p {
   }
 }
 
+blockquote {
+
+  cite {
+    color: $gray4;
+    // display: block;
+    font-family: $gentona;
+    font-size: $small;
+    font-weight: 400;
+    margin-top: #{($standard_spacing / 6) / $small}em;
+    // text-align: right;
+
+    &::before {
+      content: '\2014';
+      display: inline;
+    }
+  }
+}
+
 a,
 button,
 .button {
