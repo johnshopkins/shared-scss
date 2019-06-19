@@ -176,10 +176,16 @@ figure {
     padding: #{($standard_spacing / 8) / $x-small}em 0 0 0;
   }
 
-  iframe {
+  iframe,
+  img {
     display: block;
     // height: auto;
     // width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
   }
 
   &.is-type-video {
