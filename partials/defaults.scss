@@ -167,7 +167,9 @@ ol {
     // &:first-child { margin-top: 0 !important; }
     // &:last-child { margin-bottom: 0 !important; }
 
-    + li {
+    + li,
+    > ul,
+    > ol {
       margin-top: ($standard_spacing / 12);
     }
   }
