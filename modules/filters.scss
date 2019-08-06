@@ -1,0 +1,699 @@
+@import "../utils/main";
+
+.filters {
+  display: block;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: ($standard_spacing / 3);
+  width: 100%;
+
+  .display-nav,
+  > form {
+    border: $thin solid $gray1;
+
+    @include breakpoint_desk_width() {
+      border: none;
+    }
+  }
+
+  .display-nav {
+    font-size: 1.25em;
+    line-height: 100%;
+    position: relative;
+    text-transform: uppercase;
+    @include transition(border-bottom-width 0ms linear);
+    @include transition-delay(0ms);
+    z-index: $stack_normal;
+
+    @include breakpoint_desk_width() {
+      display: none;
+    }
+
+    &.closed {
+      border-bottom-width: 0;
+      @include transition-delay($jog);
+
+      .close {
+        display: none;
+      }
+
+      .open {
+        display: block;
+      }
+    }
+
+    span,
+    .open,
+    .close {
+      @include transition(background-color $run ease-in-out, color $run ease-in-out);
+    }
+
+    span {
+      display: block;
+      margin-right: (2.25em / 1.25); // matches .open/.close width
+      padding: (($standard_spacing / 6) / 1.25) (($standard_spacing / 3) / 1.25);
+    }
+
+    .open,
+    .close {
+      background-color: rgba($gray1, 0.5);
+      border: none;
+      font-size: 1em; // inherits parent size of 1.25em
+      line-height: inherit;
+      margin: 0;
+      padding: (($standard_spacing / 6) / 1.25) 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: (2.25em / 1.25);
+      z-index: $stack_positioned;
+    }
+
+    .close {
+      display: block;
+    }
+
+    .open {
+      display: none;
+    }
+  }
+
+  > form {
+    border-top: none;
+    max-height: 200em;
+    overflow: hidden;
+    padding: ($standard_spacing / 3);
+    @include transition(max-height $jog ease-in-out, padding-top $jog ease-in-out, padding-bottom $jog ease-in-out);
+
+    @include breakpoint_desk_width() {
+      overflow: visible; // added so :active on buttons is not oddly cut off
+      padding: 0;
+      @include transition(none);
+    }
+
+    &.closed {
+      max-height: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+
+      @include breakpoint_desk_width() {
+        display: block;
+        max-height: 200em;
+        padding: 0;
+      }
+    }
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: relative;
+    z-index: $stack_normal;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    + fieldset,
+    + .clear-button {
+      margin-top: ($standard_spacing / 2);
+    }
+
+    + .clear-button {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  [data-filter-group='keyword'] {
+
+    legend {
+      display: none;
+    }
+
+    .filter {
+      border: none !important;
+    }
+
+    .search-box {
+
+      input {
+
+        @include breakpoint_wall_width() {
+          @include search_input(stacked);
+          @include span(3 of 3);
+        }
+      }
+
+      button {
+
+        @include breakpoint_wall_width() {
+          @include search_button(stacked);
+          @include span(3 of 3);
+        }
+      }
+    }
+  }
+
+  legend {
+    color: $black;
+    font-size: $x-small;
+    font-weight: 800;
+    margin-bottom: #{($standard_spacing / 12) / $x-small}em;
+    width: 100%;
+
+    + * {
+      margin-top: 0 !important; // reset safari bug fix
+    }
+
+    + .filter {
+      border-top: solid $thin $gray1;
+    }
+  }
+
+  [data-filter-group='categories'],
+  [data-filter-group='divisions'],
+  [data-filter-group='format'],
+  [data-filter-group='frequency'],
+  [data-filter-group='locations'],
+  [data-filter-group='opento'],
+  [data-filter-group='programlevel'],
+  [data-filter-group='showonly'] {
+
+    a,
+    button,
+    .info {
+      padding-left: 0;
+      padding-right: ($standard_spacing / 3) + ($standard_spacing / 12);
+    }
+
+    a,
+    button,
+    input,
+    label {
+      cursor: pointer;
+      display: block;
+      line-height: 1em;
+      margin: 0;
+    }
+
+    input {
+      font-size: 1em;
+      height: $standard_spacing / 3;
+      left: 0;
+      // min-height: $standard_spacing / 3;
+      position: absolute;
+      top: ($standard_spacing / 6);
+      @include transition(left $run ease-in-out);
+      width: $standard_spacing / 3
+    }
+
+    a,
+    button,
+    label {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      // @include division_colors(color);
+      min-height: ($standard_spacing * (2 / 3));
+      padding: ($standard_spacing / 6) 0;
+      padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
+      padding-right: ($standard_spacing / 6) + ($standard_spacing / 4);
+      text-align: left;
+      text-transform: none;
+      @include transition(padding-right, padding-left, background-color, color);
+      @include transition-duration($run, $run, $run, $run);
+      @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-out);
+      width: 100%;
+
+      .fa {
+        color: $gray4;
+        @include transition(background-color $run ease-in-out, color $run ease-in-out);
+      }
+    }
+
+    label {
+
+      .fa {
+        font-size: $small;
+      }
+    }
+
+    .toggle-expand,
+    .info button {
+      background-color: mix($gray1, $white, 50%);
+      bottom: 0;
+      height: 100%;
+
+      &,
+      .fa {
+        color: $gray4;
+        font-size: 1em;
+        margin: 0;
+        min-height: ($standard_spacing * (2 / 3));
+        padding: ($standard_spacing / 6);
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: ($standard_spacing * (2 / 3));
+        z-index: $stack_positioned;
+      }
+    }
+
+    .info {
+      color: $black;
+      margin-top: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding-bottom: 0;
+      padding-right: (($standard_spacing * (2/3)) + ($standard_spacing / 12));
+      @include transition(max-height, padding-right, padding-bottom, padding-left, background-color, color);
+      @include transition-duration($run, $run, $run, $run, $run);
+      @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out);
+
+      .info-text {
+        font-size: 0.8em;
+        font-style: italic;
+        margin-top: 0;
+        width: 100%;
+
+        em {
+          font-style: normal;
+        }
+      }
+
+      &.show {
+        max-height: 20em;
+        padding-bottom: ($standard_spacing / 3);
+
+        @include breakpoint_lap_width() {
+          max-height: 8em;
+        }
+
+        @include breakpoint_desk_width() {
+          max-height: 14em;
+        }
+
+        @include breakpoint_jumbotron_width() {
+          max-height: 12em;
+        }
+      }
+    }
+  }
+
+  [data-filter-group='divisions'] .filter,
+  .filter.parent-level {
+    padding: 0 ($standard_spacing * (2 / 3)) 0 0;
+  }
+
+  .filter {
+    border-bottom: solid $thin $gray1;
+    position: relative;
+    z-index: $stack_normal;
+
+    &.active > .input-label-group,
+    > .input-label-group:hover {
+
+      input {
+        left: $standard_spacing / 4;
+      }
+
+      label {
+        background-color: $gray1;
+        padding-right: ($standard_spacing / 6);
+        padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
+      }
+    }
+
+    &.active {
+
+      > .input-label-group {
+
+        &,
+        &:hover {
+        // Leave these hover styles here
+
+          label {
+            background-color: $sparta;
+            // @include division_colors(background-color);
+            color: $white;
+
+            // keeps the icon from changing to its hover state color
+            .fa {
+              color: rgba($white, 0.5);
+            }
+          }
+        }
+
+        + .info {
+          background-color: $sparta;
+          // @include division_colors(background-color);
+          color: $white;
+          padding-left: ($standard_spacing / 4);
+          padding-right: ($standard_spacing / 6);
+        }
+      }
+    }
+
+    .input-label-group {
+      position: relative;
+      z-index: $stack_normal;
+    }
+
+    .child-filters {
+      margin-left: ($standard_spacing / 3);
+      margin-top: 0;
+      overflow: hidden;
+      @include transition(max-height $run ease-in-out);
+
+      .filter {
+
+        &:first-child {
+          border-top: solid $thin $gray1;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    &.rangepicker {
+      border: none;
+      padding: 0;
+      position: relative;
+      width: 100%;
+      z-index: $stack_normal;
+
+      label {
+        display: none;
+      }
+
+      input,
+      .fa {
+        font-size: $small;
+        padding: #{($standard_spacing / 6) / $small}em;
+
+        @include breakpoint_lap_width() {
+          font-size: $regular;
+          padding: #{($standard_spacing / 6) / $regular}em;
+        }
+
+        @include breakpoint_desk_width() {
+          font-size: $small;
+          padding: #{($standard_spacing / 6) / $small}em;
+        }
+
+        @include breakpoint_wall_width() {
+          font-size: $regular;
+          padding: #{($standard_spacing / 6) / $regular}em;
+        }
+      }
+
+      .fa.fa-close {
+        display: none;
+      }
+
+      &.active {
+        .fa.fa-close {
+          display: block;
+        }
+      }
+
+      input {
+        border-width: #{$light / $small}em;
+        padding-left: #{$standard_spacing / $small}em;
+        position: relative;
+        width: 100%;
+
+        @include breakpoint_lap_width() {
+          border-width: #{$light / $regular}em;
+          padding-left: #{$standard_spacing / $regular}em;
+        }
+
+        @include breakpoint_desk_width() {
+          border-width: #{$light / $small}em;
+          float: none;
+          padding-left: #{$standard_spacing / $small}em;
+        }
+
+        @include breakpoint_wall_width() {
+          border-width: #{$light / $regular}em;
+          padding-left: #{$standard_spacing / $regular}em;
+        }
+      }
+
+      .fa {
+        line-height: 115%;
+        position: absolute;
+        text-align: center;
+        top: #{$light / $small}em;
+        width: #{$standard_spacing / $small}em;
+        z-index: $stack_positioned;
+
+        &.fa-calendar {
+          left: #{$light / $small}em;
+        }
+
+        &.fa-close {
+          right: #{$light / $small}em;
+        }
+
+        @include breakpoint_lap_width() {
+          top: #{$light / $regular}em;
+          width: #{$standard_spacing / $regular}em;
+
+          &.fa-calendar {
+            left: #{$light / $regular}em;
+          }
+
+          &.fa-close {
+            right: #{$light / $regular}em;
+          }
+        }
+
+        @include breakpoint_desk_width() {
+
+          top: #{$light / $small}em;
+          width: #{$standard_spacing / $small}em;
+
+          &.fa-calendar {
+            left: #{$light / $small}em;
+          }
+
+          &.fa-close {
+            right: #{$light / $small}em;
+          }
+        }
+
+        @include breakpoint_wall_width() {
+          top: #{$light / $regular}em;
+          width: #{$standard_spacing / $regular}em;
+
+          &.fa-calendar {
+            left: #{$light / $regular}em;
+          }
+
+          &.fa-close {
+            right: #{$light / $regular}em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.js {
+
+  .filters {
+
+    &.data-loading {
+      @include opacity(0.2);
+    }
+
+    .filter {
+
+      .child-filters {
+        max-height: 0;
+
+        &.open {
+          max-height: 10em;
+        }
+      }
+    }
+  }
+
+  .items-container {
+    position: relative;
+
+    .loading {
+      background-color: $sparta;
+      color: $white;
+      display: none;
+      font-size: $large;
+      font-weight: 600;
+      left: 0;
+      line-height: 1em;
+      @include opacity(1);
+      padding: #{1em / $large}em;
+      position: absolute;
+      top: 0;
+      z-index: $stack_overlay;
+    }
+
+    &.data-loading {
+
+      .loading {
+        display: block;
+      }
+
+      .items,
+      .pagination {
+        @include opacity(0.1);
+      }
+    }
+
+    .items {
+      z-index: $stack_normal;
+    }
+  }
+
+  // do not show form submit button
+  input[type=submit] {
+    display: none;
+  }
+}
+
+.no-js {
+
+  .filters {
+
+    .toggle-expand,
+    .info button {
+      display: none !important;
+    }
+
+    [data-filter-group='divisions'] .filter,
+    .filter.parent-level {
+      padding-right: 0 !important;
+    }
+
+    [data-filter-group='keyword'] {
+
+      legend {
+        display: block;
+      }
+
+      input {
+        border-bottom-width: #{$semi-bold / $large}em;
+      }
+
+      button {
+        display: none !important;
+      }
+    }
+
+    input[type="reset"] {
+      // clear filters button doesn't work when filters are preselected
+      // since it doesn't work some of the time, do not show it on no-js
+      display: none;
+    }
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  .filters {
+
+    .display-nav {
+
+      span,
+      .open,
+      .close {
+
+        &:hover {
+          background-color: $gray1;
+          color: $black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  [data-filter-group='categories'],
+  [data-filter-group='divisions'],
+  [data-filter-group='format'],
+  [data-filter-group='frequency'],
+  [data-filter-group='locations'],
+  [data-filter-group='opento'],
+  [data-filter-group='programlevel'],
+  [data-filter-group='showonly'] {
+
+    .toggle-expand,
+    .info button {
+
+      &:hover {
+        background-color: $gray1;
+
+        &, .fa {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .filter {
+
+    .imput-label-group {
+
+      &:hover {
+
+        input {
+          left: $standard_spacing / 4;
+        }
+
+        > label {
+          background-color: $gray1;
+          color: $black;
+          padding-right: ($standard_spacing / 6);
+          padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
+
+          .fa {
+            color: $gray4;
+          }
+        }
+      }
+    }
+  }
+
+  .items-container {
+
+    .noresults {
+
+      a {
+
+        &:hover {
+          border-bottom-color: darken($sunlight, 33%);
+          color: $black;
+        }
+      }
+    }
+
+    .error {
+
+      a {
+
+        &:hover {
+          border-bottom-color: lighten($burnt_orange, 33%);
+          color: $white;
+        }
+      }
+    }
+  }
+}
