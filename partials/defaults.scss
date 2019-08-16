@@ -122,6 +122,11 @@ strong {
 
 em {
   font-style: italic;
+
+  b,
+  strong {
+    font-style: inherit;
+  }
 }
 
 dl {
