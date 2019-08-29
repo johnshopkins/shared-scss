@@ -539,6 +539,11 @@
 
   .filters {
 
+    // do not show form submit button
+    input[type=submit] {
+      display: none;
+    }
+
     &.data-loading {
       @include opacity(0.2);
     }
@@ -588,11 +593,6 @@
     .items {
       z-index: $stack_normal;
     }
-  }
-
-  // do not show form submit button
-  input[type=submit] {
-    display: none;
   }
 }
 
