@@ -24,10 +24,7 @@ $breakpoint_desk_height_value:      36em;
 $breakpoint_wall_height_value:      48em;
 $breakpoint_jumbotron_height_value: 60em;
 
-$breakpoint_lap_font_size:          1.05em;
-$breakpoint_desk_font_size:         1.1em;
-$breakpoint_wall_font_size:         1.2em;
-$breakpoint_jumbotron_font_size:    1.333em;
+
 
 
 
@@ -83,17 +80,34 @@ $creep:  ($stroll * 5);         // 5000ms
 //\\ FONT SIZES //\\//\\//\\
 //\\//\\//\\//\\//\\//\\//\\
 
+$breakpoint_lap_font_size:          (17 / 16) * 1em;
+$breakpoint_desk_font_size:         (18 / 16) * 1em;
+$breakpoint_wall_font_size:         (19 / 16) * 1em;
+$breakpoint_jumbotron_font_size:    (21 / 16) * 1em;
+
+$gentona-ratio: 610 / 610;
+$quadon-ratio: 610 / 700;
+$arnhem-ratio: 610 / 620;
+// $titling-ratio: 610 / 798;
+// $titling-ratio: 610 / 700;
+$titling-ratio: 610 / 610;
+
+$up-ratio: 4 / 3;
+$down-ratio: 7 / 8;
+
 $regular:   1em;		                   // 1em
 
-$small:     ($regular * (9/10));	     // 0.9em
-$x-small:   ($regular * (13/16));	     // 0.8125em
-$xx-small:  ($regular * (3/4));	       // 0.75em
-$xxx-small: ($regular * (11/16));	     // 0.6875em
+$small:     $regular   * $down-ratio;	 // 0.9em
+$x-small:   $small     * $down-ratio;	 // 0.8125em
+$xx-small:  $x-small   * $down-ratio;	 // 0.75em
+$xxx-small: $xx-small  * $down-ratio;	 // 0.6875em
 
-$large:     ($regular * (1 + (1/5)));	 // 1.2em
-$x-large:   ($large * (1 + (1/4)));	   // 1.5em
-$xx-large:  ($x-large * (1 + (1/3)));	 // 2em
-$xxx-large: ($xx-large * (1 + (3/8))); // 2.75em
+$large:     $regular   * $up-ratio;	   // 1.2em
+$x-large:   $large     * $up-ratio;	   // 1.5em
+$xx-large:  $x-large   * $up-ratio;	   // 2em
+$xxx-large: $xx-large  * $up-ratio;    // 2.75em
+$display-2: $xxx-large * $up-ratio;
+$display-1: $display-2 * $up-ratio;
 
 
 
