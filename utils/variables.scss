@@ -109,6 +109,12 @@ $xxx-large: $xx-large  * $up-ratio;    // 2.75em
 $display-2: $xxx-large * $up-ratio;
 $display-1: $display-2 * $up-ratio;
 
+//Font Families
+$sans: gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
+$slab: quadon, 'Quadon', gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
+$sans_condensed: titling-gothic, 'Titling Gothic', impact, sans-serif;
+$serif: arnhem, 'Arnhem', 'Times New Roman', times, serif;
+
 
 
 
