@@ -40,6 +40,17 @@ body {
   }
 }
 
+*:focus {
+  // outline: 5px auto rgba(0, 103, 244, 0.5);
+  // outline: 5px auto -webkit-focus-ring-color;
+  position: relative;
+  z-index: $stack-normal + 2;
+}
+
+*:-moz-focusring {
+  outline: 1px dotted;
+}
+
 dl,
 figure,
 h1,
@@ -303,6 +314,10 @@ table {
     td {
       border-right: $table_cell_border;
       overflow: hidden;
+
+      &:focus-within {
+        overflow: visible;
+      }
 
       &:last-child {
         border-right: none;
