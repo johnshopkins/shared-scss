@@ -396,7 +396,9 @@
   }
 
   .child-filters {
-    margin-left: ($standard_spacing / 3);
+    // changed to padding to give room for focus outline - jw
+    padding-left: ($standard_spacing / 3);
+
     margin-top: 0;
     overflow: hidden;
     @include transition(max-height $run ease-in-out, visibility 0ms linear);
@@ -411,6 +413,12 @@
       &:last-child {
         border-bottom: none;
       }
+    }
+
+    .close {
+      // gives room for the focus outline to display -jen
+      margin-bottom: ($standard_spacing / 6);
+      width: inherit;
     }
   }
 
