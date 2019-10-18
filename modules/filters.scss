@@ -136,7 +136,9 @@
     max-height: 200em;
     overflow: hidden;
     // padding: ($standard_spacing / 3);
-    @include transition(border-top-width 0ms 0ms linear, max-height $jog ease-in-out, padding-top $jog ease-in-out, padding-bottom $jog ease-in-out);
+    @include transition(border-top-width 0ms linear, max-height $jog ease-in-out, padding-top $jog ease-in-out, padding-bottom $jog ease-in-out, visibility 0ms linear);
+    @include transition-delay(0ms, 0ms, 0ms, 0ms, 0ms);
+    visibility: visible;
 
     @include breakpoint_desk_width() {
       overflow: visible; // added so :active on buttons is not oddly cut off
@@ -148,12 +150,14 @@
       max-height: 0;
       padding-bottom: 0;
       padding-top: 0;
-      @include transition-delay($jog, 0ms, 0ms, 0ms);
+      @include transition-delay($jog, 0ms, 0ms, 0ms, $jog);
+      visibility: hidden;
 
       @include breakpoint_desk_width() {
         display: block;
         max-height: 200em;
         // padding: 0;
+        visibility: visible;
       }
     }
   }
@@ -392,10 +396,13 @@
   }
 
   .child-filters {
-    margin-left: ($standard_spacing / 3);
+    // changed to padding to give room for focus outline - jw
+    padding-left: ($standard_spacing / 3);
+
     margin-top: 0;
     overflow: hidden;
-    @include transition(max-height $run ease-in-out);
+    @include transition(max-height $run ease-in-out, visibility 0ms linear);
+    @include transition-delay(0ms, $run);
 
     .filter {
 
@@ -406,6 +413,12 @@
       &:last-child {
         border-bottom: none;
       }
+    }
+
+    .close {
+      // gives room for the focus outline to display -jen
+      margin-bottom: ($standard_spacing / 6);
+      width: inherit;
     }
   }
 
@@ -553,9 +566,12 @@
 
     .child-filters {
       max-height: 0;
+      visibility: hidden;
 
       &.open {
         max-height: 10em;
+        visibility: visible;
+        @include transition-delay(0ms, 0ms);
       }
     }
   }
