@@ -202,6 +202,7 @@ form {
     label {
       width: 100%;
       margin-right: 0;
+      overflow: visible;
       position: relative;
       z-index: $stack_normal;
 
@@ -209,7 +210,7 @@ form {
         width: #{1em / $x-large}em;
         height: #{1em / $x-large}em;
         position: absolute;
-        bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 1.1em) / ($x-large / $small)) * -1);
+        bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 0.8125em) / ($x-large / $small)) * -1);
         right: ((($standard_spacing / 4) + $light - (1em / 2)) / ($x-large / $small));
         z-index: $stack_positioned;
         font-size: #{$x-large / $small}em;
@@ -218,9 +219,11 @@ form {
     }
 
     input {
+      color: $black;
 
       &.mce_inline_error {
         border-color: $newer_hut_glass;
+        color: $newer_hut_glass;
       }
     }
 
