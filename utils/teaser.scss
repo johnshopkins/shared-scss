@@ -58,7 +58,6 @@
     }
   }
 
-
   &.has-image {
     display: block;
     min-height: 0;
@@ -222,7 +221,7 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $shape: landscape, $gutter: full, $bias: text, $style: null) {
+@mixin teaser_aside($ratio: 7 of 10, $shape: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
   // Accepts $ratio as 2 of 10
   // first = target, last = context
   $target: nth($ratio, 1);
@@ -353,7 +352,7 @@
           background-color: transparent;
           @include box-shadow(none);
           display: block;
-          line-height: 1em;
+          // line-height: 1em;
           padding-bottom: 0;
           padding-top: 0;
         }
@@ -362,8 +361,6 @@
   }
 
   @if ($style == 'card') {
-    background-color: transparent;
-    padding: 0;
 
     &.has-image {
 
@@ -451,10 +448,10 @@
   }
 
   @else {
-    background-color: lighten($gray1, 5%);
+    // background-color: lighten($gray1, 5%);
     // clear: both;
     // float: none;
-    padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+    // padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
 
     &.has-image {
 
@@ -500,6 +497,23 @@
       padding: 0;
     }
   }
+
+  @if ($style == 'padded') {
+    padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+
+    @if ($color != null) {
+      background-color: $color;
+    }
+
+    @else {
+      background-color: lighten($gray1, 5%);
+    }
+  }
+
+  @else {
+    background-color: transparent;
+    padding: 0;
+  }
 }
 
 @mixin teaser_xx-small($headline-font-family: gentona, $kicker-font-family: gentona) {
@@ -542,6 +556,12 @@
       font-family: $headline-family;
       font-size: $x-small * $headline-ratio;
       font-weight: 600;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
@@ -574,7 +594,7 @@
     }
 
     .summary {
-      font-size: $xx-small * $ratio;
+      font-size: $xx-small;
 
       li,
       p {
@@ -624,6 +644,12 @@
       font-family: $headline-family;
       font-size: $small * $headline-ratio;
       font-weight: 600;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker{
@@ -705,6 +731,12 @@
       font-family: $headline-family;
       font-size: $regular * $headline-ratio;
       font-weight: 800;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
@@ -786,6 +818,12 @@
       font-family: $headline-family;
       font-size: $large * $headline-ratio;
       font-weight: 800;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
@@ -867,6 +905,12 @@
       font-family: $headline-family;
       font-size: $x-large * $headline-ratio;
       font-weight: 800;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
@@ -938,6 +982,12 @@
       font-family: $headline-family;
       font-size: $xx-large * $headline-ratio;
       font-weight: 800;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
@@ -1020,6 +1070,12 @@
       font-family: $headline-family;
       font-size: $xxx-large * $headline-ratio;
       font-weight: 800;
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
     }
 
     .kicker {
