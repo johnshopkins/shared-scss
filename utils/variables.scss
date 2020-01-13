@@ -334,3 +334,33 @@ $table_cell_border_color: $gray1;
 $table_outline_color: $black;
 $table_cell_border: $table_cell_border_width $table_cell_border_style $table_cell_border_color;
 $table_outline: $table_outline_width $table_outline_style $table_outline_color;
+
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ MODAL VARIABLES /\\//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$modal_duration:              $walk;
+$modal_timing_function:       $soft_bounce;
+
+$slide_modal_width_hand:      get_span_width(11 of 12);
+$slide_modal_width_lap:       get_span_width(11 of 12);
+$slide_modal_width_desk:      get_span_width(6  of 12);
+$slide_modal_width_wall:      get_span_width(6  of 12);
+$slide_modal_width_jumbotron: get_span_width(5  of 12);
+
+$modal_fullscreen_width:      95%;
+
+$slide_modal_bleed_hand:      5%;
+$slide_modal_bleed_lap:       4%;
+$slide_modal_bleed_desk:      3%;
+$slide_modal_bleed_wall:      2%;
+$slide_modal_bleed_jumbotron: 1.5%;
