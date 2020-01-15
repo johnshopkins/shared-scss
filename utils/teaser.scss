@@ -286,6 +286,19 @@
           margin-left: 0;
           width: 100%;
         }
+
+        .image-square {
+          padding-bottom: 0;
+
+          img {
+            height: 100%;
+            left: 0;
+            position: static;
+            top: 0;
+            width: 100%;
+            z-index: $stack_normal;
+          }
+        }
       }
     }
 
