@@ -46,19 +46,8 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 .button,
-.wp-block-button__link {
-  background-color: transparent;
-  @include border-radius(0);
-  border: $light solid $black;
-  color: $black;
-  display: inline-block;
-  font-family: $gentona;
-  font-size: $regular;
-  font-weight: 600;
-  line-height: 1em;
-  padding: ($standard_spacing / 6) ($standard_spacing / 5);
-  text-align: center;
-  text-transform: uppercase;
+.wp-block-button {
+  @include button_spacing();
 }
 
 button,
@@ -66,11 +55,8 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 .button,
-.wp-block-button {
-
-  + * {
-    margin-top: ($standard_spacing / 3);
-  }
+.wp-block-button__link {
+  @include button();
 }
 
 button.xx-small,
@@ -79,10 +65,7 @@ input[type="submit"].xx-small,
 input[type="reset"].xx-small,
 .button.xx-small,
 .wp-block-button.xx-small .wp-block-button__link {
-  border-width: #{$thin / $xx-small}em;
-  font-size: $xx-small;
-  font-weight: 400;
-  padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
+  @include button(xx-small);
 }
 
 button.x-small,
@@ -91,10 +74,7 @@ input[type="submit"].x-small,
 input[type="reset"].x-small,
 .button.x-small,
 .wp-block-button.x-small .wp-block-button__link {
-  border-width: #{$thin / $x-small}em;
-  font-size: $x-small;
-  font-weight: 400;
-  padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+  @include button(x-small);
 }
 
 button.small,
@@ -103,10 +83,7 @@ input[type="submit"].small,
 input[type="reset"].small,
 .button.small,
 .wp-block-button.small .wp-block-button__link {
-  border-width: $light;
-  font-size: $small;
-  // font-weight: 600;
-  padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
+  @include button(small);
 }
 
 button.large,
@@ -115,10 +92,7 @@ input[type="submit"].large,
 input[type="reset"].large,
 .button.large,
 .wp-block-button.large .wp-block-button__link {
-  border-width: #{$medium / $large}em;
-  font-size: $large;
-  font-weight: 600;
-  padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
+  @include button(large);
 }
 
 button.x-large,
@@ -127,11 +101,7 @@ input[type="submit"].x-large,
 input[type="reset"].x-large,
 .button.x-large,
 .wp-block-button.x-large .wp-block-button__link {
-  border-width: #{$semi-bold / $x-large}em;
-  font-size: $x-large;
-  font-weight: 600;
-  padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
-  width: 100%;
+  @include button(x-large);
 }
 
 
@@ -146,44 +116,4 @@ input[type="reset"].x-large,
     background-color: transparent;
     color: $black;
   }
-}
-
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button,
-.wp-block-button {
-
-  + button,
-  + input[type="button"],
-  + input[type="submit"],
-  + input[type="reset"],
-  + .button,
-  + .wp-block-button {
-    margin-top: $standard_spacing / 6;
-
-    &.xx-small {
-      margin-top: #{($standard_spacing / 6) / $xx-small}em;
-    }
-
-    &.x-small {
-      margin-top: #{($standard_spacing / 6) / $x-small}em;
-    }
-
-    &.small {
-      margin-top: #{($standard_spacing / 6) / $small}em;
-    }
-
-    &.large {
-      margin-top: #{($standard_spacing / 6) / $large}em;
-    }
-
-    &.x-large {
-      margin-top: #{($standard_spacing / 6) / $x-large}em;
-    }
-  }
-
-  // + button,
-  // + .button { margin-top: 0; }
 }

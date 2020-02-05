@@ -1,0 +1,268 @@
+/**
+* Margin / Padding destruction
+*
+*
+*
+*/
+
+@mixin no-margin() {
+  margin: 0;
+  margin-top: 0;
+  margin-right : 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+@mixin no-padding() {
+  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+
+/**
+* Long Shadows
+*
+* http://codepen.io/awesomephant/pen/mAxHz
+*
+*/
+
+// How to use
+// .my-thing {
+//   @include long-shadow($type: text, $color: indigo, $length: 50, $fadeout: false, $skew: true, $direction: right);
+// }
+
+@mixin long-shadow($type, $color, $length, $fadeout: true, $fade-start: 1, $skew: false, $direction: right){
+  $shadow: '';
+  @if $skew == false or $type == text {
+    @if $direction == right {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+    @if $direction == left {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+  }
+  @if $fadeout == true {
+    $shadow: '';
+    @for $i from 1 to $length - 1 {
+      @if $type == text or $skew == false {
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - ($i / $length)) * $fade-start)) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - ($i / $length)) * $fade-start)) + ',';
+        }
+      }
+      @if ($type == box) and $skew == true {
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+    }
+  }
+  @if $fadeout == false {
+    @if $skew == true and ( $type == box ){
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .1 + 'px ' + $color + ',';
+      }
+    }
+  }
+  $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba(0,0,0,0);
+  $shadow: unquote($shadow);
+  @if $type == 'box' {box-shadow: $shadow;}
+  @if $type == 'text' {text-shadow: $shadow;}
+}
+
+
+// Buttons
+
+@mixin button_spacing() {
+
+  + * {
+    margin-top: ($standard_spacing / 3);
+  }
+
+  + a,
+  + button,
+  + input[type="button"],
+  + input[type="submit"],
+  + input[type="reset"],
+  + .button,
+  + .wp-block-button {
+    margin-top: $standard_spacing / 6;
+
+    &.xx-small {
+      margin-top: #{($standard_spacing / 6) / $xx-small}em;
+    }
+
+    &.x-small {
+      margin-top: #{($standard_spacing / 6) / $x-small}em;
+    }
+
+    &.small {
+      margin-top: #{($standard_spacing / 6) / $small}em;
+    }
+
+    &.large {
+      margin-top: #{($standard_spacing / 6) / $large}em;
+    }
+
+    &.x-large {
+      margin-top: #{($standard_spacing / 6) / $x-large}em;
+    }
+  }
+}
+
+@mixin button_hover($color_scheme: hub) {
+
+  @if ($color_scheme == at-work) {
+    &:hover,
+    &:focus {
+      border-color: $at_work_accent;
+      background-color: $at_work_accent;
+      color: $white;
+    }
+
+    &:active {
+      border-color: $at_work_accent_dark;
+      background-color: $at_work_accent_dark;
+      color: $white;
+    }
+
+    &.active {
+
+      &:hover,
+      &:focus {
+        border-color: $at_work_accent_dark;
+        background-color: $at_work_accent_dark;
+        color: $white;
+      }
+
+      &:active {
+        border-color: $at_work_accent_darkest;
+        background-color: $at_work_accent_darkest;
+      }
+    }
+
+    &.button-accent {
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $at_work_accent_dark;
+        background-color: $at_work_accent_dark;
+      }
+    }
+  }
+
+  @else {
+    &:hover,
+    &:focus {
+      border-color: $hub_blue_light;
+      background-color: $hub_blue_light;
+      color: $black;
+    }
+
+    &:active {
+      border-color: $hub_blue;
+      background-color: $hub_blue;
+      color: $white;
+    }
+
+    &.active {
+
+      &:hover,
+      &:focus {
+        border-color: $hub_blue;
+        background-color: $hub_blue;
+        color: $white;
+      }
+
+      &:active {
+        border-color: $hub_blue_dark;
+        background-color: $hub_blue_dark;
+      }
+    }
+
+    &.button-accent {
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $hub_blue_light;
+        background-color: $hub_blue_light;
+      }
+    }
+  }
+}
+
+@mixin button($size: null, $corners: square) {
+  background-color: transparent;
+  border-color: $black;
+  border-style: solid;
+  @if ($corners == round) {
+    @include border-radius(10em);
+  } @else {
+    @include border-radius(0);
+  }
+  color: $black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $gentona;
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  @include button_spacing();
+
+  @if ($size == xx-small) {
+    border-width: #{$thin / $xx-small}em;
+    font-size: $xx-small;
+    font-weight: 400;
+    padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
+  }
+
+  @elseif ($size == x-small) {
+    border-width: #{$thin / $x-small}em;
+    font-size: $x-small;
+    font-weight: 400;
+    padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+  }
+
+  @elseif ($size == small) {
+    border-width: $light;
+    font-size: $small;
+    font-weight: 600;
+    padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
+  }
+
+  @elseif ($size == large) {
+    border-width: #{$medium / $large}em;
+    font-size: $large;
+    font-weight: 600;
+    padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
+  }
+
+  @elseif ($size == x-large) {
+    border-width: #{$semi-bold / $x-large}em;
+    font-size: $x-large;
+    font-weight: 600;
+    padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+    width: 100%;
+  }
+
+  @else {
+    border-width: $light;
+    font-size: $regular;
+    font-weight: 600;
+    padding: ($standard_spacing / 6) ($standard_spacing / 5);
+  }
+}

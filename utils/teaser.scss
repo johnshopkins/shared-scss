@@ -433,6 +433,14 @@
           padding: 0;
         }
 
+        .image-portrait {
+
+           img {
+             height: auto;
+             width: 100%;
+           }
+        }
+
         .image-square {
 
           img {
@@ -457,6 +465,10 @@
       display: table-cell;
       padding: 1em;
       vertical-align: middle;
+
+      .titles {
+        padding-right: #{1em / $small}em;
+      }
     }
   }
 
