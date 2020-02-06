@@ -258,6 +258,13 @@
 
     .thumbnail {
 
+      &:hover {
+
+        img {
+          @include transform(translateX(0) scale(1.05, 1.05));
+        }
+      }
+
       @if ($shape == 'square') {
         height: 0;
         padding-bottom: 100%;
@@ -433,19 +440,20 @@
           padding: 0;
         }
 
-        .image-portrait {
-
-           img {
-             height: auto;
-             width: 100%;
-           }
-        }
+        // .image-portrait {
+        //
+        //    img {
+        //      height: auto;
+        //      width: 100%;
+        //    }
+        // }
 
         .image-square {
 
           img {
             height: 100%;
             left: 50%;
+            position: relative;
             top: 0;
             width: auto;
           }
@@ -456,6 +464,24 @@
 
         @if ($gutter == 'full' and $bias == 'image') {
           padding-left: 1em;
+        }
+      }
+
+      &.expert {
+
+        .thumbnail {
+
+          @if ($bias == 'image') {
+            padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
+
+            @if($gutter == 'half') {
+              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
+            }
+          }
+
+          @else {
+            padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
+          }
         }
       }
     }
