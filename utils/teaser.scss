@@ -20,13 +20,15 @@
     // min-height: $standard_spacing * 4;
 
     .text {
-      background: $white;
+      background-color: $white;
+      display: block;
       height: 0;
-      padding: 0;
+      padding: 1em;
       padding-bottom: 100% * (2 / 3);
       position: relative;
-      z-index: $stack_normal;
+      vertical-align: top;
       width: 100%;
+      z-index: $stack_normal;
     }
 
     .accent-element {
@@ -41,7 +43,7 @@
   @else {
 
     .text {
-      background: transparent;
+      background-color: transparent;
       height: auto;
       padding: 0;
       position: static;
@@ -116,7 +118,7 @@
       vertical-align: top;
 
       @if ($style == 'card') {
-        background-color: $white;
+        // background-color: $white;
         bottom: 0;
         margin-left: 5%;
         margin-right: 5%;
@@ -162,7 +164,7 @@
       }
 
       @elseif ($style == 'overlay') {
-        background-color: transparent;
+        // background-color: transparent;
         bottom: 0.5em;
         margin-right: 1em;
         margin-left: 1em;
@@ -201,7 +203,7 @@
       }
 
       @else {
-        background-color: transparent;
+        // background-color: transparent;
         margin-left: 0;
         margin-right: 0;
         margin-top: ($standard_spacing / 6);
@@ -216,6 +218,20 @@
         right: 0;
         top: 0;
         @include transform(none);
+      }
+    }
+  }
+
+  &.no-image {
+
+    &.expert {
+
+      @if ($style == 'card') {
+
+        .text {
+          height: auto;
+          padding-bottom: 1em;
+        }
       }
     }
   }
@@ -239,7 +255,7 @@
     h5 {
 
       a {
-        background: transparent;
+        background-color: transparent;
         @include box-shadow(none);
       }
     }
@@ -316,7 +332,7 @@
       margin-left: 0;
       margin-right: 0;
       margin-top: 0;
-      // padding: 0;
+      padding: 0;
       position: static;
       vertical-align: middle;
       z-index: $stack_normal;
@@ -392,18 +408,40 @@
         z-index: $stack_normal;
 
         @if ($bias == 'image') {
-          padding-bottom: get_span_width(($context - $target) of $context, 1);
           width: get_span_width(($context - $target) of $context, 1);
 
+          @if ($shape == 'square') {
+            padding-bottom: get_span_width(($context - $target) of $context, 1);
+          } @elseif ($shape == 'portrait') {
+            padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
+          } @else {
+            padding-bottom: get_span_width(($context - $target) of $context, 1) * (2 / 3);
+          }
+
           @if($gutter == 'half') {
-            padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
             width: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
+
+            @if ($shape == 'square') {
+              padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
+            } @elseif ($shape == 'portrait') {
+              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
+            } @else {
+              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (2 / 3);
+            }
           }
         }
 
         @else {
-          padding-bottom: get_span_width(($context - $target) of $context);
           width: get_span_width(($context - $target) of $context);
+
+          @if ($shape == 'square') {
+            padding-bottom: get_span_width(($context - $target) of $context);
+          } @elseif ($shape == 'portrait') {
+            padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
+          } @else {
+            padding-bottom: get_span_width(($context - $target) of $context) * (2 / 3);
+          }
+
         }
 
         a,
@@ -467,27 +505,27 @@
         }
       }
 
-      &.expert {
-
-        .thumbnail {
-
-          @if ($bias == 'image') {
-            padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
-
-            @if($gutter == 'half') {
-              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
-            }
-          }
-
-          @else {
-            padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
-          }
-        }
-      }
+      // &.expert {
+      //
+      //   .thumbnail {
+      //
+      //     @if ($bias == 'image') {
+      //       padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
+      //
+      //       @if($gutter == 'half') {
+      //         padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
+      //       }
+      //     }
+      //
+      //     @else {
+      //       padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
+      //     }
+      //   }
+      // }
     }
 
     .text {
-      background: $white;
+      background-color: $white;
       display: table-cell;
       padding: 1em;
       vertical-align: middle;
@@ -538,12 +576,11 @@
           @include transform(translateX(0) scale(1, 1));
           // width: 100%;
         }
-
       }
     }
 
     .text {
-      background: transparent;
+      background-color: transparent;
       display: block;
       padding: 0;
     }
