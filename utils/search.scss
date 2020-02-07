@@ -23,31 +23,33 @@
 @mixin search_button($layout) {
 
   @if $layout == stacked {
-    width: 100%;
-    // Height is padding-top + padding-bottom + border-top + border-bottom + line-height
+    border-width: #{$semi-bold / $large}em; // math for font size
+    float: none;
+    height: auto;
+    font-size: $large;
+    line-height: #{($standard_spacing / 2) / $large}em; //font-math
+    // min-height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
+    min-height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
     padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
-    border-width: #{$semi-bold / $large}em; // math for font size
-    font-size: $large;
-    line-height: #{($standard_spacing / 2) / $large}em; //font-math
-    float: none;
+    width: 100%;
 
   } @else {
-    width: percentage(1 / 3);
+    border-width: #{$semi-bold / $regular}em; // math for font size
+    border-left-width: 0;
+    float: right;
+    font-size: $regular;
     // Height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
     height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $regular}em; // font-size math
+    line-height: #{($standard_spacing / 2) / $regular}em; //font-math
+    min-height: 0;
     padding: #{($standard_spacing / 8) / $regular}em; // math for font size
     // padding-left: #{(($standard_spacing / 8) + $semi-bold) / $regular}em; // math for font size
-    border-width: #{$semi-bold / $regular}em; // math for font size
-    border-left-width: 0;
-    font-size: $regular;
-    line-height: #{($standard_spacing / 2) / $regular}em; //font-math
-    float: right;
+    width: percentage(1 / 3);
   }
 }
