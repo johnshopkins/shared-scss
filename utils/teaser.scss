@@ -499,6 +499,7 @@
       }
 
       .text {
+        padding: 1em;
 
         @if ($gutter == 'full' and $bias == 'image') {
           padding-left: 1em;
