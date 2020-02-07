@@ -48,7 +48,7 @@
     cursor: pointer;
     font-size: $large;
     line-height: 100%;
-    padding-right: (2.25em / 1.25); // matches .open/.close width
+    padding-right: #{2.25em / $large}em; // matches .open/.close width
     position: relative;
     text-transform: uppercase;
     z-index: $stack_normal;
@@ -60,7 +60,7 @@
     button,
     span {
       @include transition(background-color $run ease-in-out, color $run ease-in-out);
-      height: #{2em / $large}em;
+      height: #{2.25em / $large}em;
     }
 
     button {
@@ -71,12 +71,12 @@
       font-size: 1em; // inherits parent size of 1.25em
       line-height: inherit;
       margin: 0;
-      padding: (($standard_spacing / 6) / 1.25) 0;
+      padding: #{(($standard_spacing / 6) / $large)}em 0;
       position: absolute;
       right: 0;
       text-align: center;
       top: 0;
-      width: (2.25em / 1.25);
+      width: #{2.25em / $large}em;
       z-index: $stack_positioned;
 
       &.close {
@@ -92,7 +92,7 @@
       display: block;
       font-family: $gentona;
       font-weight: 600;
-      padding: (($standard_spacing / 6) / 1.25) (($standard_spacing / 3) / 1.25);
+      padding: #{($standard_spacing / 6) / $large}em #{($standard_spacing / 3) / $large}em;
     }
 
     .close {
