@@ -7,6 +7,7 @@
     display: table-cell;
     vertical-align: middle;
 
+    h2,
     h5 {
 
       a {
@@ -147,6 +148,7 @@
           display: inline-block;
         }
 
+        h2,
         h5 {
 
           + .publish-date {
@@ -185,6 +187,7 @@
           padding-top: $semi-bold;
         }
 
+        h2,
         h5 {
 
           + .publish-date {
@@ -252,6 +255,7 @@
     z-index: initial;
     width: auto;
 
+    h2,
     h5 {
 
       a {
@@ -378,6 +382,7 @@
         display: inline-block;
       }
 
+      h2,
       h5 {
 
         + .publish-date {
@@ -641,6 +646,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $x-small * $headline-ratio;
@@ -657,6 +663,7 @@
       font-family: $kicker-family;
       font-size: $xxx-small * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $small) * $headline-ratio}em;
       }
@@ -682,9 +689,27 @@
       font-size: #{$xxx-small / $xx-small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $xx-small;
+      }
+
+      ul {
+        font-size: $xxx-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $xx-small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -729,6 +754,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $small * $headline-ratio;
@@ -745,6 +771,7 @@
       font-family: $headline-family;
       font-size: $xx-small * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $small) * $headline-ratio}em;
       }
@@ -769,9 +796,27 @@
       font-size: #{$xx-small / $x-small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $x-small;
+      }
+
+      ul {
+        font-size: $xx-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $x-small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -816,6 +861,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $regular * $headline-ratio;
@@ -832,6 +878,7 @@
       font-family: $kicker-family;
       font-size: $x-small * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $regular) * $headline-ratio}em;
       }
@@ -856,9 +903,27 @@
       font-size: #{$xx-small / $x-small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $x-small;
+      }
+
+      ul {
+        font-size: $xx-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $x-small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -903,6 +968,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $large * $headline-ratio;
@@ -919,6 +985,7 @@
       font-family: $kicker-family;
       font-size: $small * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $large) * $headline-ratio}em;
       }
@@ -943,9 +1010,27 @@
       font-size: #{$x-small / $small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $small;
+      }
+
+      ul {
+        font-size: $x-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -990,6 +1075,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $x-large * $headline-ratio;
@@ -1006,6 +1092,7 @@
       font-family: $kicker-family;
       font-size: $small * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $x-large) * $headline-ratio}em;
       }
@@ -1020,9 +1107,27 @@
       font-size: #{$x-small / $small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $small;
+      }
+
+      ul {
+        font-size: $x-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -1067,6 +1172,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $xx-large * $headline-ratio;
@@ -1083,6 +1189,7 @@
       font-family: $kicker-family;
       font-size: $regular * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $xx-large) * $headline-ratio}em;
       }
@@ -1108,9 +1215,27 @@
       font-size: #{$x-small / $small}em;
     }
 
-    .summary {
+    .expertise {
+
+      h3 {
+        font-size: $small;
+      }
+
+      ul {
+        font-size: $x-small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
       font-size: $small;
 
+      dd,
       li,
       p {
         font-size: 1em;
@@ -1155,6 +1280,7 @@
 
   .text {
 
+    h2,
     h5 {
       font-family: $headline-family;
       font-size: $xxx-large * $headline-ratio;
@@ -1171,6 +1297,7 @@
       font-family: $kicker-family;
       font-size: $large * $kicker-ratio;
 
+      + h2,
       + h5 {
         margin-top: #{(0.25em / $xxx-large) * $headline-ratio}em;
       }
@@ -1193,6 +1320,33 @@
 
     .source {
       font-size: #{$small / $regular}em;
+    }
+
+    .expertise {
+
+      h3 {
+        font-size: $regular;
+      }
+
+      ul {
+        font-size: $small;
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
+      font-size: $regular;
+
+      dd,
+      li,
+      p {
+        font-size: 1em;
+      }
     }
   }
 }
