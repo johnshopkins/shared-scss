@@ -197,6 +197,7 @@
   }
 }
 
+.sidebar .filter,
 [data-filter-group='categories'],
 [data-filter-group='divisions'],
 [data-filter-group='format'],
@@ -243,7 +244,7 @@
     // @include division_colors(color);
     min-height: ($standard_spacing * (2 / 3));
     padding: ($standard_spacing / 6) 0;
-    padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
+    // padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
     padding-right: ($standard_spacing / 6) + ($standard_spacing / 4);
     text-align: left;
     text-transform: none;
@@ -256,6 +257,15 @@
       color: $gray4;
       @include transition(background-color $sprint ease-in-out, color $sprint ease-in-out);
     }
+  }
+
+  a,
+  button {
+    // padding-left: 0;
+  }
+
+  label {
+    padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
   }
 
   label {
@@ -346,8 +356,7 @@
   position: relative;
   z-index: $stack_normal;
 
-  &.active > .input-label-group,
-  > .input-label-group:hover {
+  &.active > .input-label-group {
 
     input {
       left: $standard_spacing / 4;
@@ -690,24 +699,42 @@
 
   .filter {
 
-    .imput-label-group {
+    .input-label-group {
 
+      &:focus,
       &:hover {
 
         input {
           left: $standard_spacing / 4;
         }
 
+        a,
         > label {
-          background-color: $gray1;
-          color: $black;
-          padding-right: ($standard_spacing / 6);
-          padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
 
           .fa {
             color: $gray4;
           }
         }
+
+
+        > label {
+          background-color: $gray1;
+          color: $black;
+          padding-right: ($standard_spacing / 6);
+          padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
+        }
+      }
+    }
+
+    a {
+
+      &:focus,
+      &:hover {
+        background: $gray1 !important;
+        border-color: $gray1 !important;
+        color: $black;
+        padding-right: ($standard_spacing / 6);
+        padding-left: ($standard_spacing / 4);
       }
     }
   }
