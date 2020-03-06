@@ -504,7 +504,14 @@
       }
 
       .text {
-        padding: 1em;
+        // padding: 1em;
+        padding-bottom: 1em;
+        padding-right: 1em;
+        padding-top: 1em;
+
+        @if ($gutter == 'even') {
+          padding-left: 1em;
+        }
 
         @if ($gutter == 'full' and $bias == 'image') {
           padding-left: 1em;
@@ -662,6 +669,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $xxx-small * $kicker-ratio;
+      letter-spacing: $thin / 2;
 
       + h2,
       + h5 {
@@ -758,7 +766,7 @@
     h5 {
       font-family: $headline-family;
       font-size: $small * $headline-ratio;
-      font-weight: 600;
+      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
@@ -770,6 +778,7 @@
     .kicker{
       font-family: $headline-family;
       font-size: $xx-small * $kicker-ratio;
+      letter-spacing: $thin / 2;
 
       + h2,
       + h5 {
@@ -877,6 +886,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $x-small * $kicker-ratio;
+      letter-spacing: $thin;
 
       + h2,
       + h5 {
@@ -984,6 +994,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $small * $kicker-ratio;
+      letter-spacing: $thin;
 
       + h2,
       + h5 {
@@ -1091,6 +1102,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $small * $kicker-ratio;
+      letter-spacing: $thin;
 
       + h2,
       + h5 {
@@ -1188,6 +1200,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $regular * $kicker-ratio;
+      letter-spacing: $thin;
 
       + h2,
       + h5 {
@@ -1296,6 +1309,7 @@
     .kicker {
       font-family: $kicker-family;
       font-size: $large * $kicker-ratio;
+      letter-spacing: $thin;
 
       + h2,
       + h5 {
