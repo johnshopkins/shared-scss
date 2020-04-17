@@ -1,0 +1,479 @@
+@import "utils/main";
+
+.search-results,
+.key-matches,
+.search-result {
+
+  + .search-results,
+  + .key-matches,
+  + .search-result {
+    border-top: $hairline $gray1 solid;
+    padding-top: ($standard_spacing / 3);
+  }
+}
+
+* {
+
+  + .search-results,
+  + .key-matches,
+  + .search-result {
+    margin-top: ($standard_spacing / 3);
+  }
+}
+
+.search-results,
+.key-matches,
+.search-result {
+
+  + * {
+    margin-top: ($standard_spacing / 3);
+  }
+}
+
+
+.results-count {
+  font-size: $x-small;
+  margin-top: #{($standard_spacing / 6) / $x-small}em;
+
+}
+
+.search-results,
+.key-matches {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  left: 0 !important;
+
+  li {
+    list-style: none;
+  }
+}
+
+.key-matches {
+
+  .fa {
+    width: #{1em / $x-small}em;
+    margin-left: #{(1em / $x-small) * -1}em;
+    font-size: $x-small;
+    line-height: #{1.125em / $x-small}em;
+    text-align: left;
+    color: $new_academic_gold;
+    display: block;
+    float: left;
+
+    @include breakpoint_lap_width() {
+      line-height: #{$large / $x-small}em; // matches h4 font-size changes to maintain vertical spacing
+    }
+  }
+}
+
+.search-result {
+
+  .media-heading,
+  .title,
+  .description,
+  .snippet,
+  .url {
+    margin: 0;
+  }
+
+  .media-heading,
+  .title {
+    font-family: $gentona;
+    font-weight: 600;
+    font-size: $regular;
+
+    @include breakpoint_lap_width() { font-size: $large; }
+
+    + .description,
+    + .snippet,
+    + .url {
+      margin-top: $standard_spacing / 12;
+    }
+
+    a { font-weight: inherit; }
+
+    b { font-weight: 800; }
+  }
+
+  .description,
+  .snippet {
+    font-size: $x-small;
+    font-style: italic;
+
+    b { font-style: normal; }
+  }
+
+  .url {
+    font-family: $gentona;
+    font-size: $xx-small;
+    font-weight: 400;
+    color: $sparta;
+    overflow: hidden;
+  }
+}
+
+.not-who,
+.cant-find,
+.people-matching {
+
+  p {
+    margin: 0;
+    font-size: $small;
+    font-weight: 400;
+    // text-align: center;
+  }
+
+  .button {
+    margin-top: ($standard_spacing / 12);
+
+    &.small {
+      margin-top: #{($standard_spacing / 12) / $small}em; //font-size math
+    }
+
+    &.x-small {
+      margin-top: #{($standard_spacing / 12) / $x-small}em; //font-size math
+    }
+  }
+}
+
+.not-who,
+.cant-find {
+  margin-top: ($standard_spacing / 3);
+  padding-top: ($standard_spacing / 6);
+  border-top: solid $thin rgba($black, 0.1);
+  text-align: center;
+}
+
+.not-who {
+  padding-bottom: ($standard_spacing / 3);
+  border-bottom: $medium solid $black;
+}
+
+.gssb_c {
+  border: none;
+  font-size: $regular;
+  margin-left: $hairline;
+  margin-top: $thin;
+  outline: solid $sparta $semi-bold;
+
+  table,
+  td,
+  .gsc-completion-container {
+    border: none;
+    font-size: $regular;
+    outline: none;
+  }
+
+  .gssb_a {
+    padding: 0 0.75em;
+
+    td {
+      font-size: $small;
+      line-height: (2em / $small) * 1em;
+      padding: 0;
+    }
+  }
+}
+
+#googleSearchResults {
+
+  table {
+    border: none;
+    outline: none;
+  }
+
+  .gsc-above-wrapper-area {
+    padding: $bold 0;
+
+    .gsc-result-info-container,
+    .gsc-result-info {
+      border-right: 0;
+      padding: 0;
+    }
+
+    .gsc-result-info {
+      color: $gray4;
+      font-size: $small;
+    }
+
+    .gsc-orderby-container {
+      overflow: visible;
+      padding: 0 0 0 ($standard_spacing / 6);
+    }
+  }
+
+  .gsc-tabsArea {
+    border-bottom: none;
+    @include border-radius(0);
+    font-size: $regular;
+    height: auto;
+    margin-top: 0;
+    position: relative;
+    z-index: $stack_normal;
+
+    &:after {
+      border-bottom: solid $black $light;
+      bottom: 0;
+      content: '';
+      lefft: 0;
+      position: absolute;
+      width: 100%;
+      z-index: $stack_normal - 1;
+    }
+
+    > div {
+      height: auto;
+    }
+
+    .gsc-tabHeader {
+      border: solid $black (($light / $small) * 1em);
+      border-bottom: none;
+      color: $black;
+      font-size: $small;
+      font-weight: 600;
+      height: auto;
+      line-height: normal;
+      min-width: 0;
+      padding: (($thin / $small) * 1em) (($bold / $small) * 1em);
+      padding-bottom: ((($thin + $light) / $small) * 1em);
+
+      &.gsc-tabhInactive {
+        background-color: $gray1;
+        border: solid 0;
+        border-bottom: solid $black (($light / $small) * 1em);
+        // border-color: $gray1;
+        color: $gray4;
+        padding: ((($thin + $light) / $small) * 1em) ((($bold + $light) / $small) * 1em);
+        padding-bottom: (($thin / $small) * 1em);
+      }
+    }
+  }
+
+  .gsc-resultsHeader {
+    display: none;
+  }
+
+  .gsc-table-result,
+  .gsc-thumbnail-inside,
+  .gsc-url-top {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .gsc-url-top {
+    font-size: $x-small;
+    font-weight: 400;
+    margin-top: ($light / $xx-small) * 1em;
+  }
+
+  .gsc-table-result {
+    font-size: $x-small;
+    font-weight: 400;
+    margin-top: 0;
+
+      td {
+        padding: 0;
+      }
+  }
+
+  .gsc-webResult,
+  .gsc-result {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+
+    .gs-title {
+      height: auto;
+      overflow: visible;
+    }
+
+    + .gsc-webResult,
+    + .gsc-result,
+    + .gsc-expansionArea {
+      border-top: solid $hairline $gray1;
+      margin-top: $standard_spacing / 3;
+      padding-top: $standard_spacing / 3;
+    }
+  }
+
+  .gs-webResult,
+  .gs-imageResult,
+  .gs-fileFormatType {
+
+    .gs-snippet {
+      font-style: italic;
+      margin: 0;
+
+      b {
+        font-style: normal;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .gs-webResult,
+  .gs-imageResult  {
+
+    div {
+
+      &.gs-visibleUrln {
+        color: inherit;
+      }
+    }
+  }
+
+  .gs-web-image-box,
+  .gs-promotion-image-box {
+    padding: 0;
+  }
+
+  .cse .gsc-control-cse,
+  .gsc-control-cse {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .gsc-control-cse {
+    font-family: $gentona;
+    font-size: $regular;
+
+    .gs-result .gs-title,
+    .gs-result .gs-title * {
+      font-size: $large;
+      font-weight: 600;
+
+      *,
+      .gs-title {
+        font-size: $regular;
+      }
+
+      b {
+        font-weight: 800;
+        @include transition(color $run ease-in-out);
+      }
+    }
+
+    .gs-spelling {
+      color: $black;
+    }
+  }
+
+  .gsc-table-cell-thumbnail,
+  .gs-promotion-image-cell {
+    border-width: 0;
+    padding: 0;
+    padding-top: $light !important;
+  }
+
+  .gs-result {
+
+    img {
+
+      &.gs-image,
+      &.gs-promotion-image {
+        border: none;
+      }
+    }
+
+    .gs-title {
+
+      &, * {
+        text-decoration: none;
+      }
+    }
+
+    &.gs-promotion {
+      border: solid $light $sunlight;
+
+      .gs-promotion-text-cell {
+        padding: $standard_spacing / 4;
+      }
+    }
+  }
+
+  .gsc-results {
+
+    .gsc-cursor-box {
+      border: none;
+      border-top: solid $thin $gray1;
+      @include border-radius(0);
+      margin: 0;
+      margin-top: $standard_spacing / 3;
+      padding-top: $standard_spacing / 6;
+      text-align: center;
+    }
+
+    .gsc-cursor-page {
+      background: transparent;
+      border-bottom: solid $thin transparent;
+      color: $sparta;
+      font-size: $regular;
+      font-weight: 400;
+      margin: 0;
+      @include transition-property(border-bottom-color, color);
+      @include transition-duration($sprint, $sprint);
+      @include transition-timing-function(ease-in-out, ease-in-out);
+
+      &.gsc-cursor-current-page {
+        background: $sparta;
+        border-bottom-color: $sparta;
+        color: $white;
+        font-weight: 600;
+        padding: $thin $semi-bold;
+        padding-bottom: 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      + .gsc-cursor-page {
+        margin-left: $standard_spacing / 4;
+      }
+    }
+  }
+
+  .gcsc-branding,
+  .gcsc-find-more-on-google-root,
+  .gcsc-more-maybe-branding-root {
+    display: none;
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  #googleSearchResults {
+
+    // a.gs-title,
+    // .gs-title a {
+    //
+    //   &:hover {
+    //
+    //     &, * {
+    //       color: $white;
+    //     }
+    //   }
+    // }
+
+    .gsc-results {
+
+      .gsc-cursor-page {
+
+        &.gsc-cursor-current-page {
+
+          &:hover {
+            color: $white;
+          }
+        }
+
+        &:hover {
+          border-bottom-color: $sparta;
+          color: $black;
+        }
+      }
+    }
+  }
+}

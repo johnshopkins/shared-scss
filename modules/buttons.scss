@@ -1,0 +1,119 @@
+@import 'utils/main';
+
+a,
+button {
+  background: transparent;
+  font-size: 1em; // undo user agent font size in chrome
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// Button Sizes
+* {
+
+  + button,
+  + input[type="button"],
+  + input[type="reset"],
+  + input[type="submit"],
+  + .button,
+  + .wp-block-button {
+    margin-top: $standard_spacing / 3;
+
+    &.xx-small {
+      margin-top: #{($standard_spacing / 3) / $xx-small}em;
+    }
+
+    &.x-small {
+      margin-top: #{($standard_spacing / 3) / $x-small}em;
+    }
+
+    &.small {
+      margin-top: #{($standard_spacing / 3) / $small}em;
+    }
+
+    &.large {
+      margin-top: #{($standard_spacing / 3) / $large}em;
+    }
+
+    &.x-large {
+      margin-top: #{($standard_spacing / 3) / $x-large}em;
+    }
+  }
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button,
+.wp-block-button {
+  @include button_spacing();
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button,
+.wp-block-button__link {
+  @include button();
+}
+
+button.xx-small,
+input[type="button"].xx-small,
+input[type="submit"].xx-small,
+input[type="reset"].xx-small,
+.button.xx-small,
+.wp-block-button.xx-small .wp-block-button__link {
+  @include button(xx-small);
+}
+
+button.x-small,
+input[type="button"].x-small,
+input[type="submit"].x-small,
+input[type="reset"].x-small,
+.button.x-small,
+.wp-block-button.x-small .wp-block-button__link {
+  @include button(x-small);
+}
+
+button.small,
+input[type="button"].small,
+input[type="submit"].small,
+input[type="reset"].small,
+.button.small,
+.wp-block-button.small .wp-block-button__link {
+  @include button(small);
+}
+
+button.large,
+input[type="button"].large,
+input[type="submit"].large,
+input[type="reset"].large,
+.button.large,
+.wp-block-button.large .wp-block-button__link {
+  @include button(large);
+}
+
+button.x-large,
+input[type="button"].x-large,
+input[type="submit"].x-large,
+input[type="reset"].x-large,
+.button.x-large,
+.wp-block-button.x-large .wp-block-button__link {
+  @include button(x-large);
+}
+
+
+.wp-block-button__link {
+  background-color: $black;
+  color: $white;
+}
+
+.wp-block-button.is-style-outline {
+
+  .wp-block-button__link {
+    background-color: transparent;
+    color: $black;
+  }
+}

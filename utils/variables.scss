@@ -24,10 +24,7 @@ $breakpoint_desk_height_value:      36em;
 $breakpoint_wall_height_value:      48em;
 $breakpoint_jumbotron_height_value: 60em;
 
-$breakpoint_lap_font_size:          1.05em;
-$breakpoint_desk_font_size:         1.1em;
-$breakpoint_wall_font_size:         1.2em;
-$breakpoint_jumbotron_font_size:    1.333em;
+
 
 
 
@@ -80,22 +77,189 @@ $creep:  ($stroll * 5);         // 5000ms
 
 
 //\\//\\//\\//\\//\\//\\//\\
-//\\ FONT SIZES //\\//\\//\\
+//\\ FONTS \//\\//\\//\\//\\
 //\\//\\//\\//\\//\\//\\//\\
+
+//Font Families
+$gentona: gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
+$quadon: quadon, 'Quadon', gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
+$titling: titling-gothic, 'Titling Gothic', impact, sans-serif;
+$arnhem: arnhem, 'Arnhem', 'Times New Roman', times, serif;
+
+$sans: $gentona;
+$slab: $quadon;
+$condensed: $titling;
+$serif: $arnhem;
+
+// Font Sizes
+$breakpoint_lap_font_size:          (17 / 16) * 1em;
+$breakpoint_desk_font_size:         (18 / 16) * 1em;
+$breakpoint_wall_font_size:         (19 / 16) * 1em;
+$breakpoint_jumbotron_font_size:    (21 / 16) * 1em;
+
+$gentona-ratio: 610 / 610;
+$quadon-ratio: 610 / 700;
+$arnhem-ratio: 610 / 620;
+// $titling-ratio: 610 / 798;
+// $titling-ratio: 610 / 700;
+$titling-ratio: 610 / 610;
+
+$up-ratio: 4 / 3;
+$down-ratio: 7 / 8;
 
 $regular:   1em;		                   // 1em
 
-$small:     ($regular * (9/10));	     // 0.9em
-$x-small:   ($regular * (13/16));	     // 0.8125em
-$xx-small:  ($regular * (3/4));	       // 0.75em
-$xxx-small: ($regular * (11/16));	     // 0.6875em
+$small:     $regular   * $down-ratio;	 // 0.9em
+$x-small:   $small     * $down-ratio;	 // 0.8125em
+$xx-small:  $x-small   * $down-ratio;	 // 0.75em
+$xxx-small: $xx-small  * $down-ratio;	 // 0.6875em
 
-$large:     ($regular * (1 + (1/5)));	 // 1.2em
-$x-large:   ($large * (1 + (1/4)));	   // 1.5em
-$xx-large:  ($x-large * (1 + (1/3)));	 // 2em
-$xxx-large: ($xx-large * (1 + (1/2))); // 2.75em
+$large:     $regular   * $up-ratio;	   // 1.2em
+$x-large:   $large     * $up-ratio;	   // 1.5em
+$xx-large:  $x-large   * $up-ratio;	   // 2em
+$xxx-large: $xx-large  * $up-ratio;    // 2.75em
+$display-2: $xxx-large * $up-ratio;
+$display-1: $display-2 * $up-ratio;
 
+// Hand // Scaling factor of roughly 1.2
+$small_hand:     ($regular * (14 / 16));
+$x-small_hand:   ($small_hand * (12 / 14));
+$xx-small_hand:  ($x-small_hand * (11 / 12));
+$xxx-small_hand: ($xx-small_hand * (10 / 11));
 
+$large_hand:     ($regular * (19 / 16));
+$x-large_hand:   ($large_hand * (23 / 19));
+$xx-large_hand:  ($x-large_hand * (27 / 23));
+$xxx-large_hand: ($xx-large_hand * (32 / 27));
+
+$display-2_hand: ($xxx-large_hand * 1);
+$display-1_hand: ($display-2_hand * (36 / 32));
+
+// Lap // Scaling factor of roughly 1.23333
+$small_lap:     ($regular * (15 / 17));
+$x-small_lap:   ($small_lap * (13 / 15));
+$xx-small_lap:  ($x-small_lap * (12 / 13));
+$xxx-small_lap: ($xx-small_lap * (11 / 12));
+
+$large_lap:     ($regular * (21 / 17));
+$x-large_lap:   ($large_lap * (26 / 21));
+$xx-large_lap:  ($x-large_lap * (32 / 26));
+$xxx-large_lap: ($xx-large_lap * (39 / 32));
+
+$display-2_lap: ($xxx-large_lap * (44 / 39));
+$display-1_lap: ($display-2_lap * (49 / 44));
+
+// Desk // Scaling factor of roughly 1.26666
+$small_desk:     ($regular * (16 / 18));
+$x-small_desk:   ($small_desk * (14 / 16));
+$xx-small_desk:  ($x-small_desk * (13 / 14));
+$xxx-small_desk: ($xx-small_desk * (12 / 13));
+
+$large_desk:     ($regular * (23 / 18));
+$x-large_desk:   ($large_desk * (29 / 23));
+$xx-large_desk:  ($x-large_desk * (37 / 29));
+$xxx-large_desk: ($xx-large_desk * (46 / 37));
+
+$display-2_desk: ($xxx-large_desk * (52 / 46));
+$display-1_desk: ($display-2_desk * (67 / 52));
+
+// Wall // Scaling factor of roughly 1.3
+$small_wall:     ($regular * (17 / 19));
+$x-small_wall:   ($small_wall * (15 / 17));
+$xx-small_wall:  ($x-small_wall * (13 / 15));
+$xxx-small_wall: ($xx-small_wall * (12 / 13));
+
+$large_wall:     ($regular * (25 / 19));
+$x-large_wall:   ($large_wall * (32 / 25));
+$xx-large_wall:  ($x-large_wall * (42 / 32));
+$xxx-large_wall: ($xx-large_wall * (54 / 42));
+
+$display-2_wall: ($xxx-large_wall * (71 / 54));
+$display-1_wall: ($display-2_wall * (92 / 71));
+
+// Jumbotron // Scaling factor of roughly 1.33333
+$small_jumbotron:     ($regular * (18 / 21));
+$x-small_jumbotron:   ($small_jumbotron * (16 / 18));
+$xx-small_jumbotron:  ($x-small_jumbotron * (14 / 16));
+$xxx-small_jumbotron: ($xx-small_jumbotron * (12 / 14));
+
+$large_jumbotron:     ($regular * (28 / 21));
+$x-large_jumbotron:   ($large_jumbotron * (37 / 28));
+$xx-large_jumbotron:  ($x-large_jumbotron * (50 / 37));
+$xxx-large_jumbotron: ($xx-large_jumbotron * (66 / 50));
+
+$display-2_jumbotron: ($xxx-large_jumbotron * (88 / 66));
+$display-1_jumbotron: ($display-2_jumbotron * (118 / 88));
+
+$font_sizes: (
+  xxx-small_hand:          $xxx-small_hand,
+  xxx-small_lap:           $xxx-small_lap,
+  xxx-small_desk:          $xxx-small_desk,
+  xxx-small_wall:          $xxx-small_wall,
+  xxx-small_jumbotron:     $xxx-small_jumbotron,
+
+  xx-small_hand:          $xx-small_hand,
+  xx-small_lap:           $xx-small_lap,
+  xx-small_desk:          $xx-small_desk,
+  xx-small_wall:          $xx-small_wall,
+  xx-small_jumbotron:     $xx-small_jumbotron,
+
+  x-small_hand:          $x-small_hand,
+  x-small_lap:           $x-small_lap,
+  x-small_desk:          $x-small_desk,
+  x-small_wall:          $x-small_wall,
+  x-small_jumbotron:     $x-small_jumbotron,
+
+  small_hand:          $small_hand,
+  small_lap:           $small_lap,
+  small_desk:          $small_desk,
+  small_wall:          $small_wall,
+  small_jumbotron:     $small_jumbotron,
+
+  regular_hand:          $regular,
+  regular_lap:           $regular,
+  regular_desk:          $regular,
+  regular_wall:          $regular,
+  regular_jumbotron:     $regular,
+
+  large_hand:          $large_hand,
+  large_lap:           $large_lap,
+  large_desk:          $large_desk,
+  large_wall:          $large_wall,
+  large_jumbotron:     $large_jumbotron,
+
+  x-large_hand:          $x-large_hand,
+  x-large_lap:           $x-large_lap,
+  x-large_desk:          $x-large_desk,
+  x-large_wall:          $x-large_wall,
+  x-large_jumbotron:     $x-large_jumbotron,
+
+  xx-large_hand:          $xx-large_hand,
+  xx-large_lap:           $xx-large_lap,
+  xx-large_desk:          $xx-large_desk,
+  xx-large_wall:          $xx-large_wall,
+  xx-large_jumbotron:     $xx-large_jumbotron,
+
+  xxx-large_hand:          $xxx-large_hand,
+  xxx-large_lap:           $xxx-large_lap,
+  xxx-large_desk:          $xxx-large_desk,
+  xxx-large_wall:          $xxx-large_wall,
+  xxx-large_jumbotron:     $xxx-large_jumbotron,
+
+  display-2_hand:          $display-2_hand,
+  display-2_lap:           $display-2_lap,
+  display-2_desk:          $display-2_desk,
+  display-2_wall:          $display-2_wall,
+  display-2_jumbotron:     $display-2_jumbotron,
+
+  display-1_hand:          $display-1_hand,
+  display-1_lap:           $display-1_lap,
+  display-1_desk:          $display-1_desk,
+  display-1_wall:          $display-1_wall,
+  display-1_jumbotron:     $display-1_jumbotron
+);
+
+$social_icon_size: 1.5em;
 
 
 
@@ -170,3 +334,33 @@ $table_cell_border_color: $gray1;
 $table_outline_color: $black;
 $table_cell_border: $table_cell_border_width $table_cell_border_style $table_cell_border_color;
 $table_outline: $table_outline_width $table_outline_style $table_outline_color;
+
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ MODAL VARIABLES /\\//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$modal_duration:              $walk;
+$modal_timing_function:       $soft_bounce;
+
+$slide_modal_width_hand:      get_span_width(11 of 12);
+$slide_modal_width_lap:       get_span_width(11 of 12);
+$slide_modal_width_desk:      get_span_width(6  of 12);
+$slide_modal_width_wall:      get_span_width(6  of 12);
+$slide_modal_width_jumbotron: get_span_width(5  of 12);
+
+$modal_fullscreen_width:      95%;
+
+$slide_modal_bleed_hand:      5%;
+$slide_modal_bleed_lap:       4%;
+$slide_modal_bleed_desk:      3%;
+$slide_modal_bleed_wall:      2%;
+$slide_modal_bleed_jumbotron: 1.5%;

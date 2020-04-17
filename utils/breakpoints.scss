@@ -105,3 +105,104 @@
   }
 
 }
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// DEVICE-BASED BREAKPOINTS //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// These should only be used for elements that do not contain text based
+// elements (e.g. background image sizes).
+// Values and names taken from Chrome's dev tools.
+
+// "mobile_small" mixin should only be used if the styles apply to mobile_small
+// level and ONLY hand level. They will not bubble up to "mobile_medium" and above.
+@mixin breakpoint_mobile_small_width() {
+
+  @media only screen and (max-width: 320.9999999999px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_mobile_medium_width() {
+
+  @media only screen and (min-width: 321px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_mobile_large_width() {
+
+  @media only screen and (min-width: 376px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_tablet_width() {
+
+  @media only screen and (min-width: 426px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_laptop_width() {
+
+  @media only screen and (min-width: 769px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_laptop_large_width() {
+
+  @media only screen and (min-width: 1025px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_1080_width() {
+
+  @media only screen and (min-width: 1441px) {
+    @content;
+  }
+
+}
+
+@mixin breakpoint_4k_width() {
+
+  @media only screen and (min-width: 1921px) {
+    @content;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// GENERIC BREAKPOINTS \//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// Use these when none of the other breakpoints fit exactly.
+
+@mixin breakpoint($value: 0, $limit: min, $direction: width) {
+
+  @media only screen and (#{$limit}-#{$direction}: $value) {
+    @content;
+  }
+
+}

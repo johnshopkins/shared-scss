@@ -1,0 +1,121 @@
+@import 'utils/main';
+
+.browse-happy,
+.hub-alert,
+.rave-alert,
+.skip-to-main {
+  margin: 0;
+  width: 100%;
+}
+
+.hub-alert,
+.rave-alert {
+  min-height: 2em;
+  text-align: center;
+
+  &, a {
+    background-color: $jay;
+    color: $black;
+    font-weight: 400;
+    line-height: 1em;
+    @include transition(background-color $run ease-in-out, color $run ease-in-out);
+  }
+
+  a,
+  span {
+    display: inline-block;
+    font-size: $large;
+    padding: ($standard_spacing / 6);
+    text-decoration: none;
+    width: 100%;
+  }
+
+  span {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  &.red {
+
+    &, a {
+      background-color: $burnt_orange;
+      color: $white;
+      font-weight: 800;
+    }
+  }
+
+  &.yellow {
+
+    &, a {
+      background-color: $new_academic_gold;
+      color: $black;
+      font-weight: 600;
+    }
+  }
+
+  &.green {
+
+    &, a {
+      background-color: darken($spearmint, 4%);
+      color: $white;
+    }
+  }
+
+  + .hub-alert,
+  + .rave-alert {
+    margin-top: 0;
+  }
+
+
+  + .identity-stripe {
+    border-top-color: $black !important;
+
+    .logo-tab {
+      background-color: $black !important;
+    }
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  .hub-alert,
+  .rave-alert {
+
+    a {
+
+      &:focus,
+      &:hover {
+        background-color: $sparta;
+        color: $white;
+      }
+    }
+
+    &.red {
+
+      a:focus,
+      a:hover {
+        background-color: darken($burnt_orange, 10%);
+        color: $white;
+      }
+    }
+
+    &.yellow {
+
+      a:focus,
+      a:hover {
+        background-color: lighten($new_academic_gold, 20%);
+        color: $black;
+      }
+    }
+
+    &.green {
+
+      a:focus,
+      a:hover {
+        background-color: darken($spearmint, 8%);
+        color: $white;
+      }
+    }
+  }
+}

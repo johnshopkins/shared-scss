@@ -1,11 +1,11 @@
-/**
- * modules/main.scss
- *
- * Imports all other modules files
- *
- * Note: no sass/css should be written directly
- * in this file, only imports.
- *
- */
+// modules/main.scss
+//
+// Imports all other modules files
+//
+// Note: no sass/css should be written directly in this file, only imports.
 
- @import "layout-debugger";
+@import "alerts";
+@import "buttons";
+@import "filters";
+@import "forms";
+@import "layout-debugger";

@@ -1,0 +1,399 @@
+* + form,
+form + * {
+  margin-top: ($standard_spacing * (2 / 3));
+}
+
+form {
+
+	fieldset {
+    border: none;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: $stack_normal;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    + fieldset,
+    + .clear-button {
+      margin-top: ($standard_spacing / 2);
+    }
+
+    + .clear-button {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+		legend {
+      border-bottom: $light solid $black;
+      color: $black;
+      display: block;
+      font-family: $gentona;
+      font-size: $regular;
+      font-weight: 600;
+      margin-bottom: $standard_spacing / 12;
+      padding-bottom: $standard_spacing / 12;
+      width: 100%;
+
+  		// Fixes a bug in Safari that collapses
+  		// the margin below legend tags.
+  		+ * {
+  	    margin-top: ($standard_spacing / 3);
+        -webkit-margin-top-collapse: separate;
+  		}
+
+      + .filter {
+        border-top: none;
+        margin-top: -($standard_spacing / 12);
+
+        &.rangepicker {
+          margin-top: -(($standard_spacing / 12) + $light);
+        }
+      }
+		}
+
+    > p {
+      margin-bottom: ($standard_spacing * (2 / 3));
+    }
+	}
+
+  label,
+  input,
+  select,
+  textarea {
+    font-family: $gentona;
+    font-weight: 400;
+    display: block;
+  }
+
+	label {
+    color: $gray4;
+    margin: ($standard_spacing / 3) 0 ($standard_spacing / 12) 0;
+    overflow: hidden;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-top: 0;
+    }
+	}
+
+	input[type='email'],
+  input[type='text'],
+  select,
+  textarea {
+    width: 100%;
+    border: $light solid $black;
+    padding: ($standard_spacing / 6) ($standard_spacing / 4);
+		font-size: $regular;
+
+		&[type='checkbox'],
+		&[type='radio'],
+		&[type='button'],
+		&[type='submit'] {
+      width: auto;
+    }
+	}
+
+  input {
+
+    &.required {
+      padding-right: ($standard_spacing / 2);
+    }
+  }
+
+	textarea {
+    height: ($standard_spacing * 2);
+  }
+
+  .form_field {
+		padding-bottom: ($standard_spacing * (2 / 3));
+		clear: left;
+	}
+
+	// radios, checkboxes
+	.elements {
+    width: 100%;
+
+		.element {
+      margin-bottom: 3px;
+
+      input {
+        margin-top: 4px;
+        display: inline;
+      }
+      span { margin-left: 4px; }
+    }
+	}
+
+	.help {
+    padding-bottom: 5px;
+    display: block;
+    clear: left;
+	  color: $gray4;
+	  font-size: $small;
+    font-style: italic;
+	}
+
+  .datepicker {
+    input {
+      @include span(8 of 10);
+      float: left;
+    }
+
+    button {
+      @include span(2 of 10, 1);
+      margin-top: 0;
+    }
+  }
+
+  // do not float label, field
+  .nofloat {
+
+    label {
+      float: none;
+      width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+    }
+  }
+}
+
+#ui-datepicker-div {
+  display: none;
+
+  .ui-state-disabled {
+
+  }
+}
+
+.ui-datepicker {
+  // change to show datepicker when a button is pressed does
+  // not hide the datepicker to start, so this style is needed.
+  display: none;
+
+  .ui-state-disabled {
+    color: $gray2;
+  }
+
+  .ui-state-active {
+    font-weight: bold;
+  }
+}
+
+// email signup form
+#mc_embed_signup {
+  background: transparent;
+
+  form {
+    padding: 0;
+
+    label {
+      width: 100%;
+      margin-right: 0;
+      overflow: visible;
+      position: relative;
+      z-index: $stack_normal;
+
+      .asterisk {
+        width: #{1em / $x-large}em;
+        height: #{1em / $x-large}em;
+        position: absolute;
+        bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 0.8125em) / ($x-large / $small)) * -1);
+        right: ((($standard_spacing / 4) + $light - (1em / 2)) / ($x-large / $small));
+        z-index: $stack_positioned;
+        font-size: #{$x-large / $small}em;
+        text-align: center;
+      }
+    }
+
+    input {
+      color: $black;
+
+      &.mce_inline_error {
+        border-color: $newer_hut_glass;
+        color: $newer_hut_glass;
+      }
+    }
+
+    div {
+
+      &.mce_inline_error {
+        padding: #{($standard_spacing / 12) / $small}em #{($standard_spacing / 8) / $small}em;
+        background-color: $newer_hut_glass;
+        font-size: $small;
+        font-weight: 700;
+      }
+    }
+
+    .asterisk {
+      color: $newer_hut_glass;
+      font-weight: 700;
+    }
+
+    .indicates-required,
+    .mce_inline_error {
+      font-family: $gentona;
+    }
+
+    .indicates-required {
+      margin: #{($standard_spacing / 3) / $small}em 0 #{($standard_spacing / 12) / $small}em 0;
+      font-size: $small;
+      font-weight: 400;
+      text-align: right;
+      color: $gray4;
+
+      &:first-child { margin-top: 0; }
+
+      + .mc-field-group { margin-top: 0; }
+    }
+
+    .mc-field-group {
+      // matches label margin-top
+      margin-top: ($standard_spacing / 3);
+
+      &:first-child { margin-top: 0; }
+    }
+
+    #mce-responses {
+      font-family: $gentona;
+      font-weight: 400;
+      text-align: center;
+
+      .response {
+        border: solid #{$light / $small}em $black;
+        padding: #{($standard_spacing / 6) / $small}em;
+        font-size: $small;
+        color: $black;
+
+        &#mce-error-response { border-color: $newer_hut_glass; }
+        &#mce-success-response { border-color: $oak_leaves; }
+      }
+    }
+
+    .clear {
+      margin-top: ($standard_spacing / 3);
+      text-align: center;
+
+      &:first-child { margin-top: 0; }
+    }
+  }
+}
+
+// alerts, warnings, errors, etc...
+// --------------------------------------------------
+
+.alert {
+	padding: ($standard_spacing * (1 / 3));
+	margin-bottom: ($standard_spacing * (1 / 3));
+	border: $hairline solid #fbeed5;
+	color: #c09853;
+
+  p {
+  	padding: 0;
+  	margin: 0;
+  }
+
+  ul {
+  	padding-bottom: 0;
+  }
+
+  .alert-heading {
+  	font-size: $large;
+  	margin-bottom: ($standard_spacing * (1 / 6));
+  }
+}
+
+.alert-error {
+	border-color: $red_clay;
+	color: $red_clay;
+}
+
+.required {
+  color: $newer_hut_glass;
+}
+
+.sidebar {
+
+  form {
+
+    label {
+      margin-top: #{($standard_spacing / 4) / $x-small}em 0 #{($standard_spacing / 12) / $x-small}em 0;
+      font-size: $x-small;
+
+      &:first-child { margin-top: 0; }
+  	}
+
+    input[type='email'],
+    input[type='text'],
+    select,
+    textarea {
+      padding: ($standard_spacing / 12) ($standard_spacing / 8);
+    }
+
+    input {
+
+      &.required {
+        padding-right: ($standard_spacing / 2);
+      }
+    }
+  }
+
+  // email signup form
+  #mc_embed_signup {
+
+    form {
+
+      label {
+
+        .asterisk {
+          bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 1.1em) / ($x-large / $x-small)) * -1);
+          right: ((($standard_spacing / 4) + $light - (1em / 2)) / ($x-large / $x-small));
+          font-size: #{$x-large / $x-small}em;
+        }
+      }
+
+      div {
+
+        &.mce_inline_error {
+          padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+          font-size: $x-small;
+        }
+      }
+
+      .indicates-required {
+        margin: #{($standard_spacing / 6) / $x-small}em 0 #{($standard_spacing / 12) / $x-small}em 0;
+        font-size: $x-small;
+
+        &:first-child { margin-top: 0; }
+
+        + .mc-field-group { margin-top: 0; }
+      }
+
+      .mc-field-group {
+        // matches label margin-top
+        margin-top: ($standard_spacing / 6);
+
+        &:first-child { margin-top: 0; }
+      }
+
+      .clear {
+        margin-top: ($standard_spacing / 4);
+        text-align: center;
+
+        &:first-child { margin-top: 0; }
+      }
+    }
+  }
+}

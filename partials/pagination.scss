@@ -1,0 +1,66 @@
+@import "utils/main";
+
+.pagination {
+  margin: ($standard_spacing / 3) 0;
+  padding: 0;
+  font-weight: 400;
+  list-style: none;
+  text-align: center;
+  clear: both;
+
+  li {
+    display: inline;
+  }
+
+  a,
+  button,
+  span,
+  .button {
+
+    .fa {
+      line-height: 0.8125em;
+    }
+
+    + a,
+    + button,
+    + span,
+    + .button {
+      margin-left: $standard_spacing / 6;
+      margin-top: 0;
+    }
+  }
+
+  .prev,
+  .next {
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  .prev {
+    float: left;
+  }
+
+  .next {
+    float: right;
+  }
+
+  .pagination-link,
+  .current {
+    display: none;
+    padding-left: ($standard_spacing / 12);
+    padding-right: ($standard_spacing / 12);
+
+    @include breakpoint_lap_width() {
+      display: inline-block;
+    }
+  }
+
+  .current {
+    background-color: $black;
+    color: $white;
+    font-weight: 600;
+    line-height: 1.1em;
+    padding-bottom: ($standard_spacing / 24);
+    padding-top: ($standard_spacing / 24);
+  }
+}

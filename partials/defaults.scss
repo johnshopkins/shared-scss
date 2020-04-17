@@ -6,7 +6,7 @@
 html {
   font-family: $gentona;
   font-size: 100%;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -40,7 +40,19 @@ body {
   }
 }
 
+*:focus {
+  // outline: 5px auto rgba(0, 103, 244, 0.5);
+  // outline: 5px auto -webkit-focus-ring-color;
+  position: relative;
+  z-index: $stack-normal + 2;
+}
+
+*:-moz-focusring {
+  outline: 1px dotted;
+}
+
 dl,
+figure,
 h1,
 h2,
 h3,
@@ -61,6 +73,7 @@ ul,
 * {
 
   + dl,
+  + figure,
   + h1,
   + h2,
   + h3,
@@ -95,22 +108,45 @@ p {
   }
 }
 
-a,
-button,
-.button {
-  background: transparent;
-  font-size: 1em; // undo user agent font size in chrome
-  text-decoration: none;
-  cursor: pointer;
+a {
+
+  img {
+    display: block;
+    height: auto;
+    min-width: 100%;
+  }
+}
+
+blockquote {
+
+  cite {
+    color: $gray4;
+    // display: block;
+    font-family: $gentona;
+    font-size: $small;
+    font-weight: 400;
+    margin-top: #{($standard_spacing / 6) / $small}em;
+    // text-align: right;
+
+    &::before {
+      content: '\2014';
+      display: inline;
+    }
+  }
 }
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 em {
   font-style: italic;
+
+  b,
+  strong {
+    font-style: inherit;
+  }
 }
 
 dl {
@@ -156,119 +192,97 @@ ol {
     // &:first-child { margin-top: 0 !important; }
     // &:last-child { margin-bottom: 0 !important; }
 
-    + li {
+    + li,
+    > ul,
+    > ol {
       margin-top: ($standard_spacing / 12);
     }
   }
 }
 
-* {
+figure {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 
-  + button,
-  + .button,
-  + input[type="button"],
-  + input[type="submit"] {
-    margin-top: $standard_spacing / 3;
+  figcaption {
+    // border-bottom: solid $black $light;
+    color: $gray3;
+    font-size: $x-small;
+    padding: #{($standard_spacing / 8) / $x-small}em 0 0 0;
+  }
 
-    &.xx-small {
-      margin-top: #{($standard_spacing / 3) / $xx-small}em;
+  iframe,
+  img {
+    display: block;
+    // height: auto;
+    // width: 100%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.is-type-video {
+
+  &.wp-embed-aspect-4-3,
+  &.wp-embed-aspect-16-9 {
+
+    figcaption {
+      border-bottom: solid $gray1 #{$thin / $x-small}em;
+      padding-bottom: #{($standard_spacing / 8) / $x-small}em;
     }
 
-    &.x-small {
-      margin-top: #{($standard_spacing / 3) / $x-small}em;
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: $stack_normal;
     }
 
-    &.small {
-      margin-top: #{($standard_spacing / 3) / $small}em;
+    .wp-block-embed__wrapper {
+      height: 0;
+      position: relative;
+      width: 100%;
+      z-index: $stack_normal;
     }
+  }
 
-    &.large {
-      margin-top: #{($standard_spacing / 3) / $large}em;
+  &.wp-embed-aspect-4-3 {
+
+    .wp-block-embed__wrapper {
+      padding-bottom: 75%;
     }
+  }
 
-    &.x-large {
-      margin-top: #{($standard_spacing / 3) / $x-large}em;
+
+  &.wp-embed-aspect-16-9 {
+
+    .wp-block-embed__wrapper {
+      padding-bottom: percentage(9/16);
     }
   }
 }
 
-// Button Sizes
-.button,
-form button,
-input[type="button"],
-input[type="submit"] {
-  border-width: $thin;
-  font-size: 1em;
-  font-weight: 500;
-  padding: ($standard_spacing / 6) ($standard_spacing / 5);
+.wp-block-image {
 
-  + * {
-    margin-top: ($standard_spacing / 3);
-  }
-
-  &.xx-small {
-    border-width: #{$thin / $xx-small}em;
-    font-size: $xx-small;
-    font-weight: 600;
-    padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
-  }
-
-  &.x-small {
-    border-width: #{$thin / $x-small}em;
-    font-size: $x-small;
-    font-weight: 600;
-    padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
-  }
-
-  &.small {
-    border-width: #{$thin / $small}em;
-    font-size: $small;
-    padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
-  }
-
-  &.large {
-    border-width: #{$medium / $large}em;
-    font-size: $large;
-    padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
-  }
-
-  &.x-large {
-    border-width: #{$semi-bold / $x-large}em;
-    font-size: $x-large;
-    font-weight: 400;
-    padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+  a,
+  img {
+    display: block;
     width: 100%;
   }
 
-  + button,
-  + .button,
-  + input[type="button"],
-  + input[type="submit"] {
-    margin-top: $standard_spacing / 6;
-
-    &.xx-small {
-      margin-top: #{($standard_spacing / 6) / $xx-small}em;
-    }
-
-    &.x-small {
-      margin-top: #{($standard_spacing / 6) / $x-small}em;
-    }
-
-    &.small {
-      margin-top: #{($standard_spacing / 6) / $small}em;
-    }
-
-    &.large {
-      margin-top: #{($standard_spacing / 6) / $large}em;
-    }
-
-    &.x-large {
-      margin-top: #{($standard_spacing / 6) / $x-large}em;
-    }
+  a {
+    border: none;
   }
 
-  // + button,
-  // + .button { margin-top: 0; }
+  img {
+    height: auto;
+  }
 }
 
 * {
@@ -310,6 +324,10 @@ table {
       border-right: $table_cell_border;
       overflow: hidden;
 
+      &:focus-within {
+        overflow: visible;
+      }
+
       &:last-child {
         border-right: none;
       }
@@ -320,7 +338,7 @@ table {
       // border-color: $gray4;
       color: $white;
       font-size: $x-small;
-      font-weight: 500;
+      font-weight: 600;
       padding: #{($standard_spacing / 6) / $x-small}em;
       text-align: center;
       text-transform: uppercase;
@@ -338,7 +356,9 @@ table {
   }
 }
 
-.page-container { background-color: $white; }
+.page-container {
+  background-color: $white;
+}
 
 .section {
   display: block;
