@@ -607,7 +607,12 @@
     }
 
     @else {
-      background-color: lighten($gray1, 5%);
+      background-color: mix($black, $white, 4.25%);
+    }
+
+    .teaser {
+      padding: 0;
+      background-color: transparent;
     }
   }
 
