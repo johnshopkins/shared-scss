@@ -1,110 +1,81 @@
-// Neutral Color Palette
-// $original_white: #FFFFFF;
-// $original_gray1: #E5E2E0;
-// $original_gray2: #B4B2AD;
-// $original_gray3: #7E7E7C;
-// $original_gray4: #4A484C;
-// $original_gray5: #2C2C33;
-// $original_black: #000000;
-$white: #FFFFFF;
-$gray1: #D7D2CB;                // Warm Gray 1 C
-$gilman_atrium: $gray1;
-$gray2: #9b938a;                // 402 C // OG hex: #9D968D, darkened 1% to meet 3:1 w/ $white & 4.5:1 w/ $black
-$slate: $gray2;
-$gray3: #7e746a;                // 404 C // OG hex: #776E64, lightened 2.5% to meet 4.5:1 w/ $white & 3:1 w/ $black
-$graphite: $gray3;
-$gray4: #5E514D;                // 411 C
-$asphalt: $gray4;
-$gray5: #453536;                // 439 C
-$space: $gray5;
-$black: #2c221a;                // Black 4 C // OG hex: #31261D, darkened 1.5% for better contrast
-// $black: #101820;                // Black 4 C // OG hex: #31261D, darkened ??% for better contrast
-$sable: $black;
-// $nursing_stairwell: #D9C89E;    // 7501 C
-// $new_custard: #CBA052;          // 7407 C
-// $original_telescope_ceiling: #DDA46F;    // 721 C
-$telescope_ceiling: #CBA052;     // 7407 C // Rename of $new_custard
-$nursing_stairwell: $telescope_ceiling;
-$new_custard: $telescope_ceiling;
-// $building_brick: #AA8066;       // 479 C
-// $original_mason_doors: #9E5330; // 7586 C
-// $test_mason_doors: lighten($original_mason_doors, 2.5%);
-$mason_doors: #A85834;          // 7586 C // OG hex: #9E5330, lightened to meet 3:1 w/ $black
-$building_brick: $mason_doors;  // Consolidating colors
-// $barista: #623412;              // 732 C
-$aged_bronze: #4F2C1D;          // 4625 C
-$barista: $aged_bronze;         // Replacing $barista with something more contextual to the university
+// Grayscale
 
-// Standard Color Palette
-// $original_basin: #003D4C;       // 548 C
-// $test_basin: lighten($original_basin, 15%); // #007a99
-// $basin: #007a99;                // 7468 C // OG hex: #007398, lightened to meet 3:1 w/ $black
-// $original_stained_glass: #6399AE;        // 7696 C
-// $test_stained_glass: mix($original_basin, $original_stained_glass, 39%); // #3c7588
-// $stained_glass: #41748D;        // 7698 C
-// $basin: $stained_glass;         // Consolidating colors
-$jay: #6CACE4;                  // 284 C
-$hopkins_blue: $jay;            // Establishing names for key brand colors
-$stained_glass: $jay;           // Consolidating colors
-$logo_blue: #002D72;            // 288 C
-$johns_blue: $logo_blue;        // Establishing names for key brand colors
-$basin: $logo_blue;             // Consolidating colors
-// $sparta: #005EB8;               // 300 C
-$sparta: #0070CC;               // 285 C  // OG hex: #0072CE, darkened to maintain 4.5:1 w/ white
-$brody_chair: $sparta;
-$brody_wall: #418FDE;           // 279 C
-// $slate: #A7BCD6;                // 651 C
-$slate: $jay;                   // Consolidating colors
-// $light_purple: #7C7FAB;         // 7675 C
-$light_purple: $brody_wall;     // Consolidating colors
-// $ballpoint: #24135F;            // 273 C
-$ballpoint: $logo_blue;         // Consolidating colors
-$beet_it: #470A68;              // 2617 C
-// $original_new_medical_gloves: #8E3A80;   // 7656 C
-$new_medical_gloves: #9D5491;   // 7655 C // OG hex: #A15A95, darkened to maintain 4.5:1 w/ white
-$pathway_brick: #86647A;        // 5205 C
-// $pathway_brick: $new_medical_gloves; // Consolidating colors
-// $beet_it: $new_medical_gloves;  // Consolidating colors
-$bubblegum: #EF4A81;            // 1915 C
-$tricias_pants: #6F2C3F;        // 505 C
-// $original_red_clay: #8A2A2B;    // 7623 C
-// $test_red_clay: mix($tricias_pants, $original_red_clay, 50%);
-$red_clay: #76232F;             // 188 C // OG
-// $tricias_pants: $red_clay;      // Consolidating colors
-// $original_newer_hut_glass: #E03C31;      // 179 C
-$newer_hut_glass: #D22630;      // 1795 C
-$copper_roof: #E8927C;          // 486 C
-// $test_copper_roof: mix($bubblegum, $original_copper_roof, 20%);
-// $new_copper_roof: #E4644E;          // 7416 C // OG hex: #E56A54, darkened to meet 3:1 w/ white
-// $bubblegum: $copper_roof;       // Consolidating colors
-$burnt_orange: #CF4520;         // 173 C
-// $original_tangerine: #FF6900;   // 1505 C
-// $test_tangerine: darken($original_tangerine, 3%);
-$tangerine: #EB6100;            // 1505 C // OG hex: #FF6900, darkened to meet 3:1 w/ white
-// $barista: #623412;              // 732 C
-$creamsicle: #FF9E1B;           // 1375 C
-$sunlight: #FBD872;             // 1215 C
-$new_academic_gold: #FFCD00;    // 116 C
-// $sunlight: $new_academic_gold;  // Consolidating colors
-$lemon: #F7EA48;                // 101 C
-// $lemon: $new_academic_gold;
-$cty_green: #D2D755;            // 584 C
-// $original_java: #4E5B31;        // 574 C
-// $test_java: lighten($original_java, 7.5%); // #63743E
-$java: #5C7836;                 // 575 C // OG hex: #67823A, darkened to meet 4.5:1 w/ white
-// $original_oak_leaves: #74AA50;           // 7489 C
-$oak_leaves: #689948;           // 7489 C // OG hex: #74AA50, darkened to meet 3:1 w/ white
-// $cty_green: $oak_leaves;        // Consolidating colors
-// $original_magnolia_leaves: #44693D;      // 7743 C
-$magnolia_leaves: #4D7845;      // 7742 C // OG hex: 4A773C, lightened to meet 3:1 w/ $black
-// $java: $magnolia_leaves;        // Consolidating colors
-// $original_spearmint: #007A53;   // 341 C
-// $test_spearmint: lighten($original_spearmint, 1%);       // 341 C
-$spearmint: #007F56;            // 341 C // OG hex: #007A53, lightened to meet 3:1 w/ $black
-// $original_new_copper_petina: #86C8BC;    // 564 C
-// $test_new_copper_petina: darken($original_new_copper_petina, 21.5%);
-$new_copper_petina: #4B9B7C;    // 7723 C // OG hex: #50684, darkened to meet 3:1 w/ white
-// $spearmint: $new_copper_petina; // Consolidating colors
-// $bright_turquoise: $new_copper_petina; // Consolidating colors
-// $original_bright_turquoise: #00AB8E;     // 3268 C
-$bright_turquoise: #009E79;     // 3278 C // OG hex: #009B77, lightened to meet 3:1 w/ white
+$white:               #FFFFFF;
+// $black:            #31261D;
+$black:               #2c221a;  // Black 4 C // OG hex: #31261D, darkened 1.5% for better contrast
+$gray5: mix($black, $white, (100% * (5 / 6))); // #4F4740
+$gray4: mix($black, $white, (100% * (4 / 6)) - 0.25%); // #736C67 // lightened to meet 3:1 contrast ratio with $black
+$gray3: mix($black, $white, (100% * (3 / 6))); // #96918D
+$gray2: mix($black, $white, (100% * (2 / 6))); // #B9B5B3
+$gray1: mix($black, $white, (100% * (1 / 6))); // #DCDAD9
+
+$sable:               $black;
+$double_black:        #000000;
+
+
+
+// Primary Colors
+
+$heritage_blue:       #002D72;  // 288 C
+$spirit_blue:         #6CACE4;  // 284 C
+
+
+
+// Secondary Colors
+
+$academic_gold:       #F1C400;  // 7406 C
+$burnt_orange:        #CF4520;  // 173 C
+$red_clay:            #76232F;  // 188 C
+// $medical_gloves:   #A15A95;  // 7655 C
+$medical_gloves:      #9D5491;  // 7655 C // OG hex: #A15A95, darkened to maintain 4.5:1 w/ $white
+// $sparta:           #0072CE;  // 285 C
+$sparta:              #0070CC;  // 285 C  // OG hex: #0072CE, darkened to maintain 4.5:1 w/ $white
+// $spearmint:        #009B77;  // 3278 C
+$spearmint:           #009D78;  // 3278 C // OG hex: #009B77, lightened to meet 4.5:1 w/ $black
+
+
+
+// Accent Colors
+
+$telescope_ceiling:   #CBA052;  // 7407 C
+$creamsicle:          #FF9E1B;  // 1375 C
+// $tangerine:        #FF6900;  // 1505 C
+$tangerine:           #EB6100;  // 1505 C // OG hex: #FF6900, darkened to meet 3:1 w/ $white
+// $mason_doors:      #9E5330;  // 7586 C
+$mason_doors:         #A85834;  // 7586 C // OG hex: #9E5330, lightened to meet 3:1 w/ $black
+$oiled_bronze:        #4F2C1D;  // 4625 C
+$copper_roof:         #E8927C;  // 486 C
+$hut_glass:           #A6192E;  // 187 C
+$beet_it:             #51284F;  // 262 C
+$light_purple:        #A192B2;  // 666 C
+$brody_wall:          #418FDE;  // 279 C
+$copper_petina:       #86C8BC;  // 564 C
+$magnolia_leaves:     #286140;  // 7734 C
+$oak_leaves:          #719949;  // 7490 C
+
+
+
+// Discontinued Colors/Names
+
+$new_custard:         $telescope_ceiling;
+$nursing_stairwell:   $telescope_ceiling;
+$new_academic_gold:   $academic_gold;
+$sunlight:            $academic_gold;
+$lemon:               $academic_gold;
+$building_brick:      $mason_doors;
+$barista:             $oiled_bronze;
+$bubblegum:           $copper_roof;
+$newer_hut_glass:     $hut_glass;
+$tricias_pants:       $red_clay;
+$new_medical_gloves:  $medical_gloves;
+$pathway_brick:       $light_purple;
+$jay:                 $spirit_blue;
+$slate:               $jay;
+$stained_glass:       $brody_wall;
+$basin:               $heritage_blue;
+$logo_blue:           $heritage_blue;
+$ballpoint:           $heritage_blue;
+$new_copper_petina:   $copper_petina;
+$cty_green:           $copper_petina;
+$bright_turquoise:    $spearmint;
+$java:                $magnolia_leaves;
