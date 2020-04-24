@@ -180,7 +180,8 @@ details {
   }
 
   + details {
-    margin-top: $thin * -1;
+    border-top: none;
+    margin-top: 0;
   }
 }
 
