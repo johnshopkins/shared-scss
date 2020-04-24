@@ -51,6 +51,7 @@ body {
   outline: 1px dotted;
 }
 
+details,
 dl,
 figure,
 h1,
@@ -72,6 +73,7 @@ ul,
 
 * {
 
+  + details,
   + dl,
   + figure,
   + h1,
@@ -146,6 +148,39 @@ em {
   b,
   strong {
     font-style: inherit;
+  }
+}
+
+details {
+  border: solid $thin $gray4;
+  border-left: none;
+  border-right: none;
+  padding: ($standard_spacing / 6) 0;
+
+  * {
+
+    &:last-child {
+      margin-bottom: ($standard_spacing / 6);
+    }
+  }
+
+  summary {
+    color: $black;
+    cursor: pointer;
+    font-family: $gentona;
+    font-weight: 600;
+
+    &::-webkit-details-marker {
+      color: $sparta;
+    }
+
+    + * {
+      margin-top: ($standard_spacing / 6);
+    }
+  }
+
+  + details {
+    margin-top: $thin * -1;
   }
 }
 
