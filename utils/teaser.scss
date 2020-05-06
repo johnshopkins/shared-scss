@@ -240,7 +240,7 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $shape: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
+@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
   // Accepts $ratio as 2 of 10
   // first = target, last = context
   $target: nth($ratio, 1);
@@ -276,54 +276,64 @@
   &.has-image {
     display: table;
 
-    .thumbnail {
+    @if ($target >= $context) {
 
-      &:hover {
-
-        img {
-          @include transform(translateX(0) scale(1.05, 1.05));
-        }
+      .thumbnail {
+        display: none;
       }
+    }
 
-      @if ($shape == 'square') {
-        height: 0;
-        padding-bottom: 100%;
+    @else {
 
-        img {
-          height: auto;
-          margin-left: -25%;
-          width: 150%;
-        }
+      .thumbnail {
 
-        .image-square {
+        &:hover {
 
           img {
-            margin-left: 0;
-            width: 100%;
+            @include transform(translateX(0) scale(1.05, 1.05));
           }
         }
-      }
 
-      @else {
-        height: auto;
-        padding-bottom: 0;
+        @if ($image == 'square') {
+          height: 0;
+          padding-bottom: 100%;
 
-        img {
-          height: auto;
-          margin-left: 0;
-          width: 100%;
+          img {
+            height: auto;
+            margin-left: -25%;
+            width: 150%;
+          }
+
+          .image-square {
+
+            img {
+              margin-left: 0;
+              width: 100%;
+            }
+          }
         }
 
-        .image-square {
+        @else {
+          height: auto;
           padding-bottom: 0;
 
           img {
-            height: 100%;
-            left: 0;
-            position: static;
-            top: 0;
+            height: auto;
+            margin-left: 0;
             width: 100%;
-            z-index: $stack_normal;
+          }
+
+          .image-square {
+            padding-bottom: 0;
+
+            img {
+              height: 100%;
+              left: 0;
+              position: static;
+              top: 0;
+              width: 100%;
+              z-index: $stack_normal;
+            }
           }
         }
       }
@@ -341,28 +351,50 @@
       vertical-align: middle;
       z-index: $stack_normal;
 
-      @if ($bias == 'image') {
-        width: get_span_width($target of $context);
+      @if ($target >= $context) {
+        padding-left: 0;
+        width: 100%;
       }
 
       @else {
-        width: get_span_width($target of $context, 1);
-      }
-
-      @if ($gutter == 'half') {
-        padding-left: get_gutter_width(of $context) / 2;
 
         @if ($bias == 'image') {
-          width: get_span_width($target of $context, 1) - (get_gutter_width( of $context) / 2);
+          width: get_span_width($target of $context);
         }
 
-        // @else {
-        //   padding-left: get_gutter_width(of $context) / 2;
-        // }
-      }
+        @else {
 
-      @else {
-        padding-left: get_gutter_width(of $context);
+          @if ($target >= $context) {
+            width: 100%;
+          }
+
+          @else {
+            width: get_span_width($target of $context, 1);
+          }
+        }
+
+        @if ($target >= $context) {
+          padding-left: 0;
+        }
+
+        @else {
+
+          @if ($gutter == 'half') {
+            padding-left: get_gutter_width(of $context) / 2;
+
+            @if ($bias == 'image') {
+              width: get_span_width($target of $context, 1) - (get_gutter_width( of $context) / 2);
+            }
+
+            // @else {
+            //   padding-left: get_gutter_width(of $context) / 2;
+            // }
+          }
+
+          @else {
+            padding-left: get_gutter_width(of $context);
+          }
+        }
       }
 
       .kicker,
@@ -405,100 +437,110 @@
 
     &.has-image {
 
-      .thumbnail {
-        display: table-cell;
-        height: 0;
-        padding: 0;
-        position: relative;
-        z-index: $stack_normal;
+      @if ($target >= $context) {
 
-        @if ($bias == 'image') {
-          width: get_span_width(($context - $target) of $context, 1);
-
-          @if ($shape == 'square') {
-            padding-bottom: get_span_width(($context - $target) of $context, 1);
-          } @elseif ($shape == 'portrait') {
-            padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
-          } @else {
-            padding-bottom: get_span_width(($context - $target) of $context, 1) * (2 / 3);
-          }
-
-          @if($gutter == 'half') {
-            width: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
-
-            @if ($shape == 'square') {
-              padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
-            } @elseif ($shape == 'portrait') {
-              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
-            } @else {
-              padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (2 / 3);
-            }
-          }
+        .thumbnail {
+          display: none;
         }
+      }
 
-        @else {
-          width: get_span_width(($context - $target) of $context);
+      @else {
 
-          @if ($shape == 'square') {
-            padding-bottom: get_span_width(($context - $target) of $context);
-          } @elseif ($shape == 'portrait') {
-            padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
-          } @else {
-            padding-bottom: get_span_width(($context - $target) of $context) * (2 / 3);
-          }
-
-        }
-
-        a,
-        img,
-        .image {
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-          z-index: $stack_normal;
-        }
-
-        a {
-
-          &:hover {
-
-            img {
-              @include transform(translateX(-50%) scale(1.05, 1.05));
-            }
-          }
-        }
-
-        img {
-          left: 50%;
-          margin-left: 0;
-          min-height: 100%;
-          min-width: 100%;
-          @include transform(translateX(-50%) scale(1, 1));
-          width: auto;
-        }
-
-        .image {
+        .thumbnail {
+          display: table-cell;
+          height: 0;
           padding: 0;
-        }
+          position: relative;
+          z-index: $stack_normal;
 
-        // .image-portrait {
-        //
-        //    img {
-        //      height: auto;
-        //      width: 100%;
-        //    }
-        // }
+          @if ($bias == 'image') {
+            width: get_span_width(($context - $target) of $context, 1);
 
-        .image-square {
+            @if ($image == 'square') {
+              padding-bottom: get_span_width(($context - $target) of $context, 1);
+            } @elseif ($image == 'portrait') {
+              padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
+            } @else {
+              padding-bottom: get_span_width(($context - $target) of $context, 1) * (2 / 3);
+            }
+
+            @if($gutter == 'half') {
+              width: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
+
+              @if ($image == 'square') {
+                padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
+              } @elseif ($image == 'portrait') {
+                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
+              } @else {
+                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (2 / 3);
+              }
+            }
+          }
+
+          @else {
+            width: get_span_width(($context - $target) of $context);
+
+            @if ($image == 'square') {
+              padding-bottom: get_span_width(($context - $target) of $context);
+            } @elseif ($image == 'portrait') {
+              padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
+            } @else {
+              padding-bottom: get_span_width(($context - $target) of $context) * (2 / 3);
+            }
+
+          }
+
+          a,
+          img,
+          .image {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: $stack_normal;
+          }
+
+          a {
+
+            &:hover {
+
+              img {
+                @include transform(translateX(-50%) scale(1.05, 1.05));
+              }
+            }
+          }
 
           img {
-            height: 100%;
             left: 50%;
-            position: relative;
-            top: 0;
+            margin-left: 0;
+            min-height: 100%;
+            min-width: 100%;
+            @include transform(translateX(-50%) scale(1, 1));
             width: auto;
+          }
+
+          .image {
+            padding: 0;
+          }
+
+          // .image-portrait {
+          //
+          //    img {
+          //      height: auto;
+          //      width: 100%;
+          //    }
+          // }
+
+          .image-square {
+
+            img {
+              height: 100%;
+              left: 50%;
+              position: relative;
+              top: 0;
+              width: auto;
+            }
           }
         }
       }
@@ -509,11 +551,7 @@
         padding-right: 1em;
         padding-top: 1em;
 
-        @if ($gutter == 'even') {
-          padding-left: 1em;
-        }
-
-        @if ($gutter == 'full' and $bias == 'image') {
+        @if ($target >= $context) or ($gutter == 'even') or ($gutter == 'full' and $bias == 'image') {
           padding-left: 1em;
         }
       }
@@ -557,37 +595,47 @@
 
     &.has-image {
 
-      .thumbnail {
-        display: block;
-        position: static;
-        width: 100%;
+      @if ($target >= $context) {
 
-        a,
-        img,
-        .image {
-          height: auto;
+        .thumbnail {
+          display: none;
         }
+      }
 
-        a,
-        .image {
-          width: 100%;
-        }
+      @else {
 
-        a {
-          position: relative;
-        }
-
-        .image {
-          position: relative;
-        }
-
-        img {
-          left: 0;
-          min-height: 0;
-          min-width: 0;
+        .thumbnail {
+          display: block;
           position: static;
-          @include transform(translateX(0) scale(1, 1));
-          // width: 100%;
+          width: 100%;
+
+          a,
+          img,
+          .image {
+            height: auto;
+          }
+
+          a,
+          .image {
+            width: 100%;
+          }
+
+          a {
+            position: relative;
+          }
+
+          .image {
+            position: relative;
+          }
+
+          img {
+            left: 0;
+            min-height: 0;
+            min-width: 0;
+            position: static;
+            @include transform(translateX(0) scale(1, 1));
+            // width: 100%;
+          }
         }
       }
     }
