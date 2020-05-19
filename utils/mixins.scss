@@ -1,3 +1,14 @@
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 /**
 * Margin / Padding destruction
 *
@@ -81,6 +92,100 @@
   @if $type == 'box' {box-shadow: $shadow;}
   @if $type == 'text' {text-shadow: $shadow;}
 }
+
+
+@mixin font_size($attr: font-size, $target_size: regular, $context_size: regular) {
+
+  #{$attr}: (map-get($font_sizes, $target_size#{_hand}) / map-get($font_sizes, $context_size#{_hand}))#{em};
+
+  @include breakpoint_lap_width() {
+    #{$attr}: (map-get($font_sizes, $target_size#{_lap}) / map-get($font_sizes, $context_size#{_lap}))#{em};
+  }
+
+  @include breakpoint_desk_width() {
+    #{$attr}: (map-get($font_sizes, $target_size#{_desk}) / map-get($font_sizes, $context_size#{_desk}))#{em};
+  }
+
+  @include breakpoint_wall_width() {
+    #{$attr}: (map-get($font_sizes, $target_size#{_wall}) / map-get($font_sizes, $context_size#{_wall}))#{em};
+  }
+
+  @include breakpoint_jumbotron_width() {
+    #{$attr}: (map-get($font_sizes, $target_size#{_jumbotron}) / map-get($font_sizes, $context_size#{_jumbotron}))#{em};
+  }
+}
+
+@function responsive_em($sizes, $ratio: regular '/' regular, $screen_size: hand) {
+  // Accepts $ratio as 'large / small' or 'small * large'
+  // first = target, second = function, last = context
+  $target: nth($ratio, 1);
+  $function: nth($ratio, 2);
+  $context: nth($ratio, -1);
+
+  $new_sizes: null;
+
+  @if ($function == '/') {
+    @for $i from 1 through length($sizes) {
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) / strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+    }
+
+    @return $new_sizes;
+
+  } @elseif ($function == '*') {
+    @for $i from 1 through length($sizes) {
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) * strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+    }
+
+    @return $new_sizes;
+
+  } @elseif ($function == '+') {
+    @for $i from 1 through length($sizes) {
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) + strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+    }
+
+    @return $new_sizes;
+
+  } @elseif ($function == '-') {
+    @for $i from 1 through length($sizes) {
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) - strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+    }
+
+    @return $new_sizes;
+  }
+}
+
+@mixin responsive_ems($attr, $sizes, $ratio: regular '/' regular) {
+  $screen_sizes: hand lap desk wall jumbotron;
+
+  $breakpoint_size: null;
+
+  @for $i from 1 through length($screen_sizes) {
+    @if nth($screen_sizes, $i) == hand {
+      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+
+    } @elseif nth($screen_sizes, $i) == lap {
+      @include breakpoint_lap_width() {
+        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+      }
+
+    } @elseif nth($screen_sizes, $i) == desk {
+      @include breakpoint_desk_width() {
+        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+      }
+
+    } @elseif nth($screen_sizes, $i) == wall {
+      @include breakpoint_wall_width() {
+        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+      }
+
+    } @elseif nth($screen_sizes, $i) == jumbotron {
+      @include breakpoint_jumbotron_width() {
+        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+      }
+    }
+  }
+}
+
 
 
 // Buttons
@@ -205,55 +310,78 @@
   }
 }
 
-@mixin button($size: null, $corners: square) {
+@mixin button_old($size: 'medium', $color: $sparta, $style: 'default') {
+
+  @if $size == 'medium' {
+    @include font_size(font-size, regular);
+    padding: $standard_spacing / 8;
+
+  } @else if $size == 'small' {
+    @include responsive_ems(border-width, $light, regular '/' small);
+    @include font_size(font-size, small);
+    padding: $standard_spacing / 8;
+
+
+  } @else if $size == 'large' {
+    @include responsive_ems(border-width, $light, regular '/' large);
+    @include font_size(font-size, large);
+    padding: $standard_spacing / 8;
+  }
+}
+
+
+@mixin button($size: medium, $corners: normal, $color: $sparta, $style: default) {
   background-color: transparent;
-  border-color: $black;
-  border-style: solid;
+  border: solid $color $light;
   @if ($corners == round) {
     @include border-radius(10em);
-  } @else {
+  } @else if ($corners == square) {
     @include border-radius(0);
+  } @else {
+    @include border-radius($light);
   }
+  @include box-shadow(none);
   color: $black;
   cursor: pointer;
   display: inline-block;
   font-family: $gentona;
-  line-height: 1em;
+  line-height: 0.75em;
   text-align: center;
   text-transform: uppercase;
   @include button_spacing();
 
   @if ($size == xx-small) {
+    @include responsive_ems(border-width, $thin, regular '/' xx-small);
     border-width: #{$thin / $xx-small}em;
-    font-size: $xx-small;
+    @include font_size(font-size, xx-small);
     font-weight: 400;
     padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
   }
 
-  @elseif ($size == x-small) {
+  @else if ($size == x-small) {
     border-width: #{$thin / $x-small}em;
-    font-size: $x-small;
+    @include font_size(font-size, x-small);
     font-weight: 400;
     padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
   }
 
-  @elseif ($size == small) {
+  @else if ($size == small) {
     border-width: $light;
-    font-size: $small;
+    @include font_size(font-size, small);
     font-weight: 600;
     padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
   }
 
-  @elseif ($size == large) {
+  @else if ($size == large) {
     border-width: #{$medium / $large}em;
-    font-size: $large;
+    @include font_size(font-size, large);
     font-weight: 600;
     padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
   }
 
-  @elseif ($size == x-large) {
+  @else if ($size == x-large) {
     border-width: #{$semi-bold / $x-large}em;
-    font-size: $x-large;
+    @include font_size(font-size, x-large);
     font-weight: 600;
     padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
     width: 100%;
@@ -261,8 +389,26 @@
 
   @else {
     border-width: $light;
-    font-size: $regular;
+    @include font_size(font-size, regular);
     font-weight: 600;
     padding: ($standard_spacing / 6) ($standard_spacing / 5);
+  }
+
+  @if $style == 'solid' {
+    background-color: $color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($color, 10%);
+      border-color: darken($color, 10%);
+    }
+  } @else {
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+      background-color: $color;
+      color: $white;
+    }
   }
 }
