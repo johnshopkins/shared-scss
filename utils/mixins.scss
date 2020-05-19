@@ -341,57 +341,67 @@
     @include border-radius($light);
   }
   @include box-shadow(none);
-  color: $black;
+  color: $color;
   cursor: pointer;
   display: inline-block;
   font-family: $gentona;
-  line-height: 0.75em;
+  line-height: 0.75em; // should set the line height to match the caps character height for each font
+  // line-height: 1em;
   text-align: center;
   text-transform: uppercase;
   @include button_spacing();
 
   @if ($size == xx-small) {
+    // border-width: #{$thin / $xx-small}em;
     @include responsive_ems(border-width, $thin, regular '/' xx-small);
-    border-width: #{$thin / $xx-small}em;
     @include font_size(font-size, xx-small);
     font-weight: 400;
-    padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
+    // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
+    @include responsive_ems(padding, ($standard_spacing / 8), regular '/' xx-small);
   }
 
   @else if ($size == x-small) {
-    border-width: #{$thin / $x-small}em;
+    // border-width: #{$thin / $x-small}em;
+    @include responsive_ems(border-width, $thin, regular '/' x-small);
     @include font_size(font-size, x-small);
     font-weight: 400;
-    padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+    // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+    @include responsive_ems(padding, ($standard_spacing / 8), regular '/' x-small);
   }
 
   @else if ($size == small) {
-    border-width: $light;
+    // border-width: $light;
+    @include responsive_ems(border-width, $light, regular '/' small);
     @include font_size(font-size, small);
     font-weight: 600;
-    padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
+    // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
+    @include responsive_ems(padding, ($standard_spacing / 6), regular '/' small);
   }
 
   @else if ($size == large) {
-    border-width: #{$medium / $large}em;
+    // border-width: #{$medium / $large}em;
+    @include responsive_ems(border-width, $medium, regular '/' large);
     @include font_size(font-size, large);
     font-weight: 600;
-    padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
+    // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
+    @include responsive_ems(padding, ($standard_spacing / 4), regular '/' large);
   }
 
   @else if ($size == x-large) {
-    border-width: #{$semi-bold / $x-large}em;
+    // border-width: #{$semi-bold / $x-large}em;
+    @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
     @include font_size(font-size, x-large);
     font-weight: 600;
-    padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+    // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+    @include responsive_ems(padding, ($standard_spacing / 3), regular '/' x-large);
     width: 100%;
   }
 
   @else {
     border-width: $light;
-    @include font_size(font-size, regular);
+    font-size: $regular;
     font-weight: 600;
-    padding: ($standard_spacing / 6) ($standard_spacing / 5);
+    padding: ($standard_spacing / 5);
   }
 
   @if $style == 'solid' {
