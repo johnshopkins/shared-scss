@@ -10,43 +10,6 @@ button {
 
 // Button Sizes
 * {
-
-  + button,
-  + input[type="button"],
-  + input[type="reset"],
-  + input[type="submit"],
-  + .button,
-  + .wp-block-button {
-    margin-top: $standard_spacing / 3;
-
-    &.xx-small {
-      margin-top: #{($standard_spacing / 3) / $xx-small}em;
-    }
-
-    &.x-small {
-      margin-top: #{($standard_spacing / 3) / $x-small}em;
-    }
-
-    &.small {
-      margin-top: #{($standard_spacing / 3) / $small}em;
-    }
-
-    &.large {
-      margin-top: #{($standard_spacing / 3) / $large}em;
-    }
-
-    &.x-large {
-      margin-top: #{($standard_spacing / 3) / $x-large}em;
-    }
-  }
-}
-
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button,
-.wp-block-button {
   @include button_spacing();
 }
 
@@ -56,7 +19,26 @@ input[type="submit"],
 input[type="reset"],
 .button,
 .wp-block-button__link {
-  @include button();
+  @include button_defaults();
+  @include button_radius(rounded);
+  @include button_size(medium);
+
+  &.button-accent {
+    @include button_style(solid);
+  }
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button,
+.wp-block-button.is-style-outline .wp-block-button__link{
+  @include button_style(outline);
+}
+
+.wp-block-button__link {
+  @include button_style(solid);
 }
 
 button.xx-small,
@@ -65,7 +47,7 @@ input[type="submit"].xx-small,
 input[type="reset"].xx-small,
 .button.xx-small,
 .wp-block-button.xx-small .wp-block-button__link {
-  @include button(xx-small);
+  @include button_size(xx-small);
 }
 
 button.x-small,
@@ -74,7 +56,7 @@ input[type="submit"].x-small,
 input[type="reset"].x-small,
 .button.x-small,
 .wp-block-button.x-small .wp-block-button__link {
-  @include button(x-small);
+  @include button_size(x-small);
 }
 
 button.small,
@@ -83,7 +65,7 @@ input[type="submit"].small,
 input[type="reset"].small,
 .button.small,
 .wp-block-button.small .wp-block-button__link {
-  @include button(small);
+  @include button_size(small);
 }
 
 button.large,
@@ -92,7 +74,7 @@ input[type="submit"].large,
 input[type="reset"].large,
 .button.large,
 .wp-block-button.large .wp-block-button__link {
-  @include button(large);
+  @include button_size(large);
 }
 
 button.x-large,
@@ -101,19 +83,23 @@ input[type="submit"].x-large,
 input[type="reset"].x-large,
 .button.x-large,
 .wp-block-button.x-large .wp-block-button__link {
-  @include button(x-large);
+  @include button_size(x-large);
 }
 
-
-.wp-block-button__link {
-  background-color: $black;
-  color: $white;
+.wp-block-button {
+  display: inline-block;
+  @include button_spacing();
 }
 
-.wp-block-button.is-style-outline {
-
-  .wp-block-button__link {
-    background-color: transparent;
-    color: $black;
-  }
-}
+// .wp-block-button__link {
+//   background-color: $black;
+//   color: $white;
+// }
+//
+// .wp-block-button.is-style-outline {
+//
+//   .wp-block-button__link {
+//     background-color: transparent;
+//     color: $black;
+//   }
+// }

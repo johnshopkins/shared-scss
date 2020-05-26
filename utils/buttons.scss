@@ -1,0 +1,271 @@
+@import 'mixins';
+
+@mixin button_radius($corners: rounded) {
+
+  @if ($corners == round) {
+    @include border-radius(10em);
+  } @else if ($corners == square) {
+    @include border-radius(0);
+  } @else if ($corners == rounded) {
+    @include border-radius($light);
+  } @else {
+    @include border-radius($corners);
+  }
+}
+
+@mixin button_spacing() {
+
+  + a,
+  + button,
+  + input[type="button"],
+  + input[type="submit"],
+  + input[type="reset"],
+  + .button,
+  + .wp-block-button {
+    margin-top: $standard_spacing / 6;
+
+    &.xx-small {
+      // margin-top: #{($standard_spacing / 6) / $xx-small}em;
+      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' xx-small);
+    }
+
+    &.x-small {
+      // margin-top: #{($standard_spacing / 6) / $x-small}em;
+      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' x-small);
+    }
+
+    &.small {
+      // margin-top: #{($standard_spacing / 6) / $small}em;
+      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' small);
+    }
+
+    &.large {
+      // margin-top: #{($standard_spacing / 6) / $large}em;
+      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' large);
+    }
+
+    &.x-large {
+      // margin-top: #{($standard_spacing / 6) / $x-large}em;
+      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' x-large);
+    }
+  }
+}
+
+@mixin button_style($style: outline, $color: $sparta) {
+  border-color: $color;
+
+  @if $style == solid {
+    background-color: $color;
+    color: $white;
+
+    &:focus,
+    &:hover {
+      background-color: darken($color, 10%);
+      border-color: darken($color, 10%);
+    }
+  } @else {
+    background-color: transparent;
+    color: $color;
+
+    &:focus,
+    &:hover {
+      background-color: $color;
+      color: $white;
+    }
+  }
+}
+
+@mixin button_color($color: $sparta, $style: outline) {
+
+  @if $style == solid {
+    @include button_style(solid, $color);
+  } @else {
+    @include button_style(outline, $color);
+  }
+}
+
+@mixin button_hover($color_scheme: hub) {
+
+  @if ($color_scheme == at-work) {
+    &:hover,
+    &:focus {
+      border-color: $at_work_accent;
+      background-color: $at_work_accent;
+      color: $white;
+    }
+
+    &:active {
+      border-color: $at_work_accent_dark;
+      background-color: $at_work_accent_dark;
+      color: $white;
+    }
+
+    &.active {
+
+      &:hover,
+      &:focus {
+        border-color: $at_work_accent_dark;
+        background-color: $at_work_accent_dark;
+        color: $white;
+      }
+
+      &:active {
+        border-color: $at_work_accent_darkest;
+        background-color: $at_work_accent_darkest;
+      }
+    }
+
+    &.button-accent {
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $at_work_accent_dark;
+        background-color: $at_work_accent_dark;
+      }
+    }
+  }
+
+  @else {
+    &:hover,
+    &:focus {
+      border-color: $hub_blue_light;
+      background-color: $hub_blue_light;
+      color: $black;
+    }
+
+    &:active {
+      border-color: $hub_blue;
+      background-color: $hub_blue;
+      color: $white;
+    }
+
+    &.active {
+
+      &:hover,
+      &:focus {
+        border-color: $hub_blue;
+        background-color: $hub_blue;
+        color: $white;
+      }
+
+      &:active {
+        border-color: $hub_blue_dark;
+        background-color: $hub_blue_dark;
+      }
+    }
+
+    &.button-accent {
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $hub_blue_light;
+        background-color: $hub_blue_light;
+      }
+    }
+  }
+}
+
+@mixin button_old($size: 'medium', $color: $sparta, $style: 'default') {
+
+  @if $size == 'medium' {
+    @include font_size(font-size, regular);
+    padding: $standard_spacing / 8;
+
+  } @else if $size == 'small' {
+    @include responsive_ems(border-width, $light, regular '/' small);
+    @include font_size(font-size, small);
+    padding: $standard_spacing / 8;
+
+
+  } @else if $size == 'large' {
+    @include responsive_ems(border-width, $light, regular '/' large);
+    @include font_size(font-size, large);
+    padding: $standard_spacing / 8;
+  }
+}
+
+@mixin button_size($size: medium) {
+
+  @if ($size == xx-small) {
+    // border-width: #{$thin / $xx-small}em;
+    @include responsive_ems(border-width, $thin, regular '/' xx-small);
+    @include font_size(font-size, xx-small);
+    font-weight: 400;
+    // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
+    @include responsive_ems(padding, ($standard_spacing / 12), regular '/' xx-small);
+  }
+
+  @else if ($size == x-small) {
+    // border-width: #{$thin / $x-small}em;
+    @include responsive_ems(border-width, $thin, regular '/' x-small);
+    @include font_size(font-size, x-small);
+    font-weight: 400;
+    // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+    @include responsive_ems(padding, ($standard_spacing / 12), regular '/' x-small);
+  }
+
+  @else if ($size == small) {
+    // border-width: $light;
+    @include responsive_ems(border-width, $light, regular '/' small);
+    @include font_size(font-size, small);
+    font-weight: 600;
+    // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
+    @include responsive_ems(padding, ($standard_spacing / 10), regular '/' small);
+  }
+
+  @else if ($size == large) {
+    // border-width: #{$medium / $large}em;
+    @include responsive_ems(border-width, $medium, regular '/' large);
+    @include font_size(font-size, large);
+    font-weight: 600;
+    // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
+    @include responsive_ems(padding, ($standard_spacing / 6), regular '/' large);
+  }
+
+  @else if ($size == x-large) {
+    // border-width: #{$semi-bold / $x-large}em;
+    @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
+    @include font_size(font-size, x-large);
+    font-weight: 600;
+    // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+    @include responsive_ems(padding, ($standard_spacing / 4), regular '/' x-large);
+    width: 100%;
+  }
+
+  @else {
+    border-width: $light;
+    font-size: $regular;
+    font-weight: 600;
+    padding: ($standard_spacing / 8);
+  }
+}
+
+@mixin button_defaults($color: $sparta) {
+  // background-color: transparent;
+  border: solid $color $light;
+  @include box-shadow(none);
+  // color: $color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $gentona;
+  line-height: 0.75em; // should set the line height to match the caps character height for each font
+  // line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+
+  + * {
+    margin-top: ($standard_spacing / 3);
+  }
+
+  @include button_spacing();
+}
+
+
+@mixin button($size: medium, $corners: rounded, $color: $sparta, $style: default) {
+  @include button_defaults($color);
+  @include button_radius($corners);
+  @include button_size($size);
+  @include button_style($style, $color);
+}
