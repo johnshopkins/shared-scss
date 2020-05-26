@@ -3,6 +3,10 @@ form + * {
   margin-top: ($standard_spacing * (2 / 3));
 }
 
+.screen-reader-response + form {
+  margin-top: 0;
+}
+
 form {
 
 	fieldset {
