@@ -73,7 +73,7 @@ form {
 
 	label {
     color: $gray4;
-    margin: ($standard_spacing / 3) 0 ($standard_spacing / 12) 0;
+    margin: ($standard_spacing / 3) 0 0 0;
     overflow: hidden;
 
     &:first-child {
@@ -82,6 +82,15 @@ form {
 
     &:last-child {
       margin-top: 0;
+    }
+
+    + br {
+      display: none;
+    }
+
+    + span,
+    + br + span {
+      margin-top: -0.625em;
     }
 	}
 
@@ -329,10 +338,18 @@ form {
   form {
 
     label {
-      margin-top: #{($standard_spacing / 4) / $x-small}em 0 #{($standard_spacing / 12) / $x-small}em 0;
+      // margin-bottom: #{($standard_spacing / 12) / $x-small}em;
+      margin-top: #{($standard_spacing / 4) / $x-small}em;
       font-size: $x-small;
 
-      &:first-child { margin-top: 0; }
+      &:first-child {
+        margin-top: 0;
+      }
+
+      + span,
+      + br + span {
+        margin-top: (-0.75 * $x-small);
+      }
   	}
 
     input[type='email'],
