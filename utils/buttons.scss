@@ -51,7 +51,7 @@
   }
 }
 
-@mixin button_style($style: outline, $color: $sparta) {
+@mixin button_style($style: outline, $color: $black) {
   border-color: $color;
 
   @if $style == solid {
@@ -75,7 +75,7 @@
   }
 }
 
-@mixin button_color($color: $sparta, $style: outline) {
+@mixin button_color($color: $black, $style: outline) {
 
   @if $style == solid {
     @include button_style(solid, $color);
@@ -87,8 +87,8 @@
 @mixin button_hover($color_scheme: hub) {
 
   @if ($color_scheme == at-work) {
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       border-color: $at_work_accent;
       background-color: $at_work_accent;
       color: $white;
@@ -102,8 +102,8 @@
 
     &.active {
 
-      &:hover,
-      &:focus {
+      &:focus,
+      &:hover {
         border-color: $at_work_accent_dark;
         background-color: $at_work_accent_dark;
         color: $white;
@@ -117,9 +117,9 @@
 
     &.button-accent {
 
-      &:hover,
+      &:active,
       &:focus,
-      &:active {
+      &:hover {
         border-color: $at_work_accent_dark;
         background-color: $at_work_accent_dark;
       }
@@ -127,8 +127,8 @@
   }
 
   @else {
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       border-color: $hub_blue_light;
       background-color: $hub_blue_light;
       color: $black;
@@ -142,8 +142,8 @@
 
     &.active {
 
-      &:hover,
-      &:focus {
+      &:focus,
+      &:hover {
         border-color: $hub_blue;
         background-color: $hub_blue;
         color: $white;
@@ -157,9 +157,9 @@
 
     &.button-accent {
 
-      &:hover,
+      &:active,
       &:focus,
-      &:active {
+      &:hover {
         border-color: $hub_blue_light;
         background-color: $hub_blue_light;
       }
@@ -167,7 +167,7 @@
   }
 }
 
-@mixin button_old($size: 'medium', $color: $sparta, $style: 'default') {
+@mixin button_old($size: 'medium', $color: $black, $style: 'default') {
 
   @if $size == 'medium' {
     @include font_size(font-size, regular);
@@ -242,7 +242,7 @@
   }
 }
 
-@mixin button_defaults($color: $sparta) {
+@mixin button_defaults($color: $black) {
   // background-color: transparent;
   border: solid $color $light;
   @include box-shadow(none);
@@ -263,7 +263,7 @@
 }
 
 
-@mixin button($size: medium, $corners: rounded, $color: $sparta, $style: default) {
+@mixin button($size: medium, $corners: rounded, $color: $black, $style: default) {
   @include button_defaults($color);
   @include button_radius($corners);
   @include button_size($size);

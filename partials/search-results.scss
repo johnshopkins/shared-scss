@@ -425,6 +425,7 @@
         padding-bottom: 0;
       }
 
+      &:focus,
       &:hover {
         text-decoration: none;
       }
@@ -450,6 +451,7 @@
     // a.gs-title,
     // .gs-title a {
     //
+    //   &:focus,
     //   &:hover {
     //
     //     &, * {
@@ -464,11 +466,13 @@
 
         &.gsc-cursor-current-page {
 
+          &:focus,
           &:hover {
             color: $white;
           }
         }
 
+        &:focus,
         &:hover {
           border-bottom-color: $sparta;
           color: $black;

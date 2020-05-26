@@ -374,6 +374,7 @@
     > .input-label-group {
 
       &,
+      &:focus,
       &:hover {
       // Leave these hover styles here
 
@@ -666,6 +667,7 @@
       .open,
       .close {
 
+        &:focus,
         &:hover {
           background-color: $gray1;
           color: $black;
@@ -687,6 +689,7 @@
     .toggle-expand,
     .info button {
 
+      &:focus,
       &:hover {
         background-color: $gray1;
 
@@ -745,6 +748,7 @@
 
       a {
 
+        &:focus,
         &:hover {
           border-bottom-color: darken($sunlight, 33%);
           color: $black;
@@ -756,6 +760,7 @@
 
       a {
 
+        &:focus,
         &:hover {
           border-bottom-color: lighten($burnt_orange, 33%);
           color: $white;

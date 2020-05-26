@@ -74,6 +74,7 @@
       a {
         position: relative;
 
+        &:focus,
         &:hover {
 
           img {
@@ -287,6 +288,7 @@
 
       .thumbnail {
 
+        &:focus,
         &:hover {
 
           img {
@@ -503,6 +505,7 @@
 
           a {
 
+            &:focus,
             &:hover {
 
               img {

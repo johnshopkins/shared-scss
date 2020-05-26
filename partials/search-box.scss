@@ -152,8 +152,8 @@
     font-size: $large !important;
     padding: ((($standard_spacing / 8) / $large) * 1em) ((($standard_spacing / 8) / $large) * 1em) 0 !important;
 
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       background: transparent;
 
       .gscb_a {
@@ -179,6 +179,7 @@
 
     button {
 
+      &:focus,
       &:hover {
         background-color: $logo_blue;
         color: $white !important;
