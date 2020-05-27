@@ -1,10 +1,11 @@
-@mixin teaser_stacked($style: null) {
+@mixin teaser_stacked($style: null, $context: null, $color: null) {
   background-color: transparent;
   display: table;
   padding: 0;
 
   .text {
     display: table-cell;
+    min-height: 0;
     vertical-align: middle;
 
     h2,
@@ -20,24 +21,60 @@
   @if ($style == 'card') {
     // min-height: $standard_spacing * 4;
 
+    .accent-element {
+    }
+
     .text {
-      background-color: $white;
+      @if ($color != null) {
+        background-color: $color;
+      } @else {
+        background-color: $white;
+      }
       display: block;
       height: 0;
+      min-height: 0;
       padding: 1em;
       padding-bottom: 100% * (2 / 3);
       position: relative;
       vertical-align: top;
       width: 100%;
       z-index: $stack_normal;
+
+      @if ($context != null) {
+        @supports (min-height: 1vw) {
+          display: table;
+          height: auto;
+          min-height: #{strip-unit(get_span_width($context of 12))}vw;
+          padding-bottom: 1em;
+          vertical-align: middle;
+
+          @media all and (min-width: #{$maxwidth}px) {
+            min-height: #{($maxwidth * strip-unit(get_span_width($context of 12)  /  100))}px;
+          }
+        }
+      }
     }
 
     .accent-element {
+      display: block;
       left: $standard_spacing / 3;
       position: absolute;
       right: $standard_spacing / 3;
       top: 50%;
       @include transform(translateY(-50%));
+      vertical-align: top;
+
+      @if ($context != null) {
+        @supports (min-height: 1vw) {
+          display: table-cell;
+          left: 0;
+          position: relative;
+          right: 0;
+          top: 0;
+          @include transform(none);
+          vertical-align: middle;
+        }
+      }
     }
   }
 
@@ -125,6 +162,7 @@
         margin-left: 5%;
         margin-right: 5%;
         margin-top: -($standard_spacing / 3);
+        min-height: 0;
         padding: ($standard_spacing / 4) 5%;
         position: relative;
         vertical-align: top;
@@ -252,6 +290,7 @@
   .text {
     // border-top: none;
     height: auto;
+    min-height: 0;
     position: static;
     z-index: initial;
     width: auto;
@@ -579,7 +618,11 @@
     }
 
     .text {
-      background-color: $white;
+      @if ($color != null) {
+        background-color: $color;
+      } @else {
+        background-color: $white;
+      }
       display: table-cell;
       padding: 1em;
       vertical-align: middle;
