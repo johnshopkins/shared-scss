@@ -92,34 +92,43 @@ $condensed: $titling;
 $serif: $arnhem;
 
 // Font Sizes
-$breakpoint_lap_font_size:          (17 / 16) * 1em;
-$breakpoint_desk_font_size:         (18 / 16) * 1em;
-$breakpoint_wall_font_size:         (19 / 16) * 1em;
-$breakpoint_jumbotron_font_size:    (21 / 16) * 1em;
+$default_font_size_px:              16px;
+$breakpoint_lap_font_size_px:       17px;
+$breakpoint_desk_font_size_px:      18px;
+$breakpoint_wall_font_size_px:      19px;
+$breakpoint_jumbotron_font_size_px: 21px;
 
-$gentona-ratio: 610 / 610;
-$quadon-ratio: 610 / 700;
-$arnhem-ratio: 610 / 620;
+
+
+
+$breakpoint_lap_font_size:          ($breakpoint_lap_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_desk_font_size:         ($breakpoint_desk_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_wall_font_size:         ($breakpoint_wall_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_jumbotron_font_size:    ($breakpoint_jumbotron_font_size_px / $default_font_size_px) * 1em;
+
+$gentona-ratio: (610 / 610);
+$quadon-ratio: (610 / 700);
+$arnhem-ratio: (610 / 620);
 // $titling-ratio: 610 / 798;
 // $titling-ratio: 610 / 700;
-$titling-ratio: 610 / 610;
+$titling-ratio: (610 / 610);
 
 $up-ratio: 4 / 3;
 $down-ratio: 7 / 8;
 
 $regular:   1em;		                   // 1em
 
-$small:     $regular   * $down-ratio;	 // 0.9em
-$x-small:   $small     * $down-ratio;	 // 0.8125em
-$xx-small:  $x-small   * $down-ratio;	 // 0.75em
-$xxx-small: $xx-small  * $down-ratio;	 // 0.6875em
+$small:     $regular   * $down-ratio;	 // 0.875em
+$x-small:   $small     * $down-ratio;	 // 0.7656em
+$xx-small:  $x-small   * $down-ratio;	 // 0.6699em
+$xxx-small: $xx-small  * $down-ratio;	 // 0.5862em
 
-$large:     $regular   * $up-ratio;	   // 1.2em
-$x-large:   $large     * $up-ratio;	   // 1.5em
-$xx-large:  $x-large   * $up-ratio;	   // 2em
-$xxx-large: $xx-large  * $up-ratio;    // 2.75em
-$display-2: $xxx-large * $up-ratio;
-$display-1: $display-2 * $up-ratio;
+$large:     $regular   * $up-ratio;	   // 1.3333em
+$x-large:   $large     * $up-ratio;	   // 1.7778em
+$xx-large:  $x-large   * $up-ratio;	   // 2.3704em
+$xxx-large: $xx-large  * $up-ratio;    // 3.1605em
+$display-2: $xxx-large * $up-ratio;    // 4.214em
+$display-1: $display-2 * $up-ratio;    // 5.6187em
 
 // Hand // Scaling factor of roughly 1.2
 $small_hand:     ($regular * (14 / 16));
@@ -190,6 +199,153 @@ $xxx-large_jumbotron: ($xx-large_jumbotron * (66 / 50));
 
 $display-2_jumbotron: ($xxx-large_jumbotron * (88 / 66));
 $display-1_jumbotron: ($display-2_jumbotron * (118 / 88));
+
+
+
+// //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// //\\ CONSTANT SCALING FACTOR OF 1.333 \\//
+// //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+//
+// // Hand
+// $small_hand:     ($regular * (14 / 16));
+// $x-small_hand:   ($small_hand * (12 / 14));
+// $xx-small_hand:  ($x-small_hand * (11 / 12));
+// $xxx-small_hand: ($xx-small_hand * (9 / 11));
+//
+// $large_hand:     ($regular * (21 / 16));
+// $x-large_hand:   ($large_hand * (28 / 21));
+// $xx-large_hand:  ($x-large_hand * (38 / 28));
+// $xxx-large_hand: ($xx-large_hand * (51 / 38));
+//
+// $display-2_hand: ($xxx-large_hand * (67 / 51));
+// $display-1_hand: ($display-2_hand * (90 / 67));
+//
+// // Lap
+// $small_lap:     ($regular * (15 / 17));
+// $x-small_lap:   ($small_lap * (13 / 15));
+// $xx-small_lap:  ($x-small_lap * (11 / 13));
+// $xxx-small_lap: ($xx-small_lap * (10 / 11));
+//
+// $large_lap:     ($regular * (23 / 17));
+// $x-large_lap:   ($large_lap * (30 / 23));
+// $xx-large_lap:  ($x-large_lap * (40 / 30));
+// $xxx-large_lap: ($xx-large_lap * (54 / 40));
+//
+// $display-2_lap: ($xxx-large_lap * (72 / 54));
+// $display-1_lap: ($display-2_lap * (96 / 72));
+//
+// // Desk
+// $small_desk:     ($regular * (16 / 18));
+// $x-small_desk:   ($small_desk * (14 / 16));
+// $xx-small_desk:  ($x-small_desk * (12 / 14));
+// $xxx-small_desk: ($xx-small_desk * (11 / 12));
+//
+// $large_desk:     ($regular * (24 / 18));
+// $x-large_desk:   ($large_desk * (32 / 24));
+// $xx-large_desk:  ($x-large_desk * (43 / 32));
+// $xxx-large_desk: ($xx-large_desk * (57 / 43));
+//
+// $display-2_desk: ($xxx-large_desk * (76 / 57));
+// $display-1_desk: ($display-2_desk * (101 / 76));
+//
+// // Wall
+// $small_wall:     ($regular * (17 / 19));
+// $x-small_wall:   ($small_wall * (15 / 17));
+// $xx-small_wall:  ($x-small_wall * (13 / 15));
+// $xxx-small_wall: ($xx-small_wall * (11 / 13));
+//
+// $large_wall:     ($regular * (25 / 19));
+// $x-large_wall:   ($large_wall * (34 / 25));
+// $xx-large_wall:  ($x-large_wall * (45 / 34));
+// $xxx-large_wall: ($xx-large_wall * (60 / 45));
+//
+// $display-2_wall: ($xxx-large_wall * (80 / 60));
+// $display-1_wall: ($display-2_wall * (107 / 80));
+//
+// // Jumbotron
+// $small_jumbotron:     ($regular * (18 / 21));
+// $x-small_jumbotron:   ($small_jumbotron * (16 / 18));
+// $xx-small_jumbotron:  ($x-small_jumbotron * (14 / 16));
+// $xxx-small_jumbotron: ($xx-small_jumbotron * (12 / 14));
+//
+// $large_jumbotron:     ($regular * (28 / 21));
+// $x-large_jumbotron:   ($large_jumbotron * (37 / 28));
+// $xx-large_jumbotron:  ($x-large_jumbotron * (50 / 37));
+// $xxx-large_jumbotron: ($xx-large_jumbotron * (66 / 50));
+//
+// $display-2_jumbotron: ($xxx-large_jumbotron * (88 / 66));
+// $display-1_jumbotron: ($display-2_jumbotron * (118 / 88));
+
+
+
+// //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+// //\\ PROGRESSIVE SCALING FACTOR OF 1.414 /\\//
+// //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+//
+// // Hand
+// $small_hand:     ($regular *                  (14 / 16));
+// $x-small_hand:   ($small_hand *               (12 / 14));
+// $xx-small_hand:  ($x-small_hand *             (10 / 12));
+// $xxx-small_hand: ($xx-small_hand *            (9 / 10));
+//
+// $large_hand:     ($regular *                  (19 / 16));
+// $x-large_hand:   ($large_hand *               (23 / 19));
+// $xx-large_hand:  ($x-large_hand *             (28 / 23));
+// $xxx-large_hand: ($xx-large_hand *            (33 / 28));
+// $display-2_hand: ($xxx-large_hand *           (40 / 33));
+// $display-1_hand: ($display-2_hand *           (48 / 40));
+//
+// // Lap
+// $small_lap:     ($regular *                   (14 / 17));
+// $x-small_lap:   ($small_lap *                 (12 / 14));
+// $xx-small_lap:  ($x-small_lap *               (10 / 12));
+// $xxx-small_lap: ($xx-small_lap *              (9 / 10));
+//
+// $large_lap:     ($regular *                   (21 / 17));
+// $x-large_lap:   ($large_lap *                 (27 / 21));
+// $xx-large_lap:  ($x-large_lap *               (33 / 27));
+// $xxx-large_lap: ($xx-large_lap *              (42 / 33));
+// $display-2_lap: ($xxx-large_lap *             (53 / 42));
+// $display-1_lap: ($display-2_lap *             (66 / 53));
+//
+// // Desk
+// $small_desk:     ($regular *                  (15 / 18));
+// $x-small_desk:   ($small_desk *               (13 / 15));
+// $xx-small_desk:  ($x-small_desk *             (11 / 13));
+// $xxx-small_desk: ($xx-small_desk *            (9 / 11));
+//
+// $large_desk:     ($regular *                  (24 / 18));
+// $x-large_desk:   ($large_desk *               (31 / 24));
+// $xx-large_desk:  ($x-large_desk *             (40 / 31));
+// $xxx-large_desk: ($xx-large_desk *            (53 / 40));
+// $display-2_desk: ($xxx-large_desk *           (69 / 53));
+// $display-1_desk: ($display-2_desk *           (90 / 69));
+//
+// // Wall
+// $small_wall:     ($regular *                  (16 / 19));
+// $x-small_wall:   ($small_wall *               (13 / 16));
+// $xx-small_wall:  ($x-small_wall *             (11 / 13));
+// $xxx-small_wall: ($xx-small_wall *            (9 / 11));
+//
+// $large_wall:     ($regular *                  (26 / 19));
+// $x-large_wall:   ($large_wall *               (35 / 26));
+// $xx-large_wall:  ($x-large_wall *             (48 / 35));
+// $xxx-large_wall: ($xx-large_wall *            (65 / 48));
+// $display-2_wall: ($xxx-large_wall *           (89 / 65));
+// $display-1_wall: ($display-2_wall *           (120 / 89));
+//
+// // Jumbotron
+// $small_jumbotron:     ($regular *             (17 / 21));
+// $x-small_jumbotron:   ($small_jumbotron *     (14 / 17));
+// $xx-small_jumbotron:  ($x-small_jumbotron *   (11 / 14));
+// $xxx-small_jumbotron: ($xx-small_jumbotron *  (9 / 11));
+//
+// $large_jumbotron:     ($regular *             (30 / 21));
+// $x-large_jumbotron:   ($large_jumbotron *     (42 / 30));
+// $xx-large_jumbotron:  ($x-large_jumbotron *   (59 / 42));
+// $xxx-large_jumbotron: ($xx-large_jumbotron *  (84 / 59));
+// $display-2_jumbotron: ($xxx-large_jumbotron * (119 / 84));
+// $display-1_jumbotron: ($display-2_jumbotron * (168 / 119));
 
 $font_sizes: (
   xxx-small_hand:          $xxx-small_hand,

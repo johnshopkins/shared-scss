@@ -94,24 +94,34 @@
 }
 
 
-@mixin font_size($attr: font-size, $target_size: regular, $context_size: regular) {
+@mixin font_size($attr: font-size, $target_size: regular, $context_size: regular, $font-ratio: gentona) {
 
-  #{$attr}: (map-get($font_sizes, $target_size#{_hand}) / map-get($font_sizes, $context_size#{_hand}))#{em};
+  @if ($font-ratio == gentona) {
+    $font-ratio: $gentona-ratio;
+  } @elseif ($font-ratio == quadon) {
+    $font-ratio: $quadon-ratio;
+  } @elseif ($font-ratio == arnhem) {
+    $font-ratio: $arnhem-ratio;
+  } @elseif ($font-ratio == titling) {
+    $font-ratio: $titling-ratio;
+  }
+
+  #{$attr}: (round((map-get($font_sizes, $target_size#{_hand}) * $default_font_size_px) * $font-ratio) / (map-get($font_sizes, $context_size#{_hand}) * $default_font_size_px))#{em};
 
   @include breakpoint_lap_width() {
-    #{$attr}: (map-get($font_sizes, $target_size#{_lap}) / map-get($font_sizes, $context_size#{_lap}))#{em};
+    #{$attr}: (round((map-get($font_sizes, $target_size#{_lap}) * $breakpoint_lap_font_size_px) * $font-ratio) / (map-get($font_sizes, $context_size#{_lap}) * $breakpoint_lap_font_size_px))#{em};
   }
 
   @include breakpoint_desk_width() {
-    #{$attr}: (map-get($font_sizes, $target_size#{_desk}) / map-get($font_sizes, $context_size#{_desk}))#{em};
+    #{$attr}: (round((map-get($font_sizes, $target_size#{_desk}) * $breakpoint_desk_font_size_px) * $font-ratio) / (map-get($font_sizes, $context_size#{_desk}) * $breakpoint_desk_font_size_px))#{em};
   }
 
   @include breakpoint_wall_width() {
-    #{$attr}: (map-get($font_sizes, $target_size#{_wall}) / map-get($font_sizes, $context_size#{_wall}))#{em};
+    #{$attr}: (round((map-get($font_sizes, $target_size#{_wall}) * $breakpoint_wall_font_size_px) * $font-ratio) / (map-get($font_sizes, $context_size#{_wall}) * $breakpoint_wall_font_size_px))#{em};
   }
 
   @include breakpoint_jumbotron_width() {
-    #{$attr}: (map-get($font_sizes, $target_size#{_jumbotron}) / map-get($font_sizes, $context_size#{_jumbotron}))#{em};
+    #{$attr}: (round((map-get($font_sizes, $target_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px) * $font-ratio) / (map-get($font_sizes, $context_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px))#{em};
   }
 }
 
