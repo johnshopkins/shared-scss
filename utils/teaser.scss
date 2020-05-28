@@ -1086,7 +1086,6 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, large, regular, $headline-ratio);
-      padding-bottom: $headline-ratio;
       font-weight: 800;
       line-height: 1em / $headline-ratio;
 
