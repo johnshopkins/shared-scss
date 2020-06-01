@@ -90,6 +90,20 @@ ul,
   }
 }
 
+.wp-block-jhu-group {
+
+  + * {
+    margin-top: $standard_spacing;
+  }
+}
+
+* {
+
+  + .wp-block-jhu-group {
+    margin-top: $standard_spacing;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -120,20 +134,26 @@ a {
 }
 
 blockquote {
+  border-left: solid $light $gray1;
+  color: $sparta;
+  font-family: $quadon;
+  @include font_size(font-size, large, regular);
+  margin: 1em 0;
+  padding: 0 1.5em;
+}
 
-  cite {
-    color: $gray4;
-    // display: block;
-    font-family: $gentona;
-    font-size: $small;
-    font-weight: 400;
-    margin-top: #{($standard_spacing / 6) / $small}em;
-    // text-align: right;
+cite {
+  color: $gray4;
+  // display: block;
+  font-family: $gentona;
+  @include font_size(font-size, small);
+  font-weight: 400;
+  margin-top: #{($standard_spacing / 6) / $small}em;
+  // text-align: right;
 
-    &::before {
-      content: '\2014';
-      display: inline;
-    }
+  &::before {
+    content: '\2014';
+    display: inline;
   }
 }
 
