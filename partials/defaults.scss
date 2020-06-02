@@ -63,6 +63,7 @@ h6,
 ol,
 p,
 ul,
+.jhu-block,
 .teaser {
   margin: 0;
 
@@ -85,6 +86,7 @@ ul,
   + ol,
   + p,
   + ul,
+  + .jhu-block,
   + .teaser {
     margin-top: ($standard_spacing / 3);
   }
@@ -100,7 +102,7 @@ ul,
 * {
 
   + .wp-block-jhu-group {
-    margin-top: $standard_spacing;
+    margin-top: ($standard_spacing / 2);
   }
 }
 

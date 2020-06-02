@@ -32,6 +32,30 @@
   padding-left: 0;
 }
 
+@mixin headline_bar($text-color: inherit, $bar-color: $jay) {
+  font-size: $x-small;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $text-color;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:after {
+    width: 100%;
+    height: #{$bold / $x-small}em;
+    margin-left: 0.33em;
+    background-color: $bar-color;
+    display: inline-block;
+    content: '';
+  }
+
+  + *,
+  + .teaser {
+    margin-top: 0.5em !important;
+  }
+}
+
+
 
 /**
 * Long Shadows
