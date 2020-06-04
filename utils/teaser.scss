@@ -99,6 +99,28 @@
     }
   }
 
+  @if ($style == 'padded') {
+    padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+
+    @if ($color != null) {
+      background-color: $color;
+    }
+
+    @else {
+      background-color: mix($black, $white, 4.25%);
+    }
+
+    .teaser {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  @else {
+    background-color: transparent;
+    padding: 0;
+  }
+
   &.has-image {
     display: block;
     min-height: 0;

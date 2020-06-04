@@ -92,6 +92,8 @@ ul,
   }
 }
 
+form,
+[role='form'],
 .wp-block-jhu-group {
 
   + * {
@@ -100,7 +102,8 @@ ul,
 }
 
 * {
-
+  + form,
+  + [role='form'],
   + .wp-block-jhu-group {
     margin-top: ($standard_spacing / 2);
   }
@@ -142,20 +145,20 @@ blockquote {
   @include font_size(font-size, large, regular);
   margin: 1em 0;
   padding: 0 1.5em;
-}
 
-cite {
-  color: $gray4;
-  // display: block;
-  font-family: $gentona;
-  @include font_size(font-size, small);
-  font-weight: 400;
-  margin-top: #{($standard_spacing / 6) / $small}em;
-  // text-align: right;
+  cite {
+    color: $gray4;
+    // display: block;
+    font-family: $gentona;
+    @include font_size(font-size, small, large);
+    font-weight: 400;
+    margin-top: #{($standard_spacing / 6) / $small}em;
+    // text-align: right;
 
-  &::before {
-    content: '\2014';
-    display: inline;
+    &::before {
+      content: '\2014';
+      display: inline;
+    }
   }
 }
 
@@ -437,6 +440,22 @@ table {
   visibility: hidden;
 }
 
+.update {
+  background: $sparta;
+  @include border-radius(10em);
+  color: $white;
+  display: inline-block;
+  font-family: $gentona;
+  font-size: $xxx-small;
+  font-weight: 600;
+  height: #{(1em / $xxx-small)}em;
+  line-height: 0.6em;
+  padding: #{(((1em / $xxx-small) - 0.6) / 2)}em $bold #{(((1em / $xxx-small) - 0.6) / 2)}em;
+  position: relative;
+  text-transform: uppercase;
+  top: $thin * -1;
+  z-index: $stack_normal;
+}
 
 
 // Utility Classes
