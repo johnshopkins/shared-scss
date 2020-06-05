@@ -64,7 +64,8 @@ ol,
 p,
 ul,
 .jhu-block,
-.teaser {
+.teaser,
+.wp-block-image {
   margin: 0;
 
   + * {
@@ -87,7 +88,8 @@ ul,
   + p,
   + ul,
   + .jhu-block,
-  + .teaser {
+  + .teaser,
+  + .wp-block-image {
     margin-top: ($standard_spacing / 3);
   }
 }
