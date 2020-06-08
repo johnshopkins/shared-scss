@@ -289,6 +289,117 @@ figure {
   }
 }
 
+//\\//\\ CLOSE-X //\\//\\//\\//\\
+.close-box-x {
+  width: $menu_spacing;
+  height: $menu_spacing;
+  border: none;
+  @include border-radius(0 !important);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $stack_positioned;
+  background-color: $black;
+  color: $gray2;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  @include transition(background-color);
+  @include transition-duration($run);
+  @include transition-timing-function(ease-in-out);
+  @include backface-visibility(hidden);
+
+  &:before,
+  &:after {
+    width: 50%;
+    height: 0;
+    border-top: solid $thin $gray1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    background-color: transparent;
+    @include transition(border-top-color);
+    @include transition-duration($run);
+    @include transition-timing-function(ease-in-out);
+  }
+
+  &:before {
+    @include transform(translate(-50%, -50%) rotate(45deg));
+  }
+
+  &:after {
+    @include transform(translate(-50%, -50%) rotate(-45deg));
+  }
+
+  .fa {
+    width: ((($standard_spacing / 3) * 2) / 2); // math for font-size
+    height: ((($standard_spacing / 3) * 2) / 2); // math for font-size
+    margin: ((($standard_spacing / 12) * 2) / 2); // math for font-size
+    display: none;
+    visibility: hidden;
+    font-size: (($standard_spacing / 3) * 2);
+    color: $gray1;
+    @include transition(color);
+    @include transition-duration($run);
+    @include transition-timing-function(ease-in-out);
+  }
+
+  // light is the default, so we don't need to specify colors
+  // &.light { }
+
+  &.dark {
+
+    background-color: $white;
+    color: $gray4;
+
+    &:before, &:after {
+      border-top-color: $gray5;
+    }
+
+    .fa {
+      color: $gray5;
+    }
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  .close-box-x {
+
+    &:focus,
+    &:hover {
+      background-color: $gray5;
+
+      &:before,
+      &:after {
+        border-top-color: $white;
+      }
+
+      .fa {
+        color: $white;
+      }
+    }
+
+    &.dark {
+
+      &:focus,
+      &:hover {
+
+        &:before,
+        &:after {
+          border-top-color: $white;
+        }
+
+        .fa {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
 .is-type-video {
 
   &.wp-embed-aspect-4-3,

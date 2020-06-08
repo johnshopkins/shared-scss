@@ -500,6 +500,45 @@ $table_outline: $table_outline_width $table_outline_style $table_outline_color;
 
 
 
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ MENU VARIABLES //\\//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$menu_french_fries_width: 11.5em;
+$menu_width:              (15em + ($standard_spacing * 2));
+$menu_spacing:            $standard_spacing;
+$menu_duration:           $walk;
+$menu_timing_function:    $soft_bounce;
+$social_icon_size:        1.5em;
+
+
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\
+//\\ NEWS POP-UP /\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\
+
+$big_story_overflow: $standard_spacing;
+$big_story_width:    ($menu_width + $big_story_overflow);
+
+
+
+
+
+
+
+
+
+
+
 //\\//\\//\\//\\//\\//\\//\\
 //\\ MODAL VARIABLES /\\//\\
 //\\//\\//\\//\\//\\//\\//\\
