@@ -129,6 +129,21 @@ p {
   &:empty {
     display: none;
   }
+
+  &.has-large-font-size {
+    font-family: $quadon;
+    font-size: $large;
+    font-weight: 600;
+
+    a {
+      font-weight: 600;
+    }
+
+    b,
+    strong {
+      font-weight: 800;
+    }
+  }
 }
 
 a {

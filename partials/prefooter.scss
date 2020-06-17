@@ -1,0 +1,45 @@
+.prefooter {
+  background-color: $gray1;
+  padding: $standard_spacing 0;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $black;
+  }
+
+  form {
+
+    input[type="text"],
+    input[type="email"],
+    label,
+    select,
+    textarea,
+    .faq_question {
+      background-color: $gray1;
+      color: $black;
+    }
+  }
+
+  .module {
+
+    .module-content {
+      @include span(10 of 12);
+      margin: 0 get_span_width(1 of 12, 1);
+    }
+
+    &.col-1 {
+
+      .module-content {
+
+        > .column {
+          margin-right: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

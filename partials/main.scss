@@ -8,9 +8,10 @@
  *
  */
 
- @import "normalize";
- @import "grid";
- @import "defaults";
- @import "pagination";
- @import "search-box";
- @import "search-results";
+@import "normalize";
+@import "grid";
+@import "defaults";
+@import "pagination";
+@import 'prefooter';
+@import "search-box";
+@import "search-results";
