@@ -781,12 +781,14 @@
       font-family: $headline-family;
       // font-size: $x-small * $headline-ratio;
       @include font_size(font-size, x-small, regular, $headline-ratio);
-      font-weight: 600;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 600;
+        text-transform: none;
       }
     }
 
@@ -893,12 +895,14 @@
       font-family: $headline-family;
       // font-size: $small * $headline-ratio;
       @include font_size(font-size, small, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
@@ -1002,12 +1006,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, regular, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
@@ -1110,12 +1116,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, large, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
@@ -1218,12 +1226,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, x-large, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
@@ -1316,12 +1326,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xx-large, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
@@ -1425,12 +1437,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
-      font-weight: 800;
       line-height: 1em / $headline-ratio;
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
         text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
       }
     }
 
