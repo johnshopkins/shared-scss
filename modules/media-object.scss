@@ -2,10 +2,11 @@
 
 // Big News Story
 .big-story-container {
-  background-color: $gray5;
+  background-color: $black;
   bottom: 0;
   color: $gray1;
   display: block !important;
+  padding-right: 5%;
   position: fixed;
   right: ((100% + 5%) * -1);
   width: (100% + 5%);
@@ -16,12 +17,14 @@
   @include transition-timing-function(ease-in-out, ease-in-out);
 
   @include breakpoint_desk_width() {
+    padding-right: $big_story_overflow;
     right: (($big_story_width * 1.5) * -1);
     width: ($big_story_width * 1.5);
   }
 
   @include breakpoint_lap_width() {
     @include breakpoint_desk_height() {
+      padding-right: $big_story_overflow;
       right: ($big_story_width * -1);
       width: $big_story_width;
     }
@@ -87,111 +90,64 @@
     }
   }
 
-  .big-story {
-    background: transparent !important;
-    border: none;
-    color: inherit;
-    display: block;
-    padding: ($menu_spacing / 2);
-    padding-right: $menu_spacing + 0.5em;
-    width: percentage(100% / (100% + 5%));
-    @include transition(color);
-    @include transition-duration($run);
-    @include transition-delay(0);
-    @include transition-timing-function(ease-in-out);
+  .teaser {
+    @include teaser_aside(7 of 10, square, full, text, card, transparent);
+    @include teaser_medium(gentona);
 
-    @include breakpoint_desk_width() {
-      padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
-      width: 100%;
+    &,
+    &.has-image {
+
+      .text {
+        padding-right: $menu_spacing + 0.5em;
+      }
     }
 
-    @include breakpoint_lap_width() {
-      @include breakpoint_desk_height() {
-        padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
-        width: 100%;
+    .text {
+
+      h5 {
+        color: $white;
+      }
+      .summary {
+        color: $gray1;
       }
     }
   }
 
-  .date {
-    font-size: $small;
-    font-style: italic;
-    font-weight: 600;
-    margin: #{(($menu_spacing / 6) / $small)}em 0; // font size math
-    @include opacity(0.5);
-  }
+  // .big-story {
+  //   background: transparent !important;
+  //   border: none;
+  //   color: inherit;
+  //   display: block;
+  //   padding: ($menu_spacing / 2);
+  //   padding-right: $menu_spacing + 0.5em;
+  //   width: percentage(100% / (100% + 5%));
+  //   @include transition(color);
+  //   @include transition-duration($run);
+  //   @include transition-delay(0);
+  //   @include transition-timing-function(ease-in-out);
+  //
+  //   @include breakpoint_desk_width() {
+  //     padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
+  //     width: 100%;
+  //   }
+  //
+  //   @include breakpoint_lap_width() {
+  //     @include breakpoint_desk_height() {
+  //       padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
+  //       width: 100%;
+  //     }
+  //   }
+  // }
+  //
+  // .date {
+  //   font-size: $small;
+  //   font-style: italic;
+  //   font-weight: 600;
+  //   margin: #{(($menu_spacing / 6) / $small)}em 0; // font size math
+  //   @include opacity(0.5);
+  // }
 }
 
-.media-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.media-heading {
-  // font-weight: 700;
-  line-height: 1em;
-  margin-top: -0.1em !important;
-}
-
-.media,
-.media-body {
-  overflow: hidden;
-  zoom: 1;
-}
-
-.media {
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  .media-object {
-    border: 0;
-    display: none;
-    height: auto;
-    // margin-top: ($standard_spacing / 12);
-    padding: 0;
-    width: $standard_spacing;
-
-    @include breakpoint_lap_width() {
-      @include breakpoint_desk_height() {
-        display: block;
-      }
-    }
-  }
-
-  img {
-    min-width: 0;
-  }
-
-  > .pull-left {
-    float: left;
-    margin-right: ($standard_spacing / 6);
-  }
-
-  > .pull-right {
-    float: right;
-    margin-left: ($standard_spacing / 6);
-  }
-
-  .excerpt {
-    font-size: $small;
-    font-weight: 400;
-    line-height: 1.125em;
-
-    @include breakpoint_lap_width() {
-
-      @include breakpoint_desk_height() {
-        // margin-top: ($standard_spacing / 12);
-      }
-
-      @include breakpoint_wall_height() {
-        font-size: $regular;
-        // font-weight: 300;
-      }
-    }
-  }
-}
 
 .no-js,
 .no-touchevents {
@@ -199,17 +155,32 @@
   .big-story-container {
 
     &:focus,
-    &:focus-within,
-    &:hover {
-      background-color: $sparta !important;
-      color: $white;
+    &:focus-within {
+      background-color: $black;
+    }
+
+    .teaser {
+
+      .text {
+
+        h5 {
+
+          a {
+
+            &:focus,
+            &:hover {
+              color: $jay;
+            }
+          }
+        }
+      }
     }
 
     .close-box-x {
 
       &:focus,
       &:hover {
-        background-color: $black;
+        background-color: $gray5;
       }
     }
   }
