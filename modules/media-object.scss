@@ -214,3 +214,62 @@
     }
   }
 }
+
+.hide-extras,
+.main-nav-open {
+
+  .big-story-container {
+    right: ((100% + 5%) * -1);
+    @include transition-delay(0ms, 0ms);
+    @include transition-duration(($menu_duration / 2), $run);
+    @include transition-timing-function(ease-in-out, ease-in-out);
+
+    @include breakpoint_lap_width() {
+      @include breakpoint_desk_height() {
+        right: ($big_story_width * -1);
+      }
+    }
+
+    .close-box-x {
+      visibility: hidden;
+      @include opacity(0);
+      @include transition-delay(0ms, $run, 0ms);
+    }
+
+    &:focus,
+    &:focus-within {
+      right: (5% * -1);
+      @include transition-duration($menu_duration, $run);
+      @include transition-delay(($menu_duration / 2), 0);
+      @include transition-timing-function($menu_timing_function, ease-in-out);
+
+      @include breakpoint_hand_height() {
+        right: ((100% + 5%) * -1);
+        @include transition-duration(($menu_duration / 2), $run);
+        @include transition-timing-function(ease-in-out, ease-in-out);
+      }
+
+      @include breakpoint_desk_width() {
+        right: ($big_story_overflow * -1);
+
+        @include breakpoint_hand_height() {
+          right: (($big_story_width * 1.5) * -1);
+          @include transition-duration(($menu_duration / 2), $run);
+          @include transition-timing-function(ease-in-out, ease-in-out);
+        }
+      }
+
+      @include breakpoint_lap_width() {
+        @include breakpoint_desk_height() {
+          right: ($big_story_overflow * -1);
+        }
+      }
+
+      .close-box-x {
+        visibility: visible;
+        @include opacity(1);
+        @include transition-delay(0ms, 0ms, ($menu_duration + ($menu_duration / 2)));
+      }
+    }
+  }
+}
