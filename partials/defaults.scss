@@ -160,6 +160,8 @@ blockquote {
   color: $sparta;
   font-family: $quadon;
   @include font_size(font-size, large, regular);
+  font-style: normal;
+  font-weight: 400;
   margin: 1em 0;
   padding: 0 1.5em;
 
