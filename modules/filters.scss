@@ -182,7 +182,7 @@
 
         @include breakpoint_wall_width() {
           @include search_input(stacked);
-          @include span(3 of 3);
+          @include span(3 of 3, last);
         }
       }
 
@@ -190,7 +190,7 @@
 
         @include breakpoint_wall_width() {
           @include search_button(stacked);
-          @include span(3 of 3);
+          @include span(3 of 3, last);
         }
       }
     }

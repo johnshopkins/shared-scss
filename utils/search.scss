@@ -3,20 +3,21 @@
 @mixin search_input($layout) {
 
   @if $layout == stacked {
-    width: 100%;
-    padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
     border-width: #{$semi-bold / $large}em; // math for font size
     // border-right-width: #{$semi-bold / $large}em; // font size math
     border-bottom-width: 0;
     float: none;
+    padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
+    width: 100%;
 
   } @else {
-    width: percentage(2 / 3);
-    padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
     border-width: #{$semi-bold / $large}em; // math for font size
     // border-right-width: 0;
     border-bottom-width: #{$semi-bold / $large}em; // font size math
     float: left;
+    margin-right: 0;
+    padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
+    width: percentage(2 / 3);
   }
 }
 
