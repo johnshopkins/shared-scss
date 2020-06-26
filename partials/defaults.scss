@@ -8,6 +8,8 @@ body {
 
 html {
   margin: 0 !important;
+  padding: env(safe-area-inset);
+  overflow-x: hidden;
 }
 
 body {
@@ -24,6 +26,7 @@ body {
   // changes at each breakpoint.
   > * {
     font-size: 1em;
+    max-width: 100%;
 
     @include breakpoint_lap_width() {
       font-size: $breakpoint_lap_font_size;
@@ -320,37 +323,37 @@ figure {
 
 //\\//\\ CLOSE-X //\\//\\//\\//\\
 .close-box-x {
-  width: $menu_spacing;
-  height: $menu_spacing;
+  @include backface-visibility(hidden);
+  background-color: $black;
   border: none;
   @include border-radius(0 !important);
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: $stack_positioned;
-  background-color: $black;
-  color: $gray2;
-  text-decoration: none;
-  display: block;
+  color: $gray1;
   cursor: pointer;
+  display: block;
+  height: $standard_spacing;
+  position: fixed;
+  right: 0;
+  text-decoration: none;
+  top: 0;
   @include transition(background-color);
   @include transition-duration($run);
   @include transition-timing-function(ease-in-out);
-  @include backface-visibility(hidden);
+  width: $standard_spacing;
+  z-index: $stack_positioned;
 
   &:before,
   &:after {
-    width: 50%;
-    height: 0;
+    background-color: transparent;
     border-top: solid $thin $gray1;
+    content: '';
+    height: 0;
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
-    content: '';
-    background-color: transparent;
     @include transition(border-top-color);
     @include transition-duration($run);
     @include transition-timing-function(ease-in-out);
+    width: 50%;
   }
 
   &:before {
@@ -362,27 +365,26 @@ figure {
   }
 
   .fa {
-    width: ((($standard_spacing / 3) * 2) / 2); // math for font-size
+    display: none;
+    font-size: (($standard_spacing / 3) * 2);
     height: ((($standard_spacing / 3) * 2) / 2); // math for font-size
     margin: ((($standard_spacing / 12) * 2) / 2); // math for font-size
-    display: none;
-    visibility: hidden;
-    font-size: (($standard_spacing / 3) * 2);
-    color: $gray1;
     @include transition(color);
     @include transition-duration($run);
     @include transition-timing-function(ease-in-out);
+    visibility: hidden;
+    width: ((($standard_spacing / 3) * 2) / 2); // math for font-size
   }
 
   // light is the default, so we don't need to specify colors
   // &.light { }
 
   &.dark {
-
     background-color: $white;
     color: $gray4;
 
-    &:before, &:after {
+    &:after,
+    &:before {
       border-top-color: $gray5;
     }
 
@@ -401,8 +403,8 @@ figure {
     &:hover {
       background-color: $gray5;
 
-      &:before,
-      &:after {
+      &:after,
+      &:before {
         border-top-color: $white;
       }
 
@@ -416,8 +418,8 @@ figure {
       &:focus,
       &:hover {
 
-        &:before,
-        &:after {
+        &:after,
+        &:before {
           border-top-color: $white;
         }
 
