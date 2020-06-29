@@ -7,10 +7,7 @@
 
   .caption,
   .location,
-  .media-promo,
-  .publish-date,
-  .time,
-  .visuallyhidden {
+  .time {
     display: none !important;
   }
 
@@ -76,7 +73,7 @@
   .text {
 
     h5 {
-      font-family: $gentona;
+      // font-family: $gentona;
 
       a {
         border: none;
@@ -105,10 +102,6 @@
           }
         }
 
-        // .campus {
-        //   font-size: #{$x-small / $small}em;
-        // }
-
         .address {
           display: none;
         }
@@ -127,13 +120,9 @@
     .kicker,
     .publish-date,
     .media-promo,
-    .teaser .text .meta {
-      color: $sparta;
+    .meta {
       font-family: $gentona;
-      font-size: $x-small;
       font-weight: 400;
-      letter-spacing: $thin;
-      line-height: 90%;
       text-transform: uppercase;
 
 
@@ -148,6 +137,9 @@
     }
 
     .kicker {
+      color: $sparta;
+      letter-spacing: $thin;
+      line-height: 90%;
 
       .meta {
         padding-left: 0;
@@ -161,9 +153,14 @@
       }
     }
 
+    .publish-date,
+    .media-promo,
+    .meta {
+      color: $gray4;
+    }
+
     .summary {
-      font-family: $sans;
-      // font-size: $small;
+      font-family: $gentona;
       font-weight: 400;
       color: $gray5;
 
@@ -184,7 +181,6 @@
     }
 
     .source {
-      // font-size: $small;
       font-weight: 600;
       line-height: 140%;
       font-style: italic;

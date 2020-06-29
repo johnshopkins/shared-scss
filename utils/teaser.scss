@@ -818,7 +818,7 @@
 
     .media-promo,
     .publish-date {
-      @include font_size(font-size, xxx-small, xx-small);
+      @include font_size(font-size, xxx-small);
     }
 
     .source {
@@ -1065,7 +1065,7 @@
     .contact,
     .summary,
     .titles {
-      font-size: $x-small;
+      @include font_size(font-size, x-small);
 
       dd,
       li,
