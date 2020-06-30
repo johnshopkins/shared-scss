@@ -5,9 +5,7 @@
   width: 100%;
   z-index: $stack_normal;
 
-  .caption,
-  .location,
-  .time {
+  .caption {
     display: none !important;
   }
 
@@ -95,16 +93,16 @@
 
       &.location {
 
-        .building {
-
-          a {
-            display: none;
-          }
-        }
-
-        .address {
+        .address,
+        .building a,
+        .campus {
           display: none;
         }
+      }
+
+      &.location,
+      &.time {
+        display: none;
       }
 
       .fa {
