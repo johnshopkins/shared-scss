@@ -9,6 +9,14 @@ form + * {
 
 form {
 
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+
 	fieldset {
     border: none;
     margin: 0;
@@ -77,14 +85,16 @@ form {
 
 	label {
     color: $gray4;
-    margin: ($standard_spacing / 3) 0 0 0;
+    background: $white;
+    display: table;
+    @include font_size(font-size, small);
+    margin: ($standard_spacing / 3) 0 0 0.5em;
     overflow: hidden;
+    padding: 0 0.5em;
+    position: relative;
+    z-index: $stack_top;
 
     &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
       margin-top: 0;
     }
 
@@ -101,11 +111,15 @@ form {
 	input[type='email'],
   input[type='text'],
   select,
-  textarea {
+  textarea,
+  .faq_question {
+    background: $white;
+    background-image: none;
+    border: solid $light $black;
+    @include border_radius(0);
+    @include font_size(font-size, regular);
+    min-height: 2em + ($light * 2);
     width: 100%;
-    border: $light solid $black;
-    padding: ($standard_spacing / 6) ($standard_spacing / 4);
-		font-size: $regular;
 
 		&[type='checkbox'],
 		&[type='radio'],
@@ -115,45 +129,42 @@ form {
     }
 	}
 
+  input[type='email'],
+  input[type='text'],
+  textarea,
+  .faq_question {
+    padding: 0.5em;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select {
+    height: 2em + ($light * 2);
+  }
+
   input {
+
+    &[type="submit"] {
+      @include button(large, rounded, $magnolia_leaves, solid);
+    }
 
     &.required {
       padding-right: ($standard_spacing / 2);
     }
   }
 
-	textarea {
-    height: ($standard_spacing * 2);
+  select {
+    padding: 0 0.5em;
   }
 
-  .form_field {
-		padding-bottom: ($standard_spacing * (2 / 3));
-		clear: left;
-	}
-
-	// radios, checkboxes
-	.elements {
-    width: 100%;
-
-		.element {
-      margin-bottom: 3px;
-
-      input {
-        margin-top: 4px;
-        display: inline;
-      }
-      span { margin-left: 4px; }
-    }
-	}
-
-	.help {
-    padding-bottom: 5px;
+  span {
     display: block;
-    clear: left;
-	  color: $gray4;
-	  font-size: $small;
-    font-style: italic;
-	}
+  }
+
+	textarea {
+    display: block;
+    height: ($standard_spacing * 2);
+  }
 
   .datepicker {
     input {
@@ -167,6 +178,59 @@ form {
     }
   }
 
+  // radios, checkboxes
+  .elements {
+    width: 100%;
+
+    .element {
+      margin-bottom: 3px;
+
+      input {
+        margin-top: 4px;
+        display: inline;
+      }
+      span { margin-left: 4px; }
+    }
+  }
+
+  .faq_question {
+    padding: 1em;
+  }
+
+  .form-field,
+  .comments,
+  .recaptcha,
+  .submit,
+  .wpcf7-response-output {
+    @include span(10 of 10, last);
+    float: none;
+
+    + * {
+      margin-top: 1em;
+    }
+  }
+
+  .form_field {
+		padding-bottom: ($standard_spacing * (2 / 3));
+		clear: left;
+	}
+
+  * {
+
+    + .form-field {
+      margin-top: 1em;
+    }
+  }
+
+	.help {
+    padding-bottom: 5px;
+    display: block;
+    clear: left;
+	  color: $gray4;
+	  font-size: $small;
+    font-style: italic;
+	}
+
   // do not float label, field
   .nofloat {
 
@@ -179,6 +243,102 @@ form {
     select,
     textarea {
       width: 100%;
+    }
+  }
+
+  .note {
+
+    margin-top: 0;
+    @include font_size(font-size, small);
+    font-weight: 600;
+
+    + .form-field {
+      margin-top: 0.5em;
+    }
+  }
+
+  .required {
+    color: $burnt_orange;
+    display: inline;
+    font-weight: 800;
+  }
+
+  .submit {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    width: auto;
+    z-index: $stack_normal;
+
+    .ajax-loader {
+      animation: fa-spin 1s infinite steps(8);
+      -webkit-animation: fa-spin 1s infinite steps(8);
+      background-image: url('../images/loader.svg');
+      background-size: cover;
+      display: none;
+      height: 2em;
+      margin: 0;
+      margin-top: -1em;
+      position: absolute;
+      right: -2.25em;
+      top: 50%;
+      width: 2em;
+      z-index: $stack_normal;
+
+      &.is-active {
+        display: block;
+      }
+    }
+  }
+
+  .wpcf7-not-valid {
+    border-color: $burnt_orange !important;
+  }
+
+  .wpcf7-not-valid-tip {
+    background: $burnt_orange;
+    border: solid $burnt_orange;
+    @include responsive_ems(border-width, $light, regular "/" small);
+    color: $white;
+    @include font_size(font-size, small);
+    // padding: 0.25em 0.5em;
+    // padding: responsive_em(5em 0.25em, regular '+' small, hand);
+    @include responsive_ems(padding, 0.25em 0.5em, regular "/" small);
+  }
+
+  .wpcf7-list-item {
+    position: relative;
+    z-index: $stack_normal;
+
+    &.first {
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        top: 0.125em;
+      }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      font-size: $regular;
+      height: 1em;
+      left: 0;
+      position: absolute;
+      top: 0.625em;
+      width: 1em;
+      z-index: $stack_normal;
+
+      + * {
+        margin-left: 1.25em;
+      }
+    }
+
+    + .wpcf7-list-item {
+      border-top: solid $thin $gray1;
+      margin-top: 0.5em;
+      padding-top: 0.5em;
     }
   }
 }
@@ -333,8 +493,12 @@ form {
 	color: $red_clay;
 }
 
-.required {
-  color: $newer_hut_glass;
+.grecaptcha-badge {
+  display: none;
+}
+
+.recaptcha {
+  @include font_size(font-size, x-small);
 }
 
 .sidebar {
@@ -342,9 +506,8 @@ form {
   form {
 
     label {
-      // margin-bottom: #{($standard_spacing / 12) / $x-small}em;
-      margin-top: #{($standard_spacing / 4) / $x-small}em;
-      font-size: $x-small;
+      @include responsive_ems(margin-top, ($standard_spacing / 4), regular '/' x-small);
+      @include font_size(font-size, x-small);
 
       &:first-child {
         margin-top: 0;
@@ -352,7 +515,8 @@ form {
 
       + span,
       + br + span {
-        margin-top: (-0.75 * $x-small);
+        @include responsive_ems(margin-top, (($standard_spacing / 4) * -1), regular '/' x-small);
+
       }
   	}
 
@@ -414,6 +578,69 @@ form {
         text-align: center;
 
         &:first-child { margin-top: 0; }
+      }
+    }
+  }
+}
+
+.wpcf7 {
+
+  .screen-reader-response {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .wpcf7-response-output {
+    background-color: $academic_gold;
+    border-color: $academic_gold;
+    color: $black;
+    display: none;
+    font-weight: 800;
+    margin: 1em 0 0 0;
+    padding: 1em;
+
+    &[role="alert"] {
+      display: block;
+    }
+
+    &.wpcf7-mail-sent-ok {
+      background-color: $magnolia_leaves;
+      border-color: $magnolia_leaves;
+      color: $white;
+    }
+
+    ul {
+      @include font_size(font-size, regular, large);
+      font-weight: 400;
+      margin-left: 1em;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+
+.no-js,
+.no-touchevents {
+
+  form {
+
+    input {
+
+      &[type="submit"] {
+
+        &:focus,
+        &:hover {
+          // @include button(large, rounded, $magnolia_leaves, solid);
+          background-color: $spearmint;
+          border-color: $spearmint;
+          color: $double_black;
+        }
       }
     }
   }
