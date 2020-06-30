@@ -395,6 +395,28 @@ figure {
   }
 }
 
+.kicker {
+  color: $sparta;
+  font-family: $gentona;
+  font-weight: 400;
+  letter-spacing: $thin;
+  // line-height: 90%;
+  text-transform: uppercase;
+
+  .meta {
+    color: inherit !important;
+    font-size: 1em !important;
+    padding-left: 0;
+    position: static;
+
+    .fa {
+      width: auto;
+      position: static;
+      line-height: normal;
+    }
+  }
+}
+
 .no-js,
 .no-touchevents {
 
