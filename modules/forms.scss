@@ -153,6 +153,15 @@ form {
     }
   }
 
+  input[type="button"],
+  input[type="submit"],
+  button {
+
+    span {
+      display: inline;
+    }
+  }
+
   select {
     padding: 0 0.5em;
   }
@@ -167,6 +176,7 @@ form {
   }
 
   .datepicker {
+
     input {
       @include span(8 of 10);
       float: left;
