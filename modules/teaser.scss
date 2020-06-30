@@ -85,6 +85,77 @@
       }
     }
 
+    .kicker,
+    .publish-date,
+    .media-promo,
+    .meta {
+      font-family: $gentona;
+      font-weight: 400;
+
+      .plus {
+        display: inline-block;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .kicker {
+      color: $sparta;
+      letter-spacing: $thin;
+      line-height: 90%;
+      text-transform: uppercase;
+
+      .meta {
+        color: inherit !important;
+        font-size: 1em !important;
+        padding-left: 0;
+        position: static;
+
+        .fa {
+          width: auto;
+          position: static;
+          line-height: normal;
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      + .headline-container,
+      + .headline,
+      + .page-title {
+        margin-top: #{0.5em / $xx-large}em;
+
+        @include breakpoint_desk_width() {
+          margin-top: #{0.5em / $xxx-large}em;
+        }
+      }
+    }
+
+    .publish-date,
+    .media-promo,
+    .meta {
+      color: $gray4;
+    }
+
+    .publish-date,
+    .media-promo {
+      display: inline-block;
+      white-space: nowrap;
+
+      + .media-promo {
+
+        .fa {
+          padding-left: #{($standard_spacing / 8) / $small}em;
+          border-left: solid $gray2 #{$thin / $small}em;
+          margin-left: #{($standard_spacing / 36) / $small}em;
+        }
+      }
+    }
+
     .meta {
       line-height: normal;
       padding-left: 1.125em;
@@ -113,48 +184,6 @@
         z-index: $stack_normal;
         line-height: 120%;
       }
-    }
-
-    .kicker,
-    .publish-date,
-    .media-promo,
-    .meta {
-      font-family: $gentona;
-      font-weight: 400;
-      text-transform: uppercase;
-
-
-      .plus {
-        display: inline-block;
-      }
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-    }
-
-    .kicker {
-      color: $sparta;
-      letter-spacing: $thin;
-      line-height: 90%;
-
-      .meta {
-        padding-left: 0;
-        position: static;
-
-        .fa {
-          width: auto;
-          position: static;
-          line-height: normal;
-        }
-      }
-    }
-
-    .publish-date,
-    .media-promo,
-    .meta {
-      color: $gray4;
     }
 
     .summary {

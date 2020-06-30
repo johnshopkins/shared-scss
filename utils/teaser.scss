@@ -805,14 +805,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          // font-size: #{$xxx-small / $xx-small}em;
-          @include font_size(font-size, xxx-small, xx-small);
-        }
-      }
+      @include font_size(font-size, xxx-small, xx-small);
     }
 
 
@@ -924,13 +917,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          @include font_size(font-size, xx-small, x-small);
-        }
-      }
+      @include font_size(font-size, xx-small, x-small);
     }
 
     .source {
@@ -1034,13 +1021,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          @include font_size(font-size, xx-small, x-small);
-        }
-      }
+      @include font_size(font-size, xx-small, x-small);
     }
 
     .source {
@@ -1144,13 +1125,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          @include font_size(font-size, x-small, small);
-        }
-      }
+      @include font_size(font-size, x-small, small);
     }
 
     .source {
@@ -1349,13 +1324,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          @include font_size(font-size, x-small, small);
-        }
-      }
+      @include font_size(font-size, x-small, small);
     }
 
     .media-promo,
@@ -1465,13 +1434,7 @@
     }
 
     .meta {
-
-      &.location {
-
-        .campus {
-          @include font_size(font-size, small, regular);
-        }
-      }
+      @include font_size(font-size, small, regular);
     }
 
     .source {
