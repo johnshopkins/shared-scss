@@ -484,7 +484,8 @@ figure {
   }
 
   a {
-    border: none;
+    background-color: transparent !important;
+    border: none !important;
     @include box_shadow(none !important);
   }
 
