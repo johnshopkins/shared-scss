@@ -42,10 +42,6 @@
         padding-bottom: 0;
       }
     }
-
-    label {
-      z-index: $stack_normal;
-    }
   }
 
   .display-nav {
@@ -271,9 +267,7 @@
 
   label {
     padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
-  }
-
-  label {
+    z-index: $stack_normal;
 
     .fa {
       font-size: $small;
