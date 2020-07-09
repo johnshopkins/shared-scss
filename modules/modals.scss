@@ -1,0 +1,803 @@
+// @import 'partials/events';
+// @import 'partials/filters';
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// GENERAL MODAL AND MODAL OVERLAY STYLES \\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.modal,
+.modal-overlay {
+  height: 0;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+  overflow: hidden;
+  @include backface-visibility(hidden);
+
+  @include transition-property(
+    height,
+    top,
+    left,
+    background-color,
+    visibility,
+    box-shadow
+  );
+  @include transition-duration(
+    ($modal_duration / 2),
+    ($modal_duration / 2),
+    ($modal_duration / 2),
+    ($modal_duration / 2),
+    0ms,
+    ($modal_duration / 2)
+  );
+  @include transition-delay(
+    0ms,
+    0ms,
+    0ms,
+    0ms,
+    ($modal_duration / 2),
+    0ms
+  );
+  @include transition-timing-function(
+    ease-in-out,
+    ease-in-out,
+    ease-in-out,
+    ease-in-out,
+    linear,
+    ease-in-out
+  );
+}
+
+.modal {
+  z-index: $stack_modal;
+
+  &.modal-open {
+
+    > .center {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .close-box-x {
+      position: fixed;
+      visibility: visible;
+      @include opacity(1);
+      @include transition-delay(0ms, 0ms, ($modal_duration + $sprint));
+    }
+  }
+
+  > .center {
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .close-box-x {
+    position: absolute;
+    visibility: hidden;
+    @include opacity(0);
+    @include transition(background-color, visibility, opacity);
+    @include transition-duration($run, 0ms, $run); // background-color speed should match .modal-content
+    @include transition-delay(0ms, ($modal_duration + $sprint), 0ms);
+    @include transition-timing-function(ease-in-out, linear, ease-in-out);
+  }
+}
+
+.modal-overlay {
+  z-index: $stack_modal_bg;
+  background-color: transparent;
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// POP MODAL STYLES //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.pop-modal {
+
+  .modal-content {
+    @include span(8 of 12);
+    margin: get_span_width(2 of 12, 1);
+    margin-top: $standard_spacing;
+  }
+
+  //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  // GALLERY POP MODAL STYLES //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  &.gallery-modal {
+
+    .image,
+    .image img,
+    .image video {
+      width: auto;
+    }
+
+    .center,
+    .modal-content,
+    .carousel {
+    }
+
+    &.modal-open {
+
+      > .center {
+        overflow: visible;
+      }
+    }
+
+    > .center {
+
+      @include breakpoint_lap_width() {
+        @include breakpoint_desk_height() {
+          height: 100%;
+        }
+      }
+
+      @include breakpoint_desk_width() {
+        @include breakpoint_lap_height() {
+          height: 100%;
+        }
+      }
+    }
+
+    .modal-content {
+
+      @include breakpoint_lap_width() {
+        @include span(6 of 12);
+        margin-right: get_span_width(3 of 12, 1);
+        margin-bottom: $standard_spacing;
+        margin-left: get_span_width(3 of 12, 1);
+
+        @include breakpoint_desk_height() {
+          @include span(8 of 12);
+          margin-right: get_span_width(2 of 12, 1);
+          margin-left: get_span_width(2 of 12, 1);
+        }
+      }
+    }
+
+    // gallery modal
+    .carousel-nav {
+      background-color: $black;
+      border: none;
+      @include border-radius(0);
+      bottom: get_span_width(4 of 12, 1);
+      color: $gray1;
+      display: none;
+      font-size: $x-large;
+      margin-top: 0;
+      max-width: get_span_width(2 of 12);
+      padding: 0;
+      position: fixed;
+      text-align: center;
+      top: get_span_width(4 of 12, 1);
+      width: #{$standard_spacing / $x-large}em;
+      z-index: $stack_top;
+
+      &.active {
+        display: block;
+      }
+
+      &.previous {
+        left: 0;
+      }
+
+      &.next {
+        right: 0;
+      }
+    }
+
+    .images {
+
+      .image {
+        height: 0;
+        overflow: hidden;
+        @include opacity(0);
+
+        @include breakpoint_lap_width() {
+          @include breakpoint_desk_height() {
+            position: absolute;
+            top: $standard_spacing;
+            right: get_span_width(2 of 12, 1);
+            bottom: 0;
+            left: get_span_width(2 of 12, 1);
+            z-index: $stack_normal;
+          }
+        }
+
+        @include breakpoint_lap_height() {
+          @include breakpoint_desk_width() {
+            position: absolute;
+            top: $standard_spacing;
+            right: get_span_width(2 of 12, 1);
+            bottom: 0;
+            left: get_span_width(2 of 12, 1);
+            z-index: $stack_normal;
+          }
+
+          @include breakpoint_wall_width() {
+            right: get_span_width(1 of 12, 1);
+            left: get_span_width(1 of 12, 1);
+          }
+
+          @include breakpoint_jumbotron_width() {
+            right: 0;
+            left: 0;
+          }
+        }
+
+        &.active {
+          height: auto;
+          @include opacity(1);
+
+          @include breakpoint_lap_width() {
+            @include breakpoint_desk_height() {
+              z-index: $stack_positioned;
+              overflow: visible;
+            }
+          }
+
+          @include breakpoint_desk_width() {
+            @include breakpoint_lap_height() {
+              z-index: $stack_positioned;
+              overflow: visible;
+            }
+          }
+        }
+
+        img,
+        video {
+          display: block;
+          margin: 0 auto;
+          max-height: 100%;
+          max-width: 100%;
+        }
+
+        .caption-container {
+          width: 100%;
+          color: $gray1;
+
+          a {
+            color: $white;
+            background-color: $gray4;
+          }
+
+          @include breakpoint_lap_width() {
+            @include breakpoint_desk_height() {
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              z-index: $stack_normal;
+            }
+          }
+
+          @include breakpoint_desk_width() {
+            @include breakpoint_lap_height() {
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              z-index: $stack_normal;
+            }
+          }
+        }
+
+        .caption {
+          border-bottom-color: $white;
+
+          @include breakpoint_lap_width() {
+            @include breakpoint_desk_height() {
+              @include span(8 of 12);
+              margin: get_span_width(2 of 12, 1);
+              margin-top: 0;
+              margin-bottom: ($standard_spacing * (2 / 3));
+            }
+          }
+
+          @include breakpoint_desk_width() {
+            @include breakpoint_lap_height() {
+              @include span(10 of 12);
+              margin: get_span_width(1 of 12, 1);
+              margin-top: 0;
+              margin-bottom: ($standard_spacing / 3);
+            }
+          }
+
+          p {
+            color: inherit;
+          }
+
+          .credit {
+            color: $gray2;
+          }
+        }
+      }
+    }
+  }
+
+  //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  // VIDEO POP MODAL STYLES \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+  &.video-modal {
+
+    > .center { height: 100%; }
+
+    .modal-content {
+      @include span(12 of 12, last);
+      margin-bottom: $standard_spacing;
+      margin-left: 0;
+    }
+
+    .popup-video {
+      margin: 0 auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// SLIDE MODAL STYLES \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.slide-modal {
+  width: ($slide_modal_width_hand + $slide_modal_bleed_hand);
+  padding-right: $slide_modal_bleed_hand;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  background-color: $white;
+  @include box-shadow(0px 0 0px rgba($black, 0));
+
+  @include breakpoint_lap_width() {
+    width: ($slide_modal_width_lap + $slide_modal_bleed_lap);
+    padding-right: $slide_modal_bleed_lap;
+  }
+
+  @include breakpoint_desk_width() {
+    width: ($slide_modal_width_desk + $slide_modal_bleed_desk);
+    padding-right: $slide_modal_bleed_desk;
+  }
+
+  @include breakpoint_wall_width() {
+    width: ($slide_modal_width_wall + $slide_modal_bleed_wall);
+    padding-right: $slide_modal_bleed_wall;
+  }
+
+  @include breakpoint_jumbotron_width() {
+    width: ($slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron);
+    padding-right: $slide_modal_bleed_jumbotron;
+  }
+
+  // Alter the width of full width modals (except on hand,
+  // which should remain at 100%) to {$modal_fullscreen_width}
+  &.full-width {
+
+    @include breakpoint_lap_width() {
+      width: ($modal_fullscreen_width + $slide_modal_bleed_lap);
+    }
+
+    @include breakpoint_desk_width() {
+      width: ($modal_fullscreen_width + $slide_modal_bleed_desk);
+    }
+
+    @include breakpoint_wall_width() {
+      width: ($modal_fullscreen_width + $slide_modal_bleed_wall);
+    }
+
+    @include breakpoint_jumbotron_width() {
+      width: ($modal_fullscreen_width + $slide_modal_bleed_jumbotron);
+    }
+  }
+
+  &.search-modal {
+    width: 100%;
+    height: 0;
+    padding: 0;
+    position: relative;
+    left: 0;
+    background-color: $sparta;
+    overflow: hidden;
+    visibility: visible;
+    @include animation-name(menu_close);
+    @include animation-duration($modal_duration / 2);
+    @include animation-timing-function(ease-in-out);
+    @include backface-visibility(hidden);
+    @include transition-property(height);
+
+    &.modal-open {
+      left: 0;
+      height: ($standard_spacing * 4);
+      overflow: hidden;
+      @include animation-name(menu_open);
+      @include animation-duration($modal_duration);
+
+      @include breakpoint_lap_width() {
+        height: ($standard_spacing * 3);
+      }
+    }
+
+    .center {
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 1440px;
+    }
+
+    .close-box-x {
+      padding-top: 0;
+    }
+
+    .modal-content {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .search-box {
+      padding: $standard_spacing;
+
+      @include breakpoint_lap_width() {
+        padding: $standard_spacing 0;
+      }
+
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+        height: 0;
+        visibility: hidden;
+      }
+
+      form {
+        background-color: $white;
+        width: 100%;
+
+        @include breakpoint_lap_width() {
+          margin: 0 get_span_width(1 of 12, 1);
+          width: get_span_width(10 of 12);
+        }
+
+        @include breakpoint_jumbotron_width() {
+          margin-left: 0;
+          margin-right: 0;
+          width: get_span_width(12 of 12);
+        }
+
+        input,
+        button {
+          border-color: $white;
+        }
+
+        input {
+
+          @include breakpoint_lap_width() {
+            @include search_input(aside);
+            width: get_span_width(7 of 10, 1);
+          }
+
+          @include breakpoint_jumbotron_width() {
+            width: get_span_width(9 of 12, 1);
+          }
+        }
+
+        button {
+          background-color: $sparta;
+
+          @include breakpoint_lap_width() {
+            @include search_button(aside);
+            width: get_span_width(3 of 10);
+          }
+
+          @include breakpoint_jumbotron_width() {
+            width: get_span_width(3 of 12);
+          }
+        }
+      }
+    }
+  }
+
+  &.comments-modal {
+
+    .center {
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-content {
+      height: auto;
+    }
+
+    .disclaimer {
+      font-size: $x-small;
+      color: $gray4;
+    }
+  }
+
+  &.email-modal {
+
+    .btn,
+    .loading {
+      float: left;
+    }
+
+    .loading {
+      width: 3em;
+      font-size: $small;
+    }
+
+    .submit { padding-bottom: 0; }
+
+  }
+
+  &.modal-open {
+    left: (100% - $slide_modal_width_hand);
+    @include box-shadow(-0.25em 0 0.25em rgba($black, 0.05));
+    @include transition-duration($modal_duration, $modal_duration);
+    @include transition-timing-function($modal_timing_function, $modal_timing_function);
+
+    @include breakpoint_lap_width() { left: (100% - $slide_modal_width_lap); }
+    @include breakpoint_desk_width() { left: (100% - $slide_modal_width_desk); }
+    @include breakpoint_wall_width() { left: (100% - $slide_modal_width_wall); }
+    @include breakpoint_jumbotron_width() { left: (100% - $slide_modal_width_jumbotron); }
+
+    .close-box-x {
+      right: 0;
+      @include transition-delay(0ms, 0ms, ($modal_duration + $sprint));
+    }
+  }
+
+  .close-box-x {
+    right: percentage($slide_modal_bleed_hand / ($slide_modal_width_hand + $slide_modal_bleed_hand)); // must match padding-right of modal wrapper.
+
+    @include breakpoint_lap_width() { right: percentage($slide_modal_bleed_lap / ($slide_modal_width_lap + $slide_modal_bleed_lap)); } // must match padding-right of modal wrapper.
+    @include breakpoint_desk_width() { right: percentage($slide_modal_bleed_desk / ($slide_modal_width_desk + $slide_modal_bleed_desk)); } // must match padding-right of modal wrapper.
+    @include breakpoint_wall_width() { right: percentage($slide_modal_bleed_wall / ($slide_modal_width_wall + $slide_modal_bleed_wall)); } // must match padding-right of modal wrapper.
+    @include breakpoint_jumbotron_width() { right: percentage($slide_modal_bleed_jumbotron / ($slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron)); } // must match padding-right of modal wrapper.
+  }
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: $standard_spacing ($standard_spacing / 3);
+    position: relative;
+    background-color: $white;
+
+    @include breakpoint_lap_width() {
+      padding-right: $standard_spacing;
+      padding-left: $standard_spacing;
+    }
+
+    @include breakpoint_desk_width() {
+      padding-right: ($standard_spacing / 2);
+      padding-left: ($standard_spacing / 2);
+    }
+
+    @include breakpoint_wall_width() {
+      padding-right: $standard_spacing;
+      padding-left: $standard_spacing;
+    }
+
+    > a {
+      margin-bottom: #{0.25em / $small}em;
+      font-size: $small;
+      font-weight: 700;
+      display: table;
+    }
+  }
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// OPENED POP AND SLIDE MODAL STYLES /\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.pop-modal-open,
+.slide-modal-open {
+
+  .modal-open,
+  .modal-overlay {
+    visibility: visible;
+    @include transition-duration(
+      $modal_duration,
+      $modal_duration,
+      $modal_duration,
+      $modal_duration,
+      0ms,
+      $modal_duration
+    );
+    @include transition-delay(
+      0ms,
+      0ms,
+      0ms,
+      0ms,
+      0ms,
+      0ms
+    );
+    @include transition-timing-function(
+      $modal_timing_function,
+      $modal_timing_function,
+      $modal_timing_function,
+      $modal_timing_function,
+      linear,
+      $modal_timing_function
+    );
+  }
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// OPENED POP MODAL STYLES \//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.pop-modal-open {
+  // keeps body from scrolling when pop modal is open
+  overflow: hidden;
+
+  &.slide-modal-open {
+
+    .modal-overlay {
+      z-index: $stack_modal + 1;
+    }
+
+    .pop-modal {
+      z-index: $stack_modal + 2;
+    }
+  }
+
+  .modal-open,
+  .modal-overlay {
+    height: 100%;
+    top: 0;
+  }
+
+  .modal-overlay {
+    background-color: $black;
+  }
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// OPENED SLIDE MODAL STYLES /\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.slide-modal-open,
+.search-modal-open.comments-modal-open {
+
+  // pushes the main content of the body to the left when comments modal is open
+  .main-content-container {
+    margin-left: (get_span_width(2 of 12, 1) * -1);
+    margin-right: get_span_width(2 of 12, 1);
+    @include transition-duration($modal_duration, $modal_duration);
+    @include transition-timing-function($modal_timing_function, $modal_timing_function);
+
+    @include breakpoint_lap_width() {
+      margin-left: (get_span_width(3 of 12, 1) * -1);
+      margin-right: get_span_width(3 of 12, 1);
+    }
+
+    @include breakpoint_desk_width() {
+      margin-left: ((get_span_width(2 of 12, 1) - (get_gutter_width(of 12) / 2)) * -1);
+      margin-right: (get_span_width(2 of 12, 1) - (get_gutter_width(of 12) / 2));
+    }
+
+    @include breakpoint_jumbotron_width() {
+      margin-left: ((get_span_width(1 of 12, 1) - (get_gutter_width(of 12) / 2)) * -1);
+      margin-right: (get_span_width(1 of 12, 1) - (get_gutter_width(of 12) / 2));
+    }
+  }
+}
+
+.search-modal-open {
+
+  // pushes the main content of the body to the left when comments modal is open
+  .main-content-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+// MODAL STYLES IF CSS TRANSFORMS ARE AVAILABLE //\\//\\//\\//\\//\\//\\//\\//\\
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+.csstransforms {
+
+	.gallery-modal {
+
+		img,
+    video {
+
+      @include breakpoint_lap_width() {
+        @include breakpoint_desk_height() {
+    			position: absolute;
+    			top: 50%;
+    			left: 50%;
+    			z-index: $stack_normal;
+          @include transform(translate(-50%, -50%));
+        }
+      }
+
+      @include breakpoint_desk_width() {
+        @include breakpoint_lap_height() {
+    			position: absolute;
+    			top: 50%;
+    			left: 50%;
+    			z-index: $stack_normal;
+          @include transform(translate(-50%, -50%));
+        }
+      }
+		}
+	}
+
+  .video-modal {
+
+    .popup-video {
+      margin: 0;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: $stack_normal;
+      @include transform(translate(-50%, -50%));
+    }
+  }
+}
+
+.no-js,
+.no-touchevents {
+
+  .pop-modal {
+
+    //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+    // GALLERY POP MODAL STYLES //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+    //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
+    &.gallery-modal {
+
+      .carousel-nav {
+
+        &.active {
+
+          &:hover {
+            background-color: $gray5;
+            color: $white;
+          }
+        }
+      }
+
+      .images {
+
+        .image {
+
+          .caption-container {
+
+            a {
+
+              &:hover {
+                background-color: $gray1;
+                color: $black;
+              }
+
+              &:active {
+                background-color: $white;
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .slide-modal {
+
+    &.search-modal {
+
+      .search-box {
+
+        form {
+
+          button {
+
+            &:hover {
+              // need to re-declare the border color here because of the at work
+              // color overrides for anchors and buttons
+              border-color: $white;
+              background-color: $brody_wall;
+            }
+          }
+        }
+      }
+    }
+  }
+}
