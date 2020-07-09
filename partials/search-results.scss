@@ -4,6 +4,10 @@
 .key-matches,
 .search-result {
 
+  + * {
+    margin-top: ($standard_spacing / 3);
+  }
+
   + .search-results,
   + .key-matches,
   + .search-result {
@@ -21,15 +25,13 @@
   }
 }
 
-.search-results,
-.key-matches,
-.search-result {
+.search-results {
 
-  + * {
-    margin-top: ($standard_spacing / 3);
+  .stats {
+    color: $gray4;
+    @include font_size(font-size, small);
   }
 }
-
 
 .results-count {
   font-size: $x-small;

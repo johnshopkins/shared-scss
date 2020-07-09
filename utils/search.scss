@@ -3,20 +3,31 @@
 @mixin search_input($layout) {
 
   @if $layout == stacked {
-    border-width: #{$semi-bold / $large}em; // math for font size
+    // border-width: #{$semi-bold / $large}em; // math for font size
+    @include responsive_ems(border-width, $semi-bold, regular '/' large);
     // border-right-width: #{$semi-bold / $large}em; // font size math
     border-bottom-width: 0;
     float: none;
-    padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
+    // padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
+    @include responsive_ems(padding-bottom, ($semi-bold + ($semi-bold / 2)), regular '/' large);
+    @include responsive_ems(padding-left, ($standard_spacing / 4), regular '/' large);
+    @include responsive_ems(padding-right, ($standard_spacing / 4), regular '/' large);
+    @include responsive_ems(padding-top, ($semi-bold + ($semi-bold / 2)), regular '/' large);
     width: 100%;
 
   } @else {
-    border-width: #{$semi-bold / $large}em; // math for font size
+    // border-width: #{$semi-bold / $large}em; // math for font size
+    @include responsive_ems(border-width, $semi-bold, regular '/' large);
     // border-right-width: 0;
-    border-bottom-width: #{$semi-bold / $large}em; // font size math
+    // border-bottom-width: #{$semi-bold / $large}em; // font size math
+    @include responsive_ems(border-bottom-width, $semi-bold, regular '/' large);
     float: left;
     margin-right: 0;
-    padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
+    // padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
+    @include responsive_ems(padding-bottom, ($standard_spacing / 8), regular '/' large);
+    @include responsive_ems(padding-left, ($standard_spacing / 4), regular '/' large);
+    @include responsive_ems(padding-right, ($standard_spacing / 4), regular '/' large);
+    @include responsive_ems(padding-top, ($standard_spacing / 8), regular '/' large);
     width: percentage(2 / 3);
   }
 }
@@ -24,17 +35,24 @@
 @mixin search_button($layout) {
 
   @if $layout == stacked {
-    border-width: #{$semi-bold / $large}em; // math for font size
+    // border-width: #{$semi-bold / $large}em; // math for font size
+    @include responsive_ems(border-width, $semi-bold, regular '/' large);
     float: none;
     height: auto;
-    font-size: $large;
-    line-height: #{($standard_spacing / 2) / $large}em; //font-math
+    // font-size: $large;
+    @include font_size(font-size, large);
+    // line-height: #{($standard_spacing / 2) / $large}em; //font-math
+    @include responsive_ems(line-height, ($standard_spacing / 2), regular '/' large);
     // min-height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
     min-height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
-    padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
+    @include responsive_ems(min-height, ((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)), regular '/' large);
+    // padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
+    @include responsive_ems(padding, ($standard_spacing / 8), regular '/' large);
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
 
   } @else {
