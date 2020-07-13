@@ -177,6 +177,17 @@
   }
 }
 
+#googleSearchResults .gs-result.gs-promotion,
+.search-results .promotion {
+  background: transparent;
+  border: solid $light $sunlight;
+
+  .gs-promotion-text-cell {
+    padding: $standard_spacing / 4;
+  }
+}
+
+
 #googleSearchResults {
 
   table {
@@ -383,14 +394,6 @@
 
       &, * {
         text-decoration: none;
-      }
-    }
-
-    &.gs-promotion {
-      border: solid $light $sunlight;
-
-      .gs-promotion-text-cell {
-        padding: $standard_spacing / 4;
       }
     }
   }
