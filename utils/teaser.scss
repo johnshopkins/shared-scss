@@ -1469,3 +1469,107 @@
     }
   }
 }
+
+@mixin teaser_xxx-large($headline-font-family: gentona, $kicker-font-family: gentona) {
+  $headline-family: "";
+  $headline-ratio: "";
+  $kicker-family: "";
+  $kicker-ratio: "";
+
+  @if ($headline-font-family == quadon) {
+    $headline-family: $quadon;
+    $headline-ratio: $quadon-ratio;
+  } @elseif ($headline-font-family == arnhem) {
+    $headline-family: $arnhem;
+    $headline-ratio: $arnhem-ratio;
+  } @elseif ($headline-font-family == titling) {
+    $headline-family: $titling;
+    $headline-ratio: $titling-ratio;
+  } @else {
+    $headline-family: $gentona;
+    $headline-ratio: $gentona-ratio;
+  }
+
+  @if ($kicker-font-family == quadon) {
+    $kicker-family: $quadon;
+    $kicker-ratio: $quadon-ratio;
+  } @elseif ($kicker-font-family == arnhem) {
+    $kicker-family: $arnhem;
+    $kicker-ratio: $arnhem-ratio;
+  } @elseif ($kicker-font-family == titling) {
+    $kicker-family: $titling;
+    $kicker-ratio: $titling-ratio;
+  } @else {
+    $kicker-family: $gentona;
+    $kicker-ratio: $gentona-ratio;
+  }
+
+  .text {
+
+    h2,
+    h5 {
+      font-family: $headline-family;
+      @include font_size(font-size, display-2, regular, $headline-ratio);
+      line-height: 1em / $headline-ratio;
+
+      @if ($headline-font-family == titling) {
+        font-weight: 500;
+        text-transform: uppercase;
+      } @else {
+        font-weight: 800;
+        text-transform: none;
+      }
+    }
+
+    .kicker {
+      font-family: $kicker-family;
+      @include font_size(font-size, x-large, regular, $kicker-ratio);
+      letter-spacing: $thin;
+
+      + h2,
+      + h5 {
+        margin-top: #{(0.25em / $display-2) * $headline-ratio}em;
+      }
+    }
+
+    .media-promo,
+    .publish-date {
+      @include font_size(font-size, x-small);
+    }
+
+    .meta {
+      @include font_size(font-size, small, regular);
+    }
+
+    .source {
+      @include font_size(font-size, small, regular);
+    }
+
+    .expertise {
+
+      h3 {
+        @include font_size(font-size, regular);
+      }
+
+      ul {
+        @include font_size(font-size, small);
+
+        li {
+          font-size: 1em;
+        }
+      }
+    }
+
+    .contact,
+    .summary,
+    .titles {
+      @include font_size(font-size, regular);
+
+      dd,
+      li,
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}
