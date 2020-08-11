@@ -296,17 +296,22 @@ ol {
   }
 }
 
+figure,
+.wp-caption {
+
+  figcaption,
+  .wp-caption-text {
+    color: $gray3;
+    @include font_size(font-size, x-small);
+    padding: 0;
+    @include responsive_ems(padding-top, ($standard_spacing / 8), regular '/' x-small);
+  }
+}
+
 figure {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-
-  figcaption {
-    // border-bottom: solid $black $light;
-    color: $gray3;
-    font-size: $x-small;
-    padding: #{($standard_spacing / 8) / $x-small}em 0 0 0;
-  }
 
   iframe,
   img {
@@ -318,6 +323,13 @@ figure {
   img {
     height: auto;
     width: 100%;
+  }
+}
+
+.wp-caption {
+
+  img {
+    margin-bottom: 0 !important;
   }
 }
 
@@ -624,6 +636,17 @@ table {
   text-transform: uppercase;
   top: $thin * -1;
   z-index: $stack_normal;
+}
+
+.gutenberg-error {
+  display: none;
+}
+
+.wp-admin {
+
+  .gutenberg-error {
+    display: block;
+  }
 }
 
 
