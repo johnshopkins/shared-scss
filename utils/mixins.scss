@@ -9,6 +9,17 @@
   @return $number;
 }
 
+@mixin force() {
+
+  &:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+}
+
 /**
 * Margin / Padding destruction
 *

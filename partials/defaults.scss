@@ -217,7 +217,7 @@ details {
   display: block;
   padding: ($standard_spacing / 6) 0;
 
-  * {
+  > * {
 
     &:last-child {
       margin-bottom: ($standard_spacing / 6);
@@ -631,12 +631,8 @@ table {
 // ==========================================================================
 
 // Force-clear floats
-.force:after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0;
+.force {
+  @include force();
 }
 
 * html .force             { zoom: 1; } /* IE6 */
