@@ -301,9 +301,11 @@ figure,
 
   figcaption,
   .wp-caption-text {
-    color: $gray3;
+    border-bottom: solid $light $black;
+    color: $gray4;
     @include font_size(font-size, x-small);
     padding: 0;
+    @include responsive_ems(padding-bottom, ($standard_spacing / 6), regular '/' x-small);
     @include responsive_ems(padding-top, ($standard_spacing / 8), regular '/' x-small);
   }
 }
