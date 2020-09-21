@@ -85,14 +85,7 @@ form {
 
 	label {
     color: $gray4;
-    background: $white;
-    display: table;
     @include font_size(font-size, small);
-    margin: ($standard_spacing / 3) 0 0 0.5em;
-    overflow: hidden;
-    padding: 0 0.5em;
-    position: relative;
-    z-index: $stack_top;
 
     &:first-child {
       margin-top: 0;
@@ -101,15 +94,10 @@ form {
     + br {
       display: none;
     }
-
-    + select,
-    + span,
-    + br + span {
-      margin-top: -0.625em;
-    }
 	}
 
 	input[type='email'],
+  input[type='tel'],
   input[type='text'],
   select,
   textarea,
@@ -208,6 +196,7 @@ form {
     padding: 1em;
   }
 
+  .form-fields,
   .form-field,
   .comments,
   .recaptcha,
@@ -227,19 +216,21 @@ form {
 	}
 
   * {
-
+    
+    + .form-fields,
     + .form-field {
       margin-top: 1em;
     }
   }
 
 	.help {
-    padding-bottom: 5px;
-    display: block;
     clear: left;
 	  color: $gray4;
-	  font-size: $small;
+    display: block;
+    @include font_size(font-size, x-small);
     font-style: italic;
+    @include responsive_ems(margin-top, $light, regular '/' x-small)
+    @include responsive_ems(padding-bottom, $light, regular '/' x-small)
 	}
 
   // do not float label, field
@@ -320,16 +311,11 @@ form {
   }
 
   .wpcf7-list-item {
+    display: block;
+    margin: 0;
+    padding-top: 0.5em;
     position: relative;
     z-index: $stack_normal;
-
-    &.first {
-
-      input[type="checkbox"],
-      input[type="radio"] {
-        top: 0.125em;
-      }
-    }
 
     input[type="checkbox"],
     input[type="radio"] {
@@ -346,10 +332,24 @@ form {
       }
     }
 
+    &.first {
+      border-top: solid $light $black;
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        // top: 0.125em;
+      }
+    }
+
+    // &.last {
+    //   border-bottom: solid $light $black;
+    //   padding-bottom: 0.5em;
+    // }
+
     + .wpcf7-list-item {
       border-top: solid $thin $gray1;
       margin-top: 0.5em;
-      padding-top: 0.5em;
+      // padding-top: 0.5em;
     }
   }
 }
@@ -402,7 +402,7 @@ form {
       }
     }
 
-    input {
+    input[not=".submit"] {
       color: $black;
 
       &.mce_inline_error {
