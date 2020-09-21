@@ -215,11 +215,24 @@ form {
 		clear: left;
 	}
 
+  .form-field {
+
+    label {
+      border-bottom: solid $light $black;
+      @include responsive_ems(border-bottom-width, $light, regular '/' small);
+      @include responsive_ems(margin-bottom, ($light * -1), regular '/' small);
+    }
+  }
+
   * {
-    
+
     + .form-fields,
     + .form-field {
       margin-top: 1em;
+
+      @include breakpoint_lap_width() {
+        margin-top: 1.5em;
+      }
     }
   }
 
