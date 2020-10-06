@@ -571,6 +571,11 @@ table {
       border-right: $table_cell_border;
       overflow: hidden;
 
+      b,
+      strong {
+        color: inherit;
+      }
+
       &:focus-within {
         overflow: visible;
       }
