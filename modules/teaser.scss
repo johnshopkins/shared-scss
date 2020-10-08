@@ -179,6 +179,13 @@
       font-style: italic;
     }
   }
+
+  &.event {
+
+    .event-meta {
+      display: none;
+    }
+  }
 }
 
 // .page-layout_inner {
