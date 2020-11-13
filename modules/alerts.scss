@@ -3,21 +3,34 @@
 .browse-happy,
 .hub-alert,
 .rave-alert,
-.skip-to-main {
+.skip-to-main,
+.site-alert {
   margin: 0;
   width: 100%;
 }
 
+.hub-alert-container,
+.rave-alert-container,
+.site-alert-container {
+
+  + .hub-alert-container,
+  + .rave-alert-container,
+  + .site-alert-container {
+    margin-top: 0;
+  }
+}
+
 .hub-alert,
-.rave-alert {
+.rave-alert,
+.site-alert {
   min-height: 2em;
   text-align: center;
 
-  &, a {
+  a {
     background-color: $jay;
-    border-bottom: none;
+    border: none;
     color: $black;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1em;
     @include transition(background-color $run ease-in-out, color $run ease-in-out);
   }
@@ -61,19 +74,13 @@
       color: $white;
     }
   }
+}
 
-  + .hub-alert,
-  + .rave-alert {
-    margin-top: 0;
-  }
+.site-alert {
 
-
-  + .identity-stripe {
-    border-top-color: $black !important;
-
-    .logo-tab {
-      background-color: $black !important;
-    }
+  a {
+    background-color: $white;
+    color: $brody_wall;
   }
 }
 
@@ -81,13 +88,14 @@
 .no-touchevents {
 
   .hub-alert,
-  .rave-alert {
+  .rave-alert,
+  .site-alert {
 
     a {
 
       &:focus,
       &:hover {
-        background-color: $sparta;
+        background-color: $brody_wall;
         color: $white;
       }
     }
@@ -119,4 +127,12 @@
       }
     }
   }
+
+  // .site-alert {
+  //
+  //   a:focus,
+  //   a:hover {
+  //
+  //   }
+  // }
 }
