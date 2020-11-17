@@ -9,10 +9,12 @@
   width: 100%;
 }
 
+.browse-happy,
 .hub-alert-container,
 .rave-alert-container,
 .site-alert-container {
 
+  + .browse-happy,
   + .hub-alert-container,
   + .rave-alert-container,
   + .site-alert-container {
@@ -20,11 +22,18 @@
   }
 }
 
+.browse-happy,
+.hub-alert,
+.rave-alert,
+.site-alert,
+.skip-to-main {
+  min-height: 2em;
+  text-align: center;
+}
+
 .hub-alert,
 .rave-alert,
 .site-alert {
-  min-height: 2em;
-  text-align: center;
 
   a {
     background-color: $jay;
@@ -63,7 +72,7 @@
     &, a {
       background-color: $new_academic_gold;
       color: $black;
-      font-weight: 600;
+      // font-weight: 600;
     }
   }
 
@@ -76,6 +85,20 @@
   }
 }
 
+.browse-happy,
+.skip-to-main {
+  padding: ($standard_spacing / 6);
+}
+
+.browse-happy {
+  background-color: $new_academic_gold;
+  color: $black;
+
+  a {
+    border-bottom-color: $black;
+  }
+}
+
 .site-alert {
 
   a {
@@ -84,20 +107,37 @@
   }
 }
 
+.skip-to-main {
+  border: none;
+  display: inline-block;
+  font-weight: 600;
+}
+
 .no-js,
 .no-touchevents {
+
+  .browse-happy,
+  .hub-alert,
+  .rave-alert,
+  .site-alert {
+
+    a:focus {
+      z-index: $stack_top;
+    }
+  }
+
+  .skip-to-main:focus {
+    z-index: $stack_top;
+  }
 
   .hub-alert,
   .rave-alert,
   .site-alert {
 
-    a {
-
-      &:focus,
-      &:hover {
-        background-color: $brody_wall;
-        color: $white;
-      }
+    a:focus,
+    a:hover {
+      background-color: $brody_wall;
+      color: $white;
     }
 
     &.red {
@@ -125,6 +165,17 @@
         background-color: darken($spearmint, 8%);
         color: $white;
       }
+    }
+  }
+
+  .browse-happy {
+
+    a:focus,
+    a:hover {
+      background-color: $black;
+      border-color: $black;
+      @include box-shadow(none);
+      color: $white;
     }
   }
 
