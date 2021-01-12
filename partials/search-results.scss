@@ -187,6 +187,73 @@
   }
 }
 
+.search-box {
+
+  + ol,
+  + ul {
+    left: 0 !important;
+    list-style: none;
+    padding-left: 0 !important;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.search-box + ol,
+.search-box + ul,
+#googleSearchResults .gsc-tabsArea {
+  border-bottom: none;
+  @include border-radius(0);
+  font-size: $regular;
+  height: auto;
+  margin-top: 0;
+  position: relative;
+  z-index: $stack_normal;
+
+  &:after {
+    border-bottom: solid $black $light;
+    bottom: 0;
+    content: '';
+    lefft: 0;
+    position: absolute;
+    width: 100%;
+    z-index: $stack_normal - 1;
+  }
+
+  > div {
+    height: auto;
+  }
+}
+
+.search-box + ol li.active,
+.search-box + ul li.active,
+#googleSearchResults .gsc-tabsArea .gsc-tabHeader {
+  background-color: $white;
+  border: solid $black (($light / $small) * 1em);
+  border-bottom: none;
+  color: $black;
+  font-size: $small;
+  font-weight: 600;
+  height: auto;
+  line-height: normal;
+  min-width: 0;
+  padding: (($thin / $small) * 1em) (($bold / $small) * 1em);
+  padding-bottom: ((($thin + $light) / $small) * 1em);
+}
+
+.search-box + ol li,
+.search-box + ul li,
+#googleSearchResults .gsc-tabsArea .gsc-tabHeader.gsc-tabhInactive {
+  background-color: $gray1;
+  border: solid 0;
+  border-bottom: solid $black (($light / $small) * 1em);
+  // border-color: $gray1;
+  color: $gray4;
+  padding: ((($thin + $light) / $small) * 1em) ((($bold + $light) / $small) * 1em);
+  padding-bottom: (($thin / $small) * 1em);
+}
 
 #googleSearchResults {
 
@@ -216,48 +283,11 @@
   }
 
   .gsc-tabsArea {
-    border-bottom: none;
-    @include border-radius(0);
-    font-size: $regular;
-    height: auto;
-    margin-top: 0;
-    position: relative;
-    z-index: $stack_normal;
-
-    &:after {
-      border-bottom: solid $black $light;
-      bottom: 0;
-      content: '';
-      lefft: 0;
-      position: absolute;
-      width: 100%;
-      z-index: $stack_normal - 1;
-    }
-
-    > div {
-      height: auto;
-    }
 
     .gsc-tabHeader {
-      border: solid $black (($light / $small) * 1em);
-      border-bottom: none;
-      color: $black;
-      font-size: $small;
-      font-weight: 600;
-      height: auto;
-      line-height: normal;
-      min-width: 0;
-      padding: (($thin / $small) * 1em) (($bold / $small) * 1em);
-      padding-bottom: ((($thin + $light) / $small) * 1em);
 
       &.gsc-tabhInactive {
-        background-color: $gray1;
-        border: solid 0;
-        border-bottom: solid $black (($light / $small) * 1em);
-        // border-color: $gray1;
-        color: $gray4;
-        padding: ((($thin + $light) / $small) * 1em) ((($bold + $light) / $small) * 1em);
-        padding-bottom: (($thin / $small) * 1em);
+
       }
     }
   }
