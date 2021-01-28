@@ -31,6 +31,29 @@
     color: $gray4;
     @include font_size(font-size, small);
   }
+
+  .teaser {
+
+    @include teaser_aside(8 of 10, portrait, full, text);
+
+    @include breakpoint_lap_width() {
+      @include teaser_aside(7 of 8, portrait, half, image);
+    }
+
+    @include breakpoint_desk_width() {
+      @include teaser_aside(8 of 9, portrait, half, image);
+    }
+
+    @include breakpoint_jumbotron_width() {
+      @include teaser_aside(10 of 11, portrait, half, image);
+    }
+
+    + .teaser {
+      border-top: solid $hairline $gray1;
+      margin-top: $standard_spacing / 3;
+      padding-top: $standard_spacing / 3;
+    }
+  }
 }
 
 .results-count {
@@ -41,9 +64,11 @@
 
 .search-results,
 .key-matches {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
+  font-family: $gentona;
+  font-size: 1em;
   left: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
   li {
     list-style: none;
@@ -255,6 +280,66 @@
   padding-bottom: (($thin / $small) * 1em);
 }
 
+.search-results .stats,
+#googleSearchResults .gsc-above-wrapper-area {
+  border-bottom: solid $hairline $gray1;
+  padding: $bold 0;
+}
+
+.search-results .stats,
+#googleSearchResults .gsc-above-wrapper-area .gsc-result-info {
+  color: $gray4;
+  font-size: $small;
+}
+
+ul.pagination {
+  left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.search-results ~ .pagination,
+#googleSearchResults .gsc-results .gsc-cursor-box {
+  border: none;
+  border-top: solid $thin $gray1;
+  @include border-radius(0);
+  margin: 0;
+  margin-top: $standard_spacing / 3;
+  padding-top: $standard_spacing / 6;
+  text-align: center;
+}
+
+.search-results ~ .pagination a,
+#googleSearchResults .gsc-results .gsc-cursor-page {
+  background: transparent;
+  border-bottom: solid $thin transparent;
+  color: $sparta;
+  font-family: $gentona;
+  font-size: $regular;
+  font-weight: 400;
+  margin: 0;
+  @include transition-property(border-bottom-color, color);
+  @include transition-duration($sprint, $sprint);
+  @include transition-timing-function(ease-in-out, ease-in-out);
+
+  &.gsc-cursor-current-page {
+    background: $sparta;
+    border-bottom-color: $sparta;
+    color: $white;
+    font-weight: 600;
+    padding: $thin $semi-bold;
+    padding-bottom: 0;
+  }
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  + .gsc-cursor-page {
+    margin-left: $standard_spacing / 4;
+  }
+}
+
 #googleSearchResults {
 
   table {
@@ -263,7 +348,6 @@
   }
 
   .gsc-above-wrapper-area {
-    padding: $bold 0;
 
     .gsc-result-info-container,
     .gsc-result-info {
@@ -271,14 +355,14 @@
       padding: 0;
     }
 
-    .gsc-result-info {
-      color: $gray4;
-      font-size: $small;
-    }
-
     .gsc-orderby-container {
+      font-size: 1em;
       overflow: visible;
       padding: 0 0 0 ($standard_spacing / 6);
+    }
+
+    ~ .gsc-wrapper {
+      padding-top: $standard_spacing / 3;
     }
   }
 
@@ -368,6 +452,7 @@
 
   .gs-web-image-box,
   .gs-promotion-image-box {
+    margin-right: 1em;
     padding: 0;
   }
 
@@ -412,61 +497,16 @@
 
   .gs-result {
 
-    img {
-
-      &.gs-image,
-      &.gs-promotion-image {
-        border: none;
-      }
+    .gs-image,
+    .gs-promotion-image {
+      border: none;
+      display: inline-block;
     }
 
     .gs-title {
 
       &, * {
         text-decoration: none;
-      }
-    }
-  }
-
-  .gsc-results {
-
-    .gsc-cursor-box {
-      border: none;
-      border-top: solid $thin $gray1;
-      @include border-radius(0);
-      margin: 0;
-      margin-top: $standard_spacing / 3;
-      padding-top: $standard_spacing / 6;
-      text-align: center;
-    }
-
-    .gsc-cursor-page {
-      background: transparent;
-      border-bottom: solid $thin transparent;
-      color: $sparta;
-      font-size: $regular;
-      font-weight: 400;
-      margin: 0;
-      @include transition-property(border-bottom-color, color);
-      @include transition-duration($sprint, $sprint);
-      @include transition-timing-function(ease-in-out, ease-in-out);
-
-      &.gsc-cursor-current-page {
-        background: $sparta;
-        border-bottom-color: $sparta;
-        color: $white;
-        font-weight: 600;
-        padding: $thin $semi-bold;
-        padding-bottom: 0;
-      }
-
-      &:focus,
-      &:hover {
-        text-decoration: none;
-      }
-
-      + .gsc-cursor-page {
-        margin-left: $standard_spacing / 4;
       }
     }
   }
@@ -481,38 +521,23 @@
 .no-js,
 .no-touchevents {
 
-  #googleSearchResults {
+  .search-results ~ .pagination a,
+  #googleSearchResults .gsc-results .gsc-cursor-page {
 
-    // a.gs-title,
-    // .gs-title a {
-    //
-    //   &:focus,
-    //   &:hover {
-    //
-    //     &, * {
-    //       color: $white;
-    //     }
-    //   }
-    // }
+    &.gsc-cursor-current-page {
 
-    .gsc-results {
-
-      .gsc-cursor-page {
-
-        &.gsc-cursor-current-page {
-
-          &:focus,
-          &:hover {
-            color: $white;
-          }
-        }
-
-        &:focus,
-        &:hover {
-          border-bottom-color: $sparta;
-          color: $black;
-        }
+      &:focus,
+      &:hover {
+        background-color: $sparta;
+        color: $white;
       }
+    }
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-bottom-color: $sparta;
+      color: $black;
     }
   }
 }
