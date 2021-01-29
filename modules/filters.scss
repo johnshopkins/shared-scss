@@ -5,7 +5,7 @@
   display: block;
   font-weight: 400;
   margin: 0;
-  margin-bottom: ($standard_spacing / 3);
+  // margin-bottom: ($standard_spacing / 3);
   width: 100%;
 
   @include breakpoint_desk_width() {
