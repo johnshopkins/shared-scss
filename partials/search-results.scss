@@ -327,7 +327,31 @@
   // border-bottom: solid $black (($light / $small) * 1em);
   // border-color: $gray1;
   color: $gray4;
+  cursor: pointer;
   font-weight: 400;
+}
+
+.no-js,
+.no-touchevents {
+
+  .search-box + ol li a,
+  .search-box + ul li a,
+  .search-box + .filters li a,
+  #googleSearchResults .gsc-tabsArea .gsc-tabHeader.gsc-tabhInactive {
+    background-color: $gray1;
+    // border: solid 0;
+    // border-bottom: solid $black (($light / $small) * 1em);
+    // border-color: $gray1;
+    color: $gray4;
+    font-weight: 400;
+
+    &:focus,
+    &:hover {
+      background-color: $jay;
+      border-color: $jay;
+      color: $black;
+    }
+  }
 }
 
 .search-results .stats,
