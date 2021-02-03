@@ -38,6 +38,7 @@
   a {
     background-color: $jay;
     border: none;
+    @include box_shadow(none !important);
     color: $black;
     cursor: pointer;
     font-weight: 600;
