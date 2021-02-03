@@ -39,6 +39,7 @@
     background-color: $jay;
     border: none;
     color: $black;
+    cursor: pointer;
     font-weight: 600;
     line-height: 1em;
     @include transition(background-color $run ease-in-out, color $run ease-in-out);
@@ -58,6 +59,7 @@
     font-weight: inherit;
   }
 
+  &.emergency,
   &.red {
 
     &, a {
@@ -67,6 +69,7 @@
     }
   }
 
+  &.warning,
   &.yellow {
 
     &, a {
@@ -140,6 +143,7 @@
       color: $white;
     }
 
+    &.emergency,
     &.red {
 
       a:focus,
@@ -149,6 +153,7 @@
       }
     }
 
+    &.warning,
     &.yellow {
 
       a:focus,
