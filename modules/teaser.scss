@@ -88,7 +88,8 @@
     .kicker,
     .publish-date,
     .media-promo,
-    .meta {
+    .meta,
+    .summary + p {
       font-family: $gentona;
       font-weight: 400;
 
@@ -103,7 +104,8 @@
 
     .publish-date,
     .media-promo,
-    .meta {
+    .meta,
+    .summary + p {
       color: $gray4;
     }
 
@@ -170,6 +172,11 @@
 
       .summary-text {
         margin-right: ($standard_spacing / 3);
+      }
+
+      + p {
+        font-style: italic;
+        margin-top: 0.125em;
       }
     }
 

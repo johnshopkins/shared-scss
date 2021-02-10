@@ -33,8 +33,8 @@
   }
 
   .teaser {
-
     @include teaser_aside(8 of 10, portrait, full, text);
+    margin-top: $standard_spacing / 3;
 
     @include breakpoint_lap_width() {
       @include teaser_aside(7 of 8, portrait, half, image);
@@ -50,7 +50,6 @@
 
     + .teaser {
       border-top: solid $hairline $gray1;
-      margin-top: $standard_spacing / 3;
       padding-top: $standard_spacing / 3;
     }
   }
@@ -216,7 +215,8 @@
 
   + ol,
   + ul,
-  + .filters {
+  + .filters,
+  ~ .sort {
     margin-top: $standard_spacing / 3;
   }
 
@@ -277,6 +277,40 @@
   &:before {
     color: $gray4;
     content: 'Filter by:';
+    display: table;
+    font-family: $gentona;
+    @include font_size(font-size, x-small);
+    left: 0;
+    @include responsive_ems(padding-bottom, $light, regular '/' x-small);
+    top: 0;
+    z-index: $stack_normal;
+  }
+}
+
+.search-box + .filters,
+.filters + .sort {
+
+  + div {
+    clear: both;
+  }
+}
+
+.search-box + .filters {
+  float: left;
+  width: auto;
+
+}
+
+.filters + .sort {
+  clear: none !important;
+  float: right;
+  width: $standard_spacing * 2;
+}
+
+.sort {
+
+  span {
+    color: $gray4;
     display: table;
     font-family: $gentona;
     @include font_size(font-size, x-small);
