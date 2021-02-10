@@ -5,6 +5,7 @@
 .rave-alert,
 .skip-to-main,
 .site-alert {
+  box-sizing: border-box;
   margin: 0;
   width: 100%;
 }
@@ -111,10 +112,36 @@
   }
 }
 
+// skip to main content link
 .skip-to-main {
+  background-color: $sparta;
   border: none;
-  display: inline-block;
+  color: $white;
+  display: block;
   font-weight: 600;
+  height: 0;
+  left: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  text-decoration: none;
+  // top: ($menu_spacing * -10);
+  top: 0;
+  @include transition(none);
+  z-index: $stack_normal;
+
+  &:focus,
+  &:hover {
+    background-color: $sparta;
+    color: $white;
+    height: auto;
+    min-height: ($standard_spacing * (2 / 3));
+    padding: ($standard_spacing / 6);
+    position: relative;
+    top: 0;
+    z-index: $stack_top;
+  }
 }
 
 .no-js,
