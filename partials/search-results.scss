@@ -289,16 +289,22 @@
 
 .search-box + .filters,
 .filters + .sort {
+  @include force();
 
   + div {
     clear: both;
+  }
+
+  + .loading {
+    clear: both;
+    float: none;
+    padding-top: 1em;
   }
 }
 
 .search-box + .filters {
   float: left;
   width: auto;
-
 }
 
 .filters + .sort {
