@@ -157,21 +157,21 @@
         position: relative;
       }
 
-      .image-square {
-        height: 0;
-        padding-bottom: 100% * (2 / 3);
-        position: relative;
-        z-index: $stack_normal;
-
-        img {
-          height: 150%;
-          left: 0;
-          position: absolute;
-          top: -25%;
-          width: 100%;
-          z-index: $stack_normal;
-        }
-      }
+      // .image-square {
+      //   height: 0;
+      //   padding-bottom: 100% * (2 / 3);
+      //   position: relative;
+      //   z-index: $stack_normal;
+      //
+      //   img {
+      //     height: 150%;
+      //     left: 0;
+      //     position: absolute;
+      //     top: -25%;
+      //     width: 100%;
+      //     z-index: $stack_normal;
+      //   }
+      // }
     }
 
     .text {
@@ -370,13 +370,13 @@
             width: 150%;
           }
 
-          .image-square {
-
-            img {
-              margin-left: 0;
-              width: 100%;
-            }
-          }
+          // .image-square {
+          //
+          //   img {
+          //     margin-left: 0;
+          //     width: 100%;
+          //   }
+          // }
         }
 
         @else {
@@ -389,18 +389,18 @@
             width: 100%;
           }
 
-          .image-square {
-            padding-bottom: 0;
-
-            img {
-              height: 100%;
-              left: 0;
-              position: static;
-              top: 0;
-              width: 100%;
-              z-index: $stack_normal;
-            }
-          }
+          // .image-square {
+          //   padding-bottom: 0;
+          //
+          //   img {
+          //     height: 100%;
+          //     left: 0;
+          //     position: static;
+          //     top: 0;
+          //     width: 100%;
+          //     z-index: $stack_normal;
+          //   }
+          // }
         }
       }
     }
@@ -599,16 +599,16 @@
           //    }
           // }
 
-          .image-square {
-
-            img {
-              height: 100%;
-              left: 50%;
-              position: relative;
-              top: 0;
-              width: auto;
-            }
-          }
+          // .image-square {
+          //
+          //   img {
+          //     height: 100%;
+          //     left: 50%;
+          //     position: relative;
+          //     top: 0;
+          //     width: auto;
+          //   }
+          // }
         }
       }
 
