@@ -103,6 +103,8 @@ form {
 	input[type='email'],
   input[type='tel'],
   input[type='text'],
+  input[type='date'],
+  input[type='time'],
   select,
   textarea,
   .faq_question {
@@ -124,6 +126,8 @@ form {
 
   input[type='email'],
   input[type='text'],
+  input[type='date'],
+  input[type='time'],
   textarea,
   .faq_question {
     padding: 0.5em;
@@ -550,6 +554,8 @@ form {
 
     input[type='email'],
     input[type='text'],
+    input[type='date'],
+    input[type='time'],
     select,
     textarea {
       padding: ($standard_spacing / 12) ($standard_spacing / 8);
