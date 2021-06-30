@@ -631,23 +631,24 @@ form {
   }
 
   .wpcf7-response-output {
-    background-color: $academic_gold;
-    border-color: $academic_gold;
+    // background-color: $academic_gold;
+    // border-color: $academic_gold;
     color: $black;
-    display: none;
+    // display: none;
+    display: block;
     font-weight: 800;
-    margin: 1em 0 0 0;
-    padding: 1em;
+    margin: 1em 0 0 0 !important;
+    padding: 1em !important;
 
-    &[role="alert"] {
-      display: block;
-    }
+    // &[role="alert"] {
+    //   display: block;
+    // }
 
-    &.wpcf7-mail-sent-ok {
-      background-color: $magnolia_leaves;
-      border-color: $magnolia_leaves;
-      color: $white;
-    }
+    // &.wpcf7-mail-sent-ok {
+    //   background-color: $magnolia_leaves;
+    //   border-color: $magnolia_leaves;
+    //   color: $white;
+    // }
 
     ul {
       @include font_size(font-size, regular, large);
