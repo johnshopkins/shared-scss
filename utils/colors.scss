@@ -46,14 +46,16 @@
 // $new_copper_petina: #86C8BC;    // 564 C
 // $bright_turquoise: #00AB8E;     // 3268 C
 
+@use "sass:math";
+
 $white: #FFFFFF;
 $double_black: #000000;
 $black: #31261D;
-$gray5: mix($black, $white, (100% * (5 / 6)));
-$gray4: mix($black, $white, (100% * (4 / 6)));
-$gray3: mix($black, $white, (100% * (3 / 6)));
-$gray2: mix($black, $white, (100% * (2 / 6)));
-$gray1: mix($black, $white, (100% * (1 / 6)));
+$gray5: mix($black, $white, (100% * math.div(5, 6)));
+$gray4: mix($black, $white, (100% * math.div(4, 6)));
+$gray3: mix($black, $white, (100% * math.div(3, 6)));
+$gray2: mix($black, $white, (100% * math.div(2, 6)));
+$gray1: mix($black, $white, (100% * math.div(1, 6)));
 
 $sable: $black;
 $background_gray: mix($black, $white, 4.25%); // #f6f6f5

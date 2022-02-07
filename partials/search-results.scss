@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../utils/main";
 
 .search-results,
@@ -5,14 +7,14 @@
 .search-result {
 
   + * {
-    margin-top: ($standard_spacing / 3);
+    margin-top: math.div($standard_spacing, 3);
   }
 
   + .search-results,
   + .key-matches,
   + .search-result {
     border-top: $hairline $gray1 solid;
-    padding-top: ($standard_spacing / 3);
+    padding-top: math.div($standard_spacing, 3);
   }
 }
 
@@ -21,7 +23,7 @@
   + .search-results,
   + .key-matches,
   + .search-result {
-    margin-top: ($standard_spacing / 3);
+    margin-top: math.div($standard_spacing, 3);
   }
 }
 
@@ -34,7 +36,7 @@
 
   .teaser {
     @include teaser_aside(8 of 10, portrait, full, text);
-    margin-top: $standard_spacing / 3;
+    margin-top: math.div($standard_spacing, 3);
 
     @include breakpoint_lap_width() {
       @include teaser_aside(7 of 8, portrait, half, image);
@@ -50,14 +52,14 @@
 
     + .teaser {
       border-top: solid $hairline $gray1;
-      padding-top: $standard_spacing / 3;
+      padding-top: math.div($standard_spacing, 3);
     }
   }
 }
 
 .results-count {
   font-size: $x-small;
-  margin-top: #{($standard_spacing / 6) / $x-small}em;
+  margin-top: #{math.div(math.div($standard_spacing, 6), $x-small)}em;
 
 }
 
@@ -77,17 +79,17 @@
 .key-matches {
 
   .fa {
-    width: #{1em / $x-small}em;
-    margin-left: #{(1em / $x-small) * -1}em;
+    width: #{math.div(1em, $x-small)}em;
+    margin-left: #{math.div(1em, $x-small) * -1}em;
     font-size: $x-small;
-    line-height: #{1.125em / $x-small}em;
+    line-height: #{math.div(1.125em, $x-small)}em;
     text-align: left;
     color: $new_academic_gold;
     display: block;
     float: left;
 
     @include breakpoint_lap_width() {
-      line-height: #{$large / $x-small}em; // matches h4 font-size changes to maintain vertical spacing
+      line-height: #{math.div($large, $x-small)}em; // matches h4 font-size changes to maintain vertical spacing
     }
   }
 }
@@ -113,7 +115,7 @@
     + .description,
     + .snippet,
     + .url {
-      margin-top: $standard_spacing / 12;
+      margin-top: math.div($standard_spacing, 12);
     }
 
     a { font-weight: inherit; }
@@ -150,28 +152,28 @@
   }
 
   .button {
-    margin-top: ($standard_spacing / 12);
+    margin-top: math.div($standard_spacing, 12);
 
     &.small {
-      margin-top: #{($standard_spacing / 12) / $small}em; //font-size math
+      margin-top: #{math.div(math.div($standard_spacing, 12), $small)}em; //font-size math
     }
 
     &.x-small {
-      margin-top: #{($standard_spacing / 12) / $x-small}em; //font-size math
+      margin-top: #{math.div(math.div($standard_spacing, 12), $x-small)}em; //font-size math
     }
   }
 }
 
 .not-who,
 .cant-find {
-  margin-top: ($standard_spacing / 3);
-  padding-top: ($standard_spacing / 6);
+  margin-top: math.div($standard_spacing, 3);
+  padding-top: math.div($standard_spacing, 6);
   border-top: solid $thin rgba($black, 0.1);
   text-align: center;
 }
 
 .not-who {
-  padding-bottom: ($standard_spacing / 3);
+  padding-bottom: math.div($standard_spacing, 3);
   border-bottom: $medium solid $black;
 }
 
@@ -195,7 +197,7 @@
 
     td {
       font-size: $small;
-      line-height: (2em / $small) * 1em;
+      line-height: math.div(2em, $small) * 1em;
       padding: 0;
     }
   }
@@ -207,7 +209,7 @@
   border: solid $light $sunlight;
 
   .gs-promotion-text-cell {
-    padding: $standard_spacing / 4;
+    padding: $standard_spacing * 0.25;
   }
 }
 
@@ -217,7 +219,7 @@
   + ul,
   + .filters,
   ~ .sort {
-    margin-top: $standard_spacing / 3;
+    margin-top: math.div($standard_spacing, 3);
   }
 
   + ol,
@@ -417,8 +419,8 @@ ul.pagination {
   border-top: solid $thin $gray1;
   @include border-radius(0);
   margin: 0;
-  margin-top: $standard_spacing / 3;
-  padding-top: $standard_spacing / 6;
+  margin-top: math.div($standard_spacing, 3);
+  padding-top: math.div($standard_spacing, 6);
   text-align: center;
 }
 
@@ -450,7 +452,7 @@ ul.pagination {
   }
 
   + .gsc-cursor-page {
-    margin-left: $standard_spacing / 4;
+    margin-left: $standard_spacing * 0.25;
   }
 }
 
@@ -472,11 +474,11 @@ ul.pagination {
     .gsc-orderby-container {
       font-size: 1em;
       overflow: visible;
-      padding: 0 0 0 ($standard_spacing / 6);
+      padding: 0 0 0 math.div($standard_spacing, 6);
     }
 
     ~ .gsc-wrapper {
-      padding-top: $standard_spacing / 3;
+      padding-top: math.div($standard_spacing, 3);
     }
   }
 
@@ -504,7 +506,7 @@ ul.pagination {
   .gsc-url-top {
     font-size: $x-small;
     font-weight: 400;
-    margin-top: ($light / $xx-small) * 1em;
+    margin-top: math.div($light, $xx-small) * 1em;
   }
 
   .gsc-table-result {
@@ -533,8 +535,8 @@ ul.pagination {
     + .gsc-result,
     + .gsc-expansionArea {
       border-top: solid $hairline $gray1;
-      margin-top: $standard_spacing / 3;
-      padding-top: $standard_spacing / 3;
+      margin-top: math.div($standard_spacing, 3);
+      padding-top: math.div($standard_spacing, 3);
     }
   }
 

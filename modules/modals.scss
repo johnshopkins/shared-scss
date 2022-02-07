@@ -4,6 +4,8 @@
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 // GENERAL MODAL AND MODAL OVERLAY STYLES \\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+@use "sass:math";
+
 .modal,
 .modal-overlay {
   height: 0;
@@ -24,19 +26,19 @@
     box-shadow
   );
   @include transition-duration(
-    ($modal_duration / 2),
-    ($modal_duration / 2),
-    ($modal_duration / 2),
-    ($modal_duration / 2),
+    ($modal_duration * 0.5),
+    ($modal_duration * 0.5),
+    ($modal_duration * 0.5),
+    ($modal_duration * 0.5),
     0ms,
-    ($modal_duration / 2)
+    ($modal_duration * 0.5)
   );
   @include transition-delay(
     0ms,
     0ms,
     0ms,
     0ms,
-    ($modal_duration / 2),
+    ($modal_duration * 0.5),
     0ms
   );
   @include transition-timing-function(
@@ -168,7 +170,7 @@
       position: fixed;
       text-align: center;
       top: get_span_width(4 of 12, 1);
-      width: #{$standard_spacing / $x-large}em;
+      width: #{math.div($standard_spacing, $x-large)}em;
       z-index: $stack_top;
 
       &.active {
@@ -286,7 +288,7 @@
               @include span(8 of 12);
               margin: get_span_width(2 of 12, 1);
               margin-top: 0;
-              margin-bottom: ($standard_spacing * (2 / 3));
+              margin-bottom: ($standard_spacing * math.div(2, 3));
             }
           }
 
@@ -295,7 +297,7 @@
               @include span(10 of 12);
               margin: get_span_width(1 of 12, 1);
               margin-top: 0;
-              margin-bottom: ($standard_spacing / 3);
+              margin-bottom: math.div($standard_spacing, 3);
             }
           }
 
@@ -398,7 +400,7 @@
     overflow: hidden;
     visibility: visible;
     @include animation-name(menu_close);
-    @include animation-duration($modal_duration / 2);
+    @include animation-duration($modal_duration * 0.5);
     @include animation-timing-function(ease-in-out);
     @include backface-visibility(hidden);
     @include transition-property(height);
@@ -545,19 +547,19 @@
   }
 
   .close-box-x {
-    right: percentage($slide_modal_bleed_hand / ($slide_modal_width_hand + $slide_modal_bleed_hand)); // must match padding-right of modal wrapper.
+    right: percentage(math.div($slide_modal_bleed_hand, $slide_modal_width_hand + $slide_modal_bleed_hand)); // must match padding-right of modal wrapper.
 
-    @include breakpoint_lap_width() { right: percentage($slide_modal_bleed_lap / ($slide_modal_width_lap + $slide_modal_bleed_lap)); } // must match padding-right of modal wrapper.
-    @include breakpoint_desk_width() { right: percentage($slide_modal_bleed_desk / ($slide_modal_width_desk + $slide_modal_bleed_desk)); } // must match padding-right of modal wrapper.
-    @include breakpoint_wall_width() { right: percentage($slide_modal_bleed_wall / ($slide_modal_width_wall + $slide_modal_bleed_wall)); } // must match padding-right of modal wrapper.
-    @include breakpoint_jumbotron_width() { right: percentage($slide_modal_bleed_jumbotron / ($slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron)); } // must match padding-right of modal wrapper.
+    @include breakpoint_lap_width() { right: percentage(math.div($slide_modal_bleed_lap, $slide_modal_width_lap + $slide_modal_bleed_lap)); } // must match padding-right of modal wrapper.
+    @include breakpoint_desk_width() { right: percentage(math.div($slide_modal_bleed_desk, $slide_modal_width_desk + $slide_modal_bleed_desk)); } // must match padding-right of modal wrapper.
+    @include breakpoint_wall_width() { right: percentage(math.div($slide_modal_bleed_wall, $slide_modal_width_wall + $slide_modal_bleed_wall)); } // must match padding-right of modal wrapper.
+    @include breakpoint_jumbotron_width() { right: percentage(math.div($slide_modal_bleed_jumbotron, $slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron)); } // must match padding-right of modal wrapper.
   }
 
   .modal-content {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: $standard_spacing ($standard_spacing / 3);
+    padding: $standard_spacing math.div($standard_spacing, 3);
     position: relative;
     background-color: $white;
 
@@ -567,8 +569,8 @@
     }
 
     @include breakpoint_desk_width() {
-      padding-right: ($standard_spacing / 2);
-      padding-left: ($standard_spacing / 2);
+      padding-right: ($standard_spacing * 0.5);
+      padding-left: ($standard_spacing * 0.5);
     }
 
     @include breakpoint_wall_width() {
@@ -577,7 +579,7 @@
     }
 
     > a {
-      margin-bottom: #{0.25em / $small}em;
+      margin-bottom: #{math.div(0.25em, $small)}em;
       font-size: $small;
       font-weight: 700;
       display: table;
@@ -669,13 +671,13 @@
     }
 
     @include breakpoint_desk_width() {
-      margin-left: ((get_span_width(2 of 12, 1) - (get_gutter_width(of 12) / 2)) * -1);
-      margin-right: (get_span_width(2 of 12, 1) - (get_gutter_width(of 12) / 2));
+      margin-left: ((get_span_width(2 of 12, 1) - (get_gutter_width(of 12) * 0.5)) * -1);
+      margin-right: (get_span_width(2 of 12, 1) - (get_gutter_width(of 12) * 0.5));
     }
 
     @include breakpoint_jumbotron_width() {
-      margin-left: ((get_span_width(1 of 12, 1) - (get_gutter_width(of 12) / 2)) * -1);
-      margin-right: (get_span_width(1 of 12, 1) - (get_gutter_width(of 12) / 2));
+      margin-left: ((get_span_width(1 of 12, 1) - (get_gutter_width(of 12) * 0.5)) * -1);
+      margin-right: (get_span_width(1 of 12, 1) - (get_gutter_width(of 12) * 0.5));
     }
   }
 }

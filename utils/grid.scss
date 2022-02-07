@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $maxwidth: 1440;
 $gutterwidth: 36;
 $columns: 12;
@@ -5,10 +7,10 @@ $columns: 12;
 $guttercount: $columns - 1;
 $gutterspace: $gutterwidth * $guttercount;
 $columnspace: $maxwidth - $gutterspace;
-$columnmax: $columnspace / $columns;
+$columnmax: math.div($columnspace, $columns);
 
-$column: percentage($columnmax / $maxwidth);
-$gutter: percentage($gutterwidth / $maxwidth);
+$column: percentage(math.div($columnmax, $maxwidth));
+$gutter: percentage(math.div($gutterwidth, $maxwidth));
 
 
 /**
@@ -35,7 +37,7 @@ $gutter: percentage($gutterwidth / $maxwidth);
  * @return {[type]}        [description]
  */
 @function nested_value($target, $context) {
-  @return $target / $context;
+  @return math.div($target, $context);
 }
 
 /**
@@ -69,7 +71,7 @@ $gutter: percentage($gutterwidth / $maxwidth);
 
 @function get_gutter_width($ratio) {
   $context: nth($ratio, -1);
-  @return percentage($gutter / default_span($context));
+  @return percentage(math.div($gutter, default_span($context)));
 }
 
 

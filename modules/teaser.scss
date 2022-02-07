@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .teaser {
   @include teaser_aside(7 of 10, landscape, full, text, padded);
   @include teaser_medium();
@@ -117,9 +119,9 @@
       + .media-promo {
 
         .fa {
-          padding-left: #{($standard_spacing / 8) / $small}em;
-          border-left: solid $gray2 #{$thin / $small}em;
-          margin-left: #{($standard_spacing / 36) / $small}em;
+          padding-left: #{math.div(($standard_spacing * 0.125), $small)}em;
+          border-left: solid $gray2 #{math.div($thin, $small)}em;
+          margin-left: #{math.div(math.div($standard_spacing, 36), $small)}em;
         }
       }
     }
@@ -166,12 +168,12 @@
         }
 
         + button {
-          margin-top: $standard_spacing / 6;
+          margin-top: math.div($standard_spacing, 6);
         }
       }
 
       .summary-text {
-        margin-right: ($standard_spacing / 3);
+        margin-right: math.div($standard_spacing, 3);
       }
 
       + p {

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import 'mixins';
 
 @mixin button_radius($corners: rounded) {
@@ -22,31 +24,31 @@
   + input[type="reset"],
   + .button,
   + .wp-block-button {
-    margin-top: $standard_spacing / 6;
+    margin-top: math.div($standard_spacing, 6);
 
     &.xx-small {
       // margin-top: #{($standard_spacing / 6) / $xx-small}em;
-      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' xx-small);
+      @include responsive_ems(margin-top, math.div($standard_spacing, 6), regular '/' xx-small);
     }
 
     &.x-small {
       // margin-top: #{($standard_spacing / 6) / $x-small}em;
-      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' x-small);
+      @include responsive_ems(margin-top, math.div($standard_spacing, 6), regular '/' x-small);
     }
 
     &.small {
       // margin-top: #{($standard_spacing / 6) / $small}em;
-      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' small);
+      @include responsive_ems(margin-top, math.div($standard_spacing, 6), regular '/' small);
     }
 
     &.large {
       // margin-top: #{($standard_spacing / 6) / $large}em;
-      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' large);
+      @include responsive_ems(margin-top, math.div($standard_spacing, 6), regular '/' large);
     }
 
     &.x-large {
       // margin-top: #{($standard_spacing / 6) / $x-large}em;
-      @include responsive_ems(margin-top, ($standard_spacing / 6), regular '/' x-large);
+      @include responsive_ems(margin-top, math.div($standard_spacing, 6), regular '/' x-large);
     }
   }
 }
@@ -211,18 +213,18 @@
 
   @if $size == 'medium' {
     @include font_size(font-size, regular);
-    padding: $standard_spacing / 8;
+    padding: $standard_spacing * 0.125;
 
   } @else if $size == 'small' {
     @include responsive_ems(border-width, $light, regular '/' small);
     @include font_size(font-size, small);
-    padding: $standard_spacing / 8;
+    padding: $standard_spacing * 0.125;
 
 
   } @else if $size == 'large' {
     @include responsive_ems(border-width, $light, regular '/' large);
     @include font_size(font-size, large);
-    padding: $standard_spacing / 8;
+    padding: $standard_spacing * 0.125;
   }
 }
 
@@ -234,7 +236,7 @@
     @include font_size(font-size, xx-small);
     font-weight: 400;
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
-    @include responsive_ems(padding, ($standard_spacing / 12), regular '/' xx-small);
+    @include responsive_ems(padding, math.div($standard_spacing, 12), regular '/' xx-small);
   }
 
   @else if ($size == x-small) {
@@ -243,7 +245,7 @@
     @include font_size(font-size, x-small);
     font-weight: 400;
     // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
-    @include responsive_ems(padding, ($standard_spacing / 12), regular '/' x-small);
+    @include responsive_ems(padding, math.div($standard_spacing, 12), regular '/' x-small);
   }
 
   @else if ($size == small) {
@@ -252,7 +254,7 @@
     @include font_size(font-size, small);
     font-weight: 600;
     // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
-    @include responsive_ems(padding, ($standard_spacing / 10), regular '/' small);
+    @include responsive_ems(padding, ($standard_spacing * 0.1), regular '/' small);
   }
 
   @else if ($size == large) {
@@ -261,7 +263,7 @@
     @include font_size(font-size, large);
     font-weight: 600;
     // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
-    @include responsive_ems(padding, ($standard_spacing / 6), regular '/' large);
+    @include responsive_ems(padding, math.div($standard_spacing, 6), regular '/' large);
   }
 
   @else if ($size == x-large) {
@@ -270,7 +272,7 @@
     @include font_size(font-size, x-large);
     font-weight: 600;
     // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
-    @include responsive_ems(padding, ($standard_spacing / 4), regular '/' x-large);
+    @include responsive_ems(padding, ($standard_spacing * 0.25), regular '/' x-large);
     width: 100%;
   }
 
@@ -278,7 +280,7 @@
     border-width: $light;
     font-size: $regular;
     font-weight: 600;
-    padding: ($standard_spacing / 8);
+    padding: ($standard_spacing * 0.125);
   }
 }
 
@@ -296,7 +298,7 @@
   text-transform: uppercase;
 
   + * {
-    margin-top: ($standard_spacing / 3);
+    margin-top: math.div($standard_spacing, 3);
   }
 
   @include button_spacing();

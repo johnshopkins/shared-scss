@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../utils/main";
 
 // Colors to show breakpoint changes, dev only
@@ -103,7 +105,7 @@ $color_jumbotron: $tricias_pants;
 
   &:before,
   &:after {
-    padding: ($standard_spacing / 6);
+    padding: math.div($standard_spacing, 6);
     background-color: $color_hand;
     display: inline-block;
   }

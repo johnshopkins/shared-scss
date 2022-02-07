@@ -1,7 +1,9 @@
+@use "sass:math";
+
 * {
 
   + .search-box {
-    margin-top: ($standard_spacing / 3);
+    margin-top: math.div($standard_spacing, 3);
   }
 }
 
@@ -55,13 +57,13 @@ form.search-box,
     @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out);
 
     .fa {
-      margin-right: ($standard_spacing / 12);
+      margin-right: math.div($standard_spacing, 12);
       color: inherit !important;
     }
   }
 
   + * {
-    margin-top: ($standard_spacing / 3);
+    margin-top: math.div($standard_spacing, 3);
   }
 }
 
@@ -99,7 +101,7 @@ form.search-box,
         font-size: $large;
         font-weight: 400;
         height: auto !important;
-        padding: ((($standard_spacing / 6) / $large) * 1em) ((($standard_spacing / 4) / $large) * 1em) !important;
+        padding: (math.div(math.div($standard_spacing, 6), $large) * 1em) (math.div(($standard_spacing * 0.25), $large) * 1em) !important;
 
         &::-webkit-input-placeholder { /* WebKit browsers */
           color: transparent;
@@ -130,10 +132,10 @@ form.search-box,
     }
 
     button.gsc-search-button {
-      border-width: 0 (($semi-bold / $large) * 1em);
+      border-width: 0 (math.div($semi-bold, $large) * 1em);
       font-size: $large;
-      height: (2.5em / $large) * 1em;
-      padding: ($semi-bold / $large) * 1em;
+      height: math.div(2.5em, $large) * 1em;
+      padding: math.div($semi-bold, $large) * 1em;
       text-align: center;
 
       svg {
@@ -156,7 +158,7 @@ form.search-box,
 
   a.gsst_a {
     font-size: $large !important;
-    padding: ((($standard_spacing / 8) / $large) * 1em) ((($standard_spacing / 8) / $large) * 1em) 0 !important;
+    padding: (math.div(($standard_spacing * 0.125), $large) * 1em) (math.div(($standard_spacing * 0.125), $large) * 1em) 0 !important;
 
     &:focus,
     &:hover {

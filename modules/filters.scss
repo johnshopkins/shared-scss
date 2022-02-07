@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../utils/main";
 
 .filters {
@@ -22,7 +24,7 @@
 
   form {
     margin: 0;
-    padding: ($standard_spacing / 3);
+    padding: math.div($standard_spacing, 3);
     padding-top: 0;
 
     @include breakpoint_desk_width() {
@@ -48,7 +50,7 @@
     cursor: pointer;
     font-size: $large;
     line-height: 100%;
-    padding-right: #{2.25em / $large}em; // matches .open/.close width
+    padding-right: #{math.div(2.25em, $large)}em; // matches .open/.close width
     position: relative;
     text-transform: uppercase;
     z-index: $stack_normal;
@@ -60,7 +62,7 @@
     button,
     span {
       @include transition(background-color $run ease-in-out, color $run ease-in-out);
-      height: #{2.25em / $large}em;
+      height: #{math.div(2.25em, $large)}em;
     }
 
     button {
@@ -71,12 +73,12 @@
       font-size: 1em; // inherits parent size of 1.25em
       line-height: inherit;
       margin: 0;
-      padding: #{(($standard_spacing / 6) / $large)}em 0;
+      padding: #{math.div(math.div($standard_spacing, 6), $large)}em 0;
       position: absolute;
       right: 0;
       text-align: center;
       top: 0;
-      width: #{2.25em / $large}em;
+      width: #{math.div(2.25em, $large)}em;
       z-index: $stack_positioned;
 
       &.close {
@@ -92,7 +94,7 @@
       display: block;
       font-family: $gentona;
       font-weight: 600;
-      padding: #{($standard_spacing / 6) / $large}em #{($standard_spacing / 3) / $large}em;
+      padding: #{math.div(math.div($standard_spacing, 6), $large)}em #{math.div(math.div($standard_spacing, 3), $large)}em;
     }
 
     .close {
@@ -105,7 +107,7 @@
 
     + form {
       border-top: solid $black $light;
-      padding-top: $standard_spacing / 3;
+      padding-top: math.div($standard_spacing, 3);
 
       @include breakpoint_desk_width() {
         border-top: none;
@@ -211,7 +213,7 @@
   button,
   .info {
     padding-left: 0;
-    padding-right: ($standard_spacing / 3) + ($standard_spacing / 12);
+    padding-right: math.div($standard_spacing, 3) + math.div($standard_spacing, 12);
   }
 
   a,
@@ -226,13 +228,13 @@
 
   input {
     font-size: 1em;
-    height: $standard_spacing / 3;
+    height: math.div($standard_spacing, 3);
     left: 0;
     // min-height: $standard_spacing / 3;
     position: absolute;
-    top: ($standard_spacing / 6);
+    top: math.div($standard_spacing, 6);
     @include transition(left $sprint ease-in-out);
-    width: $standard_spacing / 3;
+    width: math.div($standard_spacing, 3);
     z-index: $stack_normal + 1;
   }
 
@@ -243,10 +245,10 @@
     border: none;
     color: inherit;
     // @include division_colors(color);
-    min-height: ($standard_spacing * (2 / 3));
-    padding: ($standard_spacing / 6) 0;
+    min-height: ($standard_spacing * math.div(2, 3));
+    padding: math.div($standard_spacing, 6) 0;
     // padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
-    padding-right: ($standard_spacing / 6) + ($standard_spacing / 4);
+    padding-right: math.div($standard_spacing, 6) + ($standard_spacing * 0.25);
     text-align: left;
     text-transform: none;
     @include transition(padding-right, padding-left, background-color, color);
@@ -267,7 +269,7 @@
 
   label {
     font-size: 1em;
-    padding-left: ($standard_spacing / 3) + ($standard_spacing / 12);
+    padding-left: math.div($standard_spacing, 3) + math.div($standard_spacing, 12);
     z-index: $stack_normal;
 
     .fa {
@@ -286,13 +288,13 @@
       color: $gray4;
       font-size: 1em;
       margin: 0;
-      min-height: ($standard_spacing * (2 / 3));
-      padding: ($standard_spacing / 6);
+      min-height: ($standard_spacing * math.div(2, 3));
+      padding: math.div($standard_spacing, 6);
       position: absolute;
       right: 0;
       text-align: center;
       top: 0;
-      width: ($standard_spacing * (2 / 3));
+      width: ($standard_spacing * math.div(2, 3));
       z-index: $stack_positioned;
     }
   }
@@ -311,7 +313,7 @@
     max-height: 0;
     overflow: hidden;
     padding-bottom: 0;
-    padding-right: (($standard_spacing * (1 / 3)) + ($standard_spacing / 12));
+    padding-right: (($standard_spacing * math.div(1, 3)) + math.div($standard_spacing, 12));
     @include transition(max-height, padding-right, padding-bottom, padding-left, background-color, color);
     @include transition-duration($run, $run, $run, $run, $run);
     @include transition-timing-function(ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out);
@@ -329,7 +331,7 @@
 
     &.show {
       max-height: 20em;
-      padding-bottom: ($standard_spacing / 3);
+      padding-bottom: math.div($standard_spacing, 3);
 
       @include breakpoint_lap_width() {
         max-height: 8em;
@@ -348,7 +350,7 @@
 
 [data-filter-group='divisions'] .filter,
 .filter.parent-level {
-  padding: 0 ($standard_spacing * (2 / 3)) 0 0;
+  padding: 0 ($standard_spacing * math.div(2, 3)) 0 0;
 }
 
 .filter {
@@ -359,13 +361,13 @@
   &.active > .input-label-group {
 
     input {
-      left: $standard_spacing / 4;
+      left: $standard_spacing * 0.25;
     }
 
     label {
       background-color: $gray1;
-      padding-right: ($standard_spacing / 6);
-      padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
+      padding-right: math.div($standard_spacing, 6);
+      padding-left: ($standard_spacing * 0.25) + math.div($standard_spacing, 3) + math.div($standard_spacing, 12);
     }
   }
 
@@ -394,8 +396,8 @@
         background-color: $sparta;
         // @include division_colors(background-color);
         color: $white;
-        padding-left: ($standard_spacing / 4);
-        padding-right: ($standard_spacing / 6);
+        padding-left: ($standard_spacing * 0.25);
+        padding-right: math.div($standard_spacing, 6);
       }
     }
   }
@@ -407,7 +409,7 @@
 
   .child-filters {
     // changed to padding to give room for focus outline - jw
-    padding-left: ($standard_spacing / 3);
+    padding-left: math.div($standard_spacing, 3);
 
     margin-top: 0;
     overflow: hidden;
@@ -427,7 +429,7 @@
 
     .close {
       // gives room for the focus outline to display -jen
-      margin-bottom: ($standard_spacing / 6);
+      margin-bottom: math.div($standard_spacing, 6);
       width: inherit;
     }
   }
@@ -446,21 +448,21 @@
     input,
     .fa {
       font-size: $small;
-      padding: #{($standard_spacing / 6) / $small}em;
+      padding: #{math.div(math.div($standard_spacing, 6), $small)}em;
 
       @include breakpoint_lap_width() {
         font-size: $regular;
-        padding: #{($standard_spacing / 6) / $regular}em;
+        padding: #{math.div(math.div($standard_spacing, 6), $regular)}em;
       }
 
       @include breakpoint_desk_width() {
         font-size: $small;
-        padding: #{($standard_spacing / 6) / $small}em;
+        padding: #{math.div(math.div($standard_spacing, 6), $small)}em;
       }
 
       @include breakpoint_wall_width() {
         font-size: $regular;
-        padding: #{($standard_spacing / 6) / $regular}em;
+        padding: #{math.div(math.div($standard_spacing, 6), $regular)}em;
       }
     }
 
@@ -476,25 +478,25 @@
     }
 
     input {
-      border-width: #{$light / $small}em;
-      padding-left: #{$standard_spacing / $small}em;
+      border-width: #{math.div($light, $small)}em;
+      padding-left: #{math.div($standard_spacing, $small)}em;
       position: relative;
       width: 100%;
 
       @include breakpoint_lap_width() {
-        border-width: #{$light / $regular}em;
-        padding-left: #{$standard_spacing / $regular}em;
+        border-width: #{math.div($light, $regular)}em;
+        padding-left: #{math.div($standard_spacing, $regular)}em;
       }
 
       @include breakpoint_desk_width() {
-        border-width: #{$light / $small}em;
+        border-width: #{math.div($light, $small)}em;
         float: none;
-        padding-left: #{$standard_spacing / $small}em;
+        padding-left: #{math.div($standard_spacing, $small)}em;
       }
 
       @include breakpoint_wall_width() {
-        border-width: #{$light / $regular}em;
-        padding-left: #{$standard_spacing / $regular}em;
+        border-width: #{math.div($light, $regular)}em;
+        padding-left: #{math.div($standard_spacing, $regular)}em;
       }
     }
 
@@ -502,55 +504,55 @@
       line-height: 115%;
       position: absolute;
       text-align: center;
-      top: #{$light / $small}em;
-      width: #{$standard_spacing / $small}em;
+      top: #{math.div($light, $small)}em;
+      width: #{math.div($standard_spacing, $small)}em;
       z-index: $stack_positioned;
 
       &.fa-calendar {
-        left: #{$light / $small}em;
+        left: #{math.div($light, $small)}em;
       }
 
       &.fa-close {
-        right: #{$light / $small}em;
+        right: #{math.div($light, $small)}em;
       }
 
       @include breakpoint_lap_width() {
-        top: #{$light / $regular}em;
-        width: #{$standard_spacing / $regular}em;
+        top: #{math.div($light, $regular)}em;
+        width: #{math.div($standard_spacing, $regular)}em;
 
         &.fa-calendar {
-          left: #{$light / $regular}em;
+          left: #{math.div($light, $regular)}em;
         }
 
         &.fa-close {
-          right: #{$light / $regular}em;
+          right: #{math.div($light, $regular)}em;
         }
       }
 
       @include breakpoint_desk_width() {
 
-        top: #{$light / $small}em;
-        width: #{$standard_spacing / $small}em;
+        top: #{math.div($light, $small)}em;
+        width: #{math.div($standard_spacing, $small)}em;
 
         &.fa-calendar {
-          left: #{$light / $small}em;
+          left: #{math.div($light, $small)}em;
         }
 
         &.fa-close {
-          right: #{$light / $small}em;
+          right: #{math.div($light, $small)}em;
         }
       }
 
       @include breakpoint_wall_width() {
-        top: #{$light / $regular}em;
-        width: #{$standard_spacing / $regular}em;
+        top: #{math.div($light, $regular)}em;
+        width: #{math.div($standard_spacing, $regular)}em;
 
         &.fa-calendar {
-          left: #{$light / $regular}em;
+          left: #{math.div($light, $regular)}em;
         }
 
         &.fa-close {
-          right: #{$light / $regular}em;
+          right: #{math.div($light, $regular)}em;
         }
       }
     }
@@ -598,7 +600,7 @@
       left: 0;
       line-height: 1em;
       @include opacity(1);
-      padding: #{1em / $large}em;
+      padding: #{math.div(1em, $large)}em;
       position: absolute;
       top: 0;
       z-index: $stack_overlay;
@@ -641,7 +643,7 @@
     }
 
     input {
-      border-bottom-width: #{$semi-bold / $large}em;
+      border-bottom-width: #{math.div($semi-bold, $large)}em;
     }
 
     button {
@@ -708,7 +710,7 @@
       &:hover {
 
         input {
-          left: $standard_spacing / 4;
+          left: $standard_spacing * 0.25;
         }
 
         a,
@@ -723,8 +725,8 @@
         > label {
           background-color: $gray1;
           color: $black;
-          padding-right: ($standard_spacing / 6);
-          padding-left: ($standard_spacing / 4) + ($standard_spacing / 3) + ($standard_spacing / 12);
+          padding-right: math.div($standard_spacing, 6);
+          padding-left: ($standard_spacing * 0.25) + math.div($standard_spacing, 3) + math.div($standard_spacing, 12);
         }
       }
     }
@@ -736,8 +738,8 @@
         background: $gray1 !important;
         border-color: $gray1 !important;
         color: $black;
-        padding-right: ($standard_spacing / 6);
-        padding-left: ($standard_spacing / 4);
+        padding-right: math.div($standard_spacing, 6);
+        padding-left: ($standard_spacing * 0.25);
       }
     }
   }

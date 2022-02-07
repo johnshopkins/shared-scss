@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../utils/main';
 
 // Big News Story
@@ -13,7 +15,7 @@
   z-index: $stack_top;
   @include transition(right, background-color);
   @include transition-delay(0, 0);
-  @include transition-duration(($menu_duration / 2), $run);
+  @include transition-duration(($menu_duration * 0.5), $run);
   @include transition-timing-function(ease-in-out, ease-in-out);
 
   @include breakpoint_desk_width() {
@@ -33,12 +35,12 @@
   &.modal-open {
     right: (5% * -1);
     @include transition-duration($menu_duration, $run);
-    @include transition-delay(($menu_duration / 2), 0);
+    @include transition-delay(($menu_duration * 0.5), 0);
     @include transition-timing-function($menu_timing_function, ease-in-out);
 
     @include breakpoint_hand_height() {
       right: ((100% + 5%) * -1);
-      @include transition-duration(($menu_duration / 2), $run);
+      @include transition-duration(($menu_duration * 0.5), $run);
       @include transition-timing-function(ease-in-out, ease-in-out);
     }
 
@@ -47,7 +49,7 @@
 
       @include breakpoint_hand_height() {
         right: (($big_story_width * 1.5) * -1);
-        @include transition-duration(($menu_duration / 2), $run);
+        @include transition-duration(($menu_duration * 0.5), $run);
         @include transition-timing-function(ease-in-out, ease-in-out);
       }
     }
@@ -61,7 +63,7 @@
     .close-box-x {
       visibility: visible;
       @include opacity(1);
-      @include transition-delay(0ms, 0ms, ($menu_duration + ($menu_duration / 2)));
+      @include transition-delay(0ms, 0ms, ($menu_duration + ($menu_duration * 0.5)));
     }
   }
 
@@ -69,7 +71,7 @@
     background-color: rgba($black, 0.2);
     @include opacity(0);
     position: absolute;
-    right: percentage(5% / (100% + 5%));
+    right: percentage(math.div(5%, 100% + 5%));
     @include transition(background-color, visibility, opacity);
     @include transition-delay(0ms, $run, 0ms);
     @include transition-duration($run, 0ms, $run);
@@ -200,7 +202,7 @@
   .big-story-container {
     right: ((100% + 5%) * -1);
     @include transition-delay(0ms, 0ms);
-    @include transition-duration(($menu_duration / 2), $run);
+    @include transition-duration(($menu_duration * 0.5), $run);
     @include transition-timing-function(ease-in-out, ease-in-out);
 
     @include breakpoint_lap_width() {
@@ -219,12 +221,12 @@
     &:focus-within {
       right: (5% * -1);
       @include transition-duration($menu_duration, $run);
-      @include transition-delay(($menu_duration / 2), 0);
+      @include transition-delay(($menu_duration * 0.5), 0);
       @include transition-timing-function($menu_timing_function, ease-in-out);
 
       @include breakpoint_hand_height() {
         right: ((100% + 5%) * -1);
-        @include transition-duration(($menu_duration / 2), $run);
+        @include transition-duration(($menu_duration * 0.5), $run);
         @include transition-timing-function(ease-in-out, ease-in-out);
       }
 
@@ -233,7 +235,7 @@
 
         @include breakpoint_hand_height() {
           right: (($big_story_width * 1.5) * -1);
-          @include transition-duration(($menu_duration / 2), $run);
+          @include transition-duration(($menu_duration * 0.5), $run);
           @include transition-timing-function(ease-in-out, ease-in-out);
         }
       }
@@ -247,7 +249,7 @@
       .close-box-x {
         visibility: visible;
         @include opacity(1);
-        @include transition-delay(0ms, 0ms, ($menu_duration + ($menu_duration / 2)));
+        @include transition-delay(0ms, 0ms, ($menu_duration + ($menu_duration * 0.5)));
       }
     }
   }

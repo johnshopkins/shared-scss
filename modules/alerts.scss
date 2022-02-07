@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../utils/main';
 
 .browse-happy,
@@ -51,7 +53,7 @@
   span {
     display: inline-block;
     font-size: $large;
-    padding: ($standard_spacing / 6);
+    padding: math.div($standard_spacing, 6);
     text-decoration: none;
     width: 100%;
   }
@@ -92,7 +94,7 @@
 
 .browse-happy,
 .skip-to-main {
-  padding: ($standard_spacing / 6);
+  padding: math.div($standard_spacing, 6);
 }
 
 .browse-happy {
@@ -128,8 +130,8 @@
     background-color: $sparta;
     color: $white;
     height: auto;
-    min-height: ($standard_spacing * (2 / 3));
-    padding: ($standard_spacing / 6);
+    min-height: ($standard_spacing * math.div(2, 3));
+    padding: math.div($standard_spacing, 6);
     position: relative;
     top: 0;
     z-index: $stack_top;

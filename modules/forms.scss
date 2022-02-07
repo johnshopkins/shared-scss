@@ -1,6 +1,8 @@
+@use "sass:math";
+
 * + form,
 form + * {
-  margin-top: ($standard_spacing * (2 / 3));
+  margin-top: ($standard_spacing * math.div(2, 3));
 }
 
 .screen-reader-response + form {
@@ -32,7 +34,7 @@ form {
 
     + fieldset,
     + .clear-button {
-      margin-top: ($standard_spacing / 2);
+      margin-top: ($standard_spacing * 0.5);
     }
 
     + .clear-button {
@@ -48,29 +50,29 @@ form {
       font-family: $gentona;
       font-size: $regular;
       font-weight: 600;
-      margin-bottom: $standard_spacing / 12;
-      padding-bottom: $standard_spacing / 12;
+      margin-bottom: math.div($standard_spacing, 12);
+      padding-bottom: math.div($standard_spacing, 12);
       width: 100%;
 
   		// Fixes a bug in Safari that collapses
   		// the margin below legend tags.
   		+ * {
-  	    margin-top: ($standard_spacing / 3);
+  	    margin-top: math.div($standard_spacing, 3);
         -webkit-margin-top-collapse: separate;
   		}
 
       + .filter {
         border-top: none;
-        margin-top: -($standard_spacing / 12);
+        margin-top: -(math.div($standard_spacing, 12));
 
         &.rangepicker {
-          margin-top: -(($standard_spacing / 12) + $light);
+          margin-top: -(math.div($standard_spacing, 12) + $light);
         }
       }
 		}
 
     > p {
-      margin-bottom: ($standard_spacing * (2 / 3));
+      margin-bottom: ($standard_spacing * math.div(2, 3));
     }
 	}
 
@@ -146,7 +148,7 @@ form {
     }
 
     &.required {
-      padding-right: ($standard_spacing / 2);
+      padding-right: ($standard_spacing * 0.5);
     }
   }
 
@@ -219,7 +221,7 @@ form {
   }
 
   .form_field {
-		padding-bottom: ($standard_spacing * (2 / 3));
+		padding-bottom: ($standard_spacing * math.div(2, 3));
 		clear: left;
 	}
 
@@ -412,13 +414,13 @@ form {
       z-index: $stack_normal;
 
       .asterisk {
-        width: #{1em / $x-large}em;
-        height: #{1em / $x-large}em;
+        width: #{math.div(1em, $x-large)}em;
+        height: #{math.div(1em, $x-large)}em;
         position: absolute;
-        bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 0.8125em) / ($x-large / $small)) * -1);
-        right: ((($standard_spacing / 4) + $light - (1em / 2)) / ($x-large / $small));
+        bottom: (math.div(math.div($standard_spacing, 12) + $light + math.div($standard_spacing, 6) + 0.8125em, math.div($x-large, $small)) * -1);
+        right: math.div(($standard_spacing * 0.25) + $light - (1em * 0.5), math.div($x-large, $small));
         z-index: $stack_positioned;
-        font-size: #{$x-large / $small}em;
+        font-size: #{math.div($x-large, $small)}em;
         text-align: center;
       }
     }
@@ -435,7 +437,7 @@ form {
     div {
 
       &.mce_inline_error {
-        padding: #{($standard_spacing / 12) / $small}em #{($standard_spacing / 8) / $small}em;
+        padding: #{math.div(math.div($standard_spacing, 12), $small)}em #{math.div(($standard_spacing * 0.125), $small)}em;
         background-color: $newer_hut_glass;
         font-size: $small;
         font-weight: 700;
@@ -453,7 +455,7 @@ form {
     }
 
     .indicates-required {
-      margin: #{($standard_spacing / 3) / $small}em 0 #{($standard_spacing / 12) / $small}em 0;
+      margin: #{math.div(math.div($standard_spacing, 3), $small)}em 0 #{math.div(math.div($standard_spacing, 12), $small)}em 0;
       font-size: $small;
       font-weight: 400;
       text-align: right;
@@ -466,7 +468,7 @@ form {
 
     .mc-field-group {
       // matches label margin-top
-      margin-top: ($standard_spacing / 3);
+      margin-top: math.div($standard_spacing, 3);
 
       &:first-child { margin-top: 0; }
     }
@@ -477,8 +479,8 @@ form {
       text-align: center;
 
       .response {
-        border: solid #{$light / $small}em $black;
-        padding: #{($standard_spacing / 6) / $small}em;
+        border: solid #{math.div($light, $small)}em $black;
+        padding: #{math.div(math.div($standard_spacing, 6), $small)}em;
         font-size: $small;
         color: $black;
 
@@ -488,7 +490,7 @@ form {
     }
 
     .clear {
-      margin-top: ($standard_spacing / 3);
+      margin-top: math.div($standard_spacing, 3);
       text-align: center;
 
       &:first-child { margin-top: 0; }
@@ -500,8 +502,8 @@ form {
 // --------------------------------------------------
 
 .alert {
-	padding: ($standard_spacing * (1 / 3));
-	margin-bottom: ($standard_spacing * (1 / 3));
+	padding: ($standard_spacing * math.div(1, 3));
+	margin-bottom: ($standard_spacing * math.div(1, 3));
 	border: $hairline solid #fbeed5;
 	color: #c09853;
 
@@ -516,7 +518,7 @@ form {
 
   .alert-heading {
   	font-size: $large;
-  	margin-bottom: ($standard_spacing * (1 / 6));
+  	margin-bottom: ($standard_spacing * math.div(1, 6));
   }
 }
 
@@ -538,7 +540,7 @@ form {
   form {
 
     label {
-      @include responsive_ems(margin-top, ($standard_spacing / 4), regular '/' x-small);
+      @include responsive_ems(margin-top, ($standard_spacing * 0.25), regular '/' x-small);
       @include font_size(font-size, x-small);
 
       &:first-child {
@@ -547,7 +549,7 @@ form {
 
       + span,
       + br + span {
-        @include responsive_ems(margin-top, (($standard_spacing / 4) * -1), regular '/' x-small);
+        @include responsive_ems(margin-top, (($standard_spacing * 0.25) * -1), regular '/' x-small);
 
       }
   	}
@@ -558,13 +560,13 @@ form {
     input[type='time'],
     select,
     textarea {
-      padding: ($standard_spacing / 12) ($standard_spacing / 8);
+      padding: math.div($standard_spacing, 12) ($standard_spacing * 0.125);
     }
 
     input {
 
       &.required {
-        padding-right: ($standard_spacing / 2);
+        padding-right: ($standard_spacing * 0.5);
       }
     }
   }
@@ -577,22 +579,22 @@ form {
       label {
 
         .asterisk {
-          bottom: (((($standard_spacing / 12) + $light + ($standard_spacing / 6) + 1.1em) / ($x-large / $x-small)) * -1);
-          right: ((($standard_spacing / 4) + $light - (1em / 2)) / ($x-large / $x-small));
-          font-size: #{$x-large / $x-small}em;
+          bottom: (math.div(math.div($standard_spacing, 12) + $light + math.div($standard_spacing, 6) + 1.1em, math.div($x-large, $x-small)) * -1);
+          right: math.div(($standard_spacing * 0.25) + $light - (1em * 0.5), math.div($x-large, $x-small));
+          font-size: #{math.div($x-large, $x-small)}em;
         }
       }
 
       div {
 
         &.mce_inline_error {
-          padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
+          padding: #{math.div(math.div($standard_spacing, 12), $x-small)}em #{math.div(($standard_spacing * 0.125), $x-small)}em;
           font-size: $x-small;
         }
       }
 
       .indicates-required {
-        margin: #{($standard_spacing / 6) / $x-small}em 0 #{($standard_spacing / 12) / $x-small}em 0;
+        margin: #{math.div(math.div($standard_spacing, 6), $x-small)}em 0 #{math.div(math.div($standard_spacing, 12), $x-small)}em 0;
         font-size: $x-small;
 
         &:first-child { margin-top: 0; }
@@ -602,13 +604,13 @@ form {
 
       .mc-field-group {
         // matches label margin-top
-        margin-top: ($standard_spacing / 6);
+        margin-top: math.div($standard_spacing, 6);
 
         &:first-child { margin-top: 0; }
       }
 
       .clear {
-        margin-top: ($standard_spacing / 4);
+        margin-top: ($standard_spacing * 0.25);
         text-align: center;
 
         &:first-child { margin-top: 0; }

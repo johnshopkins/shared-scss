@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 
 @mixin search_input($layout) {
@@ -9,10 +11,10 @@
     border-bottom-width: 0;
     float: none;
     // padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
-    @include responsive_ems(padding-bottom, ($semi-bold + ($semi-bold / 2)), regular '/' large);
-    @include responsive_ems(padding-left, ($standard_spacing / 4), regular '/' large);
-    @include responsive_ems(padding-right, ($standard_spacing / 4), regular '/' large);
-    @include responsive_ems(padding-top, ($semi-bold + ($semi-bold / 2)), regular '/' large);
+    @include responsive_ems(padding-bottom, ($semi-bold + ($semi-bold * 0.5)), regular '/' large);
+    @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' large);
+    @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' large);
+    @include responsive_ems(padding-top, ($semi-bold + ($semi-bold * 0.5)), regular '/' large);
     width: 100%;
 
   } @else {
@@ -24,11 +26,11 @@
     float: left;
     margin-right: 0;
     // padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
-    @include responsive_ems(padding-bottom, ($standard_spacing / 8), regular '/' large);
-    @include responsive_ems(padding-left, ($standard_spacing / 4), regular '/' large);
-    @include responsive_ems(padding-right, ($standard_spacing / 4), regular '/' large);
-    @include responsive_ems(padding-top, ($standard_spacing / 8), regular '/' large);
-    width: percentage(2 / 3);
+    @include responsive_ems(padding-bottom, ($standard_spacing * 0.125), regular '/' large);
+    @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' large);
+    @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' large);
+    @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' large);
+    width: percentage(math.div(2, 3));
   }
 }
 
@@ -42,21 +44,21 @@
     // font-size: $large;
     @include font_size(font-size, large);
     // line-height: #{($standard_spacing / 2) / $large}em; //font-math
-    @include responsive_ems(line-height, ($standard_spacing / 2), regular '/' large);
+    @include responsive_ems(line-height, ($standard_spacing * 0.5), regular '/' large);
     // min-height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    min-height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $large}em; // font-size math
-    @include responsive_ems(min-height, ((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)), regular '/' large);
+    min-height: #{math.div((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5), $large)}em; // font-size math
+    @include responsive_ems(min-height, ((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)), regular '/' large);
     // padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
-    @include responsive_ems(padding, ($standard_spacing / 8), regular '/' large);
+    @include responsive_ems(padding, ($standard_spacing * 0.125), regular '/' large);
     padding-left: 0;
     padding-right: 0;
     width: 100%;
 
   } @else {
-    border-width: #{$semi-bold / $regular}em; // math for font size
+    border-width: #{math.div($semi-bold, $regular)}em; // math for font size
     border-left-width: 0;
     float: right;
     font-size: $regular;
@@ -64,11 +66,11 @@
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{((($standard_spacing / 8) * 2) + ($semi-bold * 2) + ($standard_spacing / 2)) / $regular}em; // font-size math
-    line-height: #{($standard_spacing / 2) / $regular}em; //font-math
+    height: #{math.div((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5), $regular)}em; // font-size math
+    line-height: #{math.div(($standard_spacing * 0.5), $regular)}em; //font-math
     min-height: 0;
-    padding: #{($standard_spacing / 8) / $regular}em; // math for font size
+    padding: #{math.div(($standard_spacing * 0.125), $regular)}em; // math for font size
     // padding-left: #{(($standard_spacing / 8) + $semi-bold) / $regular}em; // math for font size
-    width: percentage(1 / 3);
+    width: percentage(math.div(1, 3));
   }
 }
