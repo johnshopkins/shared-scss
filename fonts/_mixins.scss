@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables";
 
 // @include webfont(myfont, MyFont-Bold, 800, bold);
 @mixin webfont($family, $file, $weight: 400, $style: normal) {

@@ -1,4 +1,4 @@
-@import 'mixins';
+@use 'mixins';
 
 @mixin button_radius($corners: rounded) {
 
