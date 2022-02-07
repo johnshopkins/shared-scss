@@ -1,3 +1,6 @@
+@use 'css3';
+@use 'variables';
+
 @include keyframes(menu_tab_to_top) {
   from {
     z-index: $stack_positioned;
