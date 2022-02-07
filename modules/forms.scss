@@ -250,8 +250,8 @@ form {
     display: block;
     @include font_size(font-size, x-small);
     font-style: italic;
-    @include responsive_ems(margin-top, $light, regular '/' x-small)
-    @include responsive_ems(padding-bottom, $light, regular '/' x-small)
+    @include responsive_ems(margin-top, $light, regular '/' x-small);
+    @include responsive_ems(padding-bottom, $light, regular '/' x-small);
 	}
 
   // do not float label, field
