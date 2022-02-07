@@ -1,7 +1,7 @@
-@use 'variables';
-@use 'mixins';
+@forward 'variables';
+@forward 'mixins';
 
-@use 'font-awesome/font-awesome';
+@forward 'font-awesome/font-awesome';
 
 @each $family, $font in $font_list {
   @each $weight, $style, $file in $font {

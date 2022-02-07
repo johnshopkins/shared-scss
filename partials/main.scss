@@ -8,10 +8,10 @@
  *
  */
 
-@use 'normalize';
-@use 'grid';
-@use 'defaults';
-@use 'pagination';
-@use 'prefooter';
-@use 'search-box';
-@use 'search-results';
+@forward 'normalize';
+@forward 'grid';
+@forward 'defaults';
+@forward 'pagination';
+@forward 'prefooter';
+@forward 'search-box';
+@forward 'search-results';
