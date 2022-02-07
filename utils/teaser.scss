@@ -227,7 +227,7 @@
         }
       }
 
-      @elseif ($style == 'overlay') {
+      @else if ($style == 'overlay') {
         // background-color: transparent;
         bottom: 0.5em;
         margin-right: 1em;
@@ -524,7 +524,7 @@
 
             @if ($image == 'square') {
               padding-bottom: get_span_width(($context - $target) of $context, 1);
-            } @elseif ($image == 'portrait') {
+            } @else if ($image == 'portrait') {
               padding-bottom: get_span_width(($context - $target) of $context, 1) * (4 / 3);
             } @else {
               padding-bottom: get_span_width(($context - $target) of $context, 1) * (2 / 3);
@@ -535,7 +535,7 @@
 
               @if ($image == 'square') {
                 padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2);
-              } @elseif ($image == 'portrait') {
+              } @else if ($image == 'portrait') {
                 padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (4 / 3);
               } @else {
                 padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) / 2)) * (2 / 3);
@@ -548,7 +548,7 @@
 
             @if ($image == 'square') {
               padding-bottom: get_span_width(($context - $target) of $context);
-            } @elseif ($image == 'portrait') {
+            } @else if ($image == 'portrait') {
               padding-bottom: get_span_width(($context - $target) of $context) * (4 / 3);
             } @else {
               padding-bottom: get_span_width(($context - $target) of $context) * (2 / 3);
@@ -751,10 +751,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -765,10 +765,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -859,10 +859,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -873,10 +873,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -966,10 +966,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -980,10 +980,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -1071,10 +1071,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -1085,10 +1085,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -1176,10 +1176,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -1190,10 +1190,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -1277,10 +1277,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -1291,10 +1291,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -1383,10 +1383,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -1397,10 +1397,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {
@@ -1488,10 +1488,10 @@
   @if ($headline-font-family == quadon) {
     $headline-family: $quadon;
     $headline-ratio: $quadon-ratio;
-  } @elseif ($headline-font-family == arnhem) {
+  } @else if ($headline-font-family == arnhem) {
     $headline-family: $arnhem;
     $headline-ratio: $arnhem-ratio;
-  } @elseif ($headline-font-family == titling) {
+  } @else if ($headline-font-family == titling) {
     $headline-family: $titling;
     $headline-ratio: $titling-ratio;
   } @else {
@@ -1502,10 +1502,10 @@
   @if ($kicker-font-family == quadon) {
     $kicker-family: $quadon;
     $kicker-ratio: $quadon-ratio;
-  } @elseif ($kicker-font-family == arnhem) {
+  } @else if ($kicker-font-family == arnhem) {
     $kicker-family: $arnhem;
     $kicker-ratio: $arnhem-ratio;
-  } @elseif ($kicker-font-family == titling) {
+  } @else if ($kicker-font-family == titling) {
     $kicker-family: $titling;
     $kicker-ratio: $titling-ratio;
   } @else {

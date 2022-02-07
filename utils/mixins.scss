@@ -133,11 +133,11 @@
 
   @if ($font-ratio == gentona) {
     $font-ratio: $gentona-ratio;
-  } @elseif ($font-ratio == quadon) {
+  } @else if ($font-ratio == quadon) {
     $font-ratio: $quadon-ratio;
-  } @elseif ($font-ratio == arnhem) {
+  } @else if ($font-ratio == arnhem) {
     $font-ratio: $arnhem-ratio;
-  } @elseif ($font-ratio == titling) {
+  } @else if ($font-ratio == titling) {
     $font-ratio: $titling-ratio;
   }
 
@@ -176,21 +176,21 @@
 
     @return $new_sizes;
 
-  } @elseif ($function == '*') {
+  } @else if ($function == '*') {
     @for $i from 1 through length($sizes) {
       $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) * strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
     }
 
     @return $new_sizes;
 
-  } @elseif ($function == '+') {
+  } @else if ($function == '+') {
     @for $i from 1 through length($sizes) {
       $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) + strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
     }
 
     @return $new_sizes;
 
-  } @elseif ($function == '-') {
+  } @else if ($function == '-') {
     @for $i from 1 through length($sizes) {
       $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) - strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
     }
@@ -208,22 +208,22 @@
     @if nth($screen_sizes, $i) == hand {
       #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
 
-    } @elseif nth($screen_sizes, $i) == lap {
+    } @else if nth($screen_sizes, $i) == lap {
       @include breakpoint_lap_width() {
         #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
       }
 
-    } @elseif nth($screen_sizes, $i) == desk {
+    } @else if nth($screen_sizes, $i) == desk {
       @include breakpoint_desk_width() {
         #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
       }
 
-    } @elseif nth($screen_sizes, $i) == wall {
+    } @else if nth($screen_sizes, $i) == wall {
       @include breakpoint_wall_width() {
         #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
       }
 
-    } @elseif nth($screen_sizes, $i) == jumbotron {
+    } @else if nth($screen_sizes, $i) == jumbotron {
       @include breakpoint_jumbotron_width() {
         #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
       }
