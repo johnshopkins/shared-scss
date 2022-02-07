@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@use 'mixins';
-@use 'variables';
+@use 'mixins' as *;
+@use 'variables' as *;
 
 @mixin search_input($layout) {
 

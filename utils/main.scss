@@ -8,15 +8,15 @@
  *
  */
 
-@use 'breakpoints';
-@use 'breakpoint-util';
-@use 'buttons';
-@use 'colors';
-@use 'css3';
-@use 'grid';
-@use 'mixins';
-@use 'search';
-@use 'teaser';
-@use 'variables';
+@use 'breakpoints' as *;
+@use 'breakpoint-util' as *;
+@use 'buttons' as *;
+@use 'colors' as *;
+@use 'css3' as *;
+@use 'grid' as *;
+@use 'mixins' as *;
+@use 'search' as *;
+@use 'teaser' as *;
+@use 'variables' as *;
 
 @use 'animations';

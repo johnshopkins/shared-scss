@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@use 'mixins';
-@use 'variables';
+@use 'mixins' as *;
+@use 'variables' as *;
 
 @mixin button_radius($corners: rounded) {
 
