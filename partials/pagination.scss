@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@import "../utils/main";
+@use '../utils/main';
 
 .pagination {
   margin: math.div($standard_spacing, 3) 0;
@@ -75,3 +75,4 @@
     padding-top: math.div($standard_spacing, 24);
   }
 }
+'

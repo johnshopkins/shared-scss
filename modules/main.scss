@@ -4,11 +4,11 @@
 //
 // Note: no sass/css should be written directly in this file, only imports.
 
-@import "alerts";
-@import "buttons";
-@import "filters";
-@import "forms";
-@import "layout-debugger";
-@import "media-object";
-@import 'modals';
-@import "teaser";
+@use "alerts";
+@use "buttons";
+@use "filters";
+@use "forms";
+@use "layout-debugger";
+@use "media-object";
+@use 'modals';
+@use "teaser";

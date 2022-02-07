@@ -8,10 +8,10 @@
  *
  */
 
-@import "normalize";
-@import "grid";
-@import "defaults";
-@import "pagination";
-@import 'prefooter';
-@import "search-box";
-@import "search-results";
+@use 'normalize';
+@use 'grid';
+@use 'defaults';
+@use 'pagination';
+@use 'prefooter';
+@use 'search-box';
+@use 'search-results';

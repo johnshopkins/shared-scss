@@ -1,5 +1,8 @@
 @use "sass:math";
 
+@use 'mixins';
+@use 'variables';
+
 @mixin teaser_stacked($style: null, $context: null, $color: null) {
   background-color: transparent;
   display: table;

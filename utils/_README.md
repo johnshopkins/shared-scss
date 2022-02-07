@@ -9,4 +9,4 @@ these files can be included many different times without duplicating processed
 CSS in the finished .css files.**
 
 Note: main.scss in this file should include all of the other files so that
-@import '../lib/shared-scss/utils/main' will import all of the utilities at once.
+@use '../lib/shared-scss/utils/main' will import all of the utilities at once.

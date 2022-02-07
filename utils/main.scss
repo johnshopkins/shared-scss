@@ -8,15 +8,15 @@
  *
  */
 
-@import "breakpoints";
-@import "breakpoint-util";
-@import "buttons";
-@import "colors";
-@import "css3";
-@import "grid";
-@import "mixins";
-@import "search";
-@import "teaser";
-@import "variables";
+@use 'breakpoints';
+@use 'breakpoint-util';
+@use 'buttons';
+@use 'colors';
+@use 'css3';
+@use 'grid';
+@use 'mixins';
+@use 'search';
+@use 'teaser';
+@use 'variables';
 
-@import "animations";
+@use 'animations';
