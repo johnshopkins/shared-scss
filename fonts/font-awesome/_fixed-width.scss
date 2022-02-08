@@ -3,6 +3,6 @@
 @use "sass:math";
 
 .#{$fa-css-prefix}-fw {
-  width: math.div(18em, 14);
+  width: calc(18em / 14);
   text-align: center;
 }

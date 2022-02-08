@@ -5,7 +5,7 @@
 @use "sass:math";
 
 .#{$fa-css-prefix}-lg {
-  font-size: math.div(4em, 3);
+  font-size: calc(4em / 3);
   line-height: (3em * 0.25);
   vertical-align: -15%;
 }

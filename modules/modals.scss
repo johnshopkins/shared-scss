@@ -168,7 +168,7 @@
       position: fixed;
       text-align: center;
       top: get_span_width(4 of 12, 1);
-      width: #{math.div($standard_spacing, $x-large)}em;
+      width: #{calc($standard_spacing / $x-large)}em;
       z-index: $stack_top;
 
       &.active {
@@ -286,7 +286,7 @@
               @include span(8 of 12);
               margin: get_span_width(2 of 12, 1);
               margin-top: 0;
-              margin-bottom: ($standard_spacing * math.div(2, 3));
+              margin-bottom: ($standard_spacing * calc(2 / 3));
             }
           }
 
@@ -295,7 +295,7 @@
               @include span(10 of 12);
               margin: get_span_width(1 of 12, 1);
               margin-top: 0;
-              margin-bottom: math.div($standard_spacing, 3);
+              margin-bottom: calc($standard_spacing / 3);
             }
           }
 
@@ -545,19 +545,19 @@
   }
 
   .close-box-x {
-    right: percentage(math.div($slide_modal_bleed_hand, $slide_modal_width_hand + $slide_modal_bleed_hand)); // must match padding-right of modal wrapper.
+    right: calc($slide_modal_bleed_hand / ($slide_modal_width_hand + $slide_modal_bleed_hand)); // must match padding-right of modal wrapper.
 
-    @include breakpoint_lap_width() { right: percentage(math.div($slide_modal_bleed_lap, $slide_modal_width_lap + $slide_modal_bleed_lap)); } // must match padding-right of modal wrapper.
-    @include breakpoint_desk_width() { right: percentage(math.div($slide_modal_bleed_desk, $slide_modal_width_desk + $slide_modal_bleed_desk)); } // must match padding-right of modal wrapper.
-    @include breakpoint_wall_width() { right: percentage(math.div($slide_modal_bleed_wall, $slide_modal_width_wall + $slide_modal_bleed_wall)); } // must match padding-right of modal wrapper.
-    @include breakpoint_jumbotron_width() { right: percentage(math.div($slide_modal_bleed_jumbotron, $slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron)); } // must match padding-right of modal wrapper.
+    @include breakpoint_lap_width() { right: calc($slide_modal_bleed_lap / ($slide_modal_width_lap + $slide_modal_bleed_lap)); } // must match padding-right of modal wrapper.
+    @include breakpoint_desk_width() { right: calc($slide_modal_bleed_desk / ($slide_modal_width_desk + $slide_modal_bleed_desk)); } // must match padding-right of modal wrapper.
+    @include breakpoint_wall_width() { right: calc($slide_modal_bleed_wall / ($slide_modal_width_wall + $slide_modal_bleed_wall)); } // must match padding-right of modal wrapper.
+    @include breakpoint_jumbotron_width() { right: calc($slide_modal_bleed_jumbotron / ($slide_modal_width_jumbotron + $slide_modal_bleed_jumbotron)); } // must match padding-right of modal wrapper.
   }
 
   .modal-content {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: $standard_spacing math.div($standard_spacing, 3);
+    padding: $standard_spacing calc($standard_spacing / 3);
     position: relative;
     background-color: $white;
 
@@ -577,7 +577,7 @@
     }
 
     > a {
-      margin-bottom: #{math.div(0.25em, $small)}em;
+      margin-bottom: #{calc(0.25em / $small)}em;
       font-size: $small;
       font-weight: 700;
       display: table;

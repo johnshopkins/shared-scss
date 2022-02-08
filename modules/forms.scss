@@ -3,7 +3,7 @@
 
 * + form,
 form + * {
-  margin-top: ($standard_spacing * math.div(2, 3));
+  margin-top: ($standard_spacing * calc(2 / 3));
 }
 
 .screen-reader-response + form {
@@ -51,29 +51,29 @@ form {
       font-family: $gentona;
       font-size: $regular;
       font-weight: 600;
-      margin-bottom: math.div($standard_spacing, 12);
-      padding-bottom: math.div($standard_spacing, 12);
+      margin-bottom: calc($standard_spacing / 12);
+      padding-bottom: calc($standard_spacing / 12);
       width: 100%;
 
   		// Fixes a bug in Safari that collapses
   		// the margin below legend tags.
   		+ * {
-  	    margin-top: math.div($standard_spacing, 3);
+  	    margin-top: calc($standard_spacing / 3);
         -webkit-margin-top-collapse: separate;
   		}
 
       + .filter {
         border-top: none;
-        margin-top: -(math.div($standard_spacing, 12));
+        margin-top: -(calc($standard_spacing / 12));
 
         &.rangepicker {
-          margin-top: -(math.div($standard_spacing, 12) + $light);
+          margin-top: -(calc($standard_spacing / 12) + $light);
         }
       }
 		}
 
     > p {
-      margin-bottom: ($standard_spacing * math.div(2, 3));
+      margin-bottom: ($standard_spacing * calc(2 / 3));
     }
 	}
 
@@ -222,7 +222,7 @@ form {
   }
 
   .form_field {
-		padding-bottom: ($standard_spacing * math.div(2, 3));
+		padding-bottom: ($standard_spacing * calc(2 / 3));
 		clear: left;
 	}
 
@@ -415,13 +415,13 @@ form {
       z-index: $stack_normal;
 
       .asterisk {
-        width: #{math.div(1em, $x-large)}em;
-        height: #{math.div(1em, $x-large)}em;
+        width: #{calc(1em / $x-large)}em;
+        height: #{calc(1em / $x-large)}em;
         position: absolute;
-        bottom: (math.div(math.div($standard_spacing, 12) + $light + math.div($standard_spacing, 6) + 0.8125em, math.div($x-large, $small)) * -1);
-        right: math.div(($standard_spacing * 0.25) + $light - (1em * 0.5), math.div($x-large, $small));
+        bottom: (calc(calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 0.8125em / calc($x-large / $small)) * -1);
+        right: calc(($standard_spacing * 0.25) + $light - (1em * 0.5) / calc($x-large / $small));
         z-index: $stack_positioned;
-        font-size: #{math.div($x-large, $small)}em;
+        font-size: #{calc($x-large / $small)}em;
         text-align: center;
       }
     }
@@ -438,7 +438,7 @@ form {
     div {
 
       &.mce_inline_error {
-        padding: #{math.div(math.div($standard_spacing, 12), $small)}em #{math.div(($standard_spacing * 0.125), $small)}em;
+        padding: #{calc(calc($standard_spacing / 12) / $small)}em #{calc(($standard_spacing * 0.125) / $small)}em;
         background-color: $newer_hut_glass;
         font-size: $small;
         font-weight: 700;
@@ -456,7 +456,7 @@ form {
     }
 
     .indicates-required {
-      margin: #{math.div(math.div($standard_spacing, 3), $small)}em 0 #{math.div(math.div($standard_spacing, 12), $small)}em 0;
+      margin: #{calc(calc($standard_spacing / 3) / $small)}em 0 #{calc(calc($standard_spacing / 12) / $small)}em 0;
       font-size: $small;
       font-weight: 400;
       text-align: right;
@@ -469,7 +469,7 @@ form {
 
     .mc-field-group {
       // matches label margin-top
-      margin-top: math.div($standard_spacing, 3);
+      margin-top: calc($standard_spacing / 3);
 
       &:first-child { margin-top: 0; }
     }
@@ -480,8 +480,8 @@ form {
       text-align: center;
 
       .response {
-        border: solid #{math.div($light, $small)}em $black;
-        padding: #{math.div(math.div($standard_spacing, 6), $small)}em;
+        border: solid #{calc($light / $small)}em $black;
+        padding: #{calccalc($standard_spacing / 6) / $small)}em;
         font-size: $small;
         color: $black;
 
@@ -491,7 +491,7 @@ form {
     }
 
     .clear {
-      margin-top: math.div($standard_spacing, 3);
+      margin-top: calc($standard_spacing / 3);
       text-align: center;
 
       &:first-child { margin-top: 0; }
@@ -503,8 +503,8 @@ form {
 // --------------------------------------------------
 
 .alert {
-	padding: ($standard_spacing * math.div(1, 3));
-	margin-bottom: ($standard_spacing * math.div(1, 3));
+	padding: ($standard_spacing * calc(1 / 3));
+	margin-bottom: ($standard_spacing * calc(1 / 3));
 	border: $hairline solid #fbeed5;
 	color: #c09853;
 
@@ -519,7 +519,7 @@ form {
 
   .alert-heading {
   	font-size: $large;
-  	margin-bottom: ($standard_spacing * math.div(1, 6));
+  	margin-bottom: ($standard_spacing * calc(1 / 6));
   }
 }
 
@@ -561,7 +561,7 @@ form {
     input[type='time'],
     select,
     textarea {
-      padding: math.div($standard_spacing, 12) ($standard_spacing * 0.125);
+      padding: calc($standard_spacing / 12) ($standard_spacing * 0.125);
     }
 
     input {
@@ -580,22 +580,22 @@ form {
       label {
 
         .asterisk {
-          bottom: (math.div(math.div($standard_spacing, 12) + $light + math.div($standard_spacing, 6) + 1.1em, math.div($x-large, $x-small)) * -1);
-          right: math.div(($standard_spacing * 0.25) + $light - (1em * 0.5), math.div($x-large, $x-small));
-          font-size: #{math.div($x-large, $x-small)}em;
+          bottom: (calc((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 1.1em) / calc($x-large / $x-small)) * -1);
+          right: calc((($standard_spacing * 0.25) + $light - (1em * 0.5)) / calc($x-large / $x-small));
+          font-size: #{calc($x-large / $x-small)}em;
         }
       }
 
       div {
 
         &.mce_inline_error {
-          padding: #{math.div(math.div($standard_spacing, 12), $x-small)}em #{math.div(($standard_spacing * 0.125), $x-small)}em;
+          padding: #{calc(calc($standard_spacing / 12) / $x-small)}em #{calc(($standard_spacing * 0.125) / $x-small)}em;
           font-size: $x-small;
         }
       }
 
       .indicates-required {
-        margin: #{math.div(math.div($standard_spacing, 6), $x-small)}em 0 #{math.div(math.div($standard_spacing, 12), $x-small)}em 0;
+        margin: #{calc(calc($standard_spacing / 6) / $x-small)}em 0 #{calc(calc($standard_spacing / 12) / $x-small)}em 0;
         font-size: $x-small;
 
         &:first-child { margin-top: 0; }
@@ -605,7 +605,7 @@ form {
 
       .mc-field-group {
         // matches label margin-top
-        margin-top: math.div($standard_spacing, 6);
+        margin-top: calc($standard_spacing / 6);
 
         &:first-child { margin-top: 0; }
       }

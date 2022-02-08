@@ -80,7 +80,7 @@ ul,
   margin: 0;
 
   + * {
-    margin-top: math.div($standard_spacing, 3);
+    margin-top: calc($standard_spacing / 3);
   }
 }
 
@@ -101,7 +101,7 @@ ul,
   + .jhu-block,
   + .teaser,
   + .wp-block-image {
-    margin-top: math.div($standard_spacing, 3);
+    margin-top: calc($standard_spacing / 3);
   }
 }
 
@@ -182,7 +182,7 @@ blockquote {
     font-family: $gentona;
     @include font_size(font-size, small, large);
     font-weight: 400;
-    margin-top: #{math.div(math.div($standard_spacing, 6), $small)}em;
+    margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
     // text-align: right;
 
     &::before {
@@ -216,12 +216,12 @@ details {
   border-left: none;
   border-right: none;
   display: block;
-  padding: math.div($standard_spacing, 6) 0;
+  padding: calc($standard_spacing / 6) 0;
 
   > * {
 
     &:last-child {
-      margin-bottom: math.div($standard_spacing, 6);
+      margin-bottom: calc($standard_spacing / 6);
     }
   }
 
@@ -236,7 +236,7 @@ details {
     }
 
     + * {
-      margin-top: math.div($standard_spacing, 6);
+      margin-top: calc($standard_spacing / 6);
     }
   }
 
@@ -257,7 +257,7 @@ dl {
     }
 
     + dt {
-      margin-top: #{math.div(0.5em, $x-small)}em;
+      margin-top: #{calc(0.5em / $x-small)}em;
     }
   }
 
@@ -270,7 +270,7 @@ dl {
     }
 
     + dt {
-      margin-top: #{math.div(0.25em, $x-small)}em;
+      margin-top: #{calc(0.25em / $x-small)}em;
     }
   }
 }
@@ -292,7 +292,7 @@ ol {
     + li,
     > ul,
     > ol {
-      margin-top: math.div($standard_spacing, 12);
+      margin-top: calc($standard_spacing / 12);
     }
   }
 }
@@ -306,7 +306,7 @@ figure,
     color: $gray4;
     @include font_size(font-size, x-small);
     padding: 0;
-    @include responsive_ems(padding-bottom, math.div($standard_spacing, 6), regular '/' x-small);
+    @include responsive_ems(padding-bottom, calc($standard_spacing / 6), regular '/' x-small);
     @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' x-small);
   }
 }
@@ -382,14 +382,14 @@ figure {
 
   .fa {
     display: none;
-    font-size: (math.div($standard_spacing, 3) * 2);
-    height: ((math.div($standard_spacing, 3) * 2) * 0.5); // math for font-size
-    margin: ((math.div($standard_spacing, 12) * 2) * 0.5); // math for font-size
+    font-size: (calc($standard_spacing / 3) * 2);
+    height: ((calc($standard_spacing / 3) * 2) * 0.5); // math for font-size
+    margin: ((calc($standard_spacing / 12) * 2) * 0.5); // math for font-size
     @include transition(color);
     @include transition-duration($run);
     @include transition-timing-function(ease-in-out);
     visibility: hidden;
-    width: ((math.div($standard_spacing, 3) * 2) * 0.5); // math for font-size
+    width: ((calc($standard_spacing / 3) * 2) * 0.5); // math for font-size
   }
 
   // light is the default, so we don't need to specify colors
@@ -477,8 +477,8 @@ figure {
   &.wp-embed-aspect-16-9 {
 
     figcaption {
-      border-bottom: solid $gray1 #{math.div($thin, $x-small)}em;
-      padding-bottom: #{math.div(($standard_spacing * 0.125), $x-small)}em;
+      border-bottom: solid $gray1 #{calc($thin / $x-small)}em;
+      padding-bottom: #{calc(($standard_spacing * 0.125) / $x-small)}em;
     }
 
     iframe {
@@ -509,7 +509,7 @@ figure {
   &.wp-embed-aspect-16-9 {
 
     .wp-block-embed__wrapper {
-      padding-bottom: percentage(math.div(9, 16));
+      padding-bottom: percentage(calc(9 / 16));
     }
   }
 }
@@ -536,7 +536,7 @@ figure {
 * {
 
   + table {
-    margin-top: math.div($standard_spacing, 6);
+    margin-top: calc($standard_spacing / 6);
   }
 }
 
@@ -551,7 +551,7 @@ table {
   // &:last-child { margin-bottom: 0; }
 
   caption {
-    padding: math.div($standard_spacing, 6); // math for font-size
+    padding: calc($standard_spacing / 6); // math for font-size
     background-color: $black;
     font-size: $regular;
     font-weight: 700;
@@ -592,20 +592,20 @@ table {
       color: $white;
       font-size: $x-small;
       font-weight: 600;
-      padding: #{math.div(math.div($standard_spacing, 6), $x-small)}em;
+      padding: #{calc(calc($standard_spacing / 6) / $x-small)}em;
       text-align: center;
       text-transform: uppercase;
     }
 
     td {
       font-size: $small;
-      padding: #{math.div(math.div($standard_spacing, 6), $small)}em;
+      padding: #{calc(calc($standard_spacing / 6) / $small)}em;
       width: auto;
     }
   }
 
   + * {
-    margin-top: math.div($standard_spacing, 3);
+    margin-top: calc($standard_spacing / 3);
   }
 }
 
@@ -639,9 +639,9 @@ table {
   font-family: $gentona;
   font-size: $xxx-small;
   font-weight: 600;
-  height: #{math.div(1em, $xxx-small)}em;
+  height: #{calc(1em / $xxx-small)}em;
   line-height: 0.6em;
-  padding: #{((math.div(1em, $xxx-small) - 0.6) * 0.5)}em $bold #{((math.div(1em, $xxx-small) - 0.6) * 0.5)}em;
+  padding: #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em $bold #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em;
   position: relative;
   text-transform: uppercase;
   top: $thin * -1;

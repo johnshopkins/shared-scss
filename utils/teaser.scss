@@ -43,7 +43,7 @@
       height: 0;
       min-height: 0;
       padding: 1em;
-      padding-bottom: 100% * math.div(2, 3);
+      padding-bottom: 100% * calc(2 / 3);
       position: relative;
       vertical-align: top;
       width: 100%;
@@ -66,9 +66,9 @@
 
     .accent-element {
       display: block;
-      left: math.div($standard_spacing, 3);
+      left: calc($standard_spacing / 3);
       position: absolute;
-      right: math.div($standard_spacing, 3);
+      right: calc($standard_spacing / 3);
       top: 50%;
       @include transform(translateY(-50%));
       vertical-align: top;
@@ -108,7 +108,7 @@
   }
 
   @if ($style == 'padded') {
-    padding: ($standard_spacing * 0.5) ($standard_spacing * math.div(2, 3));
+    padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
 
     @if ($color != null) {
       background-color: $color;
@@ -192,7 +192,7 @@
         bottom: 0;
         margin-left: 5%;
         margin-right: 5%;
-        margin-top: -(math.div($standard_spacing, 3));
+        margin-top: -(calc($standard_spacing / 3));
         min-height: 0;
         padding: ($standard_spacing * 0.25) 5%;
         position: relative;
@@ -279,7 +279,7 @@
         // background-color: transparent;
         margin-left: 0;
         margin-right: 0;
-        margin-top: math.div($standard_spacing, 6);
+        margin-top: calc($standard_spacing / 6);
         padding: 0;
         position: static;
         width: 100%;
@@ -533,9 +533,9 @@
             @if ($image == 'square') {
               padding-bottom: get_span_width(($context - $target) of $context, 1);
             } @else if ($image == 'portrait') {
-              padding-bottom: get_span_width(($context - $target) of $context, 1) * math.div(4, 3);
+              padding-bottom: get_span_width(($context - $target) of $context, 1) * calc(4 / 3);
             } @else {
-              padding-bottom: get_span_width(($context - $target) of $context, 1) * math.div(2, 3);
+              padding-bottom: get_span_width(($context - $target) of $context, 1) * calc(2 / 3);
             }
 
             @if($gutter == 'half') {
@@ -544,9 +544,9 @@
               @if ($image == 'square') {
                 padding-bottom: get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) * 0.5);
               } @else if ($image == 'portrait') {
-                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) * 0.5)) * math.div(4, 3);
+                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) * 0.5)) * calc(4 / 3);
               } @else {
-                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) * 0.5)) * math.div(2, 3);
+                padding-bottom: (get_span_width(($context - $target) of $context, 1) - (get_gutter_width(of $context) * 0.5)) * calc(2 / 3);
               }
             }
           }
@@ -557,9 +557,9 @@
             @if ($image == 'square') {
               padding-bottom: get_span_width(($context - $target) of $context);
             } @else if ($image == 'portrait') {
-              padding-bottom: get_span_width(($context - $target) of $context) * math.div(4, 3);
+              padding-bottom: get_span_width(($context - $target) of $context) * calc(4 / 3);
             } @else {
-              padding-bottom: get_span_width(($context - $target) of $context) * math.div(2, 3);
+              padding-bottom: get_span_width(($context - $target) of $context) * calc(2 / 3);
             }
 
           }
@@ -662,7 +662,7 @@
       vertical-align: middle;
 
       .titles {
-        padding-right: #{math.div(1em, $small)}em;
+        padding-right: #{calc(1em / $small)}em;
       }
     }
   }
@@ -728,7 +728,7 @@
   }
 
   @if ($style == 'padded') {
-    padding: ($standard_spacing * 0.5) ($standard_spacing * math.div(2, 3));
+    padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
 
     @if ($color != null) {
       background-color: $color;
@@ -791,7 +791,7 @@
       font-family: $headline-family;
       // font-size: $x-small * $headline-ratio;
       @include font_size(font-size, x-small, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -810,7 +810,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $small) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
       }
     }
 
@@ -899,7 +899,7 @@
       font-family: $headline-family;
       // font-size: $small * $headline-ratio;
       @include font_size(font-size, small, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -918,7 +918,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $small) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
       }
     }
 
@@ -1005,7 +1005,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, regular, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1023,7 +1023,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $regular) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $regular) * $headline-ratio}em;
       }
     }
 
@@ -1110,7 +1110,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, large, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1128,7 +1128,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $large) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $large) * $headline-ratio}em;
       }
     }
 
@@ -1215,7 +1215,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, x-large, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1233,7 +1233,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $x-large) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $x-large) * $headline-ratio}em;
       }
     }
 
@@ -1316,7 +1316,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xx-large, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1334,7 +1334,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $xx-large) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $xx-large) * $headline-ratio}em;
       }
     }
 
@@ -1422,7 +1422,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1440,7 +1440,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $xxx-large) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $xxx-large) * $headline-ratio}em;
       }
     }
 
@@ -1527,7 +1527,7 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, display-2, regular, $headline-ratio);
-      line-height: math.div(1em, $headline-ratio);
+      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 500;
@@ -1545,7 +1545,7 @@
 
       + h2,
       + h5 {
-        margin-top: #{math.div(0.25em, $display-2) * $headline-ratio}em;
+        margin-top: #{calc(0.25em / $display-2) * $headline-ratio}em;
       }
     }
 

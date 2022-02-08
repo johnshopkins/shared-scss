@@ -104,7 +104,7 @@ $color_jumbotron: $tricias_pants;
 
   &:before,
   &:after {
-    padding: math.div($standard_spacing, 6);
+    padding: calc($standard_spacing / 6);
     background-color: $color_hand;
     display: inline-block;
   }

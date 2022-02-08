@@ -52,7 +52,7 @@
   span {
     display: inline-block;
     font-size: $large;
-    padding: math.div($standard_spacing, 6);
+    padding: calc($standard_spacing / 6);
     text-decoration: none;
     width: 100%;
   }
@@ -93,7 +93,7 @@
 
 .browse-happy,
 .skip-to-main {
-  padding: math.div($standard_spacing, 6);
+  padding: calc($standard_spacing / 6);
 }
 
 .browse-happy {
@@ -129,8 +129,8 @@
     background-color: $sparta;
     color: $white;
     height: auto;
-    min-height: ($standard_spacing * math.div(2, 3));
-    padding: math.div($standard_spacing, 6);
+    min-height: ($standard_spacing * calc(2 / 3));
+    padding: calc($standard_spacing / 6);
     position: relative;
     top: 0;
     z-index: $stack_top;

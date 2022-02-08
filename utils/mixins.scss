@@ -9,7 +9,7 @@
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return math.div($number, $number * 0 + 1);
+    @return mcalc($number / ($number * 0 + 1));
   }
 
   @return $number;
@@ -59,7 +59,7 @@
 
   &:after {
     width: 100%;
-    height: #{math.div($bold, $x-small)}em;
+    height: #{calc($bold / $x-small)}em;
     margin-left: 0.33em;
     background-color: $bar-color;
     display: inline-block;
@@ -105,18 +105,18 @@
     @for $i from 1 to $length - 1 {
       @if $type == text or $skew == false {
         @if $direction == right {
-          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - math.div($i, $length)) * $fade-start)) + ',';
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - calc($i / $length)) * $fade-start)) + ',';
         }
         @if $direction == left {
-          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - math.div($i, $length)) * $fade-start)) + ',';
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - calc($i / $length)) * $fade-start)) + ',';
         }
       }
       @if ($type == box) and $skew == true {
         @if $direction == right {
-          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - math.div($i, $length)) + ',';
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - calc($i / $length)) + ',';
         }
         @if $direction == left {
-          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - math.div($i, $length)) + ',';
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - calc($i / $length)) + ',';
         }
       }
     }
@@ -137,102 +137,102 @@
 
 @mixin font_size($attr: font-size, $target_size: regular, $context_size: regular, $font-ratio: gentona) {
 
-  @if ($font-ratio == gentona) {
-    $font-ratio: $gentona-ratio;
-  } @else if ($font-ratio == quadon) {
-    $font-ratio: $quadon-ratio;
-  } @else if ($font-ratio == arnhem) {
-    $font-ratio: $arnhem-ratio;
-  } @else if ($font-ratio == titling) {
-    $font-ratio: $titling-ratio;
-  }
-
-  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_hand}) * $default_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_hand}) * $default_font_size_px)#{em};
-
-  @include breakpoint_lap_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_lap}) * $breakpoint_lap_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_lap}) * $breakpoint_lap_font_size_px)#{em};
-  }
-
-  @include breakpoint_desk_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_desk}) * $breakpoint_desk_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_desk}) * $breakpoint_desk_font_size_px)#{em};
-  }
-
-  @include breakpoint_wall_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_wall}) * $breakpoint_wall_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_wall}) * $breakpoint_wall_font_size_px)#{em};
-  }
-
-  @include breakpoint_jumbotron_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px)#{em};
-  }
+  //@if ($font-ratio == gentona) {
+  //  $font-ratio: $gentona-ratio;
+  //} @else if ($font-ratio == quadon) {
+  //  $font-ratio: $quadon-ratio;
+  //} @else if ($font-ratio == arnhem) {
+  //  $font-ratio: $arnhem-ratio;
+  //} @else if ($font-ratio == titling) {
+  //  $font-ratio: $titling-ratio;
+  //}
+  //
+  //#{$attr}: math.div(round((map-get($font_sizes, $target_size#{_hand}) * $default_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_hand}) * $default_font_size_px)#{em};
+  //
+  //@include breakpoint_lap_width() {
+  //  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_lap}) * $breakpoint_lap_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_lap}) * $breakpoint_lap_font_size_px)#{em};
+  //}
+  //
+  //@include breakpoint_desk_width() {
+  //  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_desk}) * $breakpoint_desk_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_desk}) * $breakpoint_desk_font_size_px)#{em};
+  //}
+  //
+  //@include breakpoint_wall_width() {
+  //  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_wall}) * $breakpoint_wall_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_wall}) * $breakpoint_wall_font_size_px)#{em};
+  //}
+  //
+  //@include breakpoint_jumbotron_width() {
+  //  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px)#{em};
+  //}
 }
 
 @function responsive_em($sizes, $ratio: regular '/' regular, $screen_size: hand) {
   // Accepts $ratio as 'large / small' or 'small * large'
   // first = target, second = function, last = context
-  $target: nth($ratio, 1);
-  $function: nth($ratio, 2);
-  $context: nth($ratio, -1);
-
-  $new_sizes: null;
-
-  @if ($function == '/') {
-    @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * math.div(strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})), strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
-    }
-
-    @return $new_sizes;
-
-  } @else if ($function == '*') {
-    @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) * strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
-    }
-
-    @return $new_sizes;
-
-  } @else if ($function == '+') {
-    @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) + strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
-    }
-
-    @return $new_sizes;
-
-  } @else if ($function == '-') {
-    @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) - strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
-    }
-
-    @return $new_sizes;
-  }
+  //$target: nth($ratio, 1);
+  //$function: nth($ratio, 2);
+  //$context: nth($ratio, -1);
+  //
+  //$new_sizes: null;
+  //
+  //@if ($function == '/') {
+  //  @for $i from 1 through length($sizes) {
+  //    $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * math.div(strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})), strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+  //  }
+  //
+  //  @return $new_sizes;
+  //
+  //} @else if ($function == '*') {
+  //  @for $i from 1 through length($sizes) {
+  //    $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) * strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+  //  }
+  //
+  //  @return $new_sizes;
+  //
+  //} @else if ($function == '+') {
+  //  @for $i from 1 through length($sizes) {
+  //    $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) + strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+  //  }
+  //
+  //  @return $new_sizes;
+  //
+  //} @else if ($function == '-') {
+  //  @for $i from 1 through length($sizes) {
+  //    $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) - strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+  //  }
+  //
+  //  @return $new_sizes;
+  //}
 }
 
 @mixin responsive_ems($attr, $sizes, $ratio: regular '/' regular) {
-  $screen_sizes: hand lap desk wall jumbotron;
-
-  $breakpoint_size: null;
-
-  @for $i from 1 through length($screen_sizes) {
-    @if nth($screen_sizes, $i) == hand {
-      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-
-    } @else if nth($screen_sizes, $i) == lap {
-      @include breakpoint_lap_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == desk {
-      @include breakpoint_desk_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == wall {
-      @include breakpoint_wall_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == jumbotron {
-      @include breakpoint_jumbotron_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-    }
-  }
+  //$screen_sizes: hand lap desk wall jumbotron;
+  //
+  //$breakpoint_size: null;
+  //
+  //@for $i from 1 through length($screen_sizes) {
+  //  @if nth($screen_sizes, $i) == hand {
+  //    #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //
+  //  } @else if nth($screen_sizes, $i) == lap {
+  //    @include breakpoint_lap_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == desk {
+  //    @include breakpoint_desk_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == wall {
+  //    @include breakpoint_wall_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == jumbotron {
+  //    @include breakpoint_jumbotron_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //  }
+  //}
 }

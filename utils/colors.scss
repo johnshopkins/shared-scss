@@ -51,11 +51,11 @@
 $white: #FFFFFF;
 $double_black: #000000;
 $black: #31261D;
-$gray5: mix($black, $white, (100% * math.div(5, 6)));
-$gray4: mix($black, $white, (100% * math.div(4, 6)));
-$gray3: mix($black, $white, (100% * math.div(3, 6)));
-$gray2: mix($black, $white, (100% * math.div(2, 6)));
-$gray1: mix($black, $white, (100% * math.div(1, 6)));
+$gray5: mix($black, $white, (100% * calc(5 / 6)));
+$gray4: mix($black, $white, (100% * calc(4 / 6)));
+$gray3: mix($black, $white, (100% * calc(3 / 6)));
+$gray2: mix($black, $white, (100% * calc(2 / 6)));
+$gray1: mix($black, $white, (100% * calc(1 / 6)));
 
 $sable: $black;
 $background_gray: mix($black, $white, 4.25%); // #f6f6f5
