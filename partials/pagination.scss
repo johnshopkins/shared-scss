@@ -2,7 +2,7 @@
 @use '../utils/main' as *;
 
 .pagination {
-  margin: math.div($standard_spacing, 3) 0;
+  margin: calc($standard_spacing / 3) 0;
   padding: 0;
   padding-left: 0 !important;
   font-weight: 400;
@@ -35,7 +35,7 @@
     + button,
     + span,
     + .button {
-      margin-left: math.div($standard_spacing, 6);
+      margin-left: calc($standard_spacing / 6);
       margin-top: 0;
     }
   }
@@ -57,8 +57,8 @@
   .pagination-link,
   .current {
     display: none;
-    padding-left: math.div($standard_spacing, 12);
-    padding-right: math.div($standard_spacing, 12);
+    padding-left: calc($standard_spacing / 12);
+    padding-right: calc($standard_spacing / 12);
 
     @include breakpoint_lap_width() {
       display: inline-block;
@@ -70,7 +70,7 @@
     color: $white;
     font-weight: 600;
     line-height: 1.1em;
-    padding-bottom: math.div($standard_spacing, 24);
-    padding-top: math.div($standard_spacing, 24);
+    padding-bottom: calc($standard_spacing / 24);
+    padding-top: calc($standard_spacing / 24);
   }
 }

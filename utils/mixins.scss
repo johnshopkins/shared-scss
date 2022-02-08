@@ -59,7 +59,7 @@
 
   &:after {
     width: 100%;
-    height: #{math.div($bold, $x-small)}em;
+    height: #{calc($bold / $x-small)}em;
     margin-left: 0.33em;
     background-color: $bar-color;
     display: inline-block;
@@ -105,18 +105,18 @@
     @for $i from 1 to $length - 1 {
       @if $type == text or $skew == false {
         @if $direction == right {
-          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - math.div($i, $length)) * $fade-start)) + ',';
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - calc($i / $length)) * $fade-start)) + ',';
         }
         @if $direction == left {
-          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - math.div($i, $length)) * $fade-start)) + ',';
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + rgba($color, ((1 - calc($i / $length)) * $fade-start)) + ',';
         }
       }
       @if ($type == box) and $skew == true {
         @if $direction == right {
-          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - math.div($i, $length)) + ',';
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - calc($i / $length)) + ',';
         }
         @if $direction == left {
-          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - math.div($i, $length)) + ',';
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - calc($i / $length)) + ',';
         }
       }
     }
@@ -221,33 +221,33 @@
 }
 
 @mixin responsive_ems($attr, $sizes, $ratio: regular '/' regular) {
-  $screen_sizes: hand lap desk wall jumbotron;
-
-  $breakpoint_size: null;
-
-  @for $i from 1 through length($screen_sizes) {
-    @if nth($screen_sizes, $i) == hand {
-      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-
-    } @else if nth($screen_sizes, $i) == lap {
-      @include breakpoint_lap_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == desk {
-      @include breakpoint_desk_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == wall {
-      @include breakpoint_wall_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-
-    } @else if nth($screen_sizes, $i) == jumbotron {
-      @include breakpoint_jumbotron_width() {
-        #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
-      }
-    }
-  }
+  //$screen_sizes: hand lap desk wall jumbotron;
+  //
+  //$breakpoint_size: null;
+  //
+  //@for $i from 1 through length($screen_sizes) {
+  //  @if nth($screen_sizes, $i) == hand {
+  //    #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //
+  //  } @else if nth($screen_sizes, $i) == lap {
+  //    @include breakpoint_lap_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == desk {
+  //    @include breakpoint_desk_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == wall {
+  //    @include breakpoint_wall_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //
+  //  } @else if nth($screen_sizes, $i) == jumbotron {
+  //    @include breakpoint_jumbotron_width() {
+  //      #{$attr}: responsive_em($sizes, $ratio, nth($screen_sizes, $i));
+  //    }
+  //  }
+  //}
 }

@@ -66,7 +66,7 @@ $sprint: 125ms;                 // 125ms
 $run:    ($sprint * 2);         // 250ms
 $jog:    ($run * 2);            // 500ms
 $walk:   ($jog * (1 + (1*0.5)));  // 750ms
-$stroll: ($walk * (1 + math.div(1, 3))); // 1000ms
+$stroll: ($walk * (1 + calc(1 / 3))); // 1000ms
 $creep:  ($stroll * 5);         // 5000ms
 
 
@@ -103,19 +103,19 @@ $breakpoint_jumbotron_font_size_px: 21px;
 
 
 
-$breakpoint_lap_font_size:          math.div($breakpoint_lap_font_size_px, $default_font_size_px) * 1em;
-$breakpoint_desk_font_size:         math.div($breakpoint_desk_font_size_px, $default_font_size_px) * 1em;
-$breakpoint_wall_font_size:         math.div($breakpoint_wall_font_size_px, $default_font_size_px) * 1em;
-$breakpoint_jumbotron_font_size:    math.div($breakpoint_jumbotron_font_size_px, $default_font_size_px) * 1em;
+$breakpoint_lap_font_size:          calc($breakpoint_lap_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_desk_font_size:         calc($breakpoint_desk_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_wall_font_size:         calc($breakpoint_wall_font_size_px / $default_font_size_px) * 1em;
+$breakpoint_jumbotron_font_size:    calc($breakpoint_jumbotron_font_size_px / $default_font_size_px) * 1em;
 
-$gentona-ratio: math.div(610, 610);
-$quadon-ratio: math.div(610, 700);
-$arnhem-ratio: math.div(610, 620);
+$gentona-ratio: calc(610/  610);
+$quadon-ratio: calc(610 / 700);
+$arnhem-ratio: calc(610 / 620);
 // $titling-ratio: 610 / 798;
 // $titling-ratio: 610 / 700;
-$titling-ratio: math.div(610, 610);
+$titling-ratio: calc(610 / 610);
 
-$up-ratio: math.div(4, 3);
+$up-ratio: calc(4 / 3);
 $down-ratio: 7 * 0.125;
 
 $regular:   1em;		                   // 1em
@@ -133,74 +133,74 @@ $display-2: $xxx-large * $up-ratio;    // 4.214em
 $display-1: $display-2 * $up-ratio;    // 5.6187em
 
 // Hand // Scaling factor of roughly 1.2
-$small_hand:     ($regular * math.div(14, 16));
-$x-small_hand:   ($small_hand * math.div(12, 14));
-$xx-small_hand:  ($x-small_hand * math.div(11, 12));
-$xxx-small_hand: ($xx-small_hand * math.div(10, 11));
+$small_hand:     ($regular * calc(14 / 16));
+$x-small_hand:   ($small_hand * calc(12 / 14));
+$xx-small_hand:  ($x-small_hand * calc(11 / 12));
+$xxx-small_hand: ($xx-small_hand * calc(10 / 11));
 
-$large_hand:     ($regular * math.div(19, 16));
-$x-large_hand:   ($large_hand * math.div(23, 19));
-$xx-large_hand:  ($x-large_hand * math.div(27, 23));
-$xxx-large_hand: ($xx-large_hand * math.div(32, 27));
+$large_hand:     ($regular * calc(19 / 16));
+$x-large_hand:   ($large_hand * calc(23 / 19));
+$xx-large_hand:  ($x-large_hand * calc(27 / 23));
+$xxx-large_hand: ($xx-large_hand * calc(32 / 27));
 
 $display-2_hand: ($xxx-large_hand * 1);
-$display-1_hand: ($display-2_hand * math.div(36, 32));
+$display-1_hand: ($display-2_hand * calc(36 / 32));
 
 // Lap // Scaling factor of roughly 1.23333
-$small_lap:     ($regular * math.div(15, 17));
-$x-small_lap:   ($small_lap * math.div(13, 15));
-$xx-small_lap:  ($x-small_lap * math.div(12, 13));
-$xxx-small_lap: ($xx-small_lap * math.div(11, 12));
+$small_lap:     ($regular * calc(15 / 17));
+$x-small_lap:   ($small_lap * calc(13 / 15));
+$xx-small_lap:  ($x-small_lap * calc(12 / 13));
+$xxx-small_lap: ($xx-small_lap * calc(11 / 12));
 
-$large_lap:     ($regular * math.div(21, 17));
-$x-large_lap:   ($large_lap * math.div(26, 21));
-$xx-large_lap:  ($x-large_lap * math.div(32, 26));
-$xxx-large_lap: ($xx-large_lap * math.div(39, 32));
+$large_lap:     ($regular * calc(21 / 17));
+$x-large_lap:   ($large_lap * calc(26 / 21));
+$xx-large_lap:  ($x-large_lap * calc(32 / 26));
+$xxx-large_lap: ($xx-large_lap * calc(39 / 32));
 
-$display-2_lap: ($xxx-large_lap * math.div(44, 39));
-$display-1_lap: ($display-2_lap * math.div(49, 44));
+$display-2_lap: ($xxx-large_lap * calc(44 / 39));
+$display-1_lap: ($display-2_lap * calc(49 / 44));
 
 // Desk // Scaling factor of roughly 1.26666
-$small_desk:     ($regular * math.div(16, 18));
-$x-small_desk:   ($small_desk * math.div(14, 16));
-$xx-small_desk:  ($x-small_desk * math.div(13, 14));
-$xxx-small_desk: ($xx-small_desk * math.div(12, 13));
+$small_desk:     ($regular * calc(16 / 18));
+$x-small_desk:   ($small_desk * calc(14 / 16));
+$xx-small_desk:  ($x-small_desk * calc(13 / 14));
+$xxx-small_desk: ($xx-small_desk * calc(12 / 13));
 
-$large_desk:     ($regular * math.div(23, 18));
-$x-large_desk:   ($large_desk * math.div(29, 23));
-$xx-large_desk:  ($x-large_desk * math.div(37, 29));
-$xxx-large_desk: ($xx-large_desk * math.div(46, 37));
+$large_desk:     ($regular * calc(23 / 18));
+$x-large_desk:   ($large_desk * calc(29 / 23));
+$xx-large_desk:  ($x-large_desk * calc(37 / 29));
+$xxx-large_desk: ($xx-large_desk * calc(46 / 37));
 
-$display-2_desk: ($xxx-large_desk * math.div(52, 46));
-$display-1_desk: ($display-2_desk * math.div(67, 52));
+$display-2_desk: ($xxx-large_desk * calc(52 / 46));
+$display-1_desk: ($display-2_desk * calc(67 / 52));
 
 // Wall // Scaling factor of roughly 1.3
-$small_wall:     ($regular * math.div(17, 19));
-$x-small_wall:   ($small_wall * math.div(15, 17));
-$xx-small_wall:  ($x-small_wall * math.div(13, 15));
-$xxx-small_wall: ($xx-small_wall * math.div(12, 13));
+$small_wall:     ($regular * calc(17 / 19));
+$x-small_wall:   ($small_wall * calc(15 / 17));
+$xx-small_wall:  ($x-small_wall * calc(13 / 15));
+$xxx-small_wall: ($xx-small_wall * calc(12 / 13));
 
-$large_wall:     ($regular * math.div(25, 19));
-$x-large_wall:   ($large_wall * math.div(32, 25));
-$xx-large_wall:  ($x-large_wall * math.div(42, 32));
-$xxx-large_wall: ($xx-large_wall * math.div(54, 42));
+$large_wall:     ($regular * calc(25 / 19));
+$x-large_wall:   ($large_wall * calc(32 / 25));
+$xx-large_wall:  ($x-large_wall * calc(42 / 32));
+$xxx-large_wall: ($xx-large_wall * calc(54 / 42));
 
-$display-2_wall: ($xxx-large_wall * math.div(71, 54));
-$display-1_wall: ($display-2_wall * math.div(92, 71));
+$display-2_wall: ($xxx-large_wall * calc(71 / 54));
+$display-1_wall: ($display-2_wall * calc(92 / 71));
 
 // Jumbotron // Scaling factor of roughly 1.33333
-$small_jumbotron:     ($regular * math.div(18, 21));
-$x-small_jumbotron:   ($small_jumbotron * math.div(16, 18));
-$xx-small_jumbotron:  ($x-small_jumbotron * math.div(14, 16));
-$xxx-small_jumbotron: ($xx-small_jumbotron * math.div(12, 14));
+$small_jumbotron:     ($regular * calc(18 / 21));
+$x-small_jumbotron:   ($small_jumbotron * calc(16 / 18));
+$xx-small_jumbotron:  ($x-small_jumbotron * calc(14 / 16));
+$xxx-small_jumbotron: ($xx-small_jumbotron * calc(12 / 14));
 
-$large_jumbotron:     ($regular * math.div(28, 21));
-$x-large_jumbotron:   ($large_jumbotron * math.div(37, 28));
-$xx-large_jumbotron:  ($x-large_jumbotron * math.div(50, 37));
+$large_jumbotron:     ($regular * calc(28 / 21));
+$x-large_jumbotron:   ($large_jumbotron * calc(37 / 28));
+$xx-large_jumbotron:  ($x-large_jumbotron * calc(50 / 37));
 $xxx-large_jumbotron: ($xx-large_jumbotron * (66 * 0.02));
 
-$display-2_jumbotron: ($xxx-large_jumbotron * math.div(88, 66));
-$display-1_jumbotron: ($display-2_jumbotron * math.div(118, 88));
+$display-2_jumbotron: ($xxx-large_jumbotron * calc(88 / 66));
+$display-1_jumbotron: ($display-2_jumbotron * calc(118 / 88));
 
 
 
@@ -449,6 +449,7 @@ $social_icon_size: 1.5em;
 
 
 
+
 //\\//\\//\\//\\//\\//\\//\\
 //\\ STROKE WEIGHTS //\\//\\
 //\\//\\//\\//\\//\\//\\//\\
@@ -456,12 +457,12 @@ $social_icon_size: 1.5em;
 $hairline:   1px;                        // set to px instead of ems because sometimes 0.0625em calculate out to 0px
 $thin:       0.125em;                    // 0.125em, duh
 $light:      ($thin * (1 + (1*0.5)));      // 0.1875em
-$medium:     ($light * (1 + math.div(1, 3)));     // 0.25em
+$medium:     ($light * (1 + calc(1 / 3)));     // 0.25em
 $semi-bold:  ($medium * (1 + (1*0.5)));    // 0.375em
-$bold:       ($semi-bold * (1 + math.div(1, 3))); // 0.5em
+$bold:       ($semi-bold * (1 + calc(1 / 3))); // 0.5em
 $extra-bold: ($bold * (1 + (1*0.25)));      // 0.625em
 $heavy:      ($bold * (1 + (1*0.5)));      // 0.75em
-$ultra:      ($heavy * (1 + math.div(1, 3)));     // 1em
+$ultra:      ($heavy * (1 + calc(1 / 3)));     // 1em
 
 
 

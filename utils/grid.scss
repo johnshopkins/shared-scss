@@ -7,10 +7,10 @@ $columns: 12;
 $guttercount: $columns - 1;
 $gutterspace: $gutterwidth * $guttercount;
 $columnspace: $maxwidth - $gutterspace;
-$columnmax: math.div($columnspace, $columns);
+$columnmax: calc($columnspace / $columns);
 
-$column: percentage(math.div($columnmax, $maxwidth));
-$gutter: percentage(math.div($gutterwidth, $maxwidth));
+$column: percentage(calc($columnmax / $maxwidth));
+$gutter: percentage(calc($gutterwidth / $maxwidth));
 
 
 /**
@@ -37,7 +37,7 @@ $gutter: percentage(math.div($gutterwidth, $maxwidth));
  * @return {[type]}        [description]
  */
 @function nested_value($target, $context) {
-  @return math.div($target, $context);
+  @return calc($target / $context);
 }
 
 /**
@@ -71,7 +71,7 @@ $gutter: percentage(math.div($gutterwidth, $maxwidth));
 
 @function get_gutter_width($ratio) {
   $context: nth($ratio, -1);
-  @return percentage(math.div($gutter, default_span($context)));
+  @return percentage(calc($gutter / default_span($context)));
 }
 
 
