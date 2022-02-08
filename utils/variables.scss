@@ -350,71 +350,94 @@ $display-1_jumbotron: ($display-2_jumbotron * math.div(118, 88));
 // $display-1_jumbotron: ($display-2_jumbotron * (168 / 119));
 
 $font_sizes: (
-  xxx-small_hand:          $xxx-small_hand,
-  xxx-small_lap:           $xxx-small_lap,
-  xxx-small_desk:          $xxx-small_desk,
-  xxx-small_wall:          $xxx-small_wall,
-  xxx-small_jumbotron:     $xxx-small_jumbotron,
 
-  xx-small_hand:          $xx-small_hand,
-  xx-small_lap:           $xx-small_lap,
-  xx-small_desk:          $xx-small_desk,
-  xx-small_wall:          $xx-small_wall,
-  xx-small_jumbotron:     $xx-small_jumbotron,
+  xxx-small: (
+    hand:          $xxx-small_hand,
+    lap:           $xxx-small_lap,
+    desk:          $xxx-small_desk,
+    wall:          $xxx-small_wall,
+    jumbotron:     $xxx-small_jumbotron
+  ),
 
-  x-small_hand:          $x-small_hand,
-  x-small_lap:           $x-small_lap,
-  x-small_desk:          $x-small_desk,
-  x-small_wall:          $x-small_wall,
-  x-small_jumbotron:     $x-small_jumbotron,
+  xx-small: (
+    hand:          $xx-small_hand,
+    lap:           $xx-small_lap,
+    desk:          $xx-small_desk,
+    wall:          $xx-small_wall,
+    jumbotron:     $xx-small_jumbotron
+  ),
 
-  small_hand:          $small_hand,
-  small_lap:           $small_lap,
-  small_desk:          $small_desk,
-  small_wall:          $small_wall,
-  small_jumbotron:     $small_jumbotron,
+  x-small: (
+    hand:          $x-small_hand,
+    lap:           $x-small_lap,
+    desk:          $x-small_desk,
+    wall:          $x-small_wall,
+    jumbotron:     $x-small_jumbotron
+  ),
 
-  regular_hand:          $regular,
-  regular_lap:           $regular,
-  regular_desk:          $regular,
-  regular_wall:          $regular,
-  regular_jumbotron:     $regular,
+  small: (
+    hand:          $small_hand,
+    lap:           $small_lap,
+    desk:          $small_desk,
+    wall:          $small_wall,
+    jumbotron:     $small_jumbotron
+  ),
 
-  large_hand:          $large_hand,
-  large_lap:           $large_lap,
-  large_desk:          $large_desk,
-  large_wall:          $large_wall,
-  large_jumbotron:     $large_jumbotron,
+  regular: (
+    hand:          $regular,
+    lap:           $regular,
+    desk:          $regular,
+    wall:          $regular,
+    jumbotron:     $regular
+  ),
 
-  x-large_hand:          $x-large_hand,
-  x-large_lap:           $x-large_lap,
-  x-large_desk:          $x-large_desk,
-  x-large_wall:          $x-large_wall,
-  x-large_jumbotron:     $x-large_jumbotron,
+  large: (
+    hand:          $large_hand,
+    lap:           $large_lap,
+    desk:          $large_desk,
+    wall:          $large_wall,
+    jumbotron:     $large_jumbotron
+  ),
 
-  xx-large_hand:          $xx-large_hand,
-  xx-large_lap:           $xx-large_lap,
-  xx-large_desk:          $xx-large_desk,
-  xx-large_wall:          $xx-large_wall,
-  xx-large_jumbotron:     $xx-large_jumbotron,
+  x-large: (
+    hand:          $x-large_hand,
+    lap:           $x-large_lap,
+    desk:          $x-large_desk,
+    wall:          $x-large_wall,
+    jumbotron:     $x-large_jumbotron
+  ),
 
-  xxx-large_hand:          $xxx-large_hand,
-  xxx-large_lap:           $xxx-large_lap,
-  xxx-large_desk:          $xxx-large_desk,
-  xxx-large_wall:          $xxx-large_wall,
-  xxx-large_jumbotron:     $xxx-large_jumbotron,
+  xx-large: (
+    hand:          $xx-large_hand,
+    lap:           $xx-large_lap,
+    desk:          $xx-large_desk,
+    wall:          $xx-large_wall,
+    jumbotron:     $xx-large_jumbotron
+  ),
 
-  display-2_hand:          $display-2_hand,
-  display-2_lap:           $display-2_lap,
-  display-2_desk:          $display-2_desk,
-  display-2_wall:          $display-2_wall,
-  display-2_jumbotron:     $display-2_jumbotron,
+  xxx-large: (
+    hand:          $xxx-large_hand,
+    lap:           $xxx-large_lap,
+    desk:          $xxx-large_desk,
+    wall:          $xxx-large_wall,
+    jumbotron:     $xxx-large_jumbotron
+  ),
 
-  display-1_hand:          $display-1_hand,
-  display-1_lap:           $display-1_lap,
-  display-1_desk:          $display-1_desk,
-  display-1_wall:          $display-1_wall,
-  display-1_jumbotron:     $display-1_jumbotron
+  display-2: (
+    hand:          $display-2_hand,
+    lap:           $display-2_lap,
+    desk:          $display-2_desk,
+    wall:          $display-2_wall,
+    jumbotron:     $display-2_jumbotron
+  ),
+
+  display-1: (
+    hand:          $display-1_hand,
+    lap:           $display-1_lap,
+    desk:          $display-1_desk,
+    wall:          $display-1_wall,
+    jumbotron:     $display-1_jumbotron
+  )
 );
 
 $social_icon_size: 1.5em;
