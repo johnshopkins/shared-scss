@@ -1,4 +1,5 @@
 @use "sass:math";
+@use '../utils/main' as *;
 
 .teaser {
   @include teaser_aside(7 of 10, landscape, full, text, padded);

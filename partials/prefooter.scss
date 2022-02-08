@@ -1,4 +1,4 @@
-@use '../utils/main';
+@use '../utils/main' as *;
 
 .prefooter {
   background-color: $gray1;

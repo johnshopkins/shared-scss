@@ -1,6 +1,5 @@
 @use "sass:math";
-
-@use "../utils/main";
+@use '../utils/main' as *;
 
 // Colors to show breakpoint changes, dev only
 $color_hand: $stained_glass;

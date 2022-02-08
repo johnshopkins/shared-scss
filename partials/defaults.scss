@@ -1,6 +1,5 @@
 @use "sass:math";
-
-@use '../utils/main';
+@use '../utils/main' as *;
 
 html,
 body {
