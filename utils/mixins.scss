@@ -9,7 +9,7 @@
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return math.div($number, $number * 0 + 1);
+    @return calc($number / ($number * (0 + 1)));
   }
 
   @return $number;
@@ -134,8 +134,21 @@
   @if $type == 'text' {text-shadow: $shadow;}
 }
 
+// Map deep get
+// https://css-tricks.com/snippets/sass/deep-getset-maps/
+// @author Kitty Giraudel
+// @access public
+// @param {Map} $map - Map
+// @param {Arglist} $keys - Key chain
+// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
 
-@mixin font_size($attr: font-size, $target_size: regular, $context_size: regular, $font-ratio: gentona) {
+@mixin font_size($attr: font-size, $target_size: 'regular', $context_size: 'regular', $font-ratio: 'gentona') {
 
   @if ($font-ratio == gentona) {
     $font-ratio: $gentona-ratio;
@@ -147,22 +160,24 @@
     $font-ratio: $titling-ratio;
   }
 
-  #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_hand}) * $default_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_hand}) * $default_font_size_px)#{em};
+  // #{$attr}: map-deep-get($font_sizes, $target_size, 'hand');
+
+  #{$attr}: strip-unit(calc(round((strip-unit(map-deep-get($font_sizes, $target_size, 'hand')) * $breakpoint_lap_font_size_px) * $font-ratio) / strip-unit(map-deep-get($font_sizes, $context_size, 'hand')) * $breakpoint_lap_font_size_px))#{em};
 
   @include breakpoint_lap_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_lap}) * $breakpoint_lap_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_lap}) * $breakpoint_lap_font_size_px)#{em};
+    #{$attr}: strip-unit(calc(round((strip-unit(map-deep-get($font_sizes, $target_size, 'lap')) * $breakpoint_lap_font_size_px) * $font-ratio) / strip-unit(map-deep-get($font_sizes, $context_size, 'lap')) * $breakpoint_lap_font_size_px))#{em};
   }
 
   @include breakpoint_desk_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_desk}) * $breakpoint_desk_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_desk}) * $breakpoint_desk_font_size_px)#{em};
+    #{$attr}: strip-unit(calc(round((strip-unit(map-deep-get($font_sizes, $target_size, 'desk')) * $breakpoint_lap_font_size_px) * $font-ratio) / strip-unit(map-deep-get($font_sizes, $context_size, 'desk')) * $breakpoint_lap_font_size_px))#{em};
   }
 
   @include breakpoint_wall_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_wall}) * $breakpoint_wall_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_wall}) * $breakpoint_wall_font_size_px)#{em};
+    #{$attr}: strip-unit(calc(round((strip-unit(map-deep-get($font_sizes, $target_size, 'wall')) * $breakpoint_lap_font_size_px) * $font-ratio) / strip-unit(map-deep-get($font_sizes, $context_size, 'wall')) * $breakpoint_lap_font_size_px))#{em};
   }
 
   @include breakpoint_jumbotron_width() {
-    #{$attr}: math.div(round((map-get($font_sizes, $target_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px) * $font-ratio), map-get($font_sizes, $context_size#{_jumbotron}) * $breakpoint_jumbotron_font_size_px)#{em};
+    #{$attr}: strip-unit(calc(round((strip-unit(map-deep-get($font_sizes, $target_size, 'jumbotron')) * $breakpoint_lap_font_size_px) * $font-ratio) / strip-unit(map-deep-get($font_sizes, $context_size, 'jumbotron')) * $breakpoint_lap_font_size_px))#{em};
   }
 }
 
@@ -177,28 +192,28 @@
 
   @if ($function == '/') {
     @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * math.div(strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})), strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * calc(strip-unit(map-deep-get($font_sizes, $target, $screen_size)) / strip-unit(map-deep-get($font_sizes, $context, $screen_size)))) * 1em);
     }
 
     @return $new_sizes;
 
   } @else if ($function == '*') {
     @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) * strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-deep-get($font_sizes, $target, $screen_size)) * strip-unit(map-deep-get($font_sizes, $context, $screen_size)))) * 1em);
     }
 
     @return $new_sizes;
 
   } @else if ($function == '+') {
     @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) + strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-deep-get($font_sizes, $target, $screen_size)) + strip-unit(map-deep-get($font_sizes, $context, $screen_size)))) * 1em);
     }
 
     @return $new_sizes;
 
   } @else if ($function == '-') {
     @for $i from 1 through length($sizes) {
-      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-get($font_sizes, $target#{_#{$screen_size}})) - strip-unit(map-get($font_sizes, $context#{_#{$screen_size}})))) * 1em);
+      $new_sizes: append($new_sizes, (strip-unit(nth($sizes, $i)) * (strip-unit(map-deep-get($font_sizes, $target, $screen_size)) - strip-unit(map-deep-get($font_sizes, $context, $screen_size)))) * 1em);
     }
 
     @return $new_sizes;
