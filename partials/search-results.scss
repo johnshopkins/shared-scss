@@ -51,7 +51,7 @@
 
     + .teaser {
       border-top: solid $hairline $gray1;
-      padding-top: calc($standard_spacing /calc 3);
+      padding-top: calc($standard_spacing / 3);
     }
   }
 }
@@ -59,7 +59,6 @@
 .results-count {
   font-size: $x-small;
   margin-top: #{calc(calc($standard_spacing / 6) / $x-small)}em;
-
 }
 
 .search-results,

@@ -50,7 +50,7 @@
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    min-height: #{calc((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5) / $large)}em; // font-size math
+    min-height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $large)}em; // font-size math
     @include responsive_ems(min-height, ((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)), regular '/' large);
     // padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
     @include responsive_ems(padding, ($standard_spacing * 0.125), regular '/' large);
@@ -67,7 +67,7 @@
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{calc((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5) / $regular)}em; // font-size math
+    height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $regular)}em; // font-size math
     line-height: #{calc(($standard_spacing * 0.5) / $regular)}em; //font-math
     min-height: 0;
     padding: #{calc(($standard_spacing * 0.125) / $regular)}em; // math for font size
