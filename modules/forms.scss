@@ -418,8 +418,8 @@ form {
         width: #{calc(1em / $x-large)}em;
         height: #{calc(1em / $x-large)}em;
         position: absolute;
-        bottom: (calc(calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 0.8125em / calc($x-large / $small)) * -1);
-        right: calc(($standard_spacing * 0.25) + $light - (1em * 0.5) / calc($x-large / $small));
+        bottom: (calc((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 0.8125em) / calc($x-large / $small)) * -1);
+        right: calc((($standard_spacing * 0.25) + $light - (1em * 0.5)) / calc($x-large / $small));
         z-index: $stack_positioned;
         font-size: #{calc($x-large / $small)}em;
         text-align: center;
@@ -481,7 +481,7 @@ form {
 
       .response {
         border: solid #{calc($light / $small)}em $black;
-        padding: #{calccalc($standard_spacing / 6) / $small)}em;
+        padding: #{calc(calc($standard_spacing / 6) / $small)}em;
         font-size: $small;
         color: $black;
 
@@ -580,7 +580,7 @@ form {
       label {
 
         .asterisk {
-          bottom: (calc((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 1.1em) / calc($x-large / $x-small)) * -1);
+          bottom: (calc(((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 1.1em)) / calc($x-large / $x-small)) * -1);
           right: calc((($standard_spacing * 0.25) + $light - (1em * 0.5)) / calc($x-large / $x-small));
           font-size: #{calc($x-large / $x-small)}em;
         }
