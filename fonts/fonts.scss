@@ -1,5 +1,7 @@
 @forward 'variables';
 @forward 'mixins';
+@use 'variables' as *;
+@use 'mixins' as *;
 
 @forward 'font-awesome/font-awesome';
 

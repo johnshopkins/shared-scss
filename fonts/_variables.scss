@@ -11,6 +11,9 @@
 //          => ../fonts
 //
 
+$fonts_dir: '' !default;
+$family: '' !default;
+
 $font_list: (
   gentona: (
     (100 'normal' "Gentona-Thin")

@@ -2,6 +2,7 @@
 // -------------------------
 
 @use "sass:list";
+@use "variables" as *;
 
 .#{$fa-css-prefix} {
   display: inline-block;
