@@ -127,85 +127,54 @@
   }
 }
 
-@mixin button_hover($color_scheme: hub) {
+@mixin button_hover(
+  $hover_background: $brody_wall,
+  $hover_color: $black,
+  $active_background: $sparta,
+  $active_color: $white,
+  $active_hover_background: $sparta,
+  $active_hover_color: $white,
+  $active_active_background: $logo_blue,
+  $active_active_color: $white
+) {
 
-  @if ($color_scheme == at-work) {
+  &:focus,
+  &:hover {
+    border-color: $hover_background;
+    background-color: $hover_background;
+    color: $hover_color;
+  }
+
+  &:active {
+    border-color: $active_background;
+    background-color: $active_background;
+    color: $active_color;
+  }
+
+  &.active {
+
     &:focus,
     &:hover {
-      border-color: $at_work_accent;
-      background-color: $at_work_accent;
-      color: $white;
+      border-color: $active_hover_background;
+      background-color: $active_hover_background;
+      color: $active_hover_color;
     }
 
     &:active {
-      border-color: $at_work_accent_dark;
-      background-color: $at_work_accent_dark;
-      color: $white;
-    }
-
-    &.active {
-
-      &:focus,
-      &:hover {
-        border-color: $at_work_accent_dark;
-        background-color: $at_work_accent_dark;
-        color: $white;
-      }
-
-      &:active {
-        border-color: $at_work_accent_darkest;
-        background-color: $at_work_accent_darkest;
-      }
-    }
-
-    &.button-accent {
-
-      &:active,
-      &:focus,
-      &:hover {
-        border-color: $at_work_accent_dark;
-        background-color: $at_work_accent_dark;
-      }
+      border-color: $active_active_background;
+      background-color: $active_active_background;
+      color: $active_active_color;
     }
   }
 
-  @else {
+  &.button-accent {
+
+    &:active,
     &:focus,
     &:hover {
-      border-color: $hub_blue_light;
-      background-color: $hub_blue_light;
-      color: $black;
-    }
-
-    &:active {
-      border-color: $hub_blue;
-      background-color: $hub_blue;
-      color: $white;
-    }
-
-    &.active {
-
-      &:focus,
-      &:hover {
-        border-color: $hub_blue;
-        background-color: $hub_blue;
-        color: $white;
-      }
-
-      &:active {
-        border-color: $hub_blue_dark;
-        background-color: $hub_blue_dark;
-      }
-    }
-
-    &.button-accent {
-
-      &:active,
-      &:focus,
-      &:hover {
-        border-color: $hub_blue_light;
-        background-color: $hub_blue_light;
-      }
+      border-color: $hover_background;
+      background-color: $hover_background;
+      color: $hover_color;
     }
   }
 }
