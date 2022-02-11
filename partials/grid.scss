@@ -6,7 +6,7 @@
 }
 
 .center {
-  max-width: #{$maxwidth}px;
+  max-width: $maxwidth * 1px;
   margin: 0 auto;
 }
 
