@@ -51,12 +51,12 @@
         @supports (min-height: 1vw) {
           display: table;
           height: auto;
-          min-height: #{strip-unit(get_span_width($context of 12))}vw;
+          min-height: calc(get_span_width($context of 12) / 1%) * 1vw;
           padding-bottom: 1em;
           vertical-align: middle;
 
-          @media all and (min-width: #{$maxwidth}px) {
-            min-height: #{($maxwidth * strip-unit(get_span_width($context of 12)  *  0.01))}px;
+          @media all and (min-width: $maxwidth * 1px) {
+            min-height: ($maxwidth * (calc(get_span_width($context of 12) / 1%)  *  0.01)) * 1px;
           }
         }
       }
