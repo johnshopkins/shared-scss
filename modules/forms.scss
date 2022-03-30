@@ -418,6 +418,18 @@ form {
   }
 }
 
+.gfield_checkbox {
+
+  .gchoice {
+
+    + .gchoice {
+      border-top: solid $hairline $gray1;
+      margin-top: $semi-bold;
+      padding-top: $semi-bold;
+    }
+  }
+}
+
 .gform_confirmation_message {
   border: solid $spearmint $light;
   color: $black;
