@@ -418,8 +418,12 @@ form {
   }
 }
 
-.gform_confirmation_wrapper {
-
+.gform_confirmation_message {
+  border: solid $spearmint $light;
+  color: $black;
+  @include font_size(font-size, large);
+  font-weight: 600;
+  padding: 1em;
 }
 
 // email signup form
