@@ -5,19 +5,15 @@ form + * {
   margin-top: ($standard_spacing * calc(2 / 3));
 }
 
+.gform_heading + form {
+  margin-top: ($standard_spacing * calc(1 / 3));
+}
+
 .screen-reader-response + form {
   margin-top: 0;
 }
 
 form {
-
-  &:after {
-    clear: both;
-    content: '';
-    display: block;
-    height: 0;
-    visibility: hidden;
-  }
 
 	fieldset {
     border: none;
@@ -220,12 +216,9 @@ form {
     }
   }
 
-  .form_field {
-		padding-bottom: ($standard_spacing * calc(2 / 3));
-		clear: left;
-	}
-
   .form-field {
+    padding-bottom: ($standard_spacing * calc(2 / 3));
+    clear: left;
 
     label {
       border-bottom: solid $light $black;
@@ -375,6 +368,32 @@ form {
       // padding-top: 0.5em;
     }
   }
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+
+  &[id^="gform"] {
+
+    fieldset legend,
+    label {
+      color: $black;
+    }
+
+    fieldset {
+
+      legend {
+
+        + * {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
 
 #ui-datepicker-div {
@@ -397,6 +416,10 @@ form {
   .ui-state-active {
     font-weight: bold;
   }
+}
+
+.gform_confirmation_wrapper {
+
 }
 
 // email signup form

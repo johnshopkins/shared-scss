@@ -74,6 +74,7 @@ ol,
 p,
 ul,
 .jhu-block,
+.gform_confirmation_wrapper,
 .teaser,
 .wp-block-image {
   margin: 0;
@@ -98,6 +99,9 @@ ul,
   + p,
   + ul,
   + .jhu-block,
+  + .gform_confirmation_wrapper,
+  + .gsection,
+  + .gform_wrapper,
   + .teaser,
   + .wp-block-image {
     margin-top: calc($standard_spacing / 3);
