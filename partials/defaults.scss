@@ -76,6 +76,7 @@ ul,
 .jhu-block,
 .gform_confirmation_wrapper,
 .teaser,
+.wp-block-column,
 .wp-block-image {
   margin: 0;
 
@@ -103,6 +104,7 @@ ul,
   + .gsection,
   + .gform_wrapper,
   + .teaser,
+  + .wp-block-column,
   + .wp-block-image {
     margin-top: calc($standard_spacing / 3);
   }
@@ -110,6 +112,8 @@ ul,
 
 form,
 [role='form'],
+.wp-block-columns,
+.wp-block-group,
 .wp-block-jhu-group {
 
   + * {
@@ -118,10 +122,13 @@ form,
 }
 
 * {
+
   + form,
   + [role='form'],
+  + .wp-block-columns,
+  + .wp-block-group,
   + .wp-block-jhu-group {
-    margin-top: ($standard_spacing * 0.5);
+    margin-top: calc($standard_spacing / 2);
   }
 }
 
