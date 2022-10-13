@@ -607,6 +607,10 @@ table {
     }
   }
 
+  &.has-fixed-width {
+    table-layout: fixed;
+  }
+
   + * {
     margin-top: calc($standard_spacing / 3);
   }
