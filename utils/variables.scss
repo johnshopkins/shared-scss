@@ -1,5 +1,17 @@
 @use 'colors' as *;
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@200;400;600;800&family=Zilla+Slab:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+// Zilla Slab
+@import url('https://fonts.googleapis.com/css2?family==Zilla+Slab:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+// Inter
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap');
+
+@import url("https://use.typekit.net/btq2ouq.css");
+
+// Antonio
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap');
+
+// Newsreader
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700;1,6..72,800&display=swap');
 
 //\\//\\//\\//\\//\\//\\//\\
 //\\ BREAKPOINTS /\\//\\//\\
@@ -87,11 +99,22 @@ $creep:  ($stroll * 5);         // 5000ms
 // $titling: titling-gothic, 'Titling Gothic', impact, sans-serif;
 // $arnhem: arnhem, 'Arnhem', 'Times New Roman', times, serif;
 
-$gentona: 'Inter', tahoma, sans-serif;
-$quadon: 'Zilla Slab', tahoma, sans-serif;
-$titling: 'Antonio', tahoma, sans-serif;
-$arnhem: 'EB Garamond', georgia, serif;
-
+// $gentona: 'Inter', tahoma, sans-serif;
+// $gentona: 'commuters-sans', tahoma, sans-serif;
+// $gentona: 'franklin-gothic-atf', tahoma, sans-serif;
+$gentona: 'proxima-nova', tahoma, sans-serif;
+// $quadon: 'Zilla Slab', tahoma, sans-serif;
+$quadon: 'factoria', tahoma, sans-serif;
+// $quadon: 'unit-slab', tahoma, sans-serif;
+$titling: 'alternate-gothic-extra-cond', tahoma, sans-serif;
+// $titling: 'alternate-gothic-compressed', tahoma, sans-serif;
+// $titling: 'trade-gothic-next-compressed', tahoma, sans-serif;
+// $titling: 'ff-good-headline-web-pro-ext', tahoma, sans-serif;
+// $titling: 'ff-good-headline-web-pro-com', tahoma, sans-serif;
+// $titling: 'ff-good-headline-web-pro-con', tahoma, sans-serif;
+// $arnhem: 'Newsreader', georgia, serif;
+// $arnhem: 'freight-micro-pro', georgia, serif;
+$arnhem: 'freight-text-pro', georgia, serif;
 
 $sans: $gentona;
 $slab: $quadon;
