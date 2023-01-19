@@ -103,3 +103,20 @@ input[type="reset"].x-large,
 //     color: $black;
 //   }
 // }
+
+
+.buttons,
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc($standard_spacing / 6);
+
+  .button,
+  .wp-block-button {
+
+    + .button,
+    + .wp-block-button {
+      margin-top: 0;
+    }
+  }
+}
