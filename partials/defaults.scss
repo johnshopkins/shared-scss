@@ -19,6 +19,7 @@ body {
   font-family: $gentona;
   font-weight: 400;
   font-size: $regular;
+  line-height: 1.2;
   @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
   // Now that main-nav, modals, and overlays are outside of .page-container for
