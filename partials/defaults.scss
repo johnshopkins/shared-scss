@@ -145,8 +145,9 @@ p {
   }
 
   &.has-large-font-size {
+    color: $black;
     font-family: $quadon;
-    font-size: $large;
+    @include font_size(font-size, large, regular, quadon);
     font-weight: 600;
 
     a {
