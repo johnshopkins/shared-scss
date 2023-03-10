@@ -43,7 +43,7 @@ form {
       border-bottom: $light solid $black;
       color: $black;
       display: block;
-      font-family: $gentona;
+      font-family: $sans;
       font-size: $regular;
       font-weight: 700; // Changed 03-10
       margin-bottom: calc($standard_spacing / 12);
@@ -76,7 +76,7 @@ form {
   input,
   select,
   textarea {
-    font-family: $gentona;
+    font-family: $sans;
     font-weight: 500; // Changed 03-10
   }
 
@@ -490,7 +490,7 @@ form {
 
     .indicates-required,
     .mce_inline_error {
-      font-family: $gentona;
+      font-family: $sans;
     }
 
     .indicates-required {
@@ -513,7 +513,7 @@ form {
     }
 
     #mce-responses {
-      font-family: $gentona;
+      font-family: $sans;
       font-weight: 500; // Changed 03-10
       text-align: center;
 

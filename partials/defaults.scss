@@ -16,7 +16,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: $gray5;
-  font-family: $gentona;
+  font-family: $sans;
   font-weight: 500; // Changed 03-10
   font-size: $regular;
   line-height: 1.2;
@@ -147,7 +147,7 @@ p {
 
   &.has-large-font-size {
     color: $black;
-    font-family: $quadon;
+    font-family: $slab;
     @include font_size(font-size, large, regular, quadon);
     font-weight: 700; // Changed 03-10
 
@@ -174,7 +174,7 @@ a {
 blockquote {
   border-left: solid $light $gray1;
   color: $sparta;
-  font-family: $quadon;
+  font-family: $slab;
   @include font_size(font-size, large, regular);
   font-style: normal;
   font-weight: 500; // Changed 03-10
@@ -184,7 +184,7 @@ blockquote {
   cite {
     color: $gray4;
     // display: block;
-    font-family: $gentona;
+    font-family: $sans;
     @include font_size(font-size, small, large);
     font-weight: 500; // Changed 03-10
     margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
@@ -233,7 +233,7 @@ details {
   summary {
     color: $black;
     cursor: pointer;
-    font-family: $gentona;
+    font-family: $sans;
     font-weight: 700; // Changed 03-10
 
     &::-webkit-details-marker {
@@ -252,7 +252,7 @@ details {
 }
 
 dl {
-  font-family: $gentona;
+  font-family: $sans;
 
   dd {
     margin-left: 0.5em;
@@ -417,7 +417,7 @@ figure {
 
 .kicker {
   color: $sparta;
-  font-family: $gentona;
+  font-family: $sans;
   font-weight: 500; // Changed 03-10
   letter-spacing: $thin;
   // line-height: 90%;
@@ -547,7 +547,7 @@ figure {
 
 table {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
-  font-family: $gentona;
+  font-family: $sans;
   font-weight: 500; // Changed 03-10
   outline: $table_outline;
   width: 100%;
@@ -645,7 +645,7 @@ table {
   @include border-radius(10em);
   color: $white;
   display: inline-block;
-  font-family: $gentona;
+  font-family: $sans;
   font-size: $xxx-small;
   font-weight: 700; // Changed 03-10
   height: #{calc(1em / $xxx-small)}em;

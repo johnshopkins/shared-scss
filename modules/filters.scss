@@ -90,7 +90,7 @@
 
     span {
       display: block;
-      font-family: $gentona;
+      font-family: $sans;
       font-weight: 700; // Changed 03-10
       padding: #{calc(calc($standard_spacing / 6) / $large)}em #{calc(calc($standard_spacing / 3) / $large)}em;
     }

@@ -755,30 +755,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -863,30 +863,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -970,30 +970,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -1075,30 +1075,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -1180,30 +1180,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -1281,30 +1281,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -1387,30 +1387,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 
@@ -1492,30 +1492,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == quadon) {
-    $headline-family: $quadon;
+    $headline-family: $slab;
     $headline-ratio: $quadon-ratio;
   } @else if ($headline-font-family == arnhem) {
-    $headline-family: $arnhem;
+    $headline-family: $serif;
     $headline-ratio: $arnhem-ratio;
   } @else if ($headline-font-family == titling) {
-    $headline-family: $titling;
+    $headline-family: $condensed;
     $headline-ratio: $titling-ratio;
   } @else {
-    $headline-family: $gentona;
+    $headline-family: $sans;
     $headline-ratio: $gentona-ratio;
   }
 
   @if ($kicker-font-family == quadon) {
-    $kicker-family: $quadon;
+    $kicker-family: $slab;
     $kicker-ratio: $quadon-ratio;
   } @else if ($kicker-font-family == arnhem) {
-    $kicker-family: $arnhem;
+    $kicker-family: $serif;
     $kicker-ratio: $arnhem-ratio;
   } @else if ($kicker-font-family == titling) {
-    $kicker-family: $titling;
+    $kicker-family: $condensed;
     $kicker-ratio: $titling-ratio;
   } @else {
-    $kicker-family: $gentona;
+    $kicker-family: $sans;
     $kicker-ratio: $gentona-ratio;
   }
 

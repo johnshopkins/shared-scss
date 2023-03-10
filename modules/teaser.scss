@@ -73,7 +73,6 @@
   .text {
 
     h5 {
-      // font-family: $gentona;
 
       a {
         border: none;
@@ -92,7 +91,7 @@
     .media-promo,
     .meta,
     .summary + p {
-      font-family: $gentona;
+      font-family: $sans;
       font-weight: 500; // Changed 03-10
 
       .plus {
@@ -157,7 +156,7 @@
     }
 
     .summary {
-      font-family: $gentona;
+      font-family: $sans;
       font-weight: 500; // Changed 03-10
       color: $gray5;
 

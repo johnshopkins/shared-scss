@@ -62,7 +62,7 @@
 
 .search-results,
 .key-matches {
-  font-family: $gentona;
+  font-family: $sans;
   font-size: 1em;
   left: 0 !important;
   padding-left: 0 !important;
@@ -103,7 +103,7 @@
 
   .media-heading,
   .title {
-    font-family: $gentona;
+    font-family: $sans;
     font-weight: 700; // Changed 03-10
     font-size: $regular;
 
@@ -129,7 +129,7 @@
   }
 
   .url {
-    font-family: $gentona;
+    font-family: $sans;
     font-size: $xx-small;
     font-weight: 500; // Changed 03-10
     color: $sparta;
@@ -277,7 +277,7 @@
     color: $gray4;
     content: 'Filter by:';
     display: table;
-    font-family: $gentona;
+    font-family: $sans;
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -317,7 +317,7 @@
   span {
     color: $gray4;
     display: table;
-    font-family: $gentona;
+    font-family: $sans;
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -336,7 +336,7 @@
   border: none;
   @include border-radius(10em);
   display: inline-block;
-  font-family: $gentona;
+  font-family: $sans;
   @include font_size(font-size, x-small);
   @include responsive_ems(margin, 0 $semi-bold $semi-bold 0, regular '/' x-small);
   @include responsive_ems(padding, $semi-bold $heavy, regular '/' x-small);
@@ -426,7 +426,7 @@ ul.pagination {
   background: transparent;
   border-bottom: solid $thin transparent;
   color: $sparta;
-  font-family: $gentona;
+  font-family: $sans;
   font-size: $regular;
   font-weight: 500; // Changed 03-10
   margin: 0;
@@ -577,7 +577,7 @@ ul.pagination {
   }
 
   .gsc-control-cse {
-    font-family: $gentona;
+    font-family: $sans;
     font-size: $regular;
 
     .gs-result .gs-title,
