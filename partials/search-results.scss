@@ -104,7 +104,7 @@
   .media-heading,
   .title {
     font-family: $gentona;
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     font-size: $regular;
 
     @include breakpoint_lap_width() { font-size: $large; }
@@ -117,7 +117,7 @@
 
     a { font-weight: inherit; }
 
-    b { font-weight: 800; }
+    b { font-weight: 900; // Changed 03-10 }
   }
 
   .description,
@@ -131,7 +131,7 @@
   .url {
     font-family: $gentona;
     font-size: $xx-small;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     color: $sparta;
     overflow: hidden;
   }
@@ -144,7 +144,7 @@
   p {
     margin: 0;
     font-size: $small;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     // text-align: center;
   }
 
@@ -351,7 +351,7 @@
   // border: solid $black (($light / $small) * 1em);
   // border-bottom: none;
   color: $white;
-  font-weight: 600;
+  font-weight: 700; // Changed 03-10
   height: auto;
   line-height: normal;
   min-width: 0;
@@ -367,7 +367,7 @@
   // border-color: $gray1;
   color: $gray4;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
 }
 
 .no-js,
@@ -382,7 +382,7 @@
     // border-bottom: solid $black (($light / $small) * 1em);
     // border-color: $gray1;
     color: $gray4;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
 
     &:focus,
     &:hover {
@@ -428,7 +428,7 @@ ul.pagination {
   color: $sparta;
   font-family: $gentona;
   font-size: $regular;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   margin: 0;
   @include transition-property(border-bottom-color, color);
   @include transition-duration($sprint, $sprint);
@@ -438,7 +438,7 @@ ul.pagination {
     background: $sparta;
     border-bottom-color: $sparta;
     color: $white;
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     padding: $thin $semi-bold;
     padding-bottom: 0;
   }
@@ -502,13 +502,13 @@ ul.pagination {
 
   .gsc-url-top {
     font-size: $x-small;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     margin-top: calc($light / $xx-small) * 1em;
   }
 
   .gsc-table-result {
     font-size: $x-small;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     margin-top: 0;
 
       td {
@@ -547,7 +547,7 @@ ul.pagination {
 
       b {
         font-style: normal;
-        font-weight: 600;
+        font-weight: 700; // Changed 03-10
       }
     }
   }
@@ -583,7 +583,7 @@ ul.pagination {
     .gs-result .gs-title,
     .gs-result .gs-title * {
       font-size: $large;
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
 
       *,
       .gs-title {
@@ -591,7 +591,7 @@ ul.pagination {
       }
 
       b {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         @include transition(color $run ease-in-out);
       }
     }

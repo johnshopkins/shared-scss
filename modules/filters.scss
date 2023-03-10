@@ -3,7 +3,7 @@
 .filters {
   border: solid $light $black;
   display: block;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   margin: 0;
   // margin-bottom: ($standard_spacing / 3);
   width: 100%;
@@ -91,7 +91,7 @@
     span {
       display: block;
       font-family: $gentona;
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
       padding: #{calc(calc($standard_spacing / 6) / $large)}em #{calc(calc($standard_spacing / 3) / $large)}em;
     }
 
@@ -594,7 +594,7 @@
       color: $white;
       display: none;
       font-size: $large;
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
       left: 0;
       line-height: 1em;
       @include opacity(1);

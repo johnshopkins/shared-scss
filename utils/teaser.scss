@@ -792,10 +792,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 600;
+        font-weight: 700; // Changed 03-10
         text-transform: none;
       }
     }
@@ -900,10 +900,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1006,10 +1006,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1111,10 +1111,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1216,10 +1216,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1317,10 +1317,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1423,10 +1423,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }
@@ -1528,10 +1528,10 @@
       line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
-        font-weight: 500;
+        font-weight: 800; // Changed 03-10
         text-transform: uppercase;
       } @else {
-        font-weight: 800;
+        font-weight: 900; // Changed 03-10
         text-transform: none;
       }
     }

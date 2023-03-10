@@ -52,7 +52,7 @@
 
 @mixin headline_bar($text-color: inherit, $bar-color: $jay) {
   font-size: $x-small;
-  font-weight: 600;
+  font-weight: 700; // Changed 03-10
   text-transform: uppercase;
   color: $text-color;
   white-space: nowrap;

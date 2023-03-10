@@ -120,40 +120,6 @@
       }
     }
   }
-
-  // .big-story {
-  //   background: transparent !important;
-  //   border: none;
-  //   color: inherit;
-  //   display: block;
-  //   padding: ($menu_spacing / 2);
-  //   padding-right: $menu_spacing + 0.5em;
-  //   width: percentage(100% / (100% + 5%));
-  //   @include transition(color);
-  //   @include transition-duration($run);
-  //   @include transition-delay(0);
-  //   @include transition-timing-function(ease-in-out);
-  //
-  //   @include breakpoint_desk_width() {
-  //     padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
-  //     width: 100%;
-  //   }
-  //
-  //   @include breakpoint_lap_width() {
-  //     @include breakpoint_desk_height() {
-  //       padding-right: ($menu_spacing + $big_story_overflow + 0.5em);
-  //       width: 100%;
-  //     }
-  //   }
-  // }
-  //
-  // .date {
-  //   font-size: $small;
-  //   font-style: italic;
-  //   font-weight: 600;
-  //   margin: #{(($menu_spacing / 6) / $small)}em 0; // font size math
-  //   @include opacity(0.5);
-  // }
 }
 
 

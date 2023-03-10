@@ -204,7 +204,7 @@
     // border-width: #{$thin / $xx-small}em;
     @include responsive_ems(border-width, $thin, regular '/' xx-small);
     @include font_size(font-size, xx-small);
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
     @include responsive_ems(padding, calc($standard_spacing / 12), regular '/' xx-small);
   }
@@ -213,7 +213,7 @@
     // border-width: #{$thin / $x-small}em;
     @include responsive_ems(border-width, $thin, regular '/' x-small);
     @include font_size(font-size, x-small);
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
     @include responsive_ems(padding, calc($standard_spacing / 12), regular '/' x-small);
   }
@@ -222,7 +222,7 @@
     // border-width: $light;
     @include responsive_ems(border-width, $light, regular '/' small);
     @include font_size(font-size, small);
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
     @include responsive_ems(padding, ($standard_spacing * 0.1), regular '/' small);
   }
@@ -231,7 +231,7 @@
     // border-width: #{$medium / $large}em;
     @include responsive_ems(border-width, $medium, regular '/' large);
     @include font_size(font-size, large);
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
     @include responsive_ems(padding, calc($standard_spacing / 6), regular '/' large);
   }
@@ -240,7 +240,7 @@
     // border-width: #{$semi-bold / $x-large}em;
     @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
     @include font_size(font-size, x-large);
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
     @include responsive_ems(padding, ($standard_spacing * 0.25), regular '/' x-large);
     width: 100%;
@@ -249,7 +249,7 @@
   @else {
     border-width: $light;
     font-size: $regular;
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
     padding: ($standard_spacing * 0.125);
   }
 }

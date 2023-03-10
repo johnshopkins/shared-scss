@@ -45,7 +45,7 @@ form {
       display: block;
       font-family: $gentona;
       font-size: $regular;
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
       margin-bottom: calc($standard_spacing / 12);
       padding-bottom: calc($standard_spacing / 12);
       width: 100%;
@@ -77,7 +77,7 @@ form {
   select,
   textarea {
     font-family: $gentona;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
   }
 
 	label {
@@ -268,7 +268,7 @@ form {
 
     margin-top: 0;
     @include font_size(font-size, small);
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
 
     + .form_field {
       margin-top: 0.5em;
@@ -278,7 +278,7 @@ form {
   .required {
     color: $burnt_orange;
     display: inline;
-    font-weight: 800;
+    font-weight: 900; // Changed 03-10
   }
 
   .submit {
@@ -414,7 +414,7 @@ form {
   }
 
   .ui-state-active {
-    font-weight: bold;
+    font-weight: 700; // Changed 03-10
   }
 }
 
@@ -434,7 +434,7 @@ form {
   border: solid $spearmint $light;
   color: $black;
   @include font_size(font-size, large);
-  font-weight: 600;
+  font-weight: 700; // Changed 03-10
   padding: 1em;
 }
 
@@ -485,7 +485,7 @@ form {
 
     .asterisk {
       color: $newer_hut_glass;
-      font-weight: 700;
+      font-weight: 900; // Changed 03-10
     }
 
     .indicates-required,
@@ -496,7 +496,7 @@ form {
     .indicates-required {
       margin: #{calc(calc($standard_spacing / 3) / $small)}em 0 #{calc(calc($standard_spacing / 12) / $small)}em 0;
       font-size: $small;
-      font-weight: 400;
+      font-weight: 500; // Changed 03-10
       text-align: right;
       color: $gray4;
 
@@ -514,7 +514,7 @@ form {
 
     #mce-responses {
       font-family: $gentona;
-      font-weight: 400;
+      font-weight: 500; // Changed 03-10
       text-align: center;
 
       .response {
@@ -677,7 +677,7 @@ form {
     color: $black;
     // display: none;
     display: block;
-    font-weight: 800;
+    font-weight: 900; // Changed 03-10
     margin: 1em 0 0 0 !important;
     padding: 1em !important;
 
@@ -693,7 +693,7 @@ form {
 
     ul {
       @include font_size(font-size, regular, large);
-      font-weight: 400;
+      font-weight: 500; // Changed 03-10
       margin-left: 1em;
       margin-top: 0.5em;
     }

@@ -27,7 +27,7 @@ form.search-box,
     margin: 0;
     border-style: solid;
     border-color: $sparta;
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     line-height: 100%;
     @include border-radius(0);
 
@@ -99,7 +99,7 @@ form.search-box,
         background: none !important;
         border-right-width: 0 !important;
         font-size: $large;
-        font-weight: 400;
+        font-weight: 500; // Changed 03-10
         height: auto !important;
         padding: (calc(calc($standard_spacing / 6) / $large) * 1em) (calc(($standard_spacing * 0.25) / $large) * 1em) !important;
 

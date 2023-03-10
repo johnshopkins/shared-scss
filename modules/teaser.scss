@@ -93,7 +93,7 @@
     .meta,
     .summary + p {
       font-family: $gentona;
-      font-weight: 400;
+      font-weight: 500; // Changed 03-10
 
       .plus {
         display: inline-block;
@@ -158,7 +158,7 @@
 
     .summary {
       font-family: $gentona;
-      font-weight: 400;
+      font-weight: 500; // Changed 03-10
       color: $gray5;
 
       p {
@@ -183,7 +183,7 @@
     }
 
     .source {
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
       line-height: 140%;
       font-style: italic;
     }

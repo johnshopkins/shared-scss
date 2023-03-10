@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   color: $gray5;
   font-family: $gentona;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   font-size: $regular;
   line-height: 1.2;
   @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
@@ -138,7 +138,7 @@ h6 {
 p {
 
   a {
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
   }
 
   &:empty {
@@ -149,15 +149,15 @@ p {
     color: $black;
     font-family: $quadon;
     @include font_size(font-size, large, regular, quadon);
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
 
     a {
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
     }
 
     b,
     strong {
-      font-weight: 800;
+      font-weight: 900; // Changed 03-10
     }
   }
 }
@@ -177,7 +177,7 @@ blockquote {
   font-family: $quadon;
   @include font_size(font-size, large, regular);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   margin: 1em 0;
   padding: 0 1.5em;
 
@@ -186,7 +186,7 @@ blockquote {
     // display: block;
     font-family: $gentona;
     @include font_size(font-size, small, large);
-    font-weight: 400;
+    font-weight: 500; // Changed 03-10
     margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
     // text-align: right;
 
@@ -199,7 +199,7 @@ blockquote {
 
 b,
 strong {
-  font-weight: 600;
+  font-weight: 700; // Changed 03-10
 
   a {
     font-weight: inherit;
@@ -234,7 +234,7 @@ details {
     color: $black;
     cursor: pointer;
     font-family: $gentona;
-    font-weight: 600;
+    font-weight: 700; // Changed 03-10
 
     &::-webkit-details-marker {
       color: $sparta;
@@ -418,7 +418,7 @@ figure {
 .kicker {
   color: $sparta;
   font-family: $gentona;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   letter-spacing: $thin;
   // line-height: 90%;
   text-transform: uppercase;
@@ -548,7 +548,7 @@ figure {
 table {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
   font-family: $gentona;
-  font-weight: 400;
+  font-weight: 500; // Changed 03-10
   outline: $table_outline;
   width: 100%;
 
@@ -596,7 +596,7 @@ table {
       // border-color: $gray4;
       color: $white;
       font-size: $x-small;
-      font-weight: 600;
+      font-weight: 700; // Changed 03-10
       padding: #{calc(calc($standard_spacing / 6) / $x-small)}em;
       text-align: center;
       text-transform: uppercase;
@@ -647,7 +647,7 @@ table {
   display: inline-block;
   font-family: $gentona;
   font-size: $xxx-small;
-  font-weight: 600;
+  font-weight: 700; // Changed 03-10
   height: #{calc(1em / $xxx-small)}em;
   line-height: 0.6em;
   padding: #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em $bold #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em;
