@@ -20,7 +20,7 @@
       a {
         background-color: transparent;
         @include box-shadow(none);
-        line-height: 1em;
+        // line-height: 1.2;
       }
     }
   }
@@ -227,7 +227,7 @@
             background-color: transparent;
             @include box-shadow(none);
             display: block;
-            line-height: 1em;
+            line-height: 1.2;
             padding: 0;
           }
         }
@@ -266,7 +266,7 @@
             background-color: $white;
             @include box-shadow(-4px 0 0 $white, 4px 0 0 $white);
             display: inline;
-            line-height: 1.35em;
+            line-height: 1.35;
             padding-bottom: $thin;
             padding-top: $thin;
           }
@@ -331,7 +331,7 @@
       a {
         background-color: transparent;
         @include box-shadow(none);
-        line-height: 1em;
+        // line-height: 1.2;
       }
     }
   }
@@ -497,7 +497,7 @@
           background-color: transparent;
           @include box-shadow(none);
           display: block;
-          // line-height: 1em;
+          // line-height: 1.2;
           padding-bottom: 0;
           padding-top: 0;
         }
@@ -789,13 +789,14 @@
       font-family: $headline-family;
       // font-size: $x-small * $headline-ratio;
       @include font_size(font-size, x-small, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 700; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -897,13 +898,14 @@
       font-family: $headline-family;
       // font-size: $small * $headline-ratio;
       @include font_size(font-size, small, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1003,13 +1005,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, regular, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1108,13 +1111,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, large, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1213,13 +1217,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, x-large, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1314,13 +1319,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xx-large, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1420,13 +1426,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
@@ -1525,13 +1532,14 @@
     h5 {
       font-family: $headline-family;
       @include font_size(font-size, display-2, regular, $headline-ratio);
-      line-height: calc(1em / $headline-ratio);
 
       @if ($headline-font-family == titling) {
         font-weight: 800; // Changed 03-10
+        line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
         font-weight: 900; // Changed 03-10
+        line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }

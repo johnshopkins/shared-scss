@@ -19,7 +19,7 @@ body {
   font-family: $sans;
   font-weight: 500; // Changed 03-10
   font-size: $regular;
-  line-height: 1.2;
+  line-height: 1.5;
   @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
   // Now that main-nav, modals, and overlays are outside of .page-container for
@@ -150,6 +150,7 @@ p {
     font-family: $slab;
     @include font_size(font-size, large, regular, quadon);
     font-weight: 700; // Changed 03-10
+    line-height: 1.3;
 
     a {
       font-weight: 700; // Changed 03-10
@@ -178,6 +179,7 @@ blockquote {
   @include font_size(font-size, large, regular);
   font-style: normal;
   font-weight: 500; // Changed 03-10
+  line-height: 1.3;
   margin: 1em 0;
   padding: 0 1.5em;
 
