@@ -133,7 +133,7 @@ form {
   input[type="text"],
   input[type="email"],
   select {
-    height: 2em + ($light * 2);
+    min-height: 2em + ($light * 2);
   }
 
   input {
