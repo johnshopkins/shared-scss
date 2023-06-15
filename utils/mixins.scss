@@ -71,6 +71,20 @@
   + .teaser {
     margin-top: 0.5em !important;
   }
+
+  + .wp-block-image {
+
+    &.size-thumbnail {
+
+      &.alignleft,
+      &.alignright {
+
+        + * {
+          margin-top: 0.5em !important;
+        }
+      }
+    }
+  }
 }
 
 
