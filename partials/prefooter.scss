@@ -1,6 +1,7 @@
 @use '../utils/main' as *;
 
-.prefooter {
+.prefooter,
+.pre-footer {
   background-color: $gray1;
   padding: $standard_spacing 0;
 
