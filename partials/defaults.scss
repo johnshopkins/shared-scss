@@ -145,7 +145,7 @@ p {
     display: none;
   }
 
-  &.has-large-font-size {
+  &.has-medium-font-size {
     color: $black;
     font-family: $slab;
     @include font_size(font-size, large, regular, quadon);
