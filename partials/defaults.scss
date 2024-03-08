@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   color: $gray5;
   font-family: $sans;
-  font-weight: 500; // Changed 03-10
+  font-weight: 500;
   font-size: $regular;
   line-height: 1.5;
   @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
@@ -138,7 +138,7 @@ h6 {
 p {
 
   a {
-    font-weight: 500; // Changed 03-10
+    font-weight: inherit;
   }
 
   &:empty {
@@ -146,19 +146,30 @@ p {
   }
 
   &.has-medium-font-size {
-    color: $black;
-    font-family: $slab;
-    @include font_size(font-size, large, regular, quadon);
-    font-weight: 700; // Changed 03-10
+    color: $double_black;
+    font-family: $sans;
+    @include font_size(font-size, large, regular, gentona, !important);
+    font-weight: 700;
     line-height: 1.3;
-
-    a {
-      font-weight: 700; // Changed 03-10
-    }
 
     b,
     strong {
-      font-weight: 900; // Changed 03-10
+      font-weight: 900;
+      text-shadow: calc($light * -1) $light 0 $jay;
+    }
+  }
+
+  &.has-large-font-size {
+    color: $double_black;
+    font-family: $slab;
+    @include font_size(font-size, xx-large, regular, quadon, !important);
+    font-weight: 900;
+    line-height: 1.3;
+
+    b,
+    strong {
+      font-weight: 900;
+      text-shadow: calc($light * -1) $light 0 $jay;
     }
   }
 }
@@ -178,7 +189,7 @@ blockquote {
   font-family: $slab;
   @include font_size(font-size, large, regular);
   font-style: normal;
-  font-weight: 500; // Changed 03-10
+  font-weight: 500;
   line-height: 1.3;
   margin: 1em 0;
   padding: 0 1.5em;
@@ -188,7 +199,7 @@ blockquote {
     // display: block;
     font-family: $sans;
     @include font_size(font-size, small, large);
-    font-weight: 500; // Changed 03-10
+    font-weight: 500;
     margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
     // text-align: right;
 
@@ -199,9 +210,16 @@ blockquote {
   }
 }
 
+.has-text-color {
+
+  * {
+    color: inherit;
+  }
+}
+
 b,
 strong {
-  font-weight: 700; // Changed 03-10
+  font-weight: 700;
 
   a {
     font-weight: inherit;
@@ -236,7 +254,7 @@ details {
     color: $black;
     cursor: pointer;
     font-family: $sans;
-    font-weight: 700; // Changed 03-10
+    font-weight: 700;
 
     &::-webkit-details-marker {
       color: $sparta;
@@ -311,7 +329,9 @@ figure,
   .wp-caption-text {
     border-bottom: solid $light $black;
     color: $gray4;
+    flex-grow: 1;
     @include font_size(font-size, x-small);
+    margin: 0 !important;
     padding: 0;
     @include responsive_ems(padding-bottom, calc($standard_spacing / 6), regular '/' x-small);
     @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' x-small);
@@ -420,7 +440,7 @@ figure {
 .kicker {
   color: $sparta;
   font-family: $sans;
-  font-weight: 500; // Changed 03-10
+  font-weight: 500;
   letter-spacing: $thin;
   // line-height: 90%;
   text-transform: uppercase;
@@ -550,7 +570,7 @@ figure {
 table {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
   font-family: $sans;
-  font-weight: 500; // Changed 03-10
+  font-weight: 500;
   outline: $table_outline;
   width: 100%;
 
@@ -598,7 +618,7 @@ table {
       // border-color: $gray4;
       color: $white;
       font-size: $x-small;
-      font-weight: 700; // Changed 03-10
+      font-weight: 700;
       padding: #{calc(calc($standard_spacing / 6) / $x-small)}em;
       text-align: center;
       text-transform: uppercase;
@@ -649,7 +669,7 @@ table {
   display: inline-block;
   font-family: $sans;
   font-size: $xxx-small;
-  font-weight: 700; // Changed 03-10
+  font-weight: 700;
   height: #{calc(1em / $xxx-small)}em;
   line-height: 0.6em;
   padding: #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em $bold #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em;
