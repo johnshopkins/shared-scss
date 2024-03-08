@@ -1,0 +1,32 @@
+@use '../utils/main' as *;
+
+.wp-block-group {
+
+  &.alignfull {
+    position: relative;
+    z-index: $stack_normal;
+
+    &:before {
+      backface-visibility: hidden;
+      background-color: inherit;
+      content: '';
+      display: block;
+      height: 100%;
+      left: calc(((100vw - 100%) / 2) * -1);
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: -1;
+    }
+  }
+}
+
+.is-layout-flex {
+
+  &.equal-size {
+
+    > * {
+      flex-basis: 100%;
+    }
+  }
+}
