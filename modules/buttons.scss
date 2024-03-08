@@ -33,12 +33,17 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 .button,
-.wp-block-button.is-style-outline .wp-block-button__link{
-  @include button_style(outline);
+.wp-block-button__link{
+  @include button_style(solid);
 }
 
-.wp-block-button__link {
-  @include button_style(solid);
+button.outline,
+input[type="button"].outline,
+input[type="submit"].outline,
+input[type="reset"].outline,
+.button.outline,
+.wp-block-button.is-style-outline .wp-block-button__link{
+  @include button_style(outline);
 }
 
 button.xx-small,

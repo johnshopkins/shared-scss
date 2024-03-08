@@ -163,7 +163,7 @@
   @return $map;
 }
 
-@mixin font_size($attr: font-size, $target_size: 'regular', $context_size: 'regular', $font-ratio: 'gentona') {
+@mixin font_size($attr: font-size, $target_size: 'regular', $context_size: 'regular', $font-ratio: 'gentona', $flag: null) {
 
   @if ($font-ratio == gentona) {
     $font-ratio: $gentona-ratio;
@@ -200,7 +200,7 @@
       )
     )
   )
-  * 1em;
+  * 1em $flag;
 
   @include breakpoint_lap_width() {
     #{$attr}:
@@ -228,7 +228,7 @@
         )
       )
     )
-    * 1em;
+    * 1em $flag;
   }
 
   @include breakpoint_desk_width() {
@@ -257,7 +257,7 @@
         )
       )
     )
-    * 1em;
+    * 1em $flag;
   }
 
   @include breakpoint_wall_width() {
@@ -286,7 +286,7 @@
         )
       )
     )
-    * 1em;
+    * 1em $flag;
   }
 
   @include breakpoint_jumbotron_width() {
@@ -315,7 +315,7 @@
         )
       )
     )
-    * 1em;
+    * 1em $flag;
   }
 }
 
