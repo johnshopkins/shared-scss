@@ -65,6 +65,7 @@
 
   @if ($style == solid) {
     background-color: $background-color;
+    border-width: 0;
 
     @if ($text-color != null) {
       color: $text-color;
