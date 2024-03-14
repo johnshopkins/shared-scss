@@ -148,7 +148,7 @@ p {
   &.has-medium-font-size {
     color: $double_black;
     font-family: $sans;
-    @include font_size(font-size, large, regular, gentona, !important);
+    @include font_size(font-size, x-large, regular, gentona, !important);
     font-weight: 700;
     line-height: 1.3;
 
@@ -161,8 +161,8 @@ p {
 
   &.has-large-font-size {
     color: $double_black;
-    font-family: $slab;
-    @include font_size(font-size, xx-large, regular, quadon, !important);
+    font-family: $sans;
+    @include font_size(font-size, xx-large, regular, gentona, !important);
     font-weight: 900;
     line-height: 1.3;
 
