@@ -19,9 +19,25 @@ input[type="submit"],
 input[type="reset"],
 .button,
 .wp-block-button__link {
+  align-items: center;
   @include button_defaults();
-  @include button_radius(rounded);
+  @include button_radius(square);
   @include button_size(medium);
+  display: flex;
+  gap: 0.5em;
+
+  em {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  img {
+    display: inline-block;
+    max-height: 1.125em;
+    max-width: 1.25em;
+    min-width: auto;
+  }
 
   &.button-accent {
     @include button_style(solid);
@@ -44,6 +60,15 @@ input[type="reset"].outline,
 .button.outline,
 .wp-block-button.is-style-outline .wp-block-button__link{
   @include button_style(outline);
+}
+
+button.rounded,
+input[type="button"].rounded,
+input[type="submit"].rounded,
+input[type="reset"].rounded,
+.button.rounded,
+.wp-block-button.is-style-rounded .wp-block-button__link{
+  @include button_radius(round);
 }
 
 button.xx-small,
