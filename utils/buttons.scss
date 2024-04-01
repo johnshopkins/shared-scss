@@ -65,6 +65,7 @@
 
   @if ($style == solid) {
     background-color: $background-color;
+    border-width: 0;
 
     @if ($text-color != null) {
       color: $text-color;
@@ -91,6 +92,7 @@
     }
   } @else {
     background-color: transparent;
+    @include box_shadow(-$light $light 0 $background-color !important);
     color: $background-color;
 
     &:focus,
@@ -183,18 +185,18 @@
 
   @if $size == 'medium' {
     @include font_size(font-size, regular);
-    padding: $standard_spacing * 0.125;
+    padding: ($standard_spacing * 0.125) ($standard_spacing * 0.5);
 
   } @else if $size == 'small' {
     @include responsive_ems(border-width, $light, regular '/' small);
     @include font_size(font-size, small);
-    padding: $standard_spacing * 0.125;
+    padding: ($standard_spacing * 0.125) ($standard_spacing * 0.5);
 
 
   } @else if $size == 'large' {
     @include responsive_ems(border-width, $light, regular '/' large);
     @include font_size(font-size, large);
-    padding: $standard_spacing * 0.125;
+    padding: ($standard_spacing * 0.125) ($standard_spacing * 0.5);
   }
 }
 
@@ -204,18 +206,18 @@
     // border-width: #{$thin / $xx-small}em;
     @include responsive_ems(border-width, $thin, regular '/' xx-small);
     @include font_size(font-size, xx-small);
-    font-weight: 500; // Changed 03-10
+    font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 12), regular '/' xx-small);
+    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' xx-small);
   }
 
   @else if ($size == x-small) {
     // border-width: #{$thin / $x-small}em;
     @include responsive_ems(border-width, $thin, regular '/' x-small);
     @include font_size(font-size, x-small);
-    font-weight: 500; // Changed 03-10
+    font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 12), regular '/' x-small);
+    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' x-small);
   }
 
   @else if ($size == small) {
@@ -224,33 +226,33 @@
     @include font_size(font-size, small);
     font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
-    @include responsive_ems(padding, ($standard_spacing * 0.1), regular '/' small);
+    @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing / 2), regular '/' small);
   }
 
   @else if ($size == large) {
     // border-width: #{$medium / $large}em;
     @include responsive_ems(border-width, $medium, regular '/' large);
     @include font_size(font-size, large);
-    font-weight: 700; // Changed 03-10
+    font-weight: 900; // Changed 03-10
     // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
-    @include responsive_ems(padding, calc($standard_spacing / 6), regular '/' large);
+    @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (2 / 3)), regular '/' large);
   }
 
   @else if ($size == x-large) {
     // border-width: #{$semi-bold / $x-large}em;
     @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
     @include font_size(font-size, x-large);
-    font-weight: 700; // Changed 03-10
+    font-weight: 900; // Changed 03-10
     // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
-    @include responsive_ems(padding, ($standard_spacing * 0.25), regular '/' x-large);
+    @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (2 / 3)), regular '/' x-large);
     width: 100%;
   }
 
   @else {
     border-width: $light;
     font-size: $regular;
-    font-weight: 700; // Changed 03-10
-    padding: ($standard_spacing * 0.125);
+    font-weight: 900; // Changed 03-10
+    padding: calc($standard_spacing / 4) calc($standard_spacing / 2);
   }
 }
 
@@ -262,6 +264,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: $sans;
+  letter-spacing: 1px;
   // line-height: 0.75em; // should set the line height to match the caps character height for each font
   line-height: 1;
   text-align: center;
