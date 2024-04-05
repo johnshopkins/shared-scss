@@ -19,12 +19,9 @@ input[type="submit"],
 input[type="reset"],
 .button,
 .wp-block-button__link {
-  align-items: center;
   @include button_defaults();
   @include button_radius(square);
   @include button_size(medium);
-  display: flex;
-  gap: 0.5em;
 
   em {
     font-family: "FontAwesome";
