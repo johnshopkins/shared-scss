@@ -1,75 +1,110 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-@mixin search_input($layout) {
+@mixin search_input($layout, $input-ratio: 8 of 12, $font-size: large) {
+  $input-column-width: nth($input-ratio, 1);
+  $context: nth($input-ratio, -1);
+  
+  @include responsive_ems(border-width, $semi-bold, regular '/' $font-size);
+  @include font_size(font-size, $font-size);
+  height: auto;
+  margin: 0;
+  @include responsive_ems(min-height, $standard_spacing, regular '/' $font-size);
+  padding: 0;
+  @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' $font-size);
+  @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' $font-size);
 
   @if $layout == stacked {
     // border-width: #{$semi-bold / $large}em; // math for font size
-    @include responsive_ems(border-width, $semi-bold, regular '/' large);
     // border-right-width: #{$semi-bold / $large}em; // font size math
-    border-bottom-width: 0;
+    @include responsive_ems(border-bottom-width, 0, regular '/' $font-size);
+    @include responsive_ems(border-right-width, $semi-bold, regular '/' $font-size);
+    // flex-basis: 100%;
     float: none;
     // padding: ((0.375em + (0.375em / 2)) / 1.25) (0.75em / 1.25); // math for font size
-    @include responsive_ems(padding-bottom, ($semi-bold + ($semi-bold * 0.5)), regular '/' large);
-    @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' large);
-    @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' large);
-    @include responsive_ems(padding-top, ($semi-bold + ($semi-bold * 0.5)), regular '/' large);
+    // @include responsive_ems(padding-bottom, ($semi-bold + ($semi-bold * 0.5)), regular '/' $font-size);
+    // @include responsive_ems(padding-top, ($semi-bold + ($semi-bold * 0.5)), regular '/' $font-size);
     width: 100%;
 
   } @else {
     // border-width: #{$semi-bold / $large}em; // math for font size
-    @include responsive_ems(border-width, $semi-bold, regular '/' large);
+    // @include responsive_ems(border-width, $semi-bold, regular '/' $font-size);
     // border-right-width: 0;
     // border-bottom-width: #{$semi-bold / $large}em; // font size math
-    @include responsive_ems(border-bottom-width, $semi-bold, regular '/' large);
+    @include responsive_ems(border-bottom-width, $semi-bold, regular '/' $font-size);
+    @include responsive_ems(border-right-width, 0, regular '/' $font-size);
+    // flex-basis: get_span_width($input-column-width of $context);
     float: left;
-    margin-right: 0;
     // padding: #{($standard_spacing / 8) / $large}em #{($standard_spacing / 4) / $large}em; // math for font size
-    @include responsive_ems(padding-bottom, ($standard_spacing * 0.125), regular '/' large);
-    @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' large);
-    @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' large);
-    @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' large);
-    width: percentage(calc(2 / 3));
+    // @include responsive_ems(padding-bottom, ($standard_spacing * 0.125), regular '/' $font-size);
+    // @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' $font-size);
+    // @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' $font-size);
+    // @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' $font-size);
+    width: get_span_width($input-column-width of $context);
   }
 }
 
-@mixin search_button($layout) {
+@mixin search_button($layout, $button-ratio: 4 of 12, $font-size: regular) {
+  $button-column-width: nth($button-ratio, 1);
+  $context: nth($button-ratio, -1);
+  
+  @include responsive_ems(border-width, $semi-bold, regular '/' $font-size);
+  height: auto;
+  @include font_size(font-size, $font-size);
+  @include responsive_ems(min-height, $standard_spacing, regular '/' $font-size);
+  @include responsive_ems(padding-bottom, ($standard_spacing * 0.125), regular '/' $font-size);
+  @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' $font-size);
+  @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' $font-size);
+  @include responsive_ems(padding-top, ($standard_spacing * 0.125), regular '/' $font-size);
 
   @if $layout == stacked {
     // border-width: #{$semi-bold / $large}em; // math for font size
-    @include responsive_ems(border-width, $semi-bold, regular '/' large);
+    // flex-basis: 100%;
     float: none;
-    height: auto;
     // font-size: $large;
-    @include font_size(font-size, large);
     // line-height: #{($standard_spacing / 2) / $large}em; //font-math
-    @include responsive_ems(line-height, ($standard_spacing * 0.5), regular '/' large);
+    // @include responsive_ems(line-height, ($standard_spacing * 0.5), regular '/' $font-size);
     // min-height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    min-height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $large)}em; // font-size math
-    @include responsive_ems(min-height, ((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)), regular '/' large);
+    // min-height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $large)}em; // font-size math
+    // @include responsive_ems(min-height, ((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)), regular '/' $font-size);
     // padding: #{($standard_spacing / 8) / $large}em 0; // math for font size
-    @include responsive_ems(padding, ($standard_spacing * 0.125), regular '/' large);
-    padding-left: 0;
-    padding-right: 0;
+    // @include responsive_ems(padding, ($standard_spacing * 0.125), regular '/' $font-size);
+    // padding-left: 0;
+    // padding-right: 0;
     width: 100%;
 
   } @else {
-    border-width: #{calc($semi-bold / $regular)}em; // math for font size
-    border-left-width: 0;
+    // border-width: #{calc($semi-bold / $regular)}em; // math for font size
+    // border-left-width: 0;
+    // flex-basis: get_span_width($button-column-width of $context);
     float: right;
-    font-size: $regular;
+    // font-size: $regular;
     // Height is padding-top + padding-bottom + border-top + border-bottom + line-height
     // it is set like this to eliminate any variation between browsers accepting the
     // application of line-height to inputs and buttons. It's crap but it works.
     // Target height in this case is $standard_spacing value but is not required.
-    height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $regular)}em; // font-size math
-    line-height: #{calc(($standard_spacing * 0.5) / $regular)}em; //font-math
-    min-height: 0;
-    padding: #{calc(($standard_spacing * 0.125) / $regular)}em; // math for font size
+    // min-height: #{calc(((($standard_spacing * 0.125) * 2) + ($semi-bold * 2) + ($standard_spacing * 0.5)) / $regular)}em; // font-size math
+    // line-height: #{calc(($standard_spacing * 0.5) / $regular)}em; //font-math
+    // min-height: 0;
+    // padding: #{calc(($standard_spacing * 0.125) / $regular)}em; // math for font size
     // padding-left: #{(($standard_spacing / 8) + $semi-bold) / $regular}em; // math for font size
-    width: percentage(calc(1 / 3));
+    width: get_span_width($button-column-width of $context);
+  }
+}
+
+@mixin search_box($layout: aisde, $input-ratio: 8 of 12, $input-font-size: large, $button-font-size: regular) {
+  $input-column-width: nth($input-ratio, 1);
+  $context: nth($input-ratio, -1);
+  $button-column-width: $context - nth($input-ratio, 1);
+
+  input[type="text"] {
+    @include search_input($layout, $input-column-width of $context, $input-font-size);
+  }
+
+  button {
+    @include search_button($layout, $button-column-width of $context, $button-font-size);
   }
 }

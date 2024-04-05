@@ -65,7 +65,7 @@
 
   @if ($style == solid) {
     background-color: $background-color;
-    border-width: 0;
+    // border-width: 0;
 
     @if ($text-color != null) {
       color: $text-color;
@@ -263,14 +263,14 @@
   @include box-shadow(none);
   // color: $color;
   cursor: pointer;
-  display: inline-flex;
+  display: inline-block;
   font-family: $sans;
   gap: 0.5em;
   justify-content: center;
   letter-spacing: 0.05em;
   // line-height: 0.75em; // should set the line height to match the caps character height for each font
   line-height: 1.1;
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
 
   + * {

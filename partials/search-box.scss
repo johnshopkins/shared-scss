@@ -18,8 +18,16 @@ form.search-box,
   background-color: transparent;
 
   &,
-  form {
+  form,
+  .form_fields {
     width: 100%;
+  }
+
+  form,
+  .form_fields {
+    align-items:stretch;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   input[type="text"],
@@ -28,7 +36,8 @@ form.search-box,
     border-style: solid;
     border-color: $sparta;
     font-weight: 500; // Changed 03-10
-    line-height: 100%;
+    height: auto;
+    // line-height: 100%;
     @include border-radius(0);
 
     + button {
@@ -38,12 +47,10 @@ form.search-box,
 
   input[type="text"] {
     @include search_input(stacked);
-    // height: #{$standard_spacing / $large}em; // font math
-    @include responsive_ems(height, $standard_spacing, regular '/' large);
-    background-color: $white;
-    // font-size: $large;
-    @include font_size(font-size, large);
     color: $black;
+    background-color: $white;
+    @include font_size(font-size, large);
+    @include responsive_ems(min-height, $standard_spacing, regular '/' large);
   }
 
   button {
