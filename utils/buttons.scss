@@ -257,16 +257,17 @@
 }
 
 @mixin button_defaults($color: $black) {
-  align-items: center;
+  // align-items: center;
   // background-color: transparent;
   border: solid $color $light;
   @include box-shadow(none);
   // color: $color;
   cursor: pointer;
   display: inline-block;
+  // display: inline-flex;
   font-family: $sans;
-  gap: 0.5em;
-  justify-content: center;
+  // gap: 0.5em;
+  // justify-content: center;
   letter-spacing: 0.05em;
   // line-height: 0.75em; // should set the line height to match the caps character height for each font
   line-height: 1.1;
