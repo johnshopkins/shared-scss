@@ -204,41 +204,54 @@
 
   @if ($size == xx-small) {
     // border-width: #{$thin / $xx-small}em;
-    @include responsive_ems(border-width, $thin, regular '/' xx-small);
-    @include font_size(font-size, xx-small);
+    @include responsive_ems(border-width, $thin, regular '/' xxx-small);
+    @include font_size(font-size, xxx-small);
     font-weight: 700; // Changed 03-10
+    letter-spacing: 0.0875em;
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' xx-small);
+    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' xxx-small);
   }
 
   @else if ($size == x-small) {
     // border-width: #{$thin / $x-small}em;
-    @include responsive_ems(border-width, $thin, regular '/' x-small);
-    @include font_size(font-size, x-small);
+    @include responsive_ems(border-width, $thin, regular '/' xx-small);
+    @include font_size(font-size, xx-small);
     font-weight: 700; // Changed 03-10
+    letter-spacing: 0.075em;
     // padding: #{($standard_spacing / 12) / $x-small}em #{($standard_spacing / 8) / $x-small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' x-small);
+    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' xx-small);
   }
 
   @else if ($size == small) {
     // border-width: $light;
-    @include responsive_ems(border-width, $light, regular '/' small);
-    @include font_size(font-size, small);
+    @include responsive_ems(border-width, $light, regular '/' x-small);
+    @include font_size(font-size, x-small);
+    letter-spacing: 0.0625em;
     font-weight: 700; // Changed 03-10
     // padding: #{($standard_spacing / 8) / $small}em #{($standard_spacing / 6) / $small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing / 2), regular '/' small);
+    @include responsive_ems(padding, calc($standard_spacing / 5) calc($standard_spacing / 2.5), regular '/' x-small);
   }
 
   @else if ($size == large) {
     // border-width: #{$medium / $large}em;
-    @include responsive_ems(border-width, $medium, regular '/' large);
-    @include font_size(font-size, large);
+    @include responsive_ems(border-width, $medium, regular '/' regular);
+    @include font_size(font-size, regular);
     font-weight: 900; // Changed 03-10
     // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
-    @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (2 / 3)), regular '/' large);
+    @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing * 2), regular '/' regular);
   }
 
   @else if ($size == x-large) {
+    // border-width: #{$semi-bold / $x-large}em;
+    @include responsive_ems(border-width, $semi-bold, regular '/' large);
+    @include font_size(font-size, large);
+    font-weight: 900; // Changed 03-10
+    // padding: #{($standard_spacing / 4) / $x-large}em #{($standard_spacing / 3) / $x-large}em;
+    @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (2 / 3)), regular '/' large);
+    width: 100%;
+  }
+
+  @else if ($size == xx-large) {
     // border-width: #{$semi-bold / $x-large}em;
     @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
     @include font_size(font-size, x-large);
@@ -250,8 +263,8 @@
 
   @else {
     border-width: $light;
-    font-size: $regular;
-    font-weight: 900; // Changed 03-10
+    @include font_size(font-size, small);
+    font-weight: 700; // Changed 03-10
     padding: calc($standard_spacing / 4) calc($standard_spacing / 2);
   }
 }
