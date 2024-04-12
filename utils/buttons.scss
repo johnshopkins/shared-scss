@@ -238,7 +238,7 @@
     @include font_size(font-size, regular);
     font-weight: 900; // Changed 03-10
     // padding: #{($standard_spacing / 5) / $large}em #{($standard_spacing / 4) / $large}em;
-    @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing * 2), regular '/' regular);
+    @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing / 2), regular '/' regular);
   }
 
   @else if ($size == x-large) {
