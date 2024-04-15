@@ -92,7 +92,7 @@
     }
   } @else {
     background-color: transparent;
-    @include box_shadow(-$light $light 0 $background-color !important);
+    @include box_shadow(-$light $light 0 $background-color);
     color: $background-color;
 
     &:focus,
