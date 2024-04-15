@@ -150,19 +150,20 @@ form {
   input[type="button"],
   input[type="submit"],
   button {
+    height: auto;
 
-    span {
-      display: inline;
-    }
+    // span {
+    //   display: inline;
+    // }
   }
 
   select {
     padding: 0 0.5em;
   }
 
-  span {
-    display: block;
-  }
+  // span {
+  //   display: block;
+  // }
 
 	textarea {
     display: block;
@@ -533,6 +534,16 @@ form {
       text-align: center;
 
       &:first-child { margin-top: 0; }
+    }
+  }
+}
+
+.e2ma_signup_form {
+
+  form {
+
+    label {
+      font-size: 1em;
     }
   }
 }
