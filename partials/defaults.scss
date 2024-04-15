@@ -154,8 +154,9 @@ p {
 
     b,
     strong {
+      color: inherit;
       font-weight: 900;
-      text-shadow: calc($light * -1) $light 0 $jay;
+      // text-shadow: calc($light * -1) $light 0 $jay;
     }
   }
 
@@ -168,8 +169,9 @@ p {
 
     b,
     strong {
+      color: inherit;
       font-weight: 900;
-      text-shadow: calc($light * -1) $light 0 $jay;
+      text-shadow: calc(($thin / 3) * -1) calc($thin / 3) 0 $jay;
     }
   }
 }
