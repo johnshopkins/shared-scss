@@ -175,13 +175,6 @@ p {
 }
 
 a {
-  // Hopeful alternate solution to solve for extremely long URLs that break the right edge of the screen and cause horizontal scrolling. 
-  display: inline-block;
-  max-width: 100% !important;
-  // overflow: hidden; // this line caused more issues than anything else but the rest doesn't work without it.
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  // End horizontal scroll fix
 
   img {
     display: block;
