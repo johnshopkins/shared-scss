@@ -55,7 +55,7 @@
 }
 
 @mixin button_style(
-  $style: outline,
+  $style: solid,
   $background-color: $black,
   $text-color: null,
   $hover-background-color: null,
@@ -63,34 +63,7 @@
 ) {
   border-color: $background-color;
 
-  @if ($style == solid) {
-    background-color: $background-color;
-    // border-width: 0;
-
-    @if ($text-color != null) {
-      color: $text-color;
-    } @else {
-      color: $white;
-    }
-
-    &:focus,
-    &:hover {
-
-      @if ($hover-background-color != null) {
-        background-color: $hover-background-color;
-        border-color: $hover-background-color;
-      } @else {
-        background-color: darken($background-color, 10%);
-        border-color: darken($background-color, 10%);
-      }
-
-      @if ($hover-text-color != null) {
-        color: $hover-text-color;
-      } @else {
-        color: $white;
-      }
-    }
-  } @else {
+  @if ($style == outline) {
     background-color: transparent;
     @include box_shadow(-$light $light 0 $background-color);
     color: $background-color;
@@ -111,6 +84,41 @@
         color: $white;
       }
     }
+  } @else {
+    background-color: $background-color;
+    @include box_shadow(none);
+    // border-width: 0;
+
+    @if ($text-color != null) {
+      color: $text-color;
+    } @else {
+
+      @debug lightness($background-color);
+
+      @if (lightness($background-color) > 50) {
+        color: $double_black;
+      } @else {
+        color: $white;
+      }
+    }
+
+    &:focus,
+    &:hover {
+
+      @if ($hover-background-color != null) {
+        background-color: $hover-background-color;
+        border-color: $hover-background-color;
+      } @else {
+        background-color: darken($background-color, 10%);
+        border-color: darken($background-color, 10%);
+      }
+
+      @if ($hover-text-color != null) {
+        color: $hover-text-color;
+      } @else {
+        color: $white;
+      }
+    }
   }
 }
 
@@ -119,13 +127,13 @@
   $text-color: null,
   $hover-background-color: null,
   $hover-text-color: null,
-  $style: outline
+  $style: solid
   ) {
 
-  @if $style == solid {
-    @include button_style(solid, $background-color, $text-color, $hover-background-color, $hover-text-color);
-  } @else {
+  @if $style == outline {
     @include button_style(outline, $background-color, $text-color, $hover-background-color, $hover-text-color);
+  } @else {
+    @include button_style(solid, $background-color, $text-color, $hover-background-color, $hover-text-color);
   }
 }
 
