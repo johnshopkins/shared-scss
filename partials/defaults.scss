@@ -196,7 +196,14 @@ p {
 }
 
 a {
-
+  background: transparent;
+  cursor: pointer;
+  font-size: 1em; // undo user agent font size in chrome
+  text-decoration: underline;
+  text-decoration-color: $jay;
+  text-decoration-thickness: $thin;
+  text-underline-offset: $thin;
+  
   img {
     display: block;
     height: auto;
@@ -247,6 +254,7 @@ blockquote {
 
 b,
 strong {
+  color: $black;
   font-weight: 700;
 
   a {
