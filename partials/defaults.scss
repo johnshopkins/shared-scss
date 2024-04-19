@@ -146,32 +146,50 @@ p {
     display: none;
   }
 
-  &.has-medium-font-size {
+  &.has-medium-font-size,
+  &.has-large-font-size,
+  &.has-x-large-font-size {
     color: $double_black;
-    font-family: $sans;
-    @include font_size(font-size, x-large, regular, gentona, !important);
-    font-weight: 700;
-    line-height: 1.3;
 
     b,
     strong {
       color: inherit;
-      font-weight: 900;
-      // text-shadow: calc($light * -1) $light 0 $jay;
     }
   }
 
-  &.has-large-font-size {
-    color: $double_black;
+  &.has-medium-font-size {
     font-family: $sans;
-    @include font_size(font-size, xx-large, regular, gentona, !important);
-    font-weight: 900;
+    @include font_size(font-size, large, regular, gentona, !important);
+    font-weight: 500;
     line-height: 1.3;
 
     b,
     strong {
-      color: inherit;
+      font-weight: 700;
+    }
+}
+
+  &.has-large-font-size {
+    font-family: $sans;
+    @include font_size(font-size, x-large, regular, gentona, !important);
+    font-weight: 700;
+    line-height: 1.25;
+
+    b,
+    strong {
       font-weight: 900;
+    }
+  }
+
+  &.has-x-large-font-size {
+    font-family: $sans;
+    @include font_size(font-size, xx-large, regular, gentona, !important);
+    font-weight: 900;
+    line-height: 1.2;
+
+    b,
+    strong {
+      font-weight: inherit;
       text-shadow: calc(($thin / 3) * -1) calc($thin / 3) 0 $jay;
     }
   }
