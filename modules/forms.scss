@@ -294,7 +294,7 @@ form {
     .ajax-loader {
       animation: fa-spin 1s infinite steps(8);
       -webkit-animation: fa-spin 1s infinite steps(8);
-      background-image: url('../images/loader.svg');
+      background-image: url('../../../../shared/src/assets/images/loader.svg');
       background-size: cover;
       display: none;
       height: 2em;
