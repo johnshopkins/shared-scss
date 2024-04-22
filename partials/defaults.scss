@@ -134,6 +134,16 @@ h4,
 h5,
 h6 {
   line-height: 1em;
+  
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  b,
+  strong {
+    color: inherit;
+  }
 }
 
 p {
@@ -167,7 +177,7 @@ p {
     strong {
       font-weight: 700;
     }
-}
+  }
 
   &.has-large-font-size {
     font-family: $sans;
