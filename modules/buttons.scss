@@ -72,7 +72,7 @@ input[type="button"].xx-small,
 input[type="submit"].xx-small,
 input[type="reset"].xx-small,
 .button.xx-small,
-.wp-block-button.xx-small .wp-block-button__link {
+.wp-block-button.has-xx-small-font-size .wp-block-button__link {
   @include button_size(xx-small);
 }
 
@@ -81,7 +81,7 @@ input[type="button"].x-small,
 input[type="submit"].x-small,
 input[type="reset"].x-small,
 .button.x-small,
-.wp-block-button.x-small .wp-block-button__link {
+.wp-block-button.has-x-small-font-size .wp-block-button__link {
   @include button_size(x-small);
 }
 
@@ -90,16 +90,26 @@ input[type="button"].small,
 input[type="submit"].small,
 input[type="reset"].small,
 .button.small,
-.wp-block-button.small .wp-block-button__link {
+.wp-block-button.has-small-font-size .wp-block-button__link {
   @include button_size(small);
 }
+
+button.medium,
+input[type="button"].medium,
+input[type="submit"].medium,
+input[type="reset"].medium,
+.button.medium,
+.wp-block-button.has-medium-font-size .wp-block-button__link {
+  @include button_size(medium);
+}
+
 
 button.large,
 input[type="button"].large,
 input[type="submit"].large,
 input[type="reset"].large,
 .button.large,
-.wp-block-button.large .wp-block-button__link {
+.wp-block-button.has-large-font-size .wp-block-button__link {
   @include button_size(large);
 }
 
@@ -108,12 +118,23 @@ input[type="button"].x-large,
 input[type="submit"].x-large,
 input[type="reset"].x-large,
 .button.x-large,
-.wp-block-button.x-large .wp-block-button__link {
+.wp-block-button.has-x-large-font-size .wp-block-button__link {
   @include button_size(x-large);
 }
 
+button.xx-large,
+input[type="button"].xx-large,
+input[type="submit"].xx-large,
+input[type="reset"].xx-large,
+.button.xx-large,
+.wp-block-button.has-xx-large-font-size .wp-block-button__link {
+  @include button_size(xx-large);
+}
+
+
 .wp-block-button {
   display: inline-block;
+  font-size: 1em !important;
   @include button_spacing();
 }
 
