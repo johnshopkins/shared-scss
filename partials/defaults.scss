@@ -167,6 +167,18 @@ p {
     }
   }
 
+  &.has-small-font-size {
+    font-family: $sans;
+    @include font_size(font-size, small, regular, gentona, !important);
+    font-weight: 500;
+    line-height: 1.4;
+
+    b,
+    strong {
+      font-weight: 700;
+    }
+  }
+
   &.has-medium-font-size {
     font-family: $sans;
     @include font_size(font-size, large, regular, gentona, !important);
