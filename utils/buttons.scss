@@ -54,18 +54,17 @@
   }
 }
 
-@mixin button_style(
-  $style: solid,
+@mixin button_color(
   $background-color: $black,
   $text-color: null,
   $hover-background-color: null,
-  $hover-text-color: null
+  $hover-text-color: null,
+  $style: solid
 ) {
 
   @if ($style == outline) {
     background-color: transparent;
     border-color: $text-color;
-    border-width: $light;
     @include box_shadow(-$light $light 0 $background-color);
     color: $text-color;
 
@@ -76,27 +75,28 @@
         background-color: $hover-background-color;
         border-color: $hover-background-color;
       } @else {
-        background-color: $background-color;
+        background-color: $text-color;
       }
 
       @if ($hover-text-color != null) {
         color: $hover-text-color;
       } @else {
-        color: $white;
+
+        @if (lightness($text-color) > 50) {
+          color: $double_black;
+        } @else {
+          color: $white;
+        }
       }
     }
   } @else {
     background-color: $background-color;
     border-color: $background-color;
-    @include box_shadow(none);
-    // border-width: 0;
 
     @if ($text-color != null) {
       color: $text-color;
     } @else {
-
-      @debug lightness($background-color);
-
+  
       @if (lightness($background-color) > 50) {
         color: $double_black;
       } @else {
@@ -124,18 +124,25 @@
   }
 }
 
-@mixin button_color(
+
+@mixin button_style(
+  $style: solid,
   $background-color: $black,
   $text-color: null,
   $hover-background-color: null,
-  $hover-text-color: null,
-  $style: solid
-  ) {
+  $hover-text-color: null
+) {
 
-  @if $style == outline {
-    @include button_style(outline, $background-color, $text-color, $hover-background-color, $hover-text-color);
+  @if ($style == outline) {
+    border-width: $light;
+    @include box_shadow(-$light $light 0 $background-color); // keep this above button_color mixin.
+    @include button_color($background-color, $text-color, $hover-background-color, $hover-text-color, outline);
+
   } @else {
-    @include button_style(solid, $background-color, $text-color, $hover-background-color, $hover-text-color);
+    @include button_color($background-color, $text-color, $hover-background-color, $hover-text-color, solid);
+    @include box_shadow(none);
+    // border-width: 0;
+
   }
 }
 
@@ -213,8 +220,8 @@
 @mixin button_size($size: medium) {
 
   @if ($size == xx-small) {
-    // border-width: #{$thin / $xx-small}em;
-    @include responsive_ems(border-width, $thin, regular '/' xxx-small);
+    border-width: $hairline;
+    // @include responsive_ems(border-width, $thin, regular '/' xxx-small);
     @include font_size(font-size, xxx-small, regular, gentona, !important);
     font-weight: 700; // Changed 03-10
     letter-spacing: 0.0875em;
@@ -234,7 +241,7 @@
 
   @else if ($size == small) {
     // border-width: $light;
-    @include responsive_ems(border-width, $light, regular '/' x-small);
+    @include responsive_ems(border-width, $thin, regular '/' x-small);
     @include font_size(font-size, x-small, regular, gentona, !important);
     letter-spacing: 0.0625em;
     font-weight: 700; // Changed 03-10
