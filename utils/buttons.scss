@@ -64,9 +64,15 @@
 
   @if ($style == outline) {
     background-color: transparent;
-    border-color: $text-color;
     @include box_shadow(-$light $light 0 $background-color);
-    color: $text-color;
+
+    @if ($text-color != null) {
+      border-color: $text-color;
+      color: $text-color;
+    } @else {
+      border-color: $background-color;
+      color: $background-color;
+    }
 
     &:focus,
     &:hover {
@@ -74,15 +80,28 @@
       @if ($hover-background-color != null) {
         background-color: $hover-background-color;
         border-color: $hover-background-color;
-      } @else {
+      } @else if ($text-color != null){
         background-color: $text-color;
+      } @else {
+        background-color: $background-color;
       }
 
       @if ($hover-text-color != null) {
         color: $hover-text-color;
-      } @else {
-
+      } @else if ($hover-background-color != null) {
+        @if (lightness($hover-background-color) > 50) {
+          color: $double_black;
+        } @else {
+          color: $white;
+        }
+      } @else if ($text-color != null) {
         @if (lightness($text-color) > 50) {
+          color: $double_black;
+        } @else {
+          color: $white;
+        }
+      } @else {
+        @if (lightness($background-color) > 50) {
           color: $double_black;
         } @else {
           color: $white;
@@ -92,11 +111,11 @@
   } @else {
     background-color: $background-color;
     border-color: $background-color;
+    border-width: 0;
 
     @if ($text-color != null) {
       color: $text-color;
     } @else {
-  
       @if (lightness($background-color) > 50) {
         color: $double_black;
       } @else {
@@ -110,15 +129,29 @@
       @if ($hover-background-color != null) {
         background-color: $hover-background-color;
         border-color: $hover-background-color;
+      } @else if ($text-color != null) {
+        background-color: $text-color;
+        border-color: $text-color;
       } @else {
-        background-color: darken($background-color, 10%);
-        border-color: darken($background-color, 10%);
+        @if (lightness($background-color) > 50) {
+          background-color: $double_black;
+          border-color: $double_black;
+        } @else {
+          background-color: $white;
+          border-color: $white;
+        }
       }
 
       @if ($hover-text-color != null) {
         color: $hover-text-color;
+      } @else if ($hover-background-color != null) {
+        @if (lightness($hover-background-color) > 50) {
+          color: $double_black;
+        } @else {
+          color: $white;
+        }
       } @else {
-        color: $white;
+        color: $background-color;
       }
     }
   }
