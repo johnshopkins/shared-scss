@@ -89,23 +89,26 @@
       @if ($hover-text-color != null) {
         color: $hover-text-color;
       } @else if ($hover-background-color != null) {
-        @if (lightness($hover-background-color) > 50) {
-          color: $double_black;
-        } @else {
-          color: $white;
-        }
+        @include text-contrast($hover-background-color);
+        // @if (lightness($hover-background-color) > 50) {
+        //   color: $double_black;
+        // } @else {
+        //   color: $white;
+        // }
       } @else if ($text-color != null) {
-        @if (lightness($text-color) > 50) {
-          color: $double_black;
-        } @else {
-          color: $white;
-        }
+        @include text-contrast($text-color);
+        // @if (lightness($text-color) > 50) {
+        //   color: $double_black;
+        // } @else {
+        //   color: $white;
+        // }
       } @else {
-        @if (lightness($background-color) > 50) {
-          color: $double_black;
-        } @else {
-          color: $white;
-        }
+        @include text-contrast($background-color);
+        // @if (lightness($background-color) > 50) {
+        //   color: $double_black;
+        // } @else {
+        //   color: $white;
+        // }
       }
     }
   } @else {
@@ -116,11 +119,12 @@
     @if ($text-color != null) {
       color: $text-color;
     } @else {
-      @if (lightness($background-color) > 50) {
-        color: $double_black;
-      } @else {
-        color: $white;
-      }
+      @include text-contrast($background-color);
+      // @if (lightness($background-color) > 50) {
+      //   color: $double_black;
+      // } @else {
+      //   color: $white;
+      // }
     }
 
     &:focus,
@@ -133,23 +137,35 @@
         background-color: $text-color;
         border-color: $text-color;
       } @else {
-        @if (lightness($background-color) > 50) {
-          background-color: $double_black;
-          border-color: $double_black;
-        } @else {
+        // The following is pulled from the guts of the text-contrast mixin
+        // Text-contrast mixin needs to be made more flexible but no time to do that now
+        $color-brightness: round((red($background-color) * 299) + (green($background-color) * 587) + (blue($background-color) * 114) / 1000);
+        $light-color: round((red($white) * 299) + (green($white) * 587) + (blue($white) * 114) / 1000);
+        @if abs($color-brightness) < ($light-color / 2){
           background-color: $white;
           border-color: $white;
+        } @else {
+          background-color: $double_black;
+          border-color: $double_black;
         }
+        // @if (lightness($background-color) > 50) {
+        //   background-color: $double_black;
+        //   border-color: $double_black;
+        // } @else {
+        //   background-color: $white;
+        //   border-color: $white;
+        // }
       }
 
       @if ($hover-text-color != null) {
         color: $hover-text-color;
       } @else if ($hover-background-color != null) {
-        @if (lightness($hover-background-color) > 50) {
-          color: $double_black;
-        } @else {
-          color: $white;
-        }
+        @include text-contrast($hover-background-color);
+        // @if (lightness($hover-background-color) > 50) {
+        //   color: $double_black;
+        // } @else {
+        //   color: $white;
+        // }
       } @else {
         color: $background-color;
       }
