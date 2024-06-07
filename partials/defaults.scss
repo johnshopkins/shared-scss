@@ -86,17 +86,34 @@ ul,
   }
 }
 
-*:not(script) {
+details,
+dl,
+figure,
+ol,
+p,
+ul,
+.jhu-block,
+.gform_confirmation_wrapper,
+.teaser,
+.wp-block-image {
+  margin: 0;
 
-  + details,
-  + dl,
-  + figure,
   + h1,
   + h2,
   + h3,
   + h4,
   + h5,
-  + h6,
+  + h6 {
+    margin-top: 2em;
+  }
+}
+
+
+*:not(script) {
+
+  + details,
+  + dl,
+  + figure,
   + ol,
   + p,
   + ul,
@@ -108,7 +125,35 @@ ul,
   + .wp-block-image {
     margin-top: calc($standard_spacing / 3);
   }
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 2em;
+  }
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 0.5em;
+  }
+}
+
+
 
 form,
 [role='form'],
@@ -158,7 +203,9 @@ p {
 
   &.has-medium-font-size,
   &.has-large-font-size,
-  &.has-x-large-font-size {
+  &.has-x-large-font-size,
+  &.has-xx-large-font-size,
+  &.has-xxx-large-font-size {
     color: $double_black;
 
     b,
@@ -167,16 +214,50 @@ p {
     }
   }
 
-  &.has-small-font-size {
+  &.has-xxx-small-font-size,
+  &.has-xx-small-font-size {
     font-family: $sans;
-    @include font_size(font-size, small, regular, gentona, !important);
+    font-weight: 700;
+
+    b,
+    strong {
+      font-weight: 900;
+    }
+  }
+
+
+  &.has-x-small-font-size {
+    font-family: $sans;
     font-weight: 500;
-    line-height: 1.4;
 
     b,
     strong {
       font-weight: 700;
     }
+  }
+
+  &.has-xxx-small-font-size {
+    @include font_size(font-size, xxx-small, regular, gentona, !important);
+    line-height: 1.55;
+    letter-spacing: 0.0625em;
+  }
+
+  &.has-xx-small-font-size {
+    @include font_size(font-size, xx-small, regular, gentona, !important);
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+
+  &.has-x-small-font-size {
+    @include font_size(font-size, x-small, regular, gentona, !important);
+    line-height: 1.45;
+    letter-spacing: 0.0375em;
+  }
+
+  &.has-small-font-size {
+    @include font_size(font-size, small, regular, gentona, !important);
+    line-height: 1.4;
+    letter-spacing: 0.025em;
   }
 
   &.has-medium-font-size {
@@ -191,11 +272,10 @@ p {
     }
   }
 
-  &.has-large-font-size {
+  &.has-large-font-size,
+  &.has-x-large-font-size {
     font-family: $sans;
-    @include font_size(font-size, x-large, regular, gentona, !important);
     font-weight: 700;
-    line-height: 1.25;
 
     b,
     strong {
@@ -203,17 +283,37 @@ p {
     }
   }
 
-  &.has-x-large-font-size {
+
+  &.has-large-font-size {
+    @include font_size(font-size, x-large, regular, gentona, !important);
+    line-height: 1.25;
+  }
+
+  &.has-xx-large-font-size,
+  &.has-xxx-large-font-size {
     font-family: $sans;
-    @include font_size(font-size, xx-large, regular, gentona, !important);
     font-weight: 900;
-    line-height: 1.2;
 
     b,
     strong {
       font-weight: inherit;
       text-shadow: calc(($thin / 3) * -1) calc($thin / 3) 0 $jay;
     }
+  }
+
+  &.has-x-large-font-size {
+    @include font_size(font-size, xx-large, regular, gentona, !important);
+    line-height: 1.2;
+  }
+
+  &.has-xx-large-font-size {
+    @include font_size(font-size, xxx-large, regular, gentona, !important);
+    line-height: 1.15;
+  }
+
+  &.has-xxx-large-font-size {
+    @include font_size(font-size, display-2, regular, gentona, !important);
+    line-height: 1.1;
   }
 }
 
@@ -271,6 +371,11 @@ blockquote {
 
   * {
     color: inherit;
+    text-decoration-color: inherit;
+
+    &::marker {
+      color: inherit !important;
+    }
   }
 }
 
@@ -372,10 +477,33 @@ ol {
     // &:first-child { margin-top: 0 !important; }
     // &:last-child { margin-bottom: 0 !important; }
 
+    &::marker {
+      color: $sparta;
+    }
+
     + li,
     > ul,
     > ol {
       margin-top: calc($standard_spacing / 12);
+    }
+  }
+}
+
+ol {
+
+  ol {
+    list-style-type: upper-alpha;
+
+    ol {
+      list-style: lower-roman;
+
+      ol {
+        list-style-type: lower-alpha;
+
+        ol {
+          list-style-type: initial;
+        }
+      }
     }
   }
 }
