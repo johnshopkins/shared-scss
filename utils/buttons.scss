@@ -275,7 +275,7 @@
     font-weight: 700; // Changed 03-10
     letter-spacing: 0.0875em;
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
-    @include responsive_ems(padding, calc($standard_spacing / 12) calc($standard_spacing / 5), regular '/' xxx-small);
+    @include responsive_ems(padding, calc($standard_spacing / 10) calc($standard_spacing / 5), regular '/' xxx-small);
   }
 
   @else if ($size == xx-small) {
@@ -283,7 +283,7 @@
     @include font_size(font-size, xx-small, regular, gentona, !important);
     font-weight: 700; // Changed 03-10
     letter-spacing: 0.075em;
-    @include responsive_ems(padding, calc($standard_spacing / 10) calc($standard_spacing / 4.5), regular '/' xx-small);
+    @include responsive_ems(padding, calc($standard_spacing / 8) calc($standard_spacing / 4), regular '/' xx-small);
   }
 
   @else if ($size == x-small) {
@@ -291,7 +291,7 @@
     @include font_size(font-size, x-small, regular, gentona, !important);
     letter-spacing: 0.0625em;
     font-weight: 700; // Changed 03-10
-    @include responsive_ems(padding, calc($standard_spacing / 8) calc($standard_spacing / 4), regular '/' x-small);
+    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' x-small);
   }
 
   @else if ($size == small) {
@@ -299,7 +299,7 @@
     @include font_size(font-size, small, regular, gentona, !important);
     letter-spacing: 0.05em;
     font-weight: 700; // Changed 03-10
-    @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' small);
+    @include responsive_ems(padding, calc($standard_spacing / 5) calc($standard_spacing / 2.5), regular '/' small);
   }
 
   @else if ($size == medium) {
