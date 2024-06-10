@@ -68,6 +68,15 @@ input[type="reset"].rounded,
   @include button_radius(round);
 }
 
+button.xxx-small,
+input[type="button"].xxx-small,
+input[type="submit"].xxx-small,
+input[type="reset"].xxx-small,
+.button.xxx-small,
+.wp-block-button.has-xxx-small-font-size .wp-block-button__link {
+  @include button_size(xxx-small);
+}
+
 button.xx-small,
 input[type="button"].xx-small,
 input[type="submit"].xx-small,
@@ -132,6 +141,14 @@ input[type="reset"].xx-large,
   @include button_size(xx-large);
 }
 
+button.xxx-large,
+input[type="button"].xxx-large,
+input[type="submit"].xxx-large,
+input[type="reset"].xxx-large,
+.button.xxx-large,
+.wp-block-button.has-xxx-large-font-size .wp-block-button__link {
+  @include button_size(xxx-large);
+}
 
 .wp-block-button {
   display: inline-block;
