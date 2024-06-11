@@ -16,10 +16,27 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 .button,
-.wp-block-button__link {
+.wp-block-button {
+
+  // &:not(.outline, .is-style-outline, .search-box button) {
+    
+  //   &,
+  //   .wp-block-button__link {
+  //     border-width: 0 !important;
+  //   }
+  // }
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button,
+.wp-block-button .wp-block-button__link {
   @include button_defaults();
   @include button_radius(square);
   @include button_size(medium);
+  @include button_style(solid);
   text-decoration: none;
 
   // i,
@@ -41,14 +58,14 @@ input[type="reset"],
   }
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button,
-.wp-block-button__link{
-  @include button_style(solid);
-}
+// button,
+// input[type="button"],
+// input[type="submit"],
+// input[type="reset"],
+// .button,
+// .wp-block-button__link{
+//   @include button_style(solid);
+// }
 
 button.outline,
 input[type="button"].outline,
@@ -57,6 +74,10 @@ input[type="reset"].outline,
 .button.outline,
 .wp-block-button.is-style-outline .wp-block-button__link{
   @include button_style(outline);
+
+  &.has-text-color {
+    border-color: unset !important;
+  }
 }
 
 button.rounded,
@@ -150,10 +171,102 @@ input[type="reset"].xxx-large,
   @include button_size(xxx-large);
 }
 
+$colors: (
+  heritage-blue: #002D72,
+  spirit-blue: #68ACE5,
+  double-black: #000000,
+  sable: #31261D,
+  white: #FFFFFF,
+  pms-1375-c: #FF9E1B,
+  pms-3278-c: #009B77,
+  pms-285-c: #0072CE,
+  pms-7406-c: #F1C400,
+  pms-7407-c: #CBA052,
+  pms-1505-c: #FF6900,
+  pms-7586-c: #9E5330,
+  pms-4625-c: #4F2C1D,
+  pms-486-c: #E8927C,
+  pms-173-c: #CF4520,
+  pms-187-c: #A6192E,
+  pms-188-c: #76232F,
+  pms-262-c: #51284F,
+  pms-7655-c: #A15A95,
+  pms-666-c: #A192B2,
+  pms-279-c: #418FDE,
+  pms-564-c: #86C8BC,
+  pms-7734-c: #286140,
+  pms-7490-c: #719949,
+  heritage-blue-5: #e6eefa,
+  heritage-blue-10: #cdddf5,
+  heritage-blue-20: #adc5ea,
+  heritage-blue-30: #7e9fd1,
+  heritage-blue-40: #648bc6,
+  heritage-blue-50: #4c77bb,
+  heritage-blue-60: #2c5ba2,
+  heritage-blue-70: #13428a,
+  heritage-blue-80: #002d72,
+  heritage-blue-90: #081b39,
+  gray-5: #f2f0ef,
+  gray-10: #e5e2df,
+  gray-20: #cbc6c2,
+  gray-30: #b2aba6,
+  gray-40: #98908a,
+  gray-50: #7e756e,
+  gray-60: #645b53,
+  gray-70: #4b4038,
+  gray-80: #31261d,
+  gray-90: #190f08
+);
+
 .wp-block-button {
   display: inline-block;
   font-size: 1em !important;
   @include button_spacing();
+    
+  .wp-block-button__link {
+
+    @each $color-name, $value in $colors {
+
+      &.has-#{$color-name}-background-color {
+        --button-background-color: #{$value} !important;
+
+        &:focus,
+        &:hover {
+          // color: #{$value} !important;
+          --button-hover-text-color: #{$value} !important;
+          color: var(--button-hover-text-color) !important;
+
+          &:not(.has-text-color) {
+            @include text-contrast($value, background-color, !important);
+            @include text-contrast($value, border-color, !important);  
+          }
+        }
+      }
+
+      &.has-#{$color-name}-color {
+        --button-text-color: #{$value} !important;
+
+        &:focus,
+        &:hover {
+          // color: #{$value} !important;
+          --button-hover-background-color: #{$value} !important;
+          background-color: var(--button-hover-background-color) !important;
+          border-color: var(--button-hover-background-color) !important;
+
+          &:not(.has-background) {
+            @include text-contrast($value, color, !important);
+          }
+        }
+      }
+    }
+  }
+
+  &.is-style-outline {
+
+    .wp-block-button__link:not(:hover, :focus) {
+      background-color: transparent !important;
+    }
+  }
 }
 
 // .wp-block-button__link {
