@@ -273,9 +273,7 @@ p {
   }
 
   &.has-large-font-size,
-  &.has-x-large-font-size,
-  &.has-xx-large-font-size,
-  &.has-xxx-large-font-size {
+  &.has-x-large-font-size {
     font-family: $sans;
     font-weight: 700;
 
@@ -291,18 +289,17 @@ p {
     line-height: 1.25;
   }
 
-  // &.has-xx-large-font-size,
-  // &.has-xxx-large-font-size {
-  //   font-family: $sans;
-  //   font-weight: 900;
+  &.has-xx-large-font-size,
+  &.has-xxx-large-font-size {
+    font-family: $sans;
+    font-weight: 900;
 
-  //   b,
-  //   strong {
-  //     font-weight: inherit;
-  //     // text-shadow: calc(($thin / 3) * -1) calc($thin / 3) 0 $jay;
-  //     -webkit-text-stroke: 0.0625em;
-  //   }
-  // }
+    b,
+    strong {
+      font-weight: inherit;
+      text-shadow: calc(($thin / 3) * -1) calc($thin / 3) 0 $jay;
+    }
+  }
 
   &.has-x-large-font-size {
     @include font_size(font-size, xx-large, regular, gentona, !important);
