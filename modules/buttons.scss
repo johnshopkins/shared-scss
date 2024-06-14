@@ -268,8 +268,31 @@ $colors: (
 
   &.is-style-outline {
 
-    .wp-block-button__link:not(:active, :focus, :hover) {
-      background-color: transparent !important;
+    .wp-block-button__link {
+
+      &:not(.has-background) {
+
+        @each $color-name, $value in $colors {
+
+          &.has-#{$color-name}-color {
+            @include text-contrast($value, --button-background-color);
+          }
+        }
+      }
+
+      &:not(.has-text-color) {
+
+        @each $color-name, $value in $colors {
+
+          &.has-#{$color-name}-background-color {
+            @include text-contrast($value, --button-text-color);
+          }
+        }
+      }
+    
+      &:not(:active, :focus, :hover) {
+        background-color: transparent !important;
+      }
     }
   }
 
@@ -286,6 +309,17 @@ $colors: (
           }
         }
       }
+
+      &:not(.has-text-color) {
+
+        @each $color-name, $value in $colors {
+
+          &.has-#{$color-name}-background-color {
+            @include text-contrast($value, --button-text-color);
+          }
+        }
+      }
+
     }
   }
 }
