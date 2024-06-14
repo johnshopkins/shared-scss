@@ -75,9 +75,9 @@ input[type="reset"].outline,
 .wp-block-button.is-style-outline .wp-block-button__link{
   @include button_style(outline);
 
-  &.has-text-color {
-    border-color: unset !important;
-  }
+  // &.has-text-color {
+  //   border-color: unset !important;
+  // }
 }
 
 button.rounded,
@@ -252,19 +252,40 @@ $colors: (
           --button-hover-background-color: #{$value} !important;
           background-color: var(--button-hover-background-color) !important;
           border-color: var(--button-hover-background-color) !important;
+        }
 
-          &:not(.has-background) {
+        &:not(.has-background) {
+          @include text-contrast($value, background-color);
+
+          &:focus,
+          &:hover {
             @include text-contrast($value, color, !important);
           }
-        }
+        } 
       }
     }
   }
 
   &.is-style-outline {
 
-    .wp-block-button__link:not(:hover, :focus) {
+    .wp-block-button__link:not(:active, :focus, :hover) {
       background-color: transparent !important;
+    }
+  }
+
+  &:not(.is-style-outline) {
+
+    .wp-block-button__link {
+
+      &:not(.has-background) {
+
+        @each $color-name, $value in $colors {
+
+          &.has-#{$color-name}-color {
+            @include text-contrast($value, border-color);
+          }
+        }
+      }
     }
   }
 }
