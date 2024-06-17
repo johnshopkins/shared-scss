@@ -275,7 +275,7 @@ $colors: (
         @each $color-name, $value in $colors {
 
           &.has-#{$color-name}-color {
-            @include text-contrast($value, --button-background-color);
+            @include text-contrast(invert($value), --button-background-color);
           }
         }
       }
@@ -285,13 +285,27 @@ $colors: (
         @each $color-name, $value in $colors {
 
           &.has-#{$color-name}-background-color {
-            @include text-contrast($value, --button-text-color);
+            @include text-contrast(invert($value), --button-text-color);
           }
         }
       }
     
       &:not(:active, :focus, :hover) {
         background-color: transparent !important;
+      }
+
+      &.has-background {
+
+        @each $color-name, $value in $colors {
+
+          &.has-#{$color-name}-color {
+
+            &:focus,
+            &:hover {    
+              @include text-contrast($value, color, !important);
+            }
+          }
+        }
       }
     }
   }
