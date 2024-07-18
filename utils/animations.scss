@@ -2,42 +2,6 @@
 @use 'colors' as *;
 @use 'variables' as *;
 
-@include keyframes(menu_tab_to_top) {
-  from {
-    z-index: $stack_positioned;
-  }
-  to {
-    z-index: $stack_top;
-  }
-}
-
-@include keyframes(menu_tab_to_bottom) {
-  from {
-    z-index: $stack_positioned;
-  }
-  to {
-    z-index: $stack_normal;
-  }
-}
-
-@include keyframes(menu_open) {
-  from {
-    background-color: $brody_wall;
-  }
-  to {
-    background-color: $sparta;
-  }
-}
-
-@include keyframes(menu_close) {
-  from {
-    background-color: $sparta;
-  }
-  to {
-    background-color: $logo_blue;
-  }
-}
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
