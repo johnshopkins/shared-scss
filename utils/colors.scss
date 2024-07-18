@@ -77,8 +77,10 @@ $building_brick: $mason_doors;
 $spirit_blue: #68ACE5;           // 284 C
 $heritage_blue: #002D72;         // 288 C
 // $sparta: #005EB8;               // 300 C
-$sparta: #0072CE;                // 285 C
-$brody_wall: #418FDE;            // 279 C
+// $sparta: #0072CE;               // 285 C
+$sparta: #0077D8;                // 285 C Adjusted
+// $brody_wall: #418FDE;           // 279 C
+$brody_wall: #4E97E0;            // 279 C Adjusted
 // $slate: #A7BCD6;                // 651 C
 // $light_purple: #7C7FAB;         // 7675 C
 $light_purple: #A192B2;          // 666 C
@@ -140,3 +142,16 @@ $java: $magnolia_leaves;
 $new_copper_petina: $copper_petina;
 $cty_green: $copper_petina;
 $bright_turquoise: $spearmint;
+
+$jhu-blue-0: $white;
+$jhu-blue-5: #eaf4fb;
+$jhu-blue-10: #d6e8f8;
+$jhu-blue-20: #bddbf4;
+$jhu-blue-30: $spirit_blue;
+$jhu-blue-40: $brody_wall;
+$jhu-blue-50: $sparta;
+$jhu-blue-60: #005cb7;
+$jhu-blue-70: #00469c;
+$jhu-blue-80: $heritage_blue;
+$jhu-blue-90: #002051;
+$jhu-blue-100: $double_black;
