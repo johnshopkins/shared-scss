@@ -10,6 +10,24 @@ html {
   margin: 0 !important;
   padding: env(safe-area-inset);
   overflow-x: hidden;
+
+  font-size: $regular;
+
+  @include breakpoint_lap_width() {
+    font-size: $breakpoint_lap_font_size;
+  }
+
+  @include breakpoint_desk_width() {
+    font-size: $breakpoint_desk_font_size;
+  }
+
+  @include breakpoint_wall_width() {
+    font-size: $breakpoint_wall_font_size;
+  }
+
+  @include breakpoint_jumbotron_width() {
+    font-size: $breakpoint_jumbotron_font_size;
+  }
 }
 
 body {
@@ -19,7 +37,6 @@ body {
   color: $gray5;
   font-family: $sans;
   font-weight: 500;
-  font-size: $regular;
   line-height: 1.5;
   // @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
@@ -27,28 +44,12 @@ body {
   // accessibility purposes, they must specifically be given the same font-size
   // changes at each breakpoint.
   > * {
-    font-size: 1em;
+    // font-size: 1em;
     max-width: 100%;
-
-    @include breakpoint_lap_width() {
-      font-size: $breakpoint_lap_font_size;
-    }
-
-    @include breakpoint_desk_width() {
-      font-size: $breakpoint_desk_font_size;
-    }
-
-    @include breakpoint_wall_width() {
-      font-size: $breakpoint_wall_font_size;
-    }
-
-    @include breakpoint_jumbotron_width() {
-      font-size: $breakpoint_jumbotron_font_size;
-    }
   }
 
   #layout-debugger {
-    font-size: 1em !important;
+    font-size: 16px !important;
   }
 }
 
