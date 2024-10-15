@@ -82,8 +82,11 @@ ul,
 .wp-block-image {
   margin: 0;
 
-  + * {
-    margin-top: calc($standard_spacing / 3);
+  :where(&:not(.visuallyhidden)) {
+
+    + * {
+      margin-top: calc($standard_spacing / 3);
+    }
   }
 }
 
@@ -99,18 +102,21 @@ ul,
 .wp-block-image {
   margin: 0;
 
-  + h1,
-  + h2,
-  + h3,
-  + h4,
-  + h5,
-  + h6 {
-    margin-top: 2em;
+  :where(&:not(.visuallyhidden)) {
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      margin-top: 2em;
+    }
   }
 }
 
 
-*:not(script) {
+:where(*:not(script, .visuallyhidden)) {
 
   + details,
   + dl,
