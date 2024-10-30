@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'colors' as *;
 @use 'css3' as *;
 @use 'mixins' as *;
@@ -143,9 +144,9 @@
       } @else {
         // The following is pulled from the guts of the text-contrast mixin
         // Text-contrast mixin needs to be made more flexible but no time to do that now
-        $color-brightness: round((red($background-color) * 299) + (green($background-color) * 587) + (blue($background-color) * 114) / 1000);
-        $light-color: round((red($white) * 299) + (green($white) * 587) + (blue($white) * 114) / 1000);
-        @if abs($color-brightness) < ($light-color / 2){
+        $color-brightness: round(calc(((color.channel($background-color, "red", $space: rgb) * 299) + (color.channel($background-color, "green", $space: rgb) * 587) + (color.channel($background-color, "blue", $space: rgb) * 114)) / 1000));
+        $light-color: round(calc(((color.channel($white, "red", $space: rgb) * 299) + (color.channel($white, "green", $space: rgb) * 587) + (color.channel($white, "blue", $space: rgb) * 114)) / 1000));
+        @if abs($color-brightness) < calc($light-color / 2){
           background-color: $white;
           border-color: $white;
         } @else {

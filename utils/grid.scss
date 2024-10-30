@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:math';
+
 $maxwidth: 1440;
 $gutterwidth: 36;
 $columns: 12;
@@ -7,8 +10,8 @@ $gutterspace: $gutterwidth * $guttercount;
 $columnspace: $maxwidth - $gutterspace;
 $columnmax: calc($columnspace / $columns);
 
-$column: percentage(calc($columnmax / $maxwidth));
-$gutter: percentage(calc($gutterwidth / $maxwidth));
+$column: math.percentage(calc($columnmax / $maxwidth));
+$gutter: math.percentage(calc($gutterwidth / $maxwidth));
 
 
 /**
@@ -50,8 +53,8 @@ $gutter: percentage(calc($gutterwidth / $maxwidth));
 
   // Accepts $ratio as 2 of 10
   // first = target, last = context
-  $target: nth($ratio, 1);
-  $context: nth($ratio, -1);
+  $target: list.nth($ratio, 1);
+  $context: list.nth($ratio, -1);
 
   // Get the default span based on each number of columns
   $target_span: default_span($target);
@@ -62,14 +65,14 @@ $gutter: percentage(calc($gutterwidth / $maxwidth));
 
   // Add nested gutter values as requested, 0 by default
   // then return % version of sum of span + extra gutters
-  $extra: nth($extra_gutters, 1);
-  @return percentage($span) + (get_gutter_width($ratio) * $extra);
+  $extra: list.nth($extra_gutters, 1);
+  @return math.percentage($span) + (get_gutter_width($ratio) * $extra);
 
 }
 
 @function get_gutter_width($ratio) {
-  $context: nth($ratio, -1);
-  @return percentage(calc($gutter / default_span($context)));
+  $context: list.nth($ratio, -1);
+  @return math.percentage(calc($gutter / default_span($context)));
 }
 
 
@@ -83,14 +86,14 @@ $gutter: percentage(calc($gutterwidth / $maxwidth));
     margin-right: 0;
   }
 
-  @else if (nth($ratio, 1) < $columns) {
+  @else if (list.nth($ratio, 1) < $columns) {
     margin-right: get_gutter_width($ratio);
   }
 
   @else {
     -test-nomargin: "true";
     -test-ratio: $ratio;
-    -test-nth: nth($ratio, -1);
+    -test-nth: list.nth($ratio, -1);
     -test-columns: $columns;
   }
 
