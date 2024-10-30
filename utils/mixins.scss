@@ -392,9 +392,9 @@
 
 // https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
 @mixin text-contrast($n, $property: color, $flag: null) {
-  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
-  $light-color: round((red($white) * 299) + (green($white) * 587) + (blue($white) * 114) / 1000);
-  @if abs($color-brightness) < ($light-color / 2){
+  $color-brightness: round(calc(((red($n) * 299) + (green($n) * 587) + (blue($n) * 114)) / 1000));
+  $light-color: round(calc(((red($white) * 299) + (green($white) * 587) + (blue($white) * 114)) / 1000));
+  @if abs($color-brightness) < calc($light-color / 2){
     #{$property}: $white $flag;
   } @else {
     #{$property}: $double_black $flag;
