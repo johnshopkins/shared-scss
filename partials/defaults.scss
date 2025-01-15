@@ -431,7 +431,7 @@ em {
 :root {
 
   details {
-    border: solid $thin $gray4;
+    border: solid $thin rgba($double_black, 0.5);
     border-left: none;
     border-right: none;
     display: block;
@@ -445,7 +445,7 @@ em {
     }
 
     summary {
-      color: $black;
+      // color: $black;
       cursor: pointer;
       font-family: $sans;
       font-weight: 700;

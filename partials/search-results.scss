@@ -446,6 +446,53 @@ ul.pagination {
     outline: none;
   }
 
+  .gsc-search-box {
+
+    tr {
+      display: flex;
+    }
+
+    td.gsc-input,
+    td.gsc-search-button {
+      border: 0;
+      margin: 0;
+      padding: 0;
+
+      .gsc-input-box,
+      .gsc-search-button {
+        border: solid $sparta $semi-bold;
+        font-size: 1rem !important;
+        padding: $semi-bold;
+      }
+
+      .gsc-input-box {
+        border-right-width: 0;
+      }
+
+      .gsc-search-button {
+        background-color: $sparta;
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+
+        &:focus,
+        &:hover {
+          background-color: $logo_blue;
+        }
+      }
+    }
+
+    td.gsc-input {
+      flex-grow: 3;
+    }
+
+    td.gsc-search-button {
+      flex-grow: 1;
+      min-width: 3rem;
+    }
+  }
+
   .gsc-above-wrapper-area {
 
     .gsc-result-info-container,
@@ -473,6 +520,25 @@ ul.pagination {
 
       }
     }
+  }
+
+  .gsc-tabHeader, 
+  .gsc-refinementHeader {
+
+    &.gsc-tabhActive,
+    &.gsc-refinementhActive {
+      background: transparent;
+      border-color: $double_black;
+      color: $double_black;
+    }
+
+    &.gsc-tabhInactive,
+    &.gsc-refinementhInactive {
+      background: $gray1;
+      border-color: $black;
+      color: $black;
+    }
+
   }
 
   .gsc-resultsHeader {
