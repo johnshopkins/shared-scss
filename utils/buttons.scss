@@ -86,8 +86,10 @@
         border-color: var(--button-hover-background-color);
       } @else if ($text-color != null){
         background-color: var(--button-text-color);
+        border-color: var(--button-text-color);
       } @else {
         background-color: var(--button-background-color);
+        border-color: var(--button-background-color);
       }
 
       @if ($hover-text-color != null) {
