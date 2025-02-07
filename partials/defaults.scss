@@ -499,6 +499,10 @@ dl {
   }
 }
 
+iframe {
+  max-width: 100%;
+}
+
 ul,
 ol {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
