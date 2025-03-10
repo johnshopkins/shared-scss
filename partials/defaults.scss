@@ -781,7 +781,7 @@ figure {
 
 .wp-block-image {
 
-  a,
+  a:not(figcaption a),
   img {
     display: block;
     width: 100%;
