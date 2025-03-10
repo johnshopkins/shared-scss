@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // // Neutral Color Palette
 // $white: #FFFFFF;
 // $gray1: #E5E2E0;
@@ -49,14 +51,14 @@
 $white: #FFFFFF;
 $double_black: #000000;
 $black: #31261D;
-$gray5: mix($black, $white, (100% * calc(5 / 6)));
-$gray4: mix($black, $white, (100% * calc(4 / 6)));
-$gray3: mix($black, $white, (100% * calc(3 / 6)));
-$gray2: mix($black, $white, (100% * calc(2 / 6)));
-$gray1: mix($black, $white, (100% * calc(1 / 6)));
+$gray5: color.mix($black, $white, (100% * calc(5 / 6)));
+$gray4: color.mix($black, $white, (100% * calc(4 / 6)));
+$gray3: color.mix($black, $white, (100% * calc(3 / 6)));
+$gray2: color.mix($black, $white, (100% * calc(2 / 6)));
+$gray1: color.mix($black, $white, (100% * calc(1 / 6)));
 
 $sable: $black;
-$background_gray: mix($black, $white, 4.25%); // #f6f6f5
+$background_gray: color.mix($black, $white, 4.25%); // #f6f6f5
 
 // $nursing_stairwell: #D9C89E;    // 7501 C
 $new_custard: #CBA052;           // 7407 C
@@ -118,11 +120,11 @@ $spearmint: #009B77;             // 3278 C
 $copper_petina: #86C8BC;         // 564 C
 // $bright_turquoise: #00AB8E;     // 3268 C
 
-$heritage_blue_5: mix($heritage_blue, $white, (100% * calc(5 / 6)));
-$heritage_blue_4: mix($heritage_blue, $white, (100% * calc(4 / 6)));
-$heritage_blue_3: mix($heritage_blue, $white, (100% * calc(3 / 6)));
-$heritage_blue_2: mix($heritage_blue, $white, (100% * calc(2 / 6)));
-$heritage_blue_1: mix($heritage_blue, $white, (100% * calc(1 / 6)));
+$heritage_blue_5: color.mix($heritage_blue, $white, (100% * calc(5 / 6)));
+$heritage_blue_4: color.mix($heritage_blue, $white, (100% * calc(4 / 6)));
+$heritage_blue_3: color.mix($heritage_blue, $white, (100% * calc(3 / 6)));
+$heritage_blue_2: color.mix($heritage_blue, $white, (100% * calc(2 / 6)));
+$heritage_blue_1: color.mix($heritage_blue, $white, (100% * calc(1 / 6)));
 
 $basin: $heritage_blue;
 $stained_glass: $brody_wall;

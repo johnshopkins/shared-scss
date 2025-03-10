@@ -227,7 +227,7 @@ $colors: (
 
     @each $color-name, $value in $colors {
 
-      &.has-#{$color-name}-background-color {
+      &.has-#{"" + $color-name}-background-color {
         --button-background-color: #{$value} !important;
 
         &:focus,
@@ -243,7 +243,7 @@ $colors: (
         }
       }
 
-      &.has-#{$color-name}-color {
+      &.has-#{"" + $color-name}-color {
         --button-text-color: #{$value} !important;
 
         &:focus,
@@ -274,7 +274,7 @@ $colors: (
 
         @each $color-name, $value in $colors {
 
-          &.has-#{$color-name}-color {
+          &.has-#{"" + $color-name}-color {
             @include text-contrast(invert($value), --button-background-color);
           }
         }
@@ -284,7 +284,7 @@ $colors: (
 
         @each $color-name, $value in $colors {
 
-          &.has-#{$color-name}-background-color {
+          &.has-#{"" + $color-name}-background-color {
             @include text-contrast(invert($value), --button-text-color);
           }
         }
@@ -298,7 +298,7 @@ $colors: (
 
         @each $color-name, $value in $colors {
 
-          &.has-#{$color-name}-color {
+          &.has-#{"" + $color-name}-color {
 
             &:focus,
             &:hover {    
@@ -318,7 +318,7 @@ $colors: (
 
         @each $color-name, $value in $colors {
 
-          &.has-#{$color-name}-color {
+          &.has-#{"" + $color-name}-color {
             @include text-contrast($value, border-color);
           }
         }
@@ -328,7 +328,7 @@ $colors: (
 
         @each $color-name, $value in $colors {
 
-          &.has-#{$color-name}-background-color {
+          &.has-#{"" + $color-name}-background-color {
             @include text-contrast($value, --button-text-color);
           }
         }
