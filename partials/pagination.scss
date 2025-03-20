@@ -1,13 +1,21 @@
 @use '../utils/main' as *;
 
 .pagination {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+  gap: 1rem;
+  justify-content: space-between;
+  list-style: none;
   margin: calc($standard_spacing / 3) 0;
   padding: 0;
   padding-left: 0 !important;
-  font-weight: 500; // Changed 03-10
-  list-style: none;
   text-align: center;
-  clear: both;
+
+  &.force:after {
+    display: none;
+  }
 
   &:empty {
     display: none;
@@ -19,6 +27,10 @@
 
   li {
     display: inline;
+
+    + li {
+      margin-top: 0;
+    }
   }
 
   a,
@@ -36,6 +48,10 @@
     + .button {
       margin-left: calc($standard_spacing / 6);
       margin-top: 0;
+
+      @supports (display: flex) {
+        margin: 0 !important;
+      }
     }
   }
 
@@ -45,12 +61,14 @@
     text-transform: uppercase;
   }
 
-  .prev {
+  .prev:not(:has(~ *)) {
     float: left;
+    margin-right: auto;
   }
 
-  .next {
+  .next:not(* ~ .next) {
     float: right;
+    margin-left: auto;
   }
 
   .pagination-link,
