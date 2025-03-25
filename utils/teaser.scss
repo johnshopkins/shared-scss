@@ -127,7 +127,8 @@
     padding: 0;
   }
 
-  &.has-image {
+  &.has-image,
+  &.video {
     display: block;
     min-height: 0;
 
@@ -188,14 +189,10 @@
       @if ($style == 'card') {
         // background-color: $white;
         bottom: 0;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: -(calc($standard_spacing / 3));
         min-height: 0;
         padding: ($standard_spacing * 0.25) 5%;
         position: relative;
         vertical-align: top;
-        width: 90%;
         z-index: $stack_top;
 
         .kicker,
@@ -293,6 +290,29 @@
     }
   }
 
+  &.has-image {
+
+    .text {
+      
+      @if ($style == 'card') {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: -(calc($standard_spacing / 3));
+        width: 90%;
+      }
+    }
+  }
+
+    &.video {
+
+    .text {
+      
+      @if ($style == 'card') {
+        width: 100%;
+      }
+    }
+  }
+
   &.no-image {
 
     &.expert,
@@ -344,7 +364,8 @@
     @include transform(none);
   }
 
-  &.has-image {
+  &.has-image,
+  &.video {
     display: table;
 
     @if ($target >= $context) {
@@ -507,7 +528,8 @@
 
   @if ($style == 'card') {
 
-    &.has-image {
+    &.has-image,
+    &.video {
 
       @if ($target >= $context) {
 
@@ -671,7 +693,8 @@
     // float: none;
     // padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
 
-    &.has-image {
+    &.has-image,
+    &.video {
 
       @if ($target >= $context) {
 
