@@ -1,6 +1,5 @@
 @use '../utils/main' as *;
 
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -22,9 +21,10 @@
 // If you mention a colspan or use the column class,
 // activate the column settings
 .column {
+  float: left;
   margin-left: 0;
   margin-right: $gutter;
-  float: left;
+  width: 100%;
 
   &:last-child,
   &.last {
