@@ -56,7 +56,7 @@ form.search-box,
   button {
     @include search_button(stacked);
     background-color: $sparta;
-    color: $white !important;
+    color: $white;
     text-align: center;
     text-transform: uppercase;
     @include transition(background-color, border-color, color);

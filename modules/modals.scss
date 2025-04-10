@@ -458,35 +458,41 @@
           margin-right: 0;
           width: get_span_width(12 of 12);
         }
+      }
 
-        input,
-        button {
-          border-color: $white;
+      input,
+      button {
+        border-color: $white;
+      }
+
+      input {
+
+        @include breakpoint_lap_width() {
+          @include search_input(aside);
+          width: get_span_width(7 of 10, 1);
         }
 
-        input {
+        @include breakpoint_jumbotron_width() {
+          width: get_span_width(9 of 12, 1);
+        }
+      }
 
-          @include breakpoint_lap_width() {
-            @include search_input(aside);
-            width: get_span_width(7 of 10, 1);
-          }
+      button {
+        background-color: $sparta;
 
-          @include breakpoint_jumbotron_width() {
-            width: get_span_width(9 of 12, 1);
-          }
+        @include breakpoint_lap_width() {
+          @include search_button(aside);
+          width: get_span_width(3 of 10);
         }
 
-        button {
-          background-color: $sparta;
+        @include breakpoint_jumbotron_width() {
+          width: get_span_width(3 of 12);
+        }
 
-          @include breakpoint_lap_width() {
-            @include search_button(aside);
-            width: get_span_width(3 of 10);
-          }
-
-          @include breakpoint_jumbotron_width() {
-            width: get_span_width(3 of 12);
-          }
+        &:focus,
+        &:hover {
+          background-color: $brody_wall;
+          color: $heritage_blue;
         }
       }
     }
@@ -791,8 +797,8 @@
             &:hover {
               // need to re-declare the border color here because of the at work
               // color overrides for anchors and buttons
-              border-color: $white;
-              background-color: $brody_wall;
+              // border-color: $white;
+              // background-color: $brody_wall;
             }
           }
         }
