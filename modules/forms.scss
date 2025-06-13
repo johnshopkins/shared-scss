@@ -450,18 +450,11 @@ form {
       width: 100%;
       margin-right: 0;
       overflow: visible;
-      position: relative;
-      z-index: $stack_normal;
 
       .asterisk {
-        width: #{calc(1em / $x-large)}em;
-        height: #{calc(1em / $x-large)}em;
-        position: absolute;
-        bottom: (calc((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 0.8125em) / calc($x-large / $small)) * -1);
-        right: calc((($standard_spacing * 0.25) + $light - (1em * 0.5)) / calc($x-large / $small));
-        z-index: $stack_positioned;
-        font-size: #{calc($x-large / $small)}em;
-        text-align: center;
+        display: inline-block;
+        line-height: 0.5;
+        transform: scale(2);  
       }
     }
 
@@ -625,15 +618,6 @@ form {
   #mc_embed_signup {
 
     form {
-
-      label {
-
-        .asterisk {
-          bottom: (calc(((calc($standard_spacing / 12) + $light + calc($standard_spacing / 6) + 1.1em)) / calc($x-large / $x-small)) * -1);
-          right: calc((($standard_spacing * 0.25) + $light - (1em * 0.5)) / calc($x-large / $x-small));
-          font-size: #{calc($x-large / $x-small)}em;
-        }
-      }
 
       div {
 
