@@ -93,6 +93,7 @@
       $style: card, 
       $background-color: transparent,
       $headline-color: $white,
+      $headline-color-hover: $jay,
       $kicker-color: $jay,
       $summary-color: $jhu-grayscale-20,
       $meta-color: $jhu-grayscale-30
@@ -125,23 +126,6 @@
     &:focus,
     &:focus-within {
       background-color: $black;
-    }
-
-    .teaser {
-
-      .text {
-
-        h5 {
-
-          a {
-
-            &:focus,
-            &:hover {
-              color: $jay;
-            }
-          }
-        }
-      }
     }
 
     .close-box-x {
