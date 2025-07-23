@@ -1,19 +1,7 @@
 @use '../utils/main' as *;
 
 :root {
-  --teaser-background-color: transparent;
-  --teaser-image-hover-color: #{$jhu-blue-40};
-  --teaser-kicker-background-color: transparent;
-  --teaser-kicker-color: #{$jhu-blue-50};
-  --teaser-headline-background-color: transparent;
-  --teaser-headline-color: #{$jhu-grayscale-90};
-  --teaser-headline-color-hover: #{$jhu-blue-40};
-  --teaser-summary-color: #{$jhu-grayscale-80};
-  --teaser-meta-color: #{$jhu-grayscale-70};
-  --teaser-source-background-color: #{$jhu-blue-10};
-  --teaser-source-background-color-hover: #{$jhu-blue-50};
-  --teaser-source-color: inherit;
-  --teaser-source-color-hover: #{$white};
+  @include teaser_color(default);
 }
 
 .teaser {
