@@ -4,11 +4,69 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
+@mixin teaser_color(
+  $color-scheme: default,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @if ($color-scheme == default) { 
+    --teaser-background-color: white;
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-50};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-90};
+    --teaser-headline-color-hover: #{$jhu-blue-40};
+    --teaser-summary-color: #{$jhu-grayscale-80};
+    --teaser-meta-color: #{$jhu-grayscale-70};
+    --teaser-source-background-color: #{$jhu-blue-10};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @else if ($color-scheme == light-gray) {
+    --teaser-background-color: #{$background_gray};
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-source-background-color: #{$jhu-blue-20};
+  }
+  @else if ($color-scheme == light-blue) {
+    --teaser-background-color: #{$jhu-blue-10};
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-source-background-color: #{$jhu-blue-20};
+  }
+  @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
+  @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
+  @if ($kicker-background-color != null) { --teaser-kicker-background-color: #{$kicker-background-color}; }
+  @if ($kicker-color != null) { --teaser-kicker-color: #{$kicker-color}; }
+  @if ($headline-background-color != null) { --teaser-headline-background-color: #{$headline-background-color}; }
+  @if ($headline-color != null) { --teaser-headline-color: #{$headline-color}; }
+  @if ($headline-color-hover != null) { --teaser-headline-color-hover: #{$headline-color-hover}; }
+  @if ($summary-color != null) { --teaser-summary-color: #{$summary-color}; }
+  @if ($meta-color != null) { --teaser-meta-color: #{$meta-color}; }
+  @if ($source-background-color != null) { --teaser-source-background-color: #{$source-background-color}; }
+  @if ($source-background-color-hover != null) { --teaser-source-background-color-hover: #{$source-background-color-hover}; }
+  @if ($source-color != null) { --teaser-source-color: #{$source-color}; }
+  @if ($source-color-hover != null) { --teaser-source-color-hover: #{$source-color-hover}; }
+}
+
 @mixin teaser_stacked(
   $style: null,
   $context: null,
   $color-scheme: null,
-  $background-color: $white,
+  $background-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
   $kicker-color: null,
@@ -23,7 +81,20 @@
   $source-color-hover: null
 ) {
   @include teaser_color(
-    $background-color: $background-color
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
   );
   background-color: transparent; // leave transparent for now
   display: table;
@@ -351,7 +422,7 @@
   $bias: text,
   $style: null,
   $color-scheme: null,
-  $background-color: $white,
+  $background-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
   $kicker-color: null,
@@ -366,7 +437,20 @@
   $source-color-hover: null
 ) {
   @include teaser_color(
-    $background-color: $background-color
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
   );
   // Accepts $ratio as 2 of 10
   // first = target, last = context
@@ -1647,50 +1731,4 @@
       }
     }
   }
-}
-
-@mixin teaser_color(
-  $color-scheme: default,
-  $background-color: null,
-  $image-hover-color: null,
-  $kicker-background-color: null,
-  $kicker-color: null,
-  $headline-background-color: null,
-  $headline-color: null,
-  $headline-color-hover: null,
-  $summary-color: null,
-  $meta-color: null,
-  $source-background-color: null,
-  $source-background-color-hover: null,
-  $source-color: null,
-  $source-color-hover: null
-) {
-  @if ($color-scheme == default) {
-    --teaser-background-color: transparent;
-    --teaser-image-hover-color: #{$jhu-blue-40};
-    --teaser-kicker-background-color: transparent;
-    --teaser-kicker-color: #{$jhu-blue-50};
-    --teaser-headline-background-color: transparent;
-    --teaser-headline-color: #{$jhu-grayscale-90};
-    --teaser-headline-color-hover: #{$jhu-blue-40};
-    --teaser-summary-color: #{$jhu-grayscale-80};
-    --teaser-meta-color: #{$jhu-grayscale-70};
-    --teaser-source-background-color: #{$jhu-blue-10};
-    --teaser-source-background-color-hover: #{$jhu-blue-50};
-    --teaser-source-color: inherit;
-    --teaser-source-color-hover: #{$white};  
-  }
-  @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
-  @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
-  @if ($kicker-background-color != null) { --teaser-kicker-background-color: #{$kicker-background-color}; }
-  @if ($kicker-color != null) { --teaser-kicker-color: #{$kicker-color}; }
-  @if ($headline-background-color != null) { --teaser-headline-background-color: #{$headline-background-color}; }
-  @if ($headline-color != null) { --teaser-headline-color: #{$headline-color}; }
-  @if ($headline-color-hover != null) { --teaser-headline-color-hover: #{$headline-color-hover}; }
-  @if ($summary-color != null) { --teaser-summary-color: #{$summary-color}; }
-  @if ($meta-color != null) { --teaser-meta-color: #{$meta-color}; }
-  @if ($source-background-color != null) { --teaser-source-background-color: #{$source-background-color}; }
-  @if ($source-background-color-hover != null) { --teaser-source-background-color-hover: #{$source-background-color-hover}; }
-  @if ($source-color != null) { --teaser-source-color: #{$source-color}; }
-  @if ($source-color-hover != null) { --teaser-source-color-hover: #{$source-color-hover}; }
 }
