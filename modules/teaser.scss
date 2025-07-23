@@ -5,7 +5,7 @@
 }
 
 .teaser {
-  @include teaser_aside(7 of 10, landscape, full, text, padded, $background_gray);
+  @include teaser_aside($style: padded, $background-color: $background_gray);
   @include teaser_medium();
   position: relative;
   width: 100%;

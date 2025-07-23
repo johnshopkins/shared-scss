@@ -4,13 +4,27 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-@mixin teaser_stacked($style: null, $context: null, $background-color: null) {
-  @if ($background-color != null) {
-    --teaser-background-color: #{$background-color};
-  }
-  @else {
-    --teaser-background-color: #{$white};
-  }
+@mixin teaser_stacked(
+  $style: null,
+  $context: null,
+  $color-scheme: null,
+  $background-color: $white,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser_color(
+    $background-color: $background-color
+  );
   background-color: transparent; // leave transparent for now
   display: table;
   padding: 0;
@@ -330,17 +344,34 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $background-color: null) {
+@mixin teaser_aside(
+  $ratio: 7 of 10,
+  $image: landscape,
+  $gutter: full,
+  $bias: text,
+  $style: null,
+  $color-scheme: null,
+  $background-color: $white,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser_color(
+    $background-color: $background-color
+  );
   // Accepts $ratio as 2 of 10
   // first = target, last = context
   $target: nth($ratio, 1);
   $context: nth($ratio, -1);
-
-  @if ($background-color != null) {
-    --teaser-background-color: #{$background-color};
-  } @else {
-    --teaser-background-color: #{$white};
-  }
 
   display: table;
   min-height: 0;
