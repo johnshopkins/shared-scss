@@ -4,8 +4,14 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-@mixin teaser_stacked($style: null, $context: null, $color: null) {
-  background-color: transparent;
+@mixin teaser_stacked($style: null, $context: null, $background-color: null) {
+  @if ($background-color != null) {
+    --teaser-background-color: #{$background-color};
+  }
+  @else {
+    --teaser-background-color: #{$white};
+  }
+  background-color: transparent; // leave transparent for now
   display: table;
   padding: 0;
 
@@ -32,11 +38,7 @@
     }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
+      background-color: var(--teaser-background-color);
       display: block;
       height: 0;
       min-height: 0;
@@ -106,15 +108,8 @@
   }
 
   @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
     padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
-
-    @if ($color != null) {
-      background-color: $color;
-    }
-
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
 
     .teaser {
       padding: 0;
@@ -244,9 +239,14 @@
         .kicker,
         .publish-date,
         .media-promo {
-          background-color: rgba($black, 0.8);
-          @include box-shadow(-4px 0 0 rgba($black, 0.8), 4px 0 0 rgba($black, 0.8));
-          color: $white;
+          --teaser-kicker-background-color: #{$black};
+          --teaser-kicker-color: #{$white};
+
+          // rgb(from var(--color)) documentation
+          //https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb
+          background-color: rgb(from var(--teaser-kicker-background-color) / 0.8);
+          @include box-shadow(-4px 0 0 rgb(from var(--teaser-kicker-background-color) / 0.8), 4px 0 0 rgba(from var(--teaser-kicker-background-color) / 0.8));
+          color: var(--teaser-kicker-color);
           display: inline-block;
           padding-bottom: $semi-bold;
           padding-top: $semi-bold;
@@ -260,8 +260,9 @@
           }
 
           a {
-            background-color: $white;
-            @include box-shadow(-4px 0 0 $white, 4px 0 0 $white);
+            --teaser-headline-background-color: $white;
+            background-color: var(--teaser-headline-background-color);
+            @include box-shadow(-4px 0 0 var(--teaser-headline-background-color), 4px 0 0 var(--teaser-headline-background-color));
             display: inline;
             line-height: 1.35;
             padding-bottom: $thin;
@@ -329,11 +330,18 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
+@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $background-color: null) {
   // Accepts $ratio as 2 of 10
   // first = target, last = context
   $target: nth($ratio, 1);
   $context: nth($ratio, -1);
+
+  @if ($background-color != null) {
+    --teaser-background-color: #{$background-color};
+  } @else {
+    --teaser-background-color: #{$white};
+  }
+
   display: table;
   min-height: 0;
 
@@ -672,11 +680,7 @@
     }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
+      background-color: var(--teaser-background-color);
       display: table-cell;
       padding: 1em;
       vertical-align: middle;
@@ -749,15 +753,8 @@
   }
 
   @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
     padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
-
-    @if ($color != null) {
-      background-color: $color;
-    }
-
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
 
     .teaser {
       padding: 0;
