@@ -88,7 +88,15 @@
   }
 
   .teaser {
-    @include teaser_aside($image: square, $style: card, $background-color: transparent);
+    @include teaser_aside(
+      $image: square, 
+      $style: card, 
+      $background-color: transparent,
+      $headline-color: $white,
+      $kicker-color: $jay,
+      $summary-color: $jhu-grayscale-20,
+      $meta-color: $jhu-grayscale-30
+    );
     @include teaser_medium(gentona);
 
     &,
@@ -103,27 +111,6 @@
 
       a {
         overflow: hidden;
-      }
-    }
-
-    .text {
-
-      h5 {
-        color: $white;
-      }
-
-      .kicker {
-        color: $jay;
-      }
-
-      .summary {
-        color: $gray1;
-      }
-
-      .publish-date,
-      .media-promo,
-      .meta {
-        color: $gray2;
       }
     }
   }

@@ -33,7 +33,7 @@
   }
 
   .teaser {
-    @include teaser_aside($ratio: 8 of 10, $image: portrait);
+    @include teaser_aside($ratio: 8 of 10, $image: portrait, $color-scheme: default);
     margin-top: calc($standard_spacing / 3);
 
     @include breakpoint_lap_width() {
