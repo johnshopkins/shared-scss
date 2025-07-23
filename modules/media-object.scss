@@ -88,7 +88,7 @@
   }
 
   .teaser {
-    @include teaser_aside(7 of 10, square, full, text, card, transparent);
+    @include teaser_aside($image: square, $style: card, $background-color: transparent);
     @include teaser_medium(gentona);
 
     &,

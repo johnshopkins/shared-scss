@@ -33,19 +33,19 @@
   }
 
   .teaser {
-    @include teaser_aside(8 of 10, portrait, full, text);
+    @include teaser_aside($ratio: 8 of 10, $image: portrait);
     margin-top: calc($standard_spacing / 3);
 
     @include breakpoint_lap_width() {
-      @include teaser_aside(7 of 8, portrait, half, image);
+      @include teaser_aside($ratio: 7 of 8, $image: portrait, $gutter: half, $bias: image);
     }
 
     @include breakpoint_desk_width() {
-      @include teaser_aside(8 of 9, portrait, half, image);
+      @include teaser_aside($ratio: 8 of 9, $image: portrait, $gutter: half, $bias: image);
     }
 
     @include breakpoint_jumbotron_width() {
-      @include teaser_aside(10 of 11, portrait, half, image);
+      @include teaser_aside($ratio: 10 of 11, $image: portrait, $gutter: half, $bias: image);
     }
 
     + .teaser {
