@@ -21,15 +21,15 @@
   $source-color-hover: null
 ) {
   @if ($color-scheme == default) { 
-    --teaser-background-color: white;
+    --teaser-background-color: #{$white};
     --teaser-image-hover-color: #{$jhu-blue-40};
     --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-50};
     --teaser-headline-background-color: transparent;
     --teaser-headline-color: #{$jhu-grayscale-90};
     --teaser-headline-color-hover: #{$jhu-blue-40};
-    --teaser-summary-color: #{$jhu-grayscale-80};
-    --teaser-meta-color: #{$jhu-grayscale-70};
+    --teaser-summary-color: #{$jhu-grayscale-70};
+    --teaser-meta-color: #{$jhu-grayscale-50};
     --teaser-source-background-color: #{$jhu-blue-10};
     --teaser-source-background-color-hover: #{$jhu-blue-50};
     --teaser-source-color: inherit;
@@ -37,15 +37,33 @@
   }
   @else if ($color-scheme == light-gray) {
     --teaser-background-color: #{$background_gray};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-100};
     --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-grayscale-80};
+    --teaser-meta-color: #{$jhu-grayscale-60};
     --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
   }
   @else if ($color-scheme == light-blue) {
     --teaser-background-color: #{$jhu-blue-10};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-blue-100};
     --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-blue-80};
+    --teaser-meta-color: #{$jhu-blue-60};
     --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
   }
   @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
   @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
