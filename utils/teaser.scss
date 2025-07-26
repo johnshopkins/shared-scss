@@ -241,13 +241,16 @@
       a {
         position: relative;
 
-        &:focus,
-        &:hover {
+        &:has(.image) {
 
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
+          &:focus,
+          &:hover {
+
+            img {
+              @include transform(translateX(0) scale(1.05, 1.05));
+            }
           }
-        }
+        }  
       }
 
       img {
@@ -522,11 +525,17 @@
 
       .thumbnail {
 
-        &:focus,
-        &:hover {
+        a {
+          
+          &:has(.image) {
 
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
+            &:focus,
+            &:hover {
+
+              img {
+                @include transform(translateX(0) scale(1.05, 1.05));
+              }
+            }
           }
         }
 
@@ -740,11 +749,14 @@
 
           a {
 
-            &:focus,
-            &:hover {
+            &:has(.image) {
 
-              img {
-                @include transform(translateX(-50%) scale(1.05, 1.05));
+              &:focus,
+              &:hover {
+
+                img {
+                  @include transform(translateX(-50%) scale(1.05, 1.05));
+                }
               }
             }
           }

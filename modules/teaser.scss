@@ -45,6 +45,26 @@
         }
       }
 
+      &:not(:has(.image)) {
+        background-color: var(--teaser-image-hover-color) !important;
+        // overflow: hidden;
+
+        img {
+          height: 100% !important;
+          object-fit: cover !important;
+          max-width: 100% !important;
+          transition: opacity $sprint ease-in-out !important;
+        }
+
+        &:focus,
+        &:hover {
+
+          img {
+            opacity: calc(2 / 3) !important;
+          }
+        }
+      }
+
       &,
       img {
         display: block;
