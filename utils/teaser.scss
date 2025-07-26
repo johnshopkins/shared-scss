@@ -154,8 +154,10 @@
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table;
+          display: flex;
+          flex-direction: column;
           height: auto;
+          justify-content: center;
           min-height: calc(get_span_width($context of 12) / 1%) * 1vw;
           padding-bottom: 1em;
           vertical-align: middle;
@@ -178,13 +180,13 @@
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table-cell;
+          display: block;
           left: 0;
           position: relative;
           right: 0;
           top: 0;
           @include transform(none);
-          vertical-align: middle;
+          // vertical-align: middle;
         }
       }
     }
