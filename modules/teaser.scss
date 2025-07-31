@@ -2,6 +2,7 @@
 
 :root {
   @include teaser_color(default);
+  --teaser-image-aspect-ratio: unset;
 }
 
 .teaser {
@@ -71,6 +72,9 @@
       }
 
       img {
+        aspect-ratio: var(--teaser-image-aspect-ratio);
+        height: auto;
+        object-fit: cover;
         width: 100%;
         max-width: none;
         margin: 0;

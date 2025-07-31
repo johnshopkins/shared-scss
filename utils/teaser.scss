@@ -81,8 +81,9 @@
 }
 
 @mixin teaser_stacked(
-  $style: null,
   $context: null,
+  $image: landscape,
+  $style: null,
   $color-scheme: null,
   $background-color: null,
   $image-hover-color: null,
@@ -114,9 +115,25 @@
     $source-color: $source-color,
     $source-color-hover: $source-color-hover
   );
+  @if ($image == 'landscape') {
+    --teaser-image-aspect-ratio: 3 / 2;
+  }
+  @else if ($image == 'square') {
+    --teaser-image-aspect-ratio: 1 / 1;
+  }
+  @else if ($image == 'portrait') {
+    --teaser-image-aspect-ratio: 2 / 3;
+  }
+  @else {
+    --teaser-image-aspect-ratio: $image;
+  }
   background-color: transparent; // leave transparent for now
   display: table;
   padding: 0;
+
+  .thumbnail {
+    aspect-ratio: unset;
+  }
 
   .text {
     display: table-cell;
@@ -254,7 +271,6 @@
       }
 
       img {
-        aspect-ratio: unset;
         left: 0;
         margin-left: 0;
         min-height: 0;
@@ -481,6 +497,18 @@
   $target: nth($ratio, 1);
   $context: nth($ratio, -1);
 
+  @if ($image == 'landscape') {
+    --teaser-image-aspect-ratio: 3 / 2;
+  }
+  @else if ($image == 'square') {
+    --teaser-image-aspect-ratio: 1 / 1;
+  }
+  @else if ($image == 'portrait') {
+    --teaser-image-aspect-ratio: 2 / 3;
+  }
+  @else {
+    --teaser-image-aspect-ratio: $image;
+  }
   display: table;
   min-height: 0;
 
@@ -538,55 +566,6 @@
               }
             }
           }
-        }
-
-        @if ($image == 'square') {
-          // height: 0;
-          // padding-bottom: 100%;
-
-          img {
-            aspect-ratio: 1/1;
-            height: auto;
-            object-fit: cover;
-            // margin-left: -25%;
-            // width: 150%;
-            margin-left: 0;
-            width: 100%;
-
-          }
-
-          // .image-square {
-          //
-          //   img {
-          //     margin-left: 0;
-          //     width: 100%;
-          //   }
-          // }
-        }
-
-        @else {
-          // height: auto;
-          // padding-bottom: 0;
-
-          img {
-            aspect-ratio: unset;
-            height: auto;
-            margin-left: 0;
-            width: 100%;
-          }
-
-          // .image-square {
-          //   padding-bottom: 0;
-          //
-          //   img {
-          //     height: 100%;
-          //     left: 0;
-          //     position: static;
-          //     top: 0;
-          //     width: 100%;
-          //     z-index: $stack_normal;
-          //   }
-          // }
         }
       }
     }
@@ -686,6 +665,10 @@
   }
 
   @if ($style == 'card') {
+
+    .thumbnail {
+      aspect-ratio: var(--teaser-image-aspect-ratio);
+    }
 
     &.has-image,
     &.video {
@@ -850,6 +833,10 @@
     // clear: both;
     // float: none;
     // padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+
+    .thumbnail {
+      aspect-ratio: unset;
+    }
 
     &.has-image,
     &.video {
