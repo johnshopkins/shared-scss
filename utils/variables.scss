@@ -1,17 +1,26 @@
 @use 'colors' as *;
 @use 'grid' as *;
 
+// Libre Franklin
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Oswald
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+// Source Serif
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
 // Factoria
-@import url("https://use.typekit.net/vxy8tas.css");
+// @import url("https://use.typekit.net/vxy8tas.css");
 
 // ATF Alternate Gothic
-@import url("https://use.typekit.net/nsj2nad.css");
+// @import url("https://use.typekit.net/nsj2nad.css");
 
 // Freight Text
-@import url("https://use.typekit.net/lnm5qra.css");
+// @import url("https://use.typekit.net/lnm5qra.css");
 
 // Proxima Nova
-@import url("https://use.typekit.net/jge8wgr.css");
+// @import url("https://use.typekit.net/jge8wgr.css");
 
 // Old Adobe Fonts include, do not use after Adobe's split of personal and business accounts
 // @import url("https://use.typekit.net/btq2ouq.css");
@@ -108,6 +117,10 @@ $creep:  ($stroll * 5);         // 5000ms
 //\\ FONTS \//\\//\\//\\//\\
 //\\//\\//\\//\\//\\//\\//\\
 
+$libre-franklin: 'Libre Franklin', sans-serif;
+$oswald: 'Oswald', sans-serif;
+$source-serif: 'Source Serif 4', serif;
+
 //Font Families
 // $gentona: gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
 // $quadon: quadon, 'Quadon', gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
@@ -131,15 +144,19 @@ $alternate-gothic: 'alternate-gothic-extra-cond', tahoma, sans-serif;
 // $arnhem: 'freight-micro-pro', georgia, serif;
 $freight-text: 'freight-text-pro', georgia, serif;
 
-$gentona: $proxima-nova;
-$quadon: $factoria;
-$titling: $alternate-gothic;
-$arnhem: $freight-text;
+$proxima-nova: $libre-franklin;
+$alternate-gothic: $oswald;
+$freight-text: $source-serif;
 
-$sans: $proxima-nova;
+$gentona: $libre-franklin;
+$quadon: $factoria;
+$titling: $oswald;
+$arnhem: $source-serif;
+
+$sans: $libre-franklin;
 $slab: $factoria;
-$condensed: $alternate-gothic;
-$serif: $freight-text;
+$condensed: $oswald;
+$serif: $source-serif;
 
 // Font Sizes
 $default_font_size_px:              16px;
