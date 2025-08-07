@@ -155,7 +155,7 @@
 
         .fa {
           padding-left: #{calc(($standard_spacing * 0.125) / $small)}em;
-          border-left: solid rgba(var(--teaser-meta-color), 0.5) #{calc($thin / $small)}em;
+          border-left: solid rgb(from var(--teaser-meta-color) r g b / 50%) #{calc($thin / $small)}em;
           margin-left: #{calc(calc($standard_spacing / 36) / $small)}em;
         }
       }
