@@ -127,6 +127,7 @@
   @else {
     --teaser-image-aspect-ratio: $image;
   }
+  --teaser-text-align: flex-start;
   background-color: transparent; // leave transparent for now
   display: table;
   padding: 0;
@@ -665,6 +666,7 @@
   }
 
   @if ($style == 'card') {
+    --teaser-text-align: center;
 
     .thumbnail {
       aspect-ratio: var(--teaser-image-aspect-ratio);
@@ -829,6 +831,7 @@
   }
 
   @else {
+    --teaser-text-align: flex-start;
     // background-color: lighten($gray1, 5%);
     // clear: both;
     // float: none;
