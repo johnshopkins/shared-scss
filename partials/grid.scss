@@ -5,8 +5,9 @@
 }
 
 .center {
-  max-width: $maxwidth * 1px;
   margin: 0 auto;
+  max-width: $maxwidth * 1px;
+  width: 100%;
 }
 
 /**
