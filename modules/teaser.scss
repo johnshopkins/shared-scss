@@ -49,13 +49,13 @@
 
       &:not(:has(.image)) {
         background-color: var(--teaser-image-hover-color) !important;
-        // overflow: hidden;
+        overflow: hidden;
 
         img {
           height: 100% !important;
           object-fit: cover !important;
           max-width: 100% !important;
-          transition: opacity $sprint ease-in-out !important;
+          transition: opacity $sprint ease-in-out, transform $sprint ease-in-out !important;
         }
 
         &:focus,
