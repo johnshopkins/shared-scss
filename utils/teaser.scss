@@ -258,17 +258,6 @@
 
       a {
         position: relative;
-
-        &:has(.image) {
-
-          &:focus,
-          &:hover {
-
-            img {
-              @include transform(translateX(0) scale(1.05, 1.05));
-            }
-          }
-        }  
       }
 
       img {
@@ -277,7 +266,6 @@
         min-height: 0;
         min-width: 0;
         position: static;
-        @include transform(translateX(0) scale(1, 1));
         width: 100%;
       }
 
@@ -551,26 +539,6 @@
       }
     }
 
-    @else {
-
-      .thumbnail {
-
-        a {
-          
-          &:has(.image) {
-
-            &:focus,
-            &:hover {
-
-              img {
-                @include transform(translateX(0) scale(1.05, 1.05));
-              }
-            }
-          }
-        }
-      }
-    }
-
     .text {
       // background-color: transparent;
       bottom: 0;
@@ -739,27 +707,13 @@
             z-index: $stack_normal;
           }
 
-          a {
-
-            &:has(.image) {
-
-              &:focus,
-              &:hover {
-
-                img {
-                  @include transform(translateX(-50%) scale(1.05, 1.05));
-                }
-              }
-            }
-          }
-
           img {
-            left: 50%;
+            // left: 50%;
             margin-left: 0;
             min-height: 100%;
             min-width: 100%;
-            @include transform(translateX(-50%) scale(1, 1));
-            width: auto;
+            object-fit: cover;
+            width: 100%;
           }
 
           .image {
@@ -882,7 +836,6 @@
             min-height: 0;
             min-width: 0;
             position: static;
-            @include transform(translateX(0) scale(1, 1));
             // width: 100%;
           }
         }

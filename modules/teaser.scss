@@ -21,6 +21,7 @@
 
     a {
       border: none;
+      box-shadow: none !important;
       cursor: pointer;
       position: relative;
       z-index: $stack_normal;
@@ -74,21 +75,21 @@
 
       img {
         aspect-ratio: var(--teaser-image-aspect-ratio);
+        @include backface-visibility(hidden);
         height: auto;
         object-fit: cover;
-        width: 100%;
-        max-width: none;
         margin: 0;
-        @include transform(translate3d(0, 0, 0) scale(1, 1));
+        max-width: none;
+        @include transform(scale(1, 1));
         @include transition(transform);
         @include transition-duration($sprint);
         @include transition-timing-function(ease-in-out);
-        @include backface-visibility(hidden);
+        width: 100%;
       }
 
       > .column {
-        width: 100%;
         margin-right: 0;
+        width: 100%;
       }
     }
   }
@@ -326,7 +327,7 @@
           }
 
           img {
-            @include transform(translate3d(0, 0, 0) scale(1.05, 1.05));
+            @include transform(scale(1.05, 1.05));
           }
         }
       }
