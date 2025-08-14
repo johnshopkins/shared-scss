@@ -16,6 +16,13 @@
   --teaser-column-gap-active: 1;
   --teaser-row-gap-active: 1;
 
+  // Used to correctly size .thumbnail and .text based on which
+  // should occupy the additional column gutter space
+  // --teaser-aside-bias-offset-value is set in the teaser_gutter() mixin
+  --teaser-aside-bias-offset-value: 0px;
+  --teaser-aside-bias-offset-active: 0;
+  --teaser-aside-bias-offset: calc(var(--teaser-aside-bias-offset-value) * var(--teaser-aside-bias-offset-active));
+
   // Sets the width of .thumbnail in the teaser_ratio() mixin
   --teaser-aside-image-width: 30%;
   --teaser-stacked-image-width: auto;

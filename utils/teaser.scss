@@ -980,6 +980,18 @@
   } @else if ($aspect-ratio == 'portrait') {
     --teaser-image-aspect-ratio: 2 / 3;
 
+@mixin teaser_bias($bias) {
+  @if ($bias == 'image') {
+    --teaser-aside-bias-offset-active: 1;
+    .thumbnail { flex-grow: 1; }
+    .text { flex-grow: 0; }
+  } @else if ($bias == 'text') {
+    --teaser-aside-bias-offset-active: 0;
+    .thumbnail { flex-grow: 0; }
+    .text { flex-grow: 1; }
+  }
+}
+
 @mixin teaser_style($style) {
 
   @if ($style == 'card') {
