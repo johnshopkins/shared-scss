@@ -32,6 +32,12 @@
   --teaser-text-width: auto;
   --teaser-image-aspect-ratio: unset;
   --teaser-text-align: flex-start;
+  --teaser-aside-image-align: flex-start;
+  --teaser-stacked-image-align: stretch;
+  --teaser-aside-text-align: stretch;
+  --teaser-stacked-text-align: center;
+  --teaser-image-align: auto;
+  --teaser-text-align: auto;
 
   // Needs a unit for some reason
   --teaser-vertical-padding: 0px;
@@ -66,9 +72,8 @@
   }
 
   .thumbnail {
-    align-self: flex-start;
+    align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
-    flex-basis: var(--teaser-image-width);
     flex-grow: 1;
 
     a {
@@ -154,6 +159,7 @@
 
   .text {
     align-content: flex-start;
+    align-self: var(--teaser-text-align);
     display: flex;
     flex-direction: column;
     flex-grow: 1;

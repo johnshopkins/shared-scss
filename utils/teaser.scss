@@ -916,8 +916,10 @@
 
   @if ($orientation == 'aside') {
     --teaser-direction: row;
+    --teaser-image-align: var(--teaser-aside-image-align);
     --teaser-image-width: var(--teaser-aside-image-width);
     --teaser-text-width: var(--teaser-aside-text-width);
+    --teaser-text-align: var(--teaser-aside-text-align);
 
     .thumbnail {
       flex-basis: var(--teaser-image-width);
@@ -930,8 +932,10 @@
     }
   } @else if ($orientation == 'stacked') {
     --teaser-direction: column;
+    --teaser-image-align: var(--teaser-stacked-image-align);
     --teaser-image-width: var(--teaser-stacked-image-width);
     --teaser-text-width: var(--teaser-stacked-text-width);
+    --teaser-text-align: var(--teaser-stacked-text-align);
 
     .thumbnail {
       flex-basis: auto;
@@ -987,6 +991,7 @@
     &:where(:not(.has-image, .video)) {
       --teaser-stacked-text-width: 100%;
     }
+    --teaser-aside-text-align: stretch;
     .text {
       --teaser-text-padding: 1rem;
       background-color: var(--teaser-background-color);
@@ -995,6 +1000,7 @@
     --teaser-column-gap-active: 1;
     --teaser-row-gap-active: 1;
     --teaser-stacked-text-width: 100%;
+    --teaser-aside-text-align: stretch;
     .text {
       // Needs a unit for some reason
       --teaser-text-padding: 0px;
