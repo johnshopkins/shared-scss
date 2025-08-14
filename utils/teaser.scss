@@ -6,6 +6,7 @@
 
 @mixin teaser_color(
   $color-scheme: default,
+  $shadow-color: null,
   $background-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
@@ -22,6 +23,7 @@
 ) {
   @if ($color-scheme == default) { 
     --teaser-background-color: #{$white};
+    --teaser-shadow-color: #{jhu-blue-30};
     --teaser-image-hover-color: #{$jhu-blue-40};
     --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-50};
@@ -37,6 +39,7 @@
   }
   @else if ($color-scheme == light-gray) {
     --teaser-background-color: #{$background_gray};
+    --teaser-shadow-color: #{jhu-blue-30};
     --teaser-image-hover-color: #{$jhu-blue-40};
     --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-60};
@@ -52,6 +55,7 @@
   }
   @else if ($color-scheme == light-blue) {
     --teaser-background-color: #{$jhu-blue-10};
+    --teaser-shadow-color: #{jhu-blue-30};
     --teaser-image-hover-color: #{$jhu-blue-40};
     --teaser-kicker-background-color: transparent;
     --teaser-kicker-color: #{$jhu-blue-60};
@@ -66,6 +70,7 @@
     --teaser-source-color-hover: #{$white};  
   }
   @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
+  @if ($shadow-color != null) { --teaser-shadow-color: #{$shadow-color}; }
   @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
   @if ($kicker-background-color != null) { --teaser-kicker-background-color: #{$kicker-background-color}; }
   @if ($kicker-color != null) { --teaser-kicker-color: #{$kicker-color}; }
@@ -1050,6 +1055,14 @@
     background-color: transparent;
   }
 }
+
+@mixin teaser_box_shadow($shadow: null) {
+  @if ($shadow == on) {
+    --teaser-box-shadow: -0.5rem 0.5rem 0 var(--teaser-box-shadow-color);
+  } @else if ($shadow == off) {
+    --teaser-box-shadow: none;
+  } @else if ($shadow != null) {
+    --teaser-box-shadow: #{$shadow};
   }
 }
 
@@ -1061,7 +1074,9 @@
   $image: null,
   $style: null,
   $color-scheme: null,
+  $shadow: null,
   $background-color: null,
+  $shadow-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
   $kicker-color: null,
@@ -1078,11 +1093,14 @@
   @include teaser_orientation($orientation);
   @include teaser_ratio($ratio);
   @include teaser_gutter($gutter: $gutter, $context: nth($ratio, -1));
+  @include teaser_bias($bias);
   @include teaser_image_aspect_ratio($image);
   @include teaser_style($style);
+  @include teaser_box_shadow($shadow);
   @include teaser_color(
     $color-scheme: $color-scheme,
     $background-color: $background-color,
+    $shadow-color: $shadow-color,
     $image-hover-color: $image-hover-color,
     $kicker-background-color: $kicker-background-color,
     $kicker-color: $kicker-color,
@@ -1115,8 +1133,10 @@
   $bias: text,
   $image: landscape,
   $style: null,
+  $shadow: null,
   $color-scheme: null,
   $background-color: null,
+  $shadow-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
   $kicker-color: null,
@@ -1137,8 +1157,10 @@
     $bias: $bias,
     $image: $image,
     $style: $style,
+    $shadow: $shadow,
     $color-scheme: $color-scheme,
     $background-color: $background-color,
+    $shadow-color: $shadow-color,
     $image-hover-color: $image-hover-color,
     $kicker-background-color: $kicker-background-color,
     $kicker-color: $kicker-color,
@@ -1163,6 +1185,7 @@
   $style: null,
   $color-scheme: null,
   $background-color: null,
+  $shadow-color: null,
   $image-hover-color: null,
   $kicker-background-color: null,
   $kicker-color: null,
@@ -1185,6 +1208,7 @@
     $style: $style,
     $color-scheme: $color-scheme,
     $background-color: $background-color,
+    $shadow-color: $shadow-color,
     $image-hover-color: $image-hover-color,
     $kicker-background-color: $kicker-background-color,
     $kicker-color: $kicker-color,

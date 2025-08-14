@@ -62,6 +62,10 @@
   --teaser-vertical-padding: 0px;
   --teaser-horizontal-padding: 0px;
   --teaser-text-padding: 0px;
+
+  // Set in the teaser_shadow() mixin, 
+  // applied in the teaser_style() mixin
+  --teaser-box-shadow: none;
 }
 
 .teaser {
