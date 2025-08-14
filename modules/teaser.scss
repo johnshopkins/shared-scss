@@ -37,10 +37,16 @@
   // teaser_orientation() mixin
   --teaser-image-width: auto;
   --teaser-text-width: auto;
-  --teaser-text-align: flex-start;
+
+  // Used in card style teasers to overlap .thumbnail and .text
+  --teaser-aside-text-overlap-value: 0px;
+  --teaser-stacked-text-overlap-value: 0px;
+  --teaser-aside-text-overlap-active: 0;
+  --teaser-stacked-text-overlap-active: 0;
 
   // Sets the shape of .thumbnail (square, landscape, portrait, etc.)
   --teaser-image-aspect-ratio: auto;
+
   --teaser-aside-image-align: flex-start;
   --teaser-stacked-image-align: stretch;
   --teaser-aside-text-align: stretch;
@@ -85,6 +91,8 @@
     align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
     flex-grow: 1;
+    margin-bottom: calc((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * -1);
+    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)) * -1);
 
     a {
       border: none;
@@ -312,6 +320,23 @@
       font-weight: 700; // Changed 03-10
       line-height: 140%;
       font-style: italic;
+    }
+  }
+
+  &:where(.has-image, .video) {
+    padding-bottom: calc(var(--teaser-vertical-padding) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
+
+    .text {
+      top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active));
+    }
+  }
+
+  
+  &:where(:not(.has-image, .video)) {
+
+    .text {
+      // Covers situations where teaser_bias() is set to image
+      flex-grow: 1 !important;
     }
   }
 

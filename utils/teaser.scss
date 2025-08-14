@@ -919,6 +919,8 @@
     --teaser-image-align: var(--teaser-aside-image-align);
     --teaser-image-width: var(--teaser-aside-image-width);
     --teaser-text-width: var(--teaser-aside-text-width);
+    --teaser-aside-text-overlap-active: 1;
+    --teaser-stacked-text-overlap-active: 0;
     --teaser-text-align: var(--teaser-aside-text-align);
 
     .thumbnail {
@@ -935,6 +937,8 @@
     --teaser-image-align: var(--teaser-stacked-image-align);
     --teaser-image-width: var(--teaser-stacked-image-width);
     --teaser-text-width: var(--teaser-stacked-text-width);
+    --teaser-aside-text-overlap-active: 0;
+    --teaser-stacked-text-overlap-active: 1;
     --teaser-text-align: var(--teaser-stacked-text-align);
 
     .thumbnail {
@@ -1008,6 +1012,9 @@
       --teaser-stacked-text-width: 100%;
     }
     --teaser-aside-text-align: stretch;
+    --teaser-aside-text-overlap-value: 1rem;
+    --teaser-stacked-text-overlap-value: 1rem;
+
     .text {
       --teaser-text-padding: 1rem;
       background-color: var(--teaser-background-color);
@@ -1017,6 +1024,9 @@
     --teaser-row-gap-active: 1;
     --teaser-stacked-text-width: 100%;
     --teaser-aside-text-align: stretch;
+    --teaser-aside-text-overlap-value: 0px;
+    --teaser-stacked-text-overlap-value: 0px;
+
     .text {
       // Needs a unit for some reason
       --teaser-text-padding: 0px;
@@ -1082,14 +1092,17 @@
     $source-color: $source-color,
     $source-color-hover: $source-color-hover
   );
-
-  @if ($target >= $context) {
-
-    .thumbnail {
-      display: none;
-    }
-  }
 }
+
+
+
+
+
+
+
+
+
+
 
 @mixin teaser_stacked(
   $orientation: stacked,
