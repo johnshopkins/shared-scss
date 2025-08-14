@@ -1034,7 +1034,9 @@
 ) {
   @include teaser_orientation($orientation);
   @include teaser_ratio($ratio);
+  @include teaser_gutter($gutter: $gutter, $context: nth($ratio, -1));
   @include teaser_image_aspect_ratio($image);
+  @include teaser_style($style);
   @include teaser_color(
     $color-scheme: $color-scheme,
     $background-color: $background-color,
