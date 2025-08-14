@@ -176,14 +176,27 @@
     height: auto;
     justify-content: var(--teaser-text-justify);
     padding: var(--teaser-text-padding);
+    position: relative;
     z-index: $stack_normal;
 
+    .accent-element {
+      display: flex;
+      flex-direction: column;
+      left: 0;
+      position: static;
+      right: 0;
+      top: 0;
+      @include transform(none);
+    }
 
+    h2,
     h5 {
       color: var(--teaser-headline-color);
 
       a {
+        background-color: transparent;
         border: none;
+        @include box-shadow(none);
         text-decoration: none;
       }
 
@@ -307,6 +320,10 @@
     .event-meta {
       display: none;
     }
+  }
+
+  &.force:after {
+    display: none !important;
   }
 }
 
