@@ -1130,29 +1130,6 @@
 
 
 
-@mixin teaser_stacked(
-  $orientation: vertical,
-  $context: null,
-  $image: landscape,
-  $style: null,
-  $color-scheme: null,
-  $background-color: null,
-  $image-hover-color: null,
-  $kicker-background-color: null,
-  $kicker-color: null,
-  $headline-background-color: null,
-  $headline-color: null,
-  $headline-color-hover: null,
-  $summary-color: null,
-  $meta-color: null,
-  $source-background-color: null,
-  $source-background-color-hover: null,
-  $source-color: null,
-  $source-color-hover: null
-) {
-
-}
-
 
 @mixin teaser_xx-small($headline-font-family: gentona, $kicker-font-family: gentona) {
   $headline-family: "";
