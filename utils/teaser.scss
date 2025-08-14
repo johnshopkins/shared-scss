@@ -988,6 +988,7 @@
       --teaser-stacked-text-width: 100%;
     }
     .text {
+      --teaser-text-padding: 1rem;
       background-color: var(--teaser-background-color);
     }
   } @else {
@@ -1002,8 +1003,14 @@
   }
 
   @if ($style == 'padded') {
+    // Needs a unit for some reason
+    --teaser-vertical-padding: #{($standard_spacing * 0.5)};
+    --teaser-horizontal-padding: #{($standard_spacing * calc(2 / 3))};
     background-color: var(--teaser-background-color);
   } @else {
+    // Needs a unit for some reason
+    --teaser-vertical-padding: 0px;
+    --teaser-horizontal-padding: 0px;
     background-color: transparent;
   }
 }

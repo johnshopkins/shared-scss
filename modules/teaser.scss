@@ -32,6 +32,11 @@
   --teaser-text-width: auto;
   --teaser-image-aspect-ratio: unset;
   --teaser-text-align: flex-start;
+
+  // Needs a unit for some reason
+  --teaser-vertical-padding: 0px;
+  --teaser-horizontal-padding: 0px;
+  --teaser-text-padding: 0px;
 }
 
 .teaser {
@@ -50,8 +55,8 @@
   // flex-wrap: wrap;
   // column-gap: var(--teaser-column-gap);
   // row-gap: vart(--teaser-row-gap);
-  gap: var(--teaser-row-gap) var(--teaser-column-gap);
   gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc(var(--teaser-column-gap) * var(--teaser-column-gap-active));
+  padding: var(--teaser-vertical-padding) var(--teaser-horizontal-padding);
   position: relative;
   width: 100%;
   z-index: $stack_normal;
@@ -154,6 +159,7 @@
     flex-grow: 1;
     height: auto;
     justify-content: var(--teaser-text-align);
+    padding: var(--teaser-text-padding);
     z-index: $stack_normal;
 
 
