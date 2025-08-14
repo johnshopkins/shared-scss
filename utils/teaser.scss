@@ -914,14 +914,43 @@
 
 @mixin teaser_orientation($orientation: null) {
 
-  @if ($orientation == aside) {
+  @if ($orientation == 'aside') {
+    --teaser-direction: row;
     --teaser-image-width: var(--teaser-aside-image-width);
     --teaser-text-width: var(--teaser-aside-text-width);
-  } @else if ($orientation == stacked) {
+
+    .thumbnail {
+      flex-basis: var(--teaser-image-width);
+      width: auto;
+    }
+
+    .text {
+      flex-basis: var(--teaser-text-width);
+      width: auto;
+    }
+  } @else if ($orientation == 'stacked') {
+    --teaser-direction: column;
     --teaser-image-width: var(--teaser-stacked-image-width);
     --teaser-text-width: var(--teaser-stacked-text-width);
+
+    .thumbnail {
+      flex-basis: auto;
+      width: var(--teaser-image-width);
+    }
+
+    .text {
+      flex-basis: auto;
+      width: var(--teaser-text-width);
+    }
   }
 }
+
+  @if ($gutter == 'full') {
+    --teaser-column-gap: #{get_gutter_width(of $context)};
+  } @else if ($gutter == 'half') {
+    --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+    --teaser-column-gap: #{$gutter};
+  }
 
 @mixin teaser_ratio($ratio: null) {
   // Accepts $ratio as 2 of 10
@@ -929,22 +958,8 @@
   $target: nth($ratio, 1);
   $context: nth($ratio, -1);
 
-  @if ($gutter == 'full') {
-    --teaser-column-gap: #{get_gutter_width(of $context)};
-  } @else if ($gutter == 'half') {
-    --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
-  } @else {
-    --teaser-column-gap: #{$gutter};
-  }
-
-  .thumbnail {
-    flex-basis: #{get_span_width(($context - $target) of $context)};
-  }
-
-  .text {
-    flex-basis: #{get_span_width($target of $context)};
-  }
-
+  --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
+  --teaser-aside-text-width: #{get_span_width($target of $context)};
 }
 
 @mixin teaser_image_aspect_ratio($aspect-ratio: null) {

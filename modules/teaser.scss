@@ -2,12 +2,23 @@
 
 :root {
   @include teaser_color(default);
+  // Determines stacked or aside layout
+  --teaser-direction: row;
   --teaser-column-gap: 1rem;
   --teaser-row-gap: 1rem;
+
+  // Sets the width of .thumbnail in the teaser_ratio() mixin
   --teaser-aside-image-width: 30%;
-  --teaser-aside-text-width: calc(70% - var(--teaser-column-gap));
-  --teaser-stacked-image-width: 100%;
+  --teaser-stacked-image-width: auto;
+
+  // Sets the width of .text in the teaser_ratio() mixin
+  --teaser-aside-text-width: calc(70% - var(--teaser-column-gap) - var(--teaser-aside-bias-offset));
   --teaser-stacked-text-width: 100%;
+
+  // These are what are applied to the flex-basis or width properties of 
+  // .thumbnail and .text and are set and applied using the 
+  // --teaser-aside/stacked-image/text-bias variables in the 
+  // teaser_orientation() mixin
   --teaser-image-width: auto;
   --teaser-text-width: auto;
   --teaser-image-aspect-ratio: unset;
@@ -15,7 +26,8 @@
 }
 
 .teaser {
-  @include teaser_aside(
+  @include teaser(
+    $orientation: aside,
     $ratio: 7 of 10,
     $gutter: full,
     $bias: text,
@@ -25,8 +37,8 @@
   @include teaser_medium();
   align-content: flex-start;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: var(--teaser-direction);
+  // flex-wrap: wrap;
   // column-gap: var(--teaser-column-gap);
   // row-gap: vart(--teaser-row-gap);
   gap: var(--teaser-row-gap) var(--teaser-column-gap);
