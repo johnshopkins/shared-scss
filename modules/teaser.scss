@@ -38,6 +38,7 @@
   --teaser-stacked-text-align: center;
   --teaser-image-align: auto;
   --teaser-text-align: auto;
+  --teaser-text-justify: stretch;
 
   // Needs a unit for some reason
   --teaser-vertical-padding: 0px;
@@ -164,7 +165,7 @@
     flex-direction: column;
     flex-grow: 1;
     height: auto;
-    justify-content: var(--teaser-text-align);
+    justify-content: var(--teaser-text-justify);
     padding: var(--teaser-text-padding);
     z-index: $stack_normal;
 
