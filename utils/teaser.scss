@@ -922,6 +922,7 @@
     --teaser-aside-text-overlap-active: 1;
     --teaser-stacked-text-overlap-active: 0;
     --teaser-text-align: var(--teaser-aside-text-align);
+    --teaser-aside-text-min-height-active: 1;
 
     .thumbnail {
       flex-basis: var(--teaser-image-width);
@@ -940,6 +941,7 @@
     --teaser-aside-text-overlap-active: 0;
     --teaser-stacked-text-overlap-active: 1;
     --teaser-text-align: var(--teaser-stacked-text-align);
+    --teaser-aside-text-min-height-active: 0;
 
     .thumbnail {
       flex-basis: auto;
@@ -1014,6 +1016,7 @@
     --teaser-aside-text-align: stretch;
     --teaser-aside-text-overlap-value: 1rem;
     --teaser-stacked-text-overlap-value: 1rem;
+    --teaser-aside-text-min-height-value: 100%;
 
     .text {
       --teaser-text-padding: 1rem;
@@ -1026,6 +1029,7 @@
     --teaser-aside-text-align: stretch;
     --teaser-aside-text-overlap-value: 0px;
     --teaser-stacked-text-overlap-value: 0px;
+    --teaser-aside-text-min-height-value: 0px;
 
     .text {
       // Needs a unit for some reason

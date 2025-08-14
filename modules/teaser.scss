@@ -55,6 +55,9 @@
   --teaser-text-align: auto;
   --teaser-text-justify: stretch;
 
+  --teaser-aside-text-min-height-value: 0px;
+  --teaser-aside-text-min-height-active: 0;
+
   // Needs a unit for some reason
   --teaser-vertical-padding: 0px;
   --teaser-horizontal-padding: 0px;
@@ -183,6 +186,7 @@
     flex-grow: 1;
     height: auto;
     justify-content: var(--teaser-text-justify);
+    min-height: calc(var(--teaser-aside-text-min-height-value) * var(--teaser-aside-text-min-height-active));
     padding: var(--teaser-text-padding);
     position: relative;
     z-index: $stack_normal;
