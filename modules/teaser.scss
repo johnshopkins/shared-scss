@@ -4,8 +4,17 @@
   @include teaser_color(default);
   // Determines stacked or aside layout
   --teaser-direction: row;
+
+  // Spacing between .thumbnail and .text.
+  // --teaser-column-gap is set in teaser_gutter() mixin
   --teaser-column-gap: 1rem;
   --teaser-row-gap: 1rem;
+
+  // Allows removal of gap display from teaser_gap() mixin
+  // without knowing the actual value of the gap.
+  // These are set in teaser_bias() mixin.
+  --teaser-column-gap-active: 1;
+  --teaser-row-gap-active: 1;
 
   // Sets the width of .thumbnail in the teaser_ratio() mixin
   --teaser-aside-image-width: 30%;
@@ -42,6 +51,7 @@
   // column-gap: var(--teaser-column-gap);
   // row-gap: vart(--teaser-row-gap);
   gap: var(--teaser-row-gap) var(--teaser-column-gap);
+  gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc(var(--teaser-column-gap) * var(--teaser-column-gap-active));
   position: relative;
   width: 100%;
   z-index: $stack_normal;

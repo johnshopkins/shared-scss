@@ -945,12 +945,18 @@
   }
 }
 
+@mixin teaser_gutter($gutter: null, $context: null) {
+  --teaser-aside-bias-offset-value: var(--teaser-column-gap);
+  
   @if ($gutter == 'full') {
     --teaser-column-gap: #{get_gutter_width(of $context)};
   } @else if ($gutter == 'half') {
     --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+    --teaser-aside-bias-offset-value: 0px;
+  } @else if ($gutter != null) {
     --teaser-column-gap: #{$gutter};
   }
+}
 
 @mixin teaser_ratio($ratio: null) {
   // Accepts $ratio as 2 of 10
@@ -971,7 +977,10 @@
     --teaser-image-aspect-ratio: 2 / 3;
 
 @mixin teaser_style($style) {
+
   @if ($style == 'card') {
+    --teaser-column-gap-active: 0;
+    --teaser-row-gap-active: 0;
     &:where(.has-image, .video) {
       --teaser-stacked-text-width: calc(100% - (var(--teaser-stacked-text-overlap-value) * 2));
     }
@@ -982,6 +991,8 @@
       background-color: var(--teaser-background-color);
     }
   } @else {
+    --teaser-column-gap-active: 1;
+    --teaser-row-gap-active: 1;
     --teaser-stacked-text-width: 100%;
     .text {
       // Needs a unit for some reason
