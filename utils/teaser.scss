@@ -969,8 +969,33 @@
     --teaser-image-aspect-ratio: 1 / 1;
   } @else if ($aspect-ratio == 'portrait') {
     --teaser-image-aspect-ratio: 2 / 3;
+
+@mixin teaser_style($style) {
+  @if ($style == 'card') {
+    &:where(.has-image, .video) {
+      --teaser-stacked-text-width: calc(100% - (var(--teaser-stacked-text-overlap-value) * 2));
+    }
+    &:where(:not(.has-image, .video)) {
+      --teaser-stacked-text-width: 100%;
+    }
+    .text {
+      background-color: var(--teaser-background-color);
+    }
   } @else {
-    --teaser-image-aspect-ratio: $image;
+    --teaser-stacked-text-width: 100%;
+    .text {
+      // Needs a unit for some reason
+      --teaser-text-padding: 0px;
+      background-color: transparent;
+    }
+  }
+
+  @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
+  } @else {
+    background-color: transparent;
+  }
+}
   }
 }
 
