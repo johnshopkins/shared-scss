@@ -979,6 +979,10 @@
     --teaser-image-aspect-ratio: 1 / 1;
   } @else if ($aspect-ratio == 'portrait') {
     --teaser-image-aspect-ratio: 2 / 3;
+  } @else if ($aspect-ratio != null) {
+    --teaser-image-aspect-ratio: $aspect-ratio;
+  }
+}
 
 @mixin teaser_bias($bias) {
   @if ($bias == 'image') {

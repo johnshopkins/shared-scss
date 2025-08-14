@@ -37,8 +37,10 @@
   // teaser_orientation() mixin
   --teaser-image-width: auto;
   --teaser-text-width: auto;
-  --teaser-image-aspect-ratio: unset;
   --teaser-text-align: flex-start;
+
+  // Sets the shape of .thumbnail (square, landscape, portrait, etc.)
+  --teaser-image-aspect-ratio: auto;
   --teaser-aside-image-align: flex-start;
   --teaser-stacked-image-align: stretch;
   --teaser-aside-text-align: stretch;
