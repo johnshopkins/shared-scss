@@ -53,15 +53,22 @@
   --teaser-stacked-text-align: center;
   --teaser-image-align: auto;
   --teaser-text-align: auto;
-  --teaser-text-justify: stretch;
-
-  --teaser-aside-text-min-height-value: 0px;
-  --teaser-aside-text-min-height-active: 0;
+  --teaser-aside-text-justify: flex-start;
+  --teaser-stacked-text-justify: flex-start;
+  --teaser-text-justify: auto;
 
   // Needs a unit for some reason
   --teaser-vertical-padding: 0px;
   --teaser-horizontal-padding: 0px;
   --teaser-text-padding: 0px;
+
+  // Z-indexes for overlapping .thumbnail and .image
+  --teaser-aside-image-z-index: #{$stack-normal};
+  --teaser-aside-text-z-index: #{$stack-normal};
+  --teaser-stacked-image-z-index: #{$stack-normal};
+  --teaser-stacked-text-z-index: #{$stack-normal};
+  --teaser-image-z-index: #{$stack-normal};
+  --teaser-text-z-index: #{$stack-normal};
 
   // Set in the teaser_shadow() mixin, 
   // applied in the teaser_style() mixin
@@ -98,8 +105,11 @@
     align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
     flex-grow: 1;
-    margin-bottom: calc((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * -1);
+    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
     margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)) * -1);
+    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active));
+    position: relative;
+    z-index: var(--teaser-image-z-index);
 
     a {
       border: none;
@@ -190,10 +200,9 @@
     flex-grow: 1;
     height: auto;
     justify-content: var(--teaser-text-justify);
-    min-height: calc(var(--teaser-aside-text-min-height-value) * var(--teaser-aside-text-min-height-active));
     padding: var(--teaser-text-padding);
     position: relative;
-    z-index: $stack_normal;
+    z-index: var(--teaser-text-z-index);
 
     .accent-element {
       display: flex;
@@ -332,14 +341,12 @@
   }
 
   &:where(.has-image, .video) {
-    padding-bottom: calc(var(--teaser-vertical-padding) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
 
     .text {
-      top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active));
+      padding-left: calc(var(--teaser-text-padding) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
     }
   }
 
-  
   &:where(:not(.has-image, .video)) {
 
     .text {

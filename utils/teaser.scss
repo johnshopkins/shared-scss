@@ -927,7 +927,9 @@
     --teaser-aside-text-overlap-active: 1;
     --teaser-stacked-text-overlap-active: 0;
     --teaser-text-align: var(--teaser-aside-text-align);
-    --teaser-aside-text-min-height-active: 1;
+    --teaser-text-justify: var(--teaser-aside-text-justify);
+    --teaser-image-z-index: var(--teaser-aside-image-z-index);
+    --teaser-text-z-index: var(--teaser-aside-text-z-index);
 
     .thumbnail {
       flex-basis: var(--teaser-image-width);
@@ -946,7 +948,9 @@
     --teaser-aside-text-overlap-active: 0;
     --teaser-stacked-text-overlap-active: 1;
     --teaser-text-align: var(--teaser-stacked-text-align);
-    --teaser-aside-text-min-height-active: 0;
+    --teaser-text-justify: var(--teaser-stacked-text-justify);
+    --teaser-image-z-index: var(--teaser-stacked-image-z-index);
+    --teaser-text-z-index: var(--teaser-stacked-text-z-index);
 
     .thumbnail {
       flex-basis: auto;
@@ -1012,6 +1016,12 @@
   @if ($style == 'card') {
     --teaser-column-gap-active: 0;
     --teaser-row-gap-active: 0;
+    --teaser-aside-image-align: center;
+    --teaser-aside-image-z-index: calc(#{$stack-normal} + 1);
+    --teaser-aside-text-z-index: #{$stack-normal};
+    --teaser-stacked-image-z-index: #{$stack-normal};
+    --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
+
     &:where(.has-image, .video) {
       --teaser-stacked-text-width: calc(100% - (var(--teaser-stacked-text-overlap-value) * 2));
     }
@@ -1019,9 +1029,10 @@
       --teaser-stacked-text-width: 100%;
     }
     --teaser-aside-text-align: stretch;
+    --teaser-aside-text-justify: center;
+    --teaser-stacked-text-justify: flex-start;
     --teaser-aside-text-overlap-value: 1rem;
     --teaser-stacked-text-overlap-value: 1rem;
-    --teaser-aside-text-min-height-value: 100%;
 
     .text {
       --teaser-text-padding: 1rem;
@@ -1030,11 +1041,17 @@
   } @else {
     --teaser-column-gap-active: 1;
     --teaser-row-gap-active: 1;
+    --teaser-aside-image-align: flex-start;
     --teaser-stacked-text-width: 100%;
     --teaser-aside-text-align: stretch;
+    --teaser-aside-text-justify: flex-start;
+    --teaser-stacked-text-justify: flex-start;
     --teaser-aside-text-overlap-value: 0px;
     --teaser-stacked-text-overlap-value: 0px;
-    --teaser-aside-text-min-height-value: 0px;
+    --teaser-aside-image-z-index: #{$stack-normal};
+    --teaser-aside-text-z-index: #{$stack-normal};
+    --teaser-stacked-image-z-index: #{$stack-normal};
+    --teaser-stacked-text-z-index: #{$stack-normal};
 
     .text {
       // Needs a unit for some reason
