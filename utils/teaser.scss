@@ -930,6 +930,8 @@
     --teaser-text-justify: var(--teaser-aside-text-justify);
     --teaser-image-z-index: var(--teaser-aside-image-z-index);
     --teaser-text-z-index: var(--teaser-aside-text-z-index);
+    --teaser-image-bias: var(--teaser-aside-image-bias);
+    --teaser-text-bias: var(--teaser-aside-text-bias);
 
     .thumbnail {
       flex-basis: var(--teaser-image-width);
@@ -951,6 +953,8 @@
     --teaser-text-justify: var(--teaser-stacked-text-justify);
     --teaser-image-z-index: var(--teaser-stacked-image-z-index);
     --teaser-text-z-index: var(--teaser-stacked-text-z-index);
+    --teaser-image-bias: var(--teaser-stacked-image-bias);
+    --teaser-text-bias: var(--teaser-stacked-text-bias);
 
     .thumbnail {
       flex-basis: auto;
@@ -978,13 +982,16 @@
 }
 
 @mixin teaser_ratio($ratio: null) {
-  // Accepts $ratio as 2 of 10
-  // first = target, last = context
-  $target: nth($ratio, 1);
-  $context: nth($ratio, -1);
 
-  --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
-  --teaser-aside-text-width: #{get_span_width($target of $context)};
+  @if ($ratio != null) {
+    // Accepts $ratio as 2 of 10
+    // first = target, last = context
+    $target: nth($ratio, 1);
+    $context: nth($ratio, -1);
+
+    --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
+    --teaser-aside-text-width: #{get_span_width($target of $context)};
+  }
 }
 
 @mixin teaser_image_aspect_ratio($aspect-ratio: null) {
@@ -1002,12 +1009,12 @@
 @mixin teaser_bias($bias) {
   @if ($bias == 'image') {
     --teaser-aside-bias-offset-active: 1;
-    .thumbnail { flex-grow: 1; }
-    .text { flex-grow: 0; }
+    --teaser-aside-image-bias: 1; 
+    --teaser-aside-text-bias: 0;
   } @else if ($bias == 'text') {
     --teaser-aside-bias-offset-active: 0;
-    .thumbnail { flex-grow: 0; }
-    .text { flex-grow: 1; }
+    --teaser-aside-image-bias: 0; 
+    --teaser-aside-text-bias: 1;
   }
 }
 
@@ -1112,7 +1119,7 @@
   @include teaser_gutter($gutter: $gutter, $context: nth($ratio, -1));
   @include teaser_bias($bias);
   @include teaser_image_aspect_ratio($image);
-  @include teaser_style($style);
+  @if ($style != null) { @include teaser_style($style); }
   @include teaser_box_shadow($shadow);
   @include teaser_color(
     $color-scheme: $color-scheme,
