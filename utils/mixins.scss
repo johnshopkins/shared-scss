@@ -163,16 +163,16 @@
   @return $map;
 }
 
-@mixin font_size($attr: font-size, $target_size: 'regular', $context_size: 'regular', $font-ratio: 'gentona', $flag: null) {
+@mixin font_size($attr: font-size, $target_size: 'regular', $context_size: 'regular', $font-ratio: 'sans', $flag: null) {
 
-  @if ($font-ratio == gentona) {
-    $font-ratio: $gentona-ratio;
-  } @else if ($font-ratio == quadon) {
-    $font-ratio: $quadon-ratio;
-  } @else if ($font-ratio == arnhem) {
-    $font-ratio: $arnhem-ratio;
-  } @else if ($font-ratio == titling) {
-    $font-ratio: $titling-ratio;
+  @if ($font-ratio == sans) {
+    $font-ratio: $sans-ratio;
+  } @else if ($font-ratio == slab) {
+    $font-ratio: $slab-ratio;
+  } @else if ($font-ratio == serif) {
+    $font-ratio: $serif-ratio;
+  } @else if ($font-ratio == condensed) {
+    $font-ratio: $condensed-ratio;
   }
 
   #{$attr}:

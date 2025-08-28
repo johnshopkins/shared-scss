@@ -98,7 +98,7 @@
       $summary-color: $jhu-grayscale-20,
       $meta-color: $jhu-grayscale-30
     );
-    @include teaser_medium(gentona);
+    @include teaser_medium(sans);
 
     &,
     &.has-image {

@@ -260,32 +260,32 @@ p {
   }
 
   &.has-xxx-small-font-size {
-    @include font_size(font-size, xxx-small, regular, gentona, !important);
+    @include font_size(font-size, xxx-small, regular, sans, !important);
     line-height: 1.55;
     letter-spacing: 0.0625em;
   }
 
   &.has-xx-small-font-size {
-    @include font_size(font-size, xx-small, regular, gentona, !important);
+    @include font_size(font-size, xx-small, regular, sans, !important);
     line-height: 1.5;
     letter-spacing: 0.05em;
   }
 
   &.has-x-small-font-size {
-    @include font_size(font-size, x-small, regular, gentona, !important);
+    @include font_size(font-size, x-small, regular, sans, !important);
     line-height: 1.45;
     letter-spacing: 0.0375em;
   }
 
   &.has-small-font-size {
-    @include font_size(font-size, small, regular, gentona, !important);
+    @include font_size(font-size, small, regular, sans, !important);
     line-height: 1.4;
     letter-spacing: 0.025em;
   }
 
   &.has-medium-font-size {
     font-family: $sans;
-    @include font_size(font-size, large, regular, gentona, !important);
+    @include font_size(font-size, large, regular, sans, !important);
     font-weight: 500;
     line-height: 1.3;
 
@@ -308,7 +308,7 @@ p {
 
 
   &.has-large-font-size {
-    @include font_size(font-size, x-large, regular, gentona, !important);
+    @include font_size(font-size, x-large, regular, sans, !important);
     line-height: 1.25;
   }
 
@@ -325,17 +325,17 @@ p {
   }
 
   &.has-x-large-font-size {
-    @include font_size(font-size, xx-large, regular, gentona, !important);
+    @include font_size(font-size, xx-large, regular, sans, !important);
     line-height: 1.2;
   }
 
   &.has-xx-large-font-size {
-    @include font_size(font-size, xxx-large, regular, gentona, !important);
+    @include font_size(font-size, xxx-large, regular, sans, !important);
     line-height: 1.15;
   }
 
   &.has-xxx-large-font-size {
-    @include font_size(font-size, display-2, regular, gentona, !important);
+    @include font_size(font-size, display-2, regular, sans, !important);
     line-height: 1.1;
   }
 }

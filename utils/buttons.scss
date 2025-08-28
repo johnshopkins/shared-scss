@@ -276,7 +276,7 @@
   @if ($size == xxx-small) {
     border-width: $hairline;
     // @include responsive_ems(border-width, $thin, regular '/' xxx-small);
-    @include font_size(font-size, xxx-small, regular, gentona, !important);
+    @include font_size(font-size, xxx-small, regular, sans, !important);
     font-weight: 700; // Changed 03-10
     letter-spacing: 0.0875em;
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
@@ -285,7 +285,7 @@
 
   @else if ($size == xx-small) {
     @include responsive_ems(border-width, $thin, regular '/' xx-small);
-    @include font_size(font-size, xx-small, regular, gentona, !important);
+    @include font_size(font-size, xx-small, regular, sans, !important);
     font-weight: 700; // Changed 03-10
     letter-spacing: 0.075em;
     @include responsive_ems(padding, calc($standard_spacing / 8) calc($standard_spacing / 4), regular '/' xx-small);
@@ -293,7 +293,7 @@
 
   @else if ($size == x-small) {
     @include responsive_ems(border-width, $thin, regular '/' x-small);
-    @include font_size(font-size, x-small, regular, gentona, !important);
+    @include font_size(font-size, x-small, regular, sans, !important);
     letter-spacing: 0.0625em;
     font-weight: 700; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' x-small);
@@ -301,7 +301,7 @@
 
   @else if ($size == small) {
     @include responsive_ems(border-width, $light, regular '/' small);
-    @include font_size(font-size, small, regular, gentona, !important);
+    @include font_size(font-size, small, regular, sans, !important);
     letter-spacing: 0.05em;
     font-weight: 700; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 5) calc($standard_spacing / 2.5), regular '/' small);
@@ -309,14 +309,14 @@
 
   @else if ($size == medium) {
     @include responsive_ems(border-width, $medium, regular '/' regular);
-    @include font_size(font-size, regular, regular, gentona, !important);
+    @include font_size(font-size, regular, regular, sans, !important);
     font-weight: 700; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 4) calc($standard_spacing / 2), regular '/' regular);
   }
 
   @else if ($size == large) {
     @include responsive_ems(border-width, $semi-bold, regular '/' large);
-    @include font_size(font-size, large, regular, gentona, !important);
+    @include font_size(font-size, large, regular, sans, !important);
     font-weight: 900; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 3.5) calc($standard_spacing * (2 / 3)), regular '/' large);
     width: 100%;
@@ -324,7 +324,7 @@
 
   @else if ($size == x-large) {
     @include responsive_ems(border-width, $semi-bold, regular '/' x-large);
-    @include font_size(font-size, x-large, regular, gentona, !important);
+    @include font_size(font-size, x-large, regular, sans, !important);
     font-weight: 900; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (5 / 6)), regular '/' x-large);
     width: 100%;
@@ -332,7 +332,7 @@
 
   @else if ($size == xx-large) {
     @include responsive_ems(border-width, $semi-bold, regular '/' xx-large);
-    @include font_size(font-size, xx-large, regular, gentona, !important);
+    @include font_size(font-size, xx-large, regular, sans, !important);
     font-weight: 900; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 3) $standard_spacing, regular '/' xx-large);
     width: 100%;
@@ -340,7 +340,7 @@
 
   @else if ($size == xxx-large) {
     @include responsive_ems(border-width, $semi-bold, regular '/' xxx-large);
-    @include font_size(font-size, xxx-large, regular, gentona, !important);
+    @include font_size(font-size, xxx-large, regular, sans, !important);
     font-weight: 900; // Changed 03-10
     @include responsive_ems(padding, calc($standard_spacing / 3) calc($standard_spacing * (4 / 3)), regular '/' xxx-large);
     width: 100%;
@@ -348,7 +348,7 @@
 
   @else {
     border-width: $light;
-    @include font_size(font-size, regular, regular, gentona, !important);
+    @include font_size(font-size, regular, regular, sans, !important);
     font-weight: 700; // Changed 03-10
     padding: calc($standard_spacing / 4) calc($standard_spacing / 2);
   }
