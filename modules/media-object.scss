@@ -89,7 +89,7 @@
 
   .teaser {
     @include teaser_aside(7 of 10, square, full, text, card, transparent);
-    @include teaser_medium(gentona);
+    @include teaser_medium(sans);
 
     &,
     &.has-image {

@@ -771,38 +771,38 @@
   }
 }
 
-@mixin teaser_xx-small($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_xx-small($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -813,7 +813,7 @@
       // font-size: $x-small * $headline-ratio;
       @include font_size(font-size, x-small, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -880,38 +880,38 @@
   }
 }
 
-@mixin teaser_x-small($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_x-small($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -922,7 +922,7 @@
       // font-size: $small * $headline-ratio;
       @include font_size(font-size, small, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -988,38 +988,38 @@
   }
 }
 
-@mixin teaser_small($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_small($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1029,7 +1029,7 @@
       font-family: $headline-family;
       @include font_size(font-size, regular, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -1094,38 +1094,38 @@
   }
 }
 
-@mixin teaser_medium($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_medium($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1135,7 +1135,7 @@
       font-family: $headline-family;
       @include font_size(font-size, large, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -1200,38 +1200,38 @@
   }
 }
 
-@mixin teaser_large($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_large($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1241,7 +1241,7 @@
       font-family: $headline-family;
       @include font_size(font-size, x-large, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -1302,38 +1302,38 @@
   }
 }
 
-@mixin teaser_x-large($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_x-large($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1343,7 +1343,7 @@
       font-family: $headline-family;
       @include font_size(font-size, xx-large, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -1409,38 +1409,38 @@
   }
 }
 
-@mixin teaser_xx-large($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_xx-large($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1450,7 +1450,7 @@
       font-family: $headline-family;
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
@@ -1515,38 +1515,38 @@
   }
 }
 
-@mixin teaser_xxx-large($headline-font-family: gentona, $kicker-font-family: gentona) {
+@mixin teaser_xxx-large($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
   $kicker-ratio: "";
 
-  @if ($headline-font-family == quadon) {
+  @if ($headline-font-family == slab) {
     $headline-family: $slab;
-    $headline-ratio: $quadon-ratio;
-  } @else if ($headline-font-family == arnhem) {
+    $headline-ratio: $slab-ratio;
+  } @else if ($headline-font-family == serif) {
     $headline-family: $serif;
-    $headline-ratio: $arnhem-ratio;
-  } @else if ($headline-font-family == titling) {
+    $headline-ratio: $serif-ratio;
+  } @else if ($headline-font-family == condensed) {
     $headline-family: $condensed;
-    $headline-ratio: $titling-ratio;
+    $headline-ratio: $condensed-ratio;
   } @else {
     $headline-family: $sans;
-    $headline-ratio: $gentona-ratio;
+    $headline-ratio: $sans-ratio;
   }
 
-  @if ($kicker-font-family == quadon) {
+  @if ($kicker-font-family == slab) {
     $kicker-family: $slab;
-    $kicker-ratio: $quadon-ratio;
-  } @else if ($kicker-font-family == arnhem) {
+    $kicker-ratio: $slab-ratio;
+  } @else if ($kicker-font-family == serif) {
     $kicker-family: $serif;
-    $kicker-ratio: $arnhem-ratio;
-  } @else if ($kicker-font-family == titling) {
+    $kicker-ratio: $serif-ratio;
+  } @else if ($kicker-font-family == condensed) {
     $kicker-family: $condensed;
-    $kicker-ratio: $titling-ratio;
+    $kicker-ratio: $condensed-ratio;
   } @else {
     $kicker-family: $sans;
-    $kicker-ratio: $gentona-ratio;
+    $kicker-ratio: $sans-ratio;
   }
 
   .text {
@@ -1556,7 +1556,7 @@
       font-family: $headline-family;
       @include font_size(font-size, display-2, regular, $headline-ratio);
 
-      @if ($headline-font-family == titling) {
+      @if ($headline-font-family == condensed) {
         font-weight: 800; // Changed 03-10
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
