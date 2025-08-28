@@ -13,21 +13,6 @@
 // Proxima Nova
 @import url("https://use.typekit.net/jge8wgr.css");
 
-// Old Adobe Fonts include, do not use after Adobe's split of personal and business accounts
-// @import url("https://use.typekit.net/btq2ouq.css");
-
-// Zilla Slab
-// @import url('https://fonts.googleapis.com/css2?family==Zilla+Slab:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
-
-// Inter
-// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap');
-
-// Antonio
-// @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap');
-
-// Newsreader
-// @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700;1,6..72,800&display=swap');
-
 //\\//\\//\\//\\//\\//\\//\\
 //\\ BREAKPOINTS /\\//\\//\\
 //\\//\\//\\//\\//\\//\\//\\
@@ -109,37 +94,10 @@ $creep:  ($stroll * 5);         // 5000ms
 //\\//\\//\\//\\//\\//\\//\\
 
 //Font Families
-// $gentona: gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
-// $quadon: quadon, 'Quadon', gentona, 'Gentona', calibri, helvetica, arial, sans-serif;
-// $titling: titling-gothic, 'Titling Gothic', impact, sans-serif;
-// $arnhem: arnhem, 'Arnhem', 'Times New Roman', times, serif;
-
-// $gentona: 'Inter', tahoma, sans-serif;
-// $gentona: 'commuters-sans', tahoma, sans-serif;
-// $gentona: 'franklin-gothic-atf', tahoma, sans-serif;
-$proxima-nova: 'proxima-nova', tahoma, sans-serif;
-// $quadon: 'Zilla Slab', tahoma, sans-serif;
-$factoria: 'factoria', tahoma, sans-serif;
-// $quadon: 'unit-slab', tahoma, sans-serif;
-$alternate-gothic: 'alternate-gothic-extra-cond', tahoma, sans-serif;
-// $titling: 'alternate-gothic-compressed', tahoma, sans-serif;
-// $titling: 'trade-gothic-next-compressed', tahoma, sans-serif;
-// $titling: 'ff-good-headline-web-pro-ext', tahoma, sans-serif;
-// $titling: 'ff-good-headline-web-pro-com', tahoma, sans-serif;
-// $titling: 'ff-good-headline-web-pro-con', tahoma, sans-serif;
-// $arnhem: 'Newsreader', georgia, serif;
-// $arnhem: 'freight-micro-pro', georgia, serif;
-$freight-text: 'freight-text-pro', georgia, serif;
-
-$gentona: $proxima-nova;
-$quadon: $factoria;
-$titling: $alternate-gothic;
-$arnhem: $freight-text;
-
-$sans: $proxima-nova;
-$slab: $factoria;
-$condensed: $alternate-gothic;
-$serif: $freight-text;
+$sans: 'proxima-nova', tahoma, sans-serif;
+$slab: 'factoria', tahoma, sans-serif;
+$condensed: 'alternate-gothic-extra-cond', tahoma, sans-serif;
+$serif: 'freight-text-pro', georgia, serif;
 
 // Font Sizes
 $default_font_size_px:              16px;
@@ -156,12 +114,12 @@ $breakpoint_desk_font_size:         calc($breakpoint_desk_font_size_px / $defaul
 $breakpoint_wall_font_size:         calc($breakpoint_wall_font_size_px / $default_font_size_px) * 1em;
 $breakpoint_jumbotron_font_size:    calc($breakpoint_jumbotron_font_size_px / $default_font_size_px) * 1em;
 
-$gentona-ratio: calc(610 / 610);
-$quadon-ratio: calc(610 / 700);
-$arnhem-ratio: calc(610 / 620);
-// $titling-ratio: 610 / 798;
-// $titling-ratio: 610 / 700;
-$titling-ratio: calc(610 / 610);
+$sans-ratio: calc(610 / 610);
+$slab-ratio: calc(610 / 700);
+$serif-ratio: calc(610 / 620);
+// $condensed-ratio: 610 / 798;
+// $condensed-ratio: 610 / 700;
+$condensed-ratio: calc(610 / 610);
 
 $up-ratio: calc(4 / 3);
 $down-ratio: 7 * 0.125;
