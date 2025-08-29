@@ -1,20 +1,42 @@
+@forward 'variables';
+@forward 'mixins';
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Factoria
+// @import url("https://use.typekit.net/vxy8tas.css");
+
+// ATF Alternate Gothic
+// @import url("https://use.typekit.net/nsj2nad.css");
+
+// Freight Text
+// @import url("https://use.typekit.net/lnm5qra.css");
+
+// Proxima Nova
+// @import url("https://use.typekit.net/jge8wgr.css");
+
+// Work Sans
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Source Serif 4
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+// Oswald
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 @import 'font-awesome/brands';
 @import 'font-awesome/fontawesome';
 @import 'font-awesome/regular';
 @import 'font-awesome/solid';
 @import 'font-awesome/v4-shims';
 
-@forward 'font-awesome/font-awesome';
-@forward 'variables';
-@forward 'mixins';
-@use 'variables' as *;
-@use 'mixins' as *;
-
-
-@each $family, $font in $font_list {
-  @each $weight, $style, $file in $font {
+@each $family, $fonts in $font_list {
+  @each $font in $fonts {
+    $weight: nth($font, 1);
+    $style: nth($font, 2);
+    $file: nth($font, 3);
 
     @include webfont($family, $file, $weight, $style);
-
   }
 }

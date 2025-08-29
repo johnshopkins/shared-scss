@@ -1,19 +1,6 @@
 @use 'colors' as *;
 @use 'grid' as *;
 
-// Factoria
-@import url("https://use.typekit.net/vxy8tas.css");
-
-// ATF Alternate Gothic
-@import url("https://use.typekit.net/nsj2nad.css");
-
-// Freight Text
-@import url("https://use.typekit.net/lnm5qra.css");
-
-// Proxima Nova
-@import url("https://use.typekit.net/jge8wgr.css");
-
-
 
 
 
@@ -100,10 +87,16 @@ $creep:  ($stroll * 5);         // 5000ms
 //\\//\\//\\//\\//\\//\\//\\
 
 //Font Families
-$sans: 'proxima-nova', tahoma, sans-serif;
-$slab: 'factoria', tahoma, sans-serif;
-$condensed: 'alternate-gothic-extra-cond', tahoma, sans-serif;
-$serif: 'freight-text-pro', georgia, serif;
+// $sans: 'proxima-nova', tahoma, sans-serif;
+// $slab: 'factoria', tahoma, sans-serif;
+// $condensed: 'alternate-gothic-extra-cond', tahoma, sans-serif;
+// $serif: 'freight-text-pro', georgia, serif;
+
+$sans: 'Work Sans', tahoma, sans-serif;
+$slab: 'hop-serif', tahoma, sans-serif;
+$condensed: 'Oswald', tahoma, sans-serif;
+$serif: 'Source Serif 4', georgia, serif;
+
 
 // Font Sizes
 $default_font_size_px:              16px;
