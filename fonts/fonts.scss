@@ -3,3 +3,18 @@
 @import 'font-awesome/regular';
 @import 'font-awesome/solid';
 @import 'font-awesome/v4-shims';
+
+@forward 'font-awesome/font-awesome';
+@forward 'variables';
+@forward 'mixins';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+@each $family, $font in $font_list {
+  @each $weight, $style, $file in $font {
+
+    @include webfont($family, $file, $weight, $style);
+
+  }
+}
