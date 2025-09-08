@@ -64,9 +64,11 @@
   --teaser-text-justify: auto;
 
   // Needs a unit for some reason
-  --teaser-vertical-padding: 0px;
-  --teaser-horizontal-padding: 0px;
-  --teaser-text-padding: 0px;
+  --teaser-padding: #{($standard_spacing * 0.5)};
+  --teaser-padding-active: 0;
+
+  --teaser-text-padding: 1rem;
+  --teaser-text-padding-active: 0;
 
   // Z-indexes for overlapping .thumbnail and .image
   --teaser-aside-image-z-index: #{$stack-normal};
@@ -98,7 +100,7 @@
   // column-gap: var(--teaser-column-gap);
   // row-gap: vart(--teaser-row-gap);
   gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc(var(--teaser-column-gap) * var(--teaser-column-gap-active));
-  padding: var(--teaser-vertical-padding) var(--teaser-horizontal-padding);
+  padding: calc(var(--teaser-padding) * var(--teaser-padding-active));
   position: relative;
   width: 100%;
   z-index: $stack_normal;
@@ -206,7 +208,7 @@
     flex-grow: var(--teaser-text-bias);
     height: auto;
     justify-content: var(--teaser-text-justify);
-    padding: var(--teaser-text-padding);
+    padding: calc(var(--teaser-text-padding) * var(--teaser-text-padding-active));
     position: relative;
     z-index: var(--teaser-text-z-index);
 
@@ -349,7 +351,7 @@
   &:where(.has-image, .video) {
 
     .text {
-      padding-left: calc(var(--teaser-text-padding) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
+      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
     }
   }
 

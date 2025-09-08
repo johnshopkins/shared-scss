@@ -1030,7 +1030,7 @@
     --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
 
     &:where(.has-image, .video) {
-      --teaser-stacked-text-width: calc(100% - (var(--teaser-stacked-text-overlap-value) * 2));
+      --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * 2));
     }
     &:where(:not(.has-image, .video)) {
       --teaser-stacked-text-width: 100%;
@@ -1042,7 +1042,7 @@
     --teaser-stacked-text-overlap-value: 1rem;
 
     .text {
-      --teaser-text-padding: 1rem;
+      --teaser-text-padding-active: 1;
       background-color: var(--teaser-background-color);
     }
   } @else {
@@ -1062,20 +1062,18 @@
 
     .text {
       // Needs a unit for some reason
-      --teaser-text-padding: 0px;
+      --teaser-text-padding-active: 0;
       background-color: transparent;
     }
   }
 
   @if ($style == 'padded') {
     // Needs a unit for some reason
-    --teaser-vertical-padding: #{($standard_spacing * 0.5)};
-    --teaser-horizontal-padding: #{($standard_spacing * calc(2 / 3))};
+    --teaser-padding-active: 1;
     background-color: var(--teaser-background-color);
   } @else {
     // Needs a unit for some reason
-    --teaser-vertical-padding: 0px;
-    --teaser-horizontal-padding: 0px;
+    --teaser-padding-active: 0;
     background-color: transparent;
   }
 }
