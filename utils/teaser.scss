@@ -994,15 +994,22 @@
   }
 }
 
-@mixin teaser_image_aspect_ratio($aspect-ratio: null) {
-  @if ($aspect-ratio == 'landscape') {
-    --teaser-image-aspect-ratio: 3 / 2;
-  } @else if ($aspect-ratio == 'square') {
-    --teaser-image-aspect-ratio: 1 / 1;
-  } @else if ($aspect-ratio == 'portrait') {
-    --teaser-image-aspect-ratio: 2 / 3;
-  } @else if ($aspect-ratio != null) {
-    --teaser-image-aspect-ratio: $aspect-ratio;
+@mixin teaser_image($image: null) {
+  @if ($image == 'none') {
+    --teaser-image-display: none;
+    --teaser-image-active: 0;
+  } @else {
+    --teaser-image-display: var(--teaser-image-display-default-value);
+    --teaser-image-active: 1;
+    @if ($image == 'landscape') {
+      --teaser-image-aspect-ratio: 3 / 2;
+    } @else if ($image == 'square') {
+      --teaser-image-aspect-ratio: 1 / 1;
+    } @else if ($image == 'portrait') {
+      --teaser-image-aspect-ratio: 2 / 3;
+    } @else if ($image != null) {
+      --teaser-image-aspect-ratio: $image;
+    }  
   }
 }
 
@@ -1030,7 +1037,7 @@
     --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
 
     &:where(.has-image, .video) {
-      --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * 2));
+      --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * 2));
     }
     &:where(:not(.has-image, .video)) {
       --teaser-stacked-text-width: 100%;
@@ -1116,7 +1123,7 @@
   @include teaser_ratio($ratio);
   @include teaser_gutter($gutter: $gutter, $context: nth($ratio, -1));
   @include teaser_bias($bias);
-  @include teaser_image_aspect_ratio($image);
+  @include teaser_image($image);
   @if ($style != null) { @include teaser_style($style); }
   @include teaser_box_shadow($shadow);
   @include teaser_color(
@@ -1221,6 +1228,14 @@
   $source-color: null,
   $source-color-hover: null
 ) {
+
+  $target: nth($ratio, 1);
+  $context: nth($ratio, -1);
+
+  @if ($target >= $context) {
+    $image: none;
+  }
+
   @include teaser(
     $orientation: $orientation,
     $ratio: $ratio,

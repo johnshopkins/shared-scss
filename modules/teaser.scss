@@ -2,6 +2,9 @@
 
 :root {
   @include teaser_color(default);
+  --teaser-display-default-value: flex;
+  --teaser-display: var(--teaser-display-default-value);
+
   // Determines stacked or aside layout
   --teaser-direction: row;
 
@@ -52,16 +55,22 @@
 
   // Sets the shape of .thumbnail (square, landscape, portrait, etc.)
   --teaser-image-aspect-ratio: auto;
+  --teaser-image-display-default-value: block;
+  --teaser-image-display: var(--teaser-image-display-default-value);
+  --teaser-image-active: 1;
 
+  --teaser-text-display-default-value: flex;
+  --teaser-text-display: var(--teaser-text-display-default-value);
+
+  --teaser-image-align: auto;
+  --teaser-text-align: auto;
+  --teaser-text-justify: auto;
   --teaser-aside-image-align: flex-start;
   --teaser-stacked-image-align: stretch;
   --teaser-aside-text-align: stretch;
   --teaser-stacked-text-align: center;
-  --teaser-image-align: auto;
-  --teaser-text-align: auto;
   --teaser-aside-text-justify: flex-start;
   --teaser-stacked-text-justify: flex-start;
-  --teaser-text-justify: auto;
 
   // Needs a unit for some reason
   --teaser-padding: #{($standard_spacing * 0.5)};
@@ -81,6 +90,8 @@
   // Set in the teaser_shadow() mixin, 
   // applied in the teaser_style() mixin
   --teaser-box-shadow: none;
+
+  --teaser-headline-box-shadow-offset: 0.75rem;
 }
 
 :where(.teaser) {
@@ -94,7 +105,7 @@
   );
   @include teaser_medium();
   align-content: flex-start;
-  display: flex;
+  display: var(--teaser-display);
   flex-direction: var(--teaser-direction);
   // flex-wrap: wrap;
   // column-gap: var(--teaser-column-gap);
@@ -112,14 +123,27 @@
   .thumbnail {
     align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
+    display: var(--teaser-image-display);
     flex-grow: var(--teaser-image-bias);
-    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
-    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)) * -1);
-    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active));
+    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)));
+    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)) * -1);
+    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active));
+    // min- values set to 0 to resolve change in orientation issues 
+    // caused by the combination of flex-direction and aspect-ratio.
+    // When switching from aside to stacked images would grow beyond the
+    // width of their containers because the images would be sized based on
+    // their intrinsic height values (flex items in a column have an intrinsic
+    // value of min-height: auto;)
+    min-height: 0;
+    min-width: 0;
     position: relative;
     z-index: var(--teaser-image-z-index);
 
     a {
+      // Need aspect ratio repeated here in case image is 404 to stop
+      // the anchor that contains it from displaying larger than the 
+      // expected image area
+      aspect-ratio: var(--teaser-image-aspect-ratio);
       border: none;
       box-shadow: none !important;
       cursor: pointer;
@@ -203,7 +227,7 @@
   .text {
     align-content: flex-start;
     align-self: var(--teaser-text-align);
-    display: flex;
+    display: var(--teaser-text-display);
     flex-direction: column;
     flex-grow: var(--teaser-text-bias);
     height: auto;
@@ -213,6 +237,7 @@
     z-index: var(--teaser-text-z-index);
 
     .accent-element {
+      align-items: flex-start;
       display: flex;
       flex-direction: column;
       left: 0;
@@ -225,6 +250,7 @@
     h2,
     h5 {
       color: var(--teaser-headline-color);
+      width: auto;
 
       a {
         background-color: transparent;
@@ -260,6 +286,7 @@
 
     .kicker {
       line-height: 1.2;
+      width: auto;
     }
 
     .publish-date,
@@ -351,7 +378,7 @@
   &:where(.has-image, .video) {
 
     .text {
-      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active)));
+      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)));
     }
   }
 
