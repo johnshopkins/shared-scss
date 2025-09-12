@@ -969,12 +969,18 @@
 }
 
 @mixin teaser_gutter($gutter: null, $context: null) {
-  --teaser-aside-bias-offset-value: var(--teaser-column-gap);
+  --teaser-aside-bias-offset-value: calc(var(--teaser-column-gap) * var(--teaser-column-gap-modifier));
+
+  @if ($context != null) {
+    --teaser-column-gap: #{get_gutter_width(of $context)};
+  }
   
   @if ($gutter == 'full') {
-    --teaser-column-gap: #{get_gutter_width(of $context)};
+    // --teaser-column-gap: #{get_gutter_width(of $context)};
+    --teaser-column-gap-modifier: 1;
   } @else if ($gutter == 'half') {
-    --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+    // --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+    --teaser-column-gap-modifier: 0.5;
     --teaser-aside-bias-offset-value: 0px;
   } @else if ($gutter != null) {
     --teaser-column-gap: #{$gutter};
@@ -988,6 +994,7 @@
     // first = target, last = context
     $target: nth($ratio, 1);
     $context: nth($ratio, -1);
+    --teaser-column-gap: #{get_gutter_width(of $context)};
 
     --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
     --teaser-aside-text-width: #{get_span_width($target of $context)};
@@ -1121,7 +1128,7 @@
 ) {
   @include teaser_orientation($orientation);
   @include teaser_ratio($ratio);
-  @include teaser_gutter($gutter: $gutter, $context: nth($ratio, -1));
+  @include teaser_gutter($gutter: $gutter);
   @include teaser_bias($bias);
   @include teaser_image($image);
   @if ($style != null) { @include teaser_style($style); }

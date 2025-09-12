@@ -11,6 +11,7 @@
   // Spacing between .thumbnail and .text.
   // --teaser-column-gap is set in teaser_gutter() mixin
   --teaser-column-gap: 1rem;
+  --teaser-column-gap-modifier: 1;
   --teaser-row-gap: 1rem;
 
   // Allows removal of gap display from teaser_gap() mixin
@@ -37,7 +38,7 @@
   --teaser-stacked-image-width: auto;
 
   // Sets the width of .text in the teaser_ratio() mixin
-  --teaser-aside-text-width: calc(70% - var(--teaser-column-gap) - var(--teaser-aside-bias-offset));
+  --teaser-aside-text-width: calc(70% - (var(--teaser-column-gap) * var(--teaser-column-gap-modifier)) - var(--teaser-aside-bias-offset));
   --teaser-stacked-text-width: 100%;
 
   // These are what are applied to the flex-basis or width properties of 
@@ -110,7 +111,7 @@
   // flex-wrap: wrap;
   // column-gap: var(--teaser-column-gap);
   // row-gap: vart(--teaser-row-gap);
-  gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc(var(--teaser-column-gap) * var(--teaser-column-gap-active));
+  gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc((var(--teaser-column-gap) * var(--teaser-column-gap-modifier)) * var(--teaser-column-gap-active));
   padding: calc(var(--teaser-padding) * var(--teaser-padding-active));
   position: relative;
   width: 100%;
