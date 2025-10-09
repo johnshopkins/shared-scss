@@ -1045,9 +1045,15 @@
 
     &:where(.has-image, .video) {
       --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * 2));
+      --teaser-main-shadow-active: 0;
+      --teaser-image-shadow-active: 1;
+      --teaser-text-shadow-active: 0;
     }
     &:where(:not(.has-image, .video)) {
       --teaser-stacked-text-width: 100%;
+      --teaser-main-shadow-active: 0;
+      --teaser-image-shadow-active: 0;
+      --teaser-text-shadow-active: 1;
     }
     --teaser-aside-text-align: stretch;
     --teaser-aside-text-justify: center;
@@ -1059,6 +1065,10 @@
       --teaser-text-padding-active: 1;
       background-color: var(--teaser-background-color);
     }
+  } @else if ($style == 'padded') {
+      --teaser-main-shadow-active: 1;
+      --teaser-image-shadow-active: 0;
+      --teaser-text-shadow-active: 0;
   } @else {
     --teaser-column-gap-active: 1;
     --teaser-row-gap-active: 1;
@@ -1073,6 +1083,9 @@
     --teaser-aside-text-z-index: #{$stack-normal};
     --teaser-stacked-image-z-index: #{$stack-normal};
     --teaser-stacked-text-z-index: #{$stack-normal};
+    --teaser-main-shadow-active: 0;
+    --teaser-image-shadow-active: 1;
+    --teaser-text-shadow-active: 0;
 
     .text {
       // Needs a unit for some reason
@@ -1092,13 +1105,31 @@
   }
 }
 
-@mixin teaser_box_shadow($shadow: null) {
+@mixin teaser_box_shadow($shadow: null, $size: null, $x-offset: null, $y-offset: null, $color: null) {
   @if ($shadow == on) {
-    --teaser-box-shadow: -0.5rem 0.5rem 0 var(--teaser-box-shadow-color);
+    --teaser-box-shadow-active: 1;
   } @else if ($shadow == off) {
-    --teaser-box-shadow: none;
-  } @else if ($shadow != null) {
-    --teaser-box-shadow: #{$shadow};
+    --teaser-box-shadow-active: 0;
+  }
+
+  @if ($size != null) {
+    --teaser-box-shadow-size: #{$size};
+  }
+
+  @if ($x-offset == 'left') {
+    --teaser-box-shadow-x-offset: -1;
+  } @else if ($x-offset == 'right') {
+    --teaser-box-shadow-x-offset: 1;
+  }
+
+  @if ($y-offset == 'top') {
+    --teaser-box-shadow-y-offset: -1;
+  } @else if ($x-offset == 'bottom') {
+    --teaser-box-shadow-y-offset: 1;
+  }
+
+  @if ($color != null) {
+    --teaser-shadow-color: #{$color};
   }
 }
 

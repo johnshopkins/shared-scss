@@ -90,6 +90,13 @@
 
   // Set in the teaser_shadow() mixin, 
   // applied in the teaser_style() mixin
+  --teaser-box-shadow-size: 0.5rem;
+  --teaser-box-shadow-x-offset: -1;
+  --teaser-box-shadow-y-offset: 1;
+  --teaser-main-shadow-active: 0;
+  --teaser-image-shadow-active: 0;
+  --teaser-text-shadow-active: 0;
+  --teaser-box-shadow-active: 0;
   --teaser-box-shadow: none;
 
   --teaser-headline-box-shadow-offset: 0.75rem;
@@ -106,6 +113,8 @@
   );
   @include teaser_medium();
   align-content: flex-start;
+  box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+
   display: var(--teaser-display);
   flex-direction: var(--teaser-direction);
   // flex-wrap: wrap;
@@ -124,6 +133,7 @@
   .thumbnail {
     align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
     display: var(--teaser-image-display);
     flex-grow: var(--teaser-image-bias);
     margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)));
@@ -228,6 +238,7 @@
   .text {
     align-content: flex-start;
     align-self: var(--teaser-text-align);
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
     display: var(--teaser-text-display);
     flex-direction: column;
     flex-grow: var(--teaser-text-bias);
