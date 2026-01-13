@@ -413,7 +413,7 @@
       @if ($style == 'card') {
         margin-left: 5%;
         margin-right: 5%;
-        margin-top: -(calc($standard_spacing / 3));
+        margin-top: calc(($standard_spacing / 3) * -1);
         width: 90%;
       }
     }
@@ -1058,13 +1058,9 @@
     --teaser-aside-text-align: stretch;
     --teaser-aside-text-justify: center;
     --teaser-stacked-text-justify: flex-start;
-    --teaser-aside-text-overlap-value: 1rem;
-    --teaser-stacked-text-overlap-value: 1rem;
+    // --teaser-aside-text-overlap-value: 1rem;
+    // --teaser-stacked-text-overlap-value: 1rem;
 
-    .text {
-      --teaser-text-padding-active: 1;
-      background-color: var(--teaser-background-color);
-    }
   } @else if ($style == 'padded') {
       --teaser-main-shadow-active: 1;
       --teaser-image-shadow-active: 0;
@@ -1075,10 +1071,10 @@
     --teaser-aside-image-align: flex-start;
     --teaser-stacked-text-width: 100%;
     --teaser-aside-text-align: stretch;
-    --teaser-aside-text-justify: flex-start;
+    --teaser-aside-text-justify: center;
     --teaser-stacked-text-justify: flex-start;
-    --teaser-aside-text-overlap-value: 0px;
-    --teaser-stacked-text-overlap-value: 0px;
+    // --teaser-aside-text-overlap-value: 0px;
+    // --teaser-stacked-text-overlap-value: 0px;
     --teaser-aside-image-z-index: #{$stack-normal};
     --teaser-aside-text-z-index: #{$stack-normal};
     --teaser-stacked-image-z-index: #{$stack-normal};
@@ -1086,20 +1082,26 @@
     --teaser-main-shadow-active: 0;
     --teaser-image-shadow-active: 1;
     --teaser-text-shadow-active: 0;
+  }
 
+  @if ($style == 'card') {
+    --teaser-style-text-overlap-active: 1;
+    --teaser-text-padding-active: 1;
     .text {
-      // Needs a unit for some reason
-      --teaser-text-padding-active: 0;
+      background-color: var(--teaser-background-color);
+    }
+  } @else {
+    --teaser-style-text-overlap-active: 0;
+    --teaser-text-padding-active: 0;
+    .text {
       background-color: transparent;
     }
   }
 
   @if ($style == 'padded') {
-    // Needs a unit for some reason
     --teaser-padding-active: 1;
     background-color: var(--teaser-background-color);
   } @else {
-    // Needs a unit for some reason
     --teaser-padding-active: 0;
     background-color: transparent;
   }
@@ -1363,6 +1365,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.125rem;
   .text {
 
     h2,
@@ -1388,10 +1391,10 @@
       @include font_size(font-size, xxx-small, regular, $kicker-ratio);
       letter-spacing: $thin * 0.5;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
+      // }
     }
 
     .meta {
@@ -1472,6 +1475,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.125rem;
   .text {
 
     h2,
@@ -1497,10 +1501,10 @@
       @include font_size(font-size, xx-small, regular, $kicker-ratio);
       letter-spacing: $thin * 0.5;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1580,6 +1584,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.1875rem;
   .text {
 
     h2,
@@ -1603,10 +1608,10 @@
       @include font_size(font-size, x-small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $regular) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $regular) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1686,6 +1691,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1709,10 +1715,10 @@
       @include font_size(font-size, small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1792,6 +1798,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1815,10 +1822,10 @@
       @include font_size(font-size, small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $x-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $x-large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1894,6 +1901,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1917,10 +1925,10 @@
       @include font_size(font-size, regular, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $xx-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $xx-large) * $headline-ratio}em;
+      // }
     }
 
     .meta {
@@ -2001,6 +2009,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -2024,10 +2033,10 @@
       @include font_size(font-size, large, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $xxx-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $xxx-large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -2107,6 +2116,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -2130,10 +2140,10 @@
       @include font_size(font-size, x-large, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $display-2) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $display-2) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,

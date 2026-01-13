@@ -14,6 +14,8 @@
   --teaser-column-gap-modifier: 1;
   --teaser-row-gap: 1rem;
 
+  --teaser-text-spacing: 0.25rem;
+
   // Allows removal of gap display from teaser_gap() mixin
   // without knowing the actual value of the gap.
   // These are set in teaser_bias() mixin.
@@ -49,10 +51,11 @@
   --teaser-text-width: auto;
 
   // Used in card style teasers to overlap .thumbnail and .text
-  --teaser-aside-text-overlap-value: 0px;
-  --teaser-stacked-text-overlap-value: 0px;
+  --teaser-aside-text-overlap-value: 1rem;
+  --teaser-stacked-text-overlap-value: 1rem;
   --teaser-aside-text-overlap-active: 0;
   --teaser-stacked-text-overlap-active: 0;
+  --teaser-style-text-overlap-active: 0;
 
   // Sets the shape of .thumbnail (square, landscape, portrait, etc.)
   --teaser-image-aspect-ratio: auto;
@@ -136,9 +139,9 @@
     box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
     display: var(--teaser-image-display);
     flex-grow: var(--teaser-image-bias);
-    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)));
-    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)) * -1);
-    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active));
+    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)));
+    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)) * -1);
+    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active));
     // min- values set to 0 to resolve change in orientation issues 
     // caused by the combination of flex-direction and aspect-ratio.
     // When switching from aside to stacked images would grow beyond the
@@ -249,14 +252,24 @@
     z-index: var(--teaser-text-z-index);
 
     .accent-element {
-      align-items: flex-start;
+      align-items: stretch;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--teaser-text-spacing) 0;
       left: 0;
       position: static;
       right: 0;
       top: 0;
       @include transform(none);
+    }
+
+    h2,
+    h5,
+    .kicker,
+    .summary,
+    .summary + p {
+      flex-basis: 100%;
     }
 
     h2,
@@ -299,6 +312,11 @@
     .kicker {
       line-height: 1.2;
       width: auto;
+
+      + h2,
+      + h5 {
+        margin-top: 0;
+      }
     }
 
     .publish-date,
@@ -390,7 +408,7 @@
   &:where(.has-image, .video) {
 
     .text {
-      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-image-active)));
+      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)));
     }
   }
 
