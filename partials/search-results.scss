@@ -448,9 +448,9 @@ ul.pagination {
 
   .gsc-search-box {
 
-    tr {
-      display: flex;
-    }
+    // tr {
+    //   display: flex;
+    // }
 
     td.gsc-input,
     td.gsc-search-button {
@@ -462,12 +462,12 @@ ul.pagination {
       .gsc-search-button {
         border: solid $sparta $semi-bold;
         font-size: 1rem !important;
-        padding: $semi-bold;
+        // padding: $semi-bold;
       }
 
-      .gsc-input-box {
-        border-right-width: 0;
-      }
+      // .gsc-input-box {
+      //   border-right-width: 0;
+      // }
 
       .gsc-search-button {
         background-color: $sparta;

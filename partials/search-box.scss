@@ -50,7 +50,10 @@ form.search-box,
     color: $black;
     background-color: $white;
     @include font_size(font-size, large);
-    @include responsive_ems(min-height, $standard_spacing, regular '/' large);
+
+    &:not(.gsc-input) {
+      @include responsive_ems(min-height, $standard_spacing, regular '/' large);
+    }
   }
 
   button {
@@ -74,30 +77,29 @@ form.search-box,
   }
 }
 
-#googleSearchBox {
+#googleSearchBox,
+#googleSearchResults {
 
   table {
     border: none;
     outline: none;
   }
-}
-
-#googleSearchBox {
 
   .gsc-search-box {
     font-size: $regular;
     margin: 0;
+    max-width: unset;
 
     td,
     .gsc-input {
       border: none;
       font-size: $regular;
-      padding: 0;
+      // padding: 0;
     }
 
     td.gsc-input {
       padding: $semi-bold;
-      padding-right: 0;
+      // padding-right: 0;
     }
 
     input {
@@ -108,7 +110,7 @@ form.search-box,
         font-size: $large;
         font-weight: 500; // Changed 03-10
         height: auto !important;
-        padding: (calc(calc($standard_spacing / 6) / $large) * 1em) (calc(($standard_spacing * 0.25) / $large) * 1em) !important;
+        // padding: (calc(calc($standard_spacing / 6) / $large) * 1em) (calc(($standard_spacing * 0.25) / $large) * 1em) !important;
 
         &::-webkit-input-placeholder { /* WebKit browsers */
           color: transparent;
@@ -158,14 +160,14 @@ form.search-box,
     font-size: $regular;
   }
 
-  .gsst_b {
-    font-size: $regular !important;
-    padding: 0 !important;
-  }
+  // .gsst_b {
+  //   font-size: $regular !important;
+  //   padding: 0 !important;
+  // }
 
   a.gsst_a {
-    font-size: $large !important;
-    padding: (calc(($standard_spacing * 0.125) / $large) * 1em) (calc(($standard_spacing * 0.125) / $large) * 1em) 0 !important;
+  //   font-size: $large !important;
+  //   padding: (calc(($standard_spacing * 0.125) / $large) * 1em) (calc(($standard_spacing * 0.125) / $large) * 1em) 0 !important;
 
     &:focus,
     &:hover {
@@ -176,15 +178,15 @@ form.search-box,
       }
     }
 
-    .gscb_a {
-      color: $sparta;
-    }
+  //   .gscb_a {
+  //     color: $sparta;
+  //   }
   }
 
-  .gsst_a {
-    border: none;
-    padding: 0;
-  }
+  // .gsst_a {
+  //   border: none;
+  //   padding: 0;
+  // }
 }
 
 .no-js,
