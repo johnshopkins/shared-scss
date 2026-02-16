@@ -678,7 +678,7 @@ ul.pagination {
 
       b {
         font-weight: 900; // Changed 03-10
-        @include transition(color $run ease-in-out);
+        @include transition(inherit);
       }
     }
 
@@ -740,10 +740,12 @@ ul.pagination {
     }
   }
 
+  .search-results,
   #googleSearchResults {
 
-    a.gs-title,
-    .gs-title a {
+    .teaser .text h2 a,
+    .teaser .text h5 a,
+    a.gs-title {
 
       &:focus,
       &:hover {
