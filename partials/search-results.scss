@@ -379,6 +379,14 @@
   }
 }
 
+#googleSearchResults {
+
+  .gsc-above-wrapper-area,
+  .gsc-wrapper {
+    max-width: unset;
+  }
+}
+
 .search-results .stats,
 #googleSearchResults .gsc-above-wrapper-area {
   border-bottom: solid $hairline $gray1;
