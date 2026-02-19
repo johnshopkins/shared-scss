@@ -198,15 +198,16 @@
 }
 
 .sidebar .filter,
-[data-filter-group='audience'],
-[data-filter-group='categories'],
-[data-filter-group='divisions'],
-[data-filter-group='format'],
-[data-filter-group='frequency'],
-[data-filter-group='locations'],
-[data-filter-group='opento'],
-[data-filter-group='programlevel'],
-[data-filter-group='showonly'] {
+//[data-filter-group='audience'],
+//[data-filter-group='categories'],
+//[data-filter-group='divisions'],
+//[data-filter-group='format'],
+//[data-filter-group='frequency'],
+//[data-filter-group='locations'],
+//[data-filter-group='opento'],
+//[data-filter-group='programlevel'],
+//[data-filter-group='showonly'],
+[data-filter-type='checkbox']{
 
   a,
   button,
@@ -678,14 +679,15 @@
     }
   }
 
-  [data-filter-group='categories'],
-  [data-filter-group='divisions'],
-  [data-filter-group='format'],
-  [data-filter-group='frequency'],
-  [data-filter-group='locations'],
-  [data-filter-group='opento'],
-  [data-filter-group='programlevel'],
-  [data-filter-group='showonly'] {
+  //[data-filter-group='categories'],
+  //[data-filter-group='divisions'],
+  //[data-filter-group='format'],
+  //[data-filter-group='frequency'],
+  //[data-filter-group='locations'],
+  //[data-filter-group='opento'],
+  //[data-filter-group='programlevel'],
+  //[data-filter-group='showonly'],
+  [data-filter-type='checkbox']{
 
     .toggle-expand,
     .info button {
