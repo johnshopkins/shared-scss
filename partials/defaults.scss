@@ -138,9 +138,9 @@ ul,
     + details,
     + dl,
     + figure,
-    + ol:not(li > ol),
+    + ol:where(:not(li > ol)),
     + p,
-    + ul:not(li > ul),
+    + ul:where(:not(li > ul)),
     + .jhu-block,
     + .gform_confirmation_wrapper,
     + .gsection,
@@ -424,6 +424,12 @@ em {
 
 [lang="icon"] {
   font-family: "Font Awesome 6 Free" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+ }
+
+ [lang="icon-brands"] {
+  font-family: "Font Awesome 6 Brands" !important;
   font-style: normal !important;
   font-weight: 700 !important;
  }
