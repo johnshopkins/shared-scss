@@ -2,7 +2,7 @@
 
 .browse-happy,
 .hub-alert,
-.rave-alert,
+//.rave-alert,
 .skip-to-main,
 .site-alert {
   box-sizing: border-box;
@@ -12,12 +12,12 @@
 
 .browse-happy,
 .hub-alert-container,
-.rave-alert-container,
+//.rave-alert-container,
 .site-alert-container {
 
   + .browse-happy,
   + .hub-alert-container,
-  + .rave-alert-container,
+  //+ .rave-alert-container,
   + .site-alert-container {
     margin-top: 0;
   }
@@ -25,7 +25,7 @@
 
 .browse-happy,
 .hub-alert,
-.rave-alert,
+//.rave-alert,
 .site-alert,
 .skip-to-main {
   min-height: 2em;
@@ -33,7 +33,7 @@
 }
 
 .hub-alert,
-.rave-alert,
+//.rave-alert,
 .site-alert {
 
   a {
@@ -140,7 +140,7 @@
 
   .browse-happy,
   .hub-alert,
-  .rave-alert,
+  //.rave-alert,
   .site-alert {
 
     a:focus {
@@ -153,7 +153,7 @@
   }
 
   .hub-alert,
-  .rave-alert,
+  //.rave-alert,
   .site-alert {
 
     a:focus,

@@ -9,10 +9,13 @@
   @include font_size(font-size, $font-size);
   height: auto;
   margin: 0;
-  @include responsive_ems(min-height, $standard_spacing, regular '/' $font-size);
   padding: 0;
   @include responsive_ems(padding-left, ($standard_spacing * 0.25), regular '/' $font-size);
   @include responsive_ems(padding-right, ($standard_spacing * 0.25), regular '/' $font-size);
+
+  &:not(.gsc-input) {
+    @include responsive_ems(min-height, $standard_spacing, regular '/' $font-size);
+  }
 
   @if $layout == stacked {
     // border-width: #{$semi-bold / $large}em; // math for font size
