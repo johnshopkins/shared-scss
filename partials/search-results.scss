@@ -57,7 +57,8 @@
 
 .search-results .teaser + .teaser,
 #googleSearchResults .gsc-result + .gsc-result,
-#googleSearchResults .gsc-webResult-divider + .gsc-result {
+#googleSearchResults .gsc-webResult-divider + .gsc-result,
+#googleSearchResults .gsc-webResult-divider + .gsc-expansionArea {
   border-top: solid $hairline $gray1;
   margin-top: calc($standard_spacing / 3);
   padding-top: calc($standard_spacing / 3);
@@ -684,6 +685,15 @@ ul.pagination {
 
     .gs-spelling {
       color: $black;
+
+      a {
+        color: inherit;
+
+        &:focus, 
+        &:hover {
+          color: $white;
+        }
+      }
     }
   }
 
