@@ -108,12 +108,12 @@ $breakpoint_desk_font_size:         calc($breakpoint_desk_font_size_px / $defaul
 $breakpoint_wall_font_size:         calc($breakpoint_wall_font_size_px / $default_font_size_px) * 1em;
 $breakpoint_jumbotron_font_size:    calc($breakpoint_jumbotron_font_size_px / $default_font_size_px) * 1em;
 
-$sans-ratio: calc(610 / 610);
-$slab-ratio: calc(610 / 700);
-$serif-ratio: calc(610 / 620);
+$sans-ratio: calc(660 / 660);
+$slab-ratio: calc(660 / 700);
+$serif-ratio: calc(670 / 657);
 // $condensed-ratio: 610 / 798;
 // $condensed-ratio: 610 / 700;
-$condensed-ratio: calc(610 / 610);
+$condensed-ratio: calc(700 / 810);
 
 $up-ratio: calc(4 / 3);
 $down-ratio: 7 * 0.125;
