@@ -1,8 +1,130 @@
 @use '../utils/main' as *;
 
-.teaser {
-  @include teaser_aside(7 of 10, landscape, full, text, padded);
+:root {
+  @include teaser_color(default);
+  --teaser-display-default-value: flex;
+  --teaser-display: var(--teaser-display-default-value);
+
+  // Determines stacked or aside layout
+  --teaser-direction: row;
+
+  // Spacing between .thumbnail and .text.
+  // --teaser-column-gap is set in teaser_gutter() mixin
+  --teaser-column-gap: 1rem;
+  --teaser-column-gap-modifier: 1;
+  --teaser-row-gap: 1rem;
+
+  --teaser-text-spacing: 0.25rem;
+
+  // Allows removal of gap display from teaser_gap() mixin
+  // without knowing the actual value of the gap.
+  // These are set in teaser_bias() mixin.
+  --teaser-column-gap-active: 1;
+  --teaser-row-gap-active: 1;
+
+  // Used to correctly size .thumbnail and .text based on which
+  // should occupy the additional column gutter space
+  // --teaser-aside-bias-offset-value is set in the teaser_gutter() mixin
+  --teaser-aside-bias-offset-value: 0px;
+  --teaser-aside-bias-offset-active: 0;
+  --teaser-aside-image-bias: 0;
+  --teaser-aside-text-bias: 1;
+  --teaser-stacked-image-bias: 0;
+  --teaser-stacked-text-bias: 1;
+  --teaser-image-bias: 0;
+  --teaser-text-bias: 1;
+  --teaser-aside-bias-offset: calc(var(--teaser-aside-bias-offset-value) * var(--teaser-aside-bias-offset-active));
+
+  // Sets the width of .thumbnail in the teaser_ratio() mixin
+  --teaser-aside-image-width: 30%;
+  --teaser-stacked-image-width: auto;
+
+  // Sets the width of .text in the teaser_ratio() mixin
+  --teaser-aside-text-width: calc(70% - (var(--teaser-column-gap) * var(--teaser-column-gap-modifier)) - var(--teaser-aside-bias-offset));
+  --teaser-stacked-text-width: 100%;
+
+  // These are what are applied to the flex-basis or width properties of 
+  // .thumbnail and .text and are set and applied using the 
+  // --teaser-aside/stacked-image/text-bias variables in the 
+  // teaser_orientation() mixin
+  --teaser-image-width: auto;
+  --teaser-text-width: auto;
+
+  // Used in card style teasers to overlap .thumbnail and .text
+  --teaser-aside-text-overlap-value: 1rem;
+  --teaser-stacked-text-overlap-value: 1rem;
+  --teaser-aside-text-overlap-active: 0;
+  --teaser-stacked-text-overlap-active: 0;
+  --teaser-style-text-overlap-active: 0;
+
+  // Sets the shape of .thumbnail (square, landscape, portrait, etc.)
+  --teaser-image-aspect-ratio: auto;
+  --teaser-image-display-default-value: block;
+  --teaser-image-display: var(--teaser-image-display-default-value);
+  --teaser-image-active: 1;
+
+  --teaser-text-display-default-value: flex;
+  --teaser-text-display: var(--teaser-text-display-default-value);
+
+  --teaser-image-align: auto;
+  --teaser-text-align: auto;
+  --teaser-text-justify: auto;
+  --teaser-aside-image-align: flex-start;
+  --teaser-stacked-image-align: stretch;
+  --teaser-aside-text-align: stretch;
+  --teaser-stacked-text-align: center;
+  --teaser-aside-text-justify: flex-start;
+  --teaser-stacked-text-justify: flex-start;
+
+  // Needs a unit for some reason
+  --teaser-padding: #{($standard_spacing * 0.5)};
+  --teaser-padding-active: 0;
+
+  --teaser-text-padding: 1rem;
+  --teaser-text-padding-active: 0;
+
+  // Z-indexes for overlapping .thumbnail and .image
+  --teaser-aside-image-z-index: #{$stack-normal};
+  --teaser-aside-text-z-index: #{$stack-normal};
+  --teaser-stacked-image-z-index: #{$stack-normal};
+  --teaser-stacked-text-z-index: #{$stack-normal};
+  --teaser-image-z-index: #{$stack-normal};
+  --teaser-text-z-index: #{$stack-normal};
+
+  // Set in the teaser_shadow() mixin, 
+  // applied in the teaser_style() mixin
+  --teaser-box-shadow-size: 0.5rem;
+  --teaser-box-shadow-x-offset: -1;
+  --teaser-box-shadow-y-offset: 1;
+  --teaser-main-shadow-active: 0;
+  --teaser-image-shadow-active: 0;
+  --teaser-text-shadow-active: 0;
+  --teaser-box-shadow-active: 0;
+  --teaser-box-shadow: none;
+
+  --teaser-headline-box-shadow-offset: 0.75rem;
+}
+
+:where(.teaser) {
+  @include teaser(
+    $orientation: aside,
+    $ratio: 7 of 10,
+    $gutter: full,
+    $bias: text,
+    $image: landscape,
+    $style: padded
+  );
   @include teaser_medium();
+  align-content: flex-start;
+  box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+
+  display: var(--teaser-display);
+  flex-direction: var(--teaser-direction);
+  // flex-wrap: wrap;
+  // column-gap: var(--teaser-column-gap);
+  // row-gap: vart(--teaser-row-gap);
+  gap: calc(var(--teaser-row-gap) * var(--teaser-row-gap-active)) calc((var(--teaser-column-gap) * var(--teaser-column-gap-modifier)) * var(--teaser-column-gap-active));
+  padding: calc(var(--teaser-padding) * var(--teaser-padding-active));
   position: relative;
   width: 100%;
   z-index: $stack_normal;
@@ -12,9 +134,32 @@
   }
 
   .thumbnail {
+    align-self: var(--teaser-image-align);
+    aspect-ratio: var(--teaser-image-aspect-ratio);
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+    display: var(--teaser-image-display);
+    flex-grow: var(--teaser-image-bias);
+    margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)));
+    margin-right: calc((var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)) * -1);
+    margin-top: calc(var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active));
+    // min- values set to 0 to resolve change in orientation issues 
+    // caused by the combination of flex-direction and aspect-ratio.
+    // When switching from aside to stacked images would grow beyond the
+    // width of their containers because the images would be sized based on
+    // their intrinsic height values (flex items in a column have an intrinsic
+    // value of min-height: auto;)
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+    z-index: var(--teaser-image-z-index);
 
     a {
+      // Need aspect ratio repeated here in case image is 404 to stop
+      // the anchor that contains it from displaying larger than the 
+      // expected image area
+      aspect-ratio: var(--teaser-image-aspect-ratio);
       border: none;
+      box-shadow: none !important;
       cursor: pointer;
       position: relative;
       z-index: $stack_normal;
@@ -31,7 +176,7 @@
           top: 0;
           left: 0;
           z-index: $stack_positioned;
-          background-color: $brody_wall;
+          background-color: var(--teaser-image-hover-color);
           content: ' ';
           display: block;
           @include transform(translateZ(0) scale(1.1, 1.1));
@@ -41,25 +186,48 @@
         }
       }
 
+      &:not(:has(.image)) {
+        background-color: var(--teaser-image-hover-color) !important;
+        overflow: hidden;
+
+        img {
+          height: 100% !important;
+          object-fit: cover !important;
+          max-width: 100% !important;
+          transition: opacity $sprint ease-in-out, transform $sprint ease-in-out !important;
+        }
+
+        &:focus,
+        &:hover {
+
+          img {
+            opacity: calc(2 / 3) !important;
+          }
+        }
+      }
+
       &,
       img {
         display: block;
       }
 
       img {
-        width: 100%;
-        max-width: none;
+        aspect-ratio: var(--teaser-image-aspect-ratio);
+        @include backface-visibility(hidden);
+        height: auto;
+        object-fit: cover;
         margin: 0;
-        @include transform(translate3d(0, 0, 0) scale(1, 1));
+        max-width: none;
+        @include transform(scale(1, 1));
         @include transition(transform);
         @include transition-duration($sprint);
         @include transition-timing-function(ease-in-out);
-        @include backface-visibility(hidden);
+        width: 100%;
       }
 
       > .column {
-        width: 100%;
         margin-right: 0;
+        width: 100%;
       }
     }
   }
@@ -71,11 +239,48 @@
   }
 
   .text {
+    align-content: flex-start;
+    align-self: var(--teaser-text-align);
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+    display: var(--teaser-text-display);
+    flex-direction: column;
+    flex-grow: var(--teaser-text-bias);
+    height: auto;
+    justify-content: var(--teaser-text-justify);
+    padding: calc(var(--teaser-text-padding) * var(--teaser-text-padding-active));
+    position: relative;
+    z-index: var(--teaser-text-z-index);
 
+    .accent-element {
+      align-items: stretch;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--teaser-text-spacing) 0;
+      left: 0;
+      position: static;
+      right: 0;
+      top: 0;
+      @include transform(none);
+    }
+
+    h2,
+    h5,
+    .kicker,
+    .summary,
+    .summary + p {
+      flex-basis: 100%;
+    }
+
+    h2,
     h5 {
+      color: var(--teaser-headline-color);
+      width: auto;
 
       a {
+        background-color: transparent;
         border: none;
+        @include box-shadow(none);
         text-decoration: none;
       }
 
@@ -106,13 +311,19 @@
 
     .kicker {
       line-height: 1.2;
+      width: auto;
+
+      + h2,
+      + h5 {
+        margin-top: 0;
+      }
     }
 
     .publish-date,
     .media-promo,
     .meta,
     .summary + p {
-      color: $gray4;
+      color: var(--teaser-meta-color);
     }
 
     .publish-date,
@@ -124,7 +335,7 @@
 
         .fa {
           padding-left: #{calc(($standard_spacing * 0.125) / $small)}em;
-          border-left: solid $gray2 #{calc($thin / $small)}em;
+          border-left: solid rgb(from var(--teaser-meta-color) r g b / 50%) #{calc($thin / $small)}em;
           margin-left: #{calc(calc($standard_spacing / 36) / $small)}em;
         }
       }
@@ -161,7 +372,7 @@
     }
 
     .summary {
-      color: $gray5;
+      color: var(--teaser-summary-color);
       font-family: $sans;
       font-weight: 500; // Changed 03-10
       line-height: 1.3;
@@ -194,11 +405,30 @@
     }
   }
 
+  &:where(.has-image, .video) {
+
+    .text {
+      padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)));
+    }
+  }
+
+  &:where(:not(.has-image, .video)) {
+
+    .text {
+      // Covers situations where teaser_bias() is set to image
+      flex-grow: 1 !important;
+    }
+  }
+
   &.event {
 
     .event-meta {
       display: none;
     }
+  }
+
+  &.force:after {
+    display: none !important;
   }
 }
 
@@ -278,7 +508,7 @@
 .no-js,
 .no-touchevents {
 
-  .teaser {
+  :where(.teaser) {
 
     .thumbnail {
 
@@ -295,7 +525,7 @@
           }
 
           img {
-            @include transform(translate3d(0, 0, 0) scale(1.05, 1.05));
+            @include transform(scale(1.05, 1.05));
           }
         }
       }
@@ -311,7 +541,7 @@
           &:hover {
             background-color: transparent;
             @include box_shadow(none);
-            color: $brody_wall;
+            color: var(--teaser-headline-color-hover);
           }
         }
       }
@@ -322,10 +552,18 @@
 
           &:focus,
           &:hover {
-            color: $white;
+            color: var(--teaser-source-color-hover);
           }
         }
       }
     }
   }
+}
+
+.teaser-aside {
+  @include teaser_orientation(aside);
+}
+
+.teaser-stacked {
+  @include teaser_orientation(stacked);
 }

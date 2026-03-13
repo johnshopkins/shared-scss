@@ -682,7 +682,7 @@ figure {
 }
 
 .kicker {
-  color: $sparta;
+  color: var(--teaser-kicker-color);
   font-family: $sans;
   font-weight: 500;
   letter-spacing: $thin;

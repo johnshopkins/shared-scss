@@ -4,56 +4,182 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-@mixin teaser_stacked($style: null, $context: null, $color: null) {
-  background-color: transparent;
-  display: table;
-  padding: 0;
+@mixin teaser_color(
+  $color-scheme: default,
+  $shadow-color: null,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @if ($color-scheme == default) { 
+    --teaser-background-color: #{$white};
+    --teaser-shadow-color: #{jhu-blue-30};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-50};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-90};
+    --teaser-headline-color-hover: #{$jhu-blue-40};
+    --teaser-summary-color: #{$jhu-grayscale-70};
+    --teaser-meta-color: #{$jhu-grayscale-50};
+    --teaser-source-background-color: #{$jhu-blue-10};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @else if ($color-scheme == light-gray) {
+    --teaser-background-color: #{$background_gray};
+    --teaser-shadow-color: #{jhu-blue-30};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-100};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-grayscale-80};
+    --teaser-meta-color: #{$jhu-grayscale-60};
+    --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @else if ($color-scheme == light-blue) {
+    --teaser-background-color: #{$jhu-blue-10};
+    --teaser-shadow-color: #{jhu-blue-30};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-blue-100};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-blue-80};
+    --teaser-meta-color: #{$jhu-blue-60};
+    --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
+  @if ($shadow-color != null) { --teaser-shadow-color: #{$shadow-color}; }
+  @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
+  @if ($kicker-background-color != null) { --teaser-kicker-background-color: #{$kicker-background-color}; }
+  @if ($kicker-color != null) { --teaser-kicker-color: #{$kicker-color}; }
+  @if ($headline-background-color != null) { --teaser-headline-background-color: #{$headline-background-color}; }
+  @if ($headline-color != null) { --teaser-headline-color: #{$headline-color}; }
+  @if ($headline-color-hover != null) { --teaser-headline-color-hover: #{$headline-color-hover}; }
+  @if ($summary-color != null) { --teaser-summary-color: #{$summary-color}; }
+  @if ($meta-color != null) { --teaser-meta-color: #{$meta-color}; }
+  @if ($source-background-color != null) { --teaser-source-background-color: #{$source-background-color}; }
+  @if ($source-background-color-hover != null) { --teaser-source-background-color-hover: #{$source-background-color-hover}; }
+  @if ($source-color != null) { --teaser-source-color: #{$source-color}; }
+  @if ($source-color-hover != null) { --teaser-source-color-hover: #{$source-color-hover}; }
+}
+
+@mixin teaser_stacked_old(
+  $context: null,
+  $image: landscape,
+  $style: null,
+  $color-scheme: null,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  // @include teaser_color(
+  //   $color-scheme: $color-scheme,
+  //   $background-color: $background-color,
+  //   $image-hover-color: $image-hover-color,
+  //   $kicker-background-color: $kicker-background-color,
+  //   $kicker-color: $kicker-color,
+  //   $headline-background-color: $headline-background-color,
+  //   $headline-color: $headline-color,
+  //   $headline-color-hover: $headline-color-hover,
+  //   $summary-color: $summary-color,
+  //   $meta-color: $meta-color,
+  //   $source-background-color: $source-background-color,
+  //   $source-background-color-hover: $source-background-color-hover,
+  //   $source-color: $source-color,
+  //   $source-color-hover: $source-color-hover
+  // );
+  // @if ($image == 'landscape') {
+  //   --teaser-image-aspect-ratio: 3 / 2;
+  // }
+  // @else if ($image == 'square') {
+  //   --teaser-image-aspect-ratio: 1 / 1;
+  // }
+  // @else if ($image == 'portrait') {
+  //   --teaser-image-aspect-ratio: 2 / 3;
+  // }
+  // @else {
+  //   --teaser-image-aspect-ratio: $image;
+  // }
+  // --teaser-text-align: flex-start;
+  // background-color: transparent; // leave transparent for now
+  // display: table;
+  // padding: 0;
 
   .text {
-    display: table-cell;
+    // display: table-cell;
     min-height: 0;
     vertical-align: middle;
 
-    h2,
-    h5 {
+    // h2,
+    // h5 {
 
-      a {
-        background-color: transparent;
-        @include box-shadow(none);
-        // line-height: 1.2;
-      }
-    }
+    //   a {
+    //     background-color: transparent;
+    //     @include box-shadow(none);
+    //     // line-height: 1.2;
+    //   }
+    // }
   }
 
   @if ($style == 'card') {
     // min-height: $standard_spacing * 4;
 
-    .accent-element {
-    }
+    // .accent-element {
+    // }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
-      display: block;
-      height: 0;
+      // background-color: var(--teaser-background-color);
+      // display: block;
+      // height: 0;
       min-height: 0;
-      padding: 1em;
+      // padding: 1em;
       padding-bottom: 100% * calc(2 / 3);
-      position: relative;
-      vertical-align: top;
+      // position: relative;
+      // vertical-align: top;
       width: 100%;
       z-index: $stack_normal;
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table;
-          height: auto;
+          // display: flex;
+          // flex-direction: column;
+          // height: auto;
+          // justify-content: center;
           min-height: calc(get_span_width($context of 12) / 1%) * 1vw;
           padding-bottom: 1em;
-          vertical-align: middle;
+          // vertical-align: middle;
 
           @media all and (min-width: $maxwidth * 1px) {
             min-height: ($maxwidth * (calc(get_span_width($context of 12) / 1%)  *  0.01)) * 1px;
@@ -63,7 +189,7 @@
     }
 
     .accent-element {
-      display: block;
+      // display: block;
       left: calc($standard_spacing / 3);
       position: absolute;
       right: calc($standard_spacing / 3);
@@ -73,13 +199,13 @@
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table-cell;
+          // display: block;
           left: 0;
           position: relative;
           right: 0;
           top: 0;
           @include transform(none);
-          vertical-align: middle;
+          // vertical-align: middle;
         }
       }
     }
@@ -105,49 +231,34 @@
     }
   }
 
-  @if ($style == 'padded') {
-    padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
+  // @if ($style == 'padded') {
+  //   background-color: var(--teaser-background-color);
+  //   padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
 
-    @if ($color != null) {
-      background-color: $color;
-    }
+  //   .teaser {
+  //     padding: 0;
+  //     background-color: transparent;
+  //   }
+  // }
 
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
-
-    .teaser {
-      padding: 0;
-      background-color: transparent;
-    }
-  }
-
-  @else {
-    background-color: transparent;
-    padding: 0;
-  }
+  // @else {
+  //   background-color: transparent;
+  //   padding: 0;
+  // }
 
   &.has-image,
   &.video {
-    display: block;
+    // display: block;
     min-height: 0;
 
     .thumbnail {
-      display: block;
+      // display: block;
       height: auto;
       padding-bottom: 0;
       width: 100%;
 
       a {
         position: relative;
-
-        &:focus,
-        &:hover {
-
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
-          }
-        }
       }
 
       img {
@@ -156,7 +267,6 @@
         min-height: 0;
         min-width: 0;
         position: static;
-        @include transform(translateX(0) scale(1, 1));
         width: 100%;
       }
 
@@ -182,7 +292,7 @@
     }
 
     .text {
-      display: block;
+      // display: block;
       height: auto;
       vertical-align: top;
 
@@ -244,9 +354,14 @@
         .kicker,
         .publish-date,
         .media-promo {
-          background-color: rgba($black, 0.8);
-          @include box-shadow(-4px 0 0 rgba($black, 0.8), 4px 0 0 rgba($black, 0.8));
-          color: $white;
+          --teaser-kicker-background-color: #{$black};
+          --teaser-kicker-color: #{$white};
+
+          // rgb(from var(--color)) documentation
+          //https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb
+          background-color: rgb(from var(--teaser-kicker-background-color) / 0.8);
+          @include box-shadow(-4px 0 0 rgb(from var(--teaser-kicker-background-color) / 0.8), 4px 0 0 rgba(from var(--teaser-kicker-background-color) / 0.8));
+          color: var(--teaser-kicker-color);
           display: inline-block;
           padding-bottom: $semi-bold;
           padding-top: $semi-bold;
@@ -260,8 +375,9 @@
           }
 
           a {
-            background-color: $white;
-            @include box-shadow(-4px 0 0 $white, 4px 0 0 $white);
+            --teaser-headline-background-color: $white;
+            background-color: var(--teaser-headline-background-color);
+            @include box-shadow(-4px 0 0 var(--teaser-headline-background-color), 4px 0 0 var(--teaser-headline-background-color));
             display: inline;
             line-height: 1.35;
             padding-bottom: $thin;
@@ -297,7 +413,7 @@
       @if ($style == 'card') {
         margin-left: 5%;
         margin-right: 5%;
-        margin-top: -(calc($standard_spacing / 3));
+        margin-top: calc(($standard_spacing / 3) * -1);
         width: 90%;
       }
     }
@@ -329,13 +445,88 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
-  // Accepts $ratio as 2 of 10
-  // first = target, last = context
-  $target: nth($ratio, 1);
-  $context: nth($ratio, -1);
-  display: table;
-  min-height: 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin teaser_aside_old(
+  $ratio: 7 of 10,
+  $image: landscape,
+  $gutter: full,
+  $bias: text,
+  $style: null,
+  $color-scheme: null,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  // @include teaser_color(
+  //   $color-scheme: $color-scheme,
+  //   $background-color: $background-color,
+  //   $image-hover-color: $image-hover-color,
+  //   $kicker-background-color: $kicker-background-color,
+  //   $kicker-color: $kicker-color,
+  //   $headline-background-color: $headline-background-color,
+  //   $headline-color: $headline-color,
+  //   $headline-color-hover: $headline-color-hover,
+  //   $summary-color: $summary-color,
+  //   $meta-color: $meta-color,
+  //   $source-background-color: $source-background-color,
+  //   $source-background-color-hover: $source-background-color-hover,
+  //   $source-color: $source-color,
+  //   $source-color-hover: $source-color-hover
+  // );
+  // // Accepts $ratio as 2 of 10
+  // // first = target, last = context
+  // $target: nth($ratio, 1);
+  // $context: nth($ratio, -1);
+
+  // @if ($image == 'landscape') {
+  //   --teaser-image-aspect-ratio: 3 / 2;
+  // } @else if ($image == 'square') {
+  //   --teaser-image-aspect-ratio: 1 / 1;
+  // } @else if ($image == 'portrait') {
+  //   --teaser-image-aspect-ratio: 2 / 3;
+  // } @else {
+  //   --teaser-image-aspect-ratio: $image;
+  // }
+
+  // @if ($gutter == 'full') {
+  //   --teaser-column-gap: #{get_gutter_width(of $context)};
+  // } @else if ($gutter == 'half') {
+  //   --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+  // } @else {
+  //   --teaser-column-gap: #{$gutter};
+  // }
+  // display: table;
+  // min-height: 0;
 
   .text {
     // border-top: none;
@@ -345,28 +536,28 @@
     z-index: initial;
     width: auto;
 
-    h2,
-    h5 {
+    // h2,
+    // h5 {
 
-      a {
-        background-color: transparent;
-        @include box-shadow(none);
-        // line-height: 1.2;
-      }
-    }
+    //   a {
+    //     background-color: transparent;
+    //     @include box-shadow(none);
+    //     // line-height: 1.2;
+    //   }
+    // }
   }
 
-  .accent-element {
-    left: 0;
-    position: static;
-    right: 0;
-    top: 0;
-    @include transform(none);
-  }
+  // .accent-element {
+  //   left: 0;
+  //   position: static;
+  //   right: 0;
+  //   top: 0;
+  //   @include transform(none);
+  // }
 
   &.has-image,
   &.video {
-    display: table;
+    // display: table;
 
     @if ($target >= $context) {
 
@@ -375,67 +566,10 @@
       }
     }
 
-    @else {
-
-      .thumbnail {
-
-        &:focus,
-        &:hover {
-
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
-          }
-        }
-
-        @if ($image == 'square') {
-          height: 0;
-          padding-bottom: 100%;
-
-          img {
-            height: auto;
-            margin-left: -25%;
-            width: 150%;
-          }
-
-          // .image-square {
-          //
-          //   img {
-          //     margin-left: 0;
-          //     width: 100%;
-          //   }
-          // }
-        }
-
-        @else {
-          height: auto;
-          padding-bottom: 0;
-
-          img {
-            height: auto;
-            margin-left: 0;
-            width: 100%;
-          }
-
-          // .image-square {
-          //   padding-bottom: 0;
-          //
-          //   img {
-          //     height: 100%;
-          //     left: 0;
-          //     position: static;
-          //     top: 0;
-          //     width: 100%;
-          //     z-index: $stack_normal;
-          //   }
-          // }
-        }
-      }
-    }
-
     .text {
       // background-color: transparent;
       bottom: 0;
-      display: table-cell;
+      // display: table-cell;
       margin-left: 0;
       margin-right: 0;
       margin-top: 0;
@@ -527,6 +661,11 @@
   }
 
   @if ($style == 'card') {
+    --teaser-text-align: center;
+
+    .thumbnail {
+      aspect-ratio: var(--teaser-image-aspect-ratio);
+    }
 
     &.has-image,
     &.video {
@@ -541,7 +680,7 @@
       @else {
 
         .thumbnail {
-          display: table-cell;
+          display: block;
           height: 0;
           padding: 0;
           position: relative;
@@ -595,24 +734,13 @@
             z-index: $stack_normal;
           }
 
-          a {
-
-            &:focus,
-            &:hover {
-
-              img {
-                @include transform(translateX(-50%) scale(1.05, 1.05));
-              }
-            }
-          }
-
           img {
-            left: 50%;
+            // left: 50%;
             margin-left: 0;
             min-height: 100%;
             min-width: 100%;
-            @include transform(translateX(-50%) scale(1, 1));
-            width: auto;
+            object-fit: cover;
+            width: 100%;
           }
 
           .image {
@@ -672,14 +800,10 @@
     }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
-      display: table-cell;
+      background-color: var(--teaser-background-color);
+      // display: table-cell;
       padding: 1em;
-      vertical-align: middle;
+      // vertical-align: middle;
 
       .titles {
         padding-right: #{calc(1em / $small)}em;
@@ -688,10 +812,15 @@
   }
 
   @else {
+    --teaser-text-align: flex-start;
     // background-color: lighten($gray1, 5%);
     // clear: both;
     // float: none;
     // padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+
+    .thumbnail {
+      aspect-ratio: unset;
+    }
 
     &.has-image,
     &.video {
@@ -734,7 +863,6 @@
             min-height: 0;
             min-width: 0;
             position: static;
-            @include transform(translateX(0) scale(1, 1));
             // width: 100%;
           }
         }
@@ -743,21 +871,14 @@
 
     .text {
       background-color: transparent;
-      display: block;
+      // display: block;
       padding: 0;
     }
   }
 
   @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
     padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
-
-    @if ($color != null) {
-      background-color: $color;
-    }
-
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
 
     .teaser {
       padding: 0;
@@ -770,6 +891,445 @@
     padding: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin teaser_orientation($orientation: null) {
+
+  @if ($orientation == 'aside') {
+    --teaser-direction: row;
+    --teaser-image-align: var(--teaser-aside-image-align);
+    --teaser-image-width: var(--teaser-aside-image-width);
+    --teaser-text-width: var(--teaser-aside-text-width);
+    --teaser-aside-text-overlap-active: 1;
+    --teaser-stacked-text-overlap-active: 0;
+    --teaser-text-align: var(--teaser-aside-text-align);
+    --teaser-text-justify: var(--teaser-aside-text-justify);
+    --teaser-image-z-index: var(--teaser-aside-image-z-index);
+    --teaser-text-z-index: var(--teaser-aside-text-z-index);
+    --teaser-image-bias: var(--teaser-aside-image-bias);
+    --teaser-text-bias: var(--teaser-aside-text-bias);
+
+    .thumbnail {
+      flex-basis: var(--teaser-image-width);
+      width: auto;
+    }
+
+    .text {
+      flex-basis: var(--teaser-text-width);
+      width: auto;
+    }
+  } @else if ($orientation == 'stacked') {
+    --teaser-direction: column;
+    --teaser-image-align: var(--teaser-stacked-image-align);
+    --teaser-image-width: var(--teaser-stacked-image-width);
+    --teaser-text-width: var(--teaser-stacked-text-width);
+    --teaser-aside-text-overlap-active: 0;
+    --teaser-stacked-text-overlap-active: 1;
+    --teaser-text-align: var(--teaser-stacked-text-align);
+    --teaser-text-justify: var(--teaser-stacked-text-justify);
+    --teaser-image-z-index: var(--teaser-stacked-image-z-index);
+    --teaser-text-z-index: var(--teaser-stacked-text-z-index);
+    --teaser-image-bias: var(--teaser-stacked-image-bias);
+    --teaser-text-bias: var(--teaser-stacked-text-bias);
+
+    .thumbnail {
+      flex-basis: auto;
+      width: var(--teaser-image-width);
+    }
+
+    .text {
+      flex-basis: auto;
+      width: var(--teaser-text-width);
+    }
+  }
+}
+
+@mixin teaser_gutter($gutter: null, $context: null) {
+  --teaser-aside-bias-offset-value: calc(var(--teaser-column-gap) * var(--teaser-column-gap-modifier));
+
+  @if ($context != null) {
+    --teaser-column-gap: #{get_gutter_width(of $context)};
+  }
+  
+  @if ($gutter == 'full') {
+    // --teaser-column-gap: #{get_gutter_width(of $context)};
+    --teaser-column-gap-modifier: 1;
+  } @else if ($gutter == 'half') {
+    // --teaser-column-gap: #{calc(get_gutter_width(of $context) / 2)};
+    --teaser-column-gap-modifier: 0.5;
+    --teaser-aside-bias-offset-value: 0px;
+  } @else if ($gutter != null) {
+    --teaser-column-gap: #{$gutter};
+  }
+}
+
+@mixin teaser_ratio($ratio: null) {
+
+  @if ($ratio != null) {
+    // Accepts $ratio as 2 of 10
+    // first = target, last = context
+    $target: nth($ratio, 1);
+    $context: nth($ratio, -1);
+    --teaser-column-gap: #{get_gutter_width(of $context)};
+
+    --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
+    --teaser-aside-text-width: #{get_span_width($target of $context)};
+  }
+}
+
+@mixin teaser_image($image: null) {
+  @if ($image == 'none') {
+    --teaser-image-display: none;
+    --teaser-image-active: 0;
+  } @else {
+    --teaser-image-display: var(--teaser-image-display-default-value);
+    --teaser-image-active: 1;
+    @if ($image == 'landscape') {
+      --teaser-image-aspect-ratio: 3 / 2;
+    } @else if ($image == 'square') {
+      --teaser-image-aspect-ratio: 1 / 1;
+    } @else if ($image == 'portrait') {
+      --teaser-image-aspect-ratio: 2 / 3;
+    } @else if ($image != null) {
+      --teaser-image-aspect-ratio: $image;
+    }  
+  }
+}
+
+@mixin teaser_bias($bias) {
+  @if ($bias == 'image') {
+    --teaser-aside-bias-offset-active: 1;
+    --teaser-aside-image-bias: 1; 
+    --teaser-aside-text-bias: 0;
+  } @else if ($bias == 'text') {
+    --teaser-aside-bias-offset-active: 0;
+    --teaser-aside-image-bias: 0; 
+    --teaser-aside-text-bias: 1;
+  }
+}
+
+@mixin teaser_style($style) {
+
+  @if ($style == 'card') {
+    --teaser-column-gap-active: 0;
+    --teaser-row-gap-active: 0;
+    --teaser-aside-image-align: center;
+    --teaser-aside-image-z-index: calc(#{$stack-normal} + 1);
+    --teaser-aside-text-z-index: #{$stack-normal};
+    --teaser-stacked-image-z-index: #{$stack-normal};
+    --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
+
+    &:where(.has-image, .video) {
+      --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * 2));
+      --teaser-main-shadow-active: 0;
+      --teaser-image-shadow-active: 1;
+      --teaser-text-shadow-active: 0;
+    }
+    &:where(:not(.has-image, .video)) {
+      --teaser-stacked-text-width: 100%;
+      --teaser-main-shadow-active: 0;
+      --teaser-image-shadow-active: 0;
+      --teaser-text-shadow-active: 1;
+    }
+    --teaser-aside-text-align: stretch;
+    --teaser-aside-text-justify: center;
+    --teaser-stacked-text-justify: flex-start;
+    // --teaser-aside-text-overlap-value: 1rem;
+    // --teaser-stacked-text-overlap-value: 1rem;
+
+  } @else if ($style == 'padded') {
+      --teaser-main-shadow-active: 1;
+      --teaser-image-shadow-active: 0;
+      --teaser-text-shadow-active: 0;
+  } @else {
+    --teaser-column-gap-active: 1;
+    --teaser-row-gap-active: 1;
+    --teaser-aside-image-align: flex-start;
+    --teaser-stacked-text-width: 100%;
+    --teaser-aside-text-align: stretch;
+    --teaser-aside-text-justify: center;
+    --teaser-stacked-text-justify: flex-start;
+    // --teaser-aside-text-overlap-value: 0px;
+    // --teaser-stacked-text-overlap-value: 0px;
+    --teaser-aside-image-z-index: #{$stack-normal};
+    --teaser-aside-text-z-index: #{$stack-normal};
+    --teaser-stacked-image-z-index: #{$stack-normal};
+    --teaser-stacked-text-z-index: #{$stack-normal};
+    --teaser-main-shadow-active: 0;
+    --teaser-image-shadow-active: 1;
+    --teaser-text-shadow-active: 0;
+  }
+
+  @if ($style == 'card') {
+    --teaser-style-text-overlap-active: 1;
+    --teaser-text-padding-active: 1;
+    .text {
+      background-color: var(--teaser-background-color);
+    }
+  } @else {
+    --teaser-style-text-overlap-active: 0;
+    --teaser-text-padding-active: 0;
+    .text {
+      background-color: transparent;
+    }
+  }
+
+  @if ($style == 'padded') {
+    --teaser-padding-active: 1;
+    background-color: var(--teaser-background-color);
+  } @else {
+    --teaser-padding-active: 0;
+    background-color: transparent;
+  }
+}
+
+@mixin teaser_box_shadow($shadow: null, $size: null, $x-offset: null, $y-offset: null, $color: null) {
+  @if ($shadow == on) {
+    --teaser-box-shadow-active: 1;
+  } @else if ($shadow == off) {
+    --teaser-box-shadow-active: 0;
+  }
+
+  @if ($size != null) {
+    --teaser-box-shadow-size: #{$size};
+  }
+
+  @if ($x-offset == 'left') {
+    --teaser-box-shadow-x-offset: -1;
+  } @else if ($x-offset == 'right') {
+    --teaser-box-shadow-x-offset: 1;
+  }
+
+  @if ($y-offset == 'top') {
+    --teaser-box-shadow-y-offset: -1;
+  } @else if ($x-offset == 'bottom') {
+    --teaser-box-shadow-y-offset: 1;
+  }
+
+  @if ($color != null) {
+    --teaser-shadow-color: #{$color};
+  }
+}
+
+@mixin teaser(
+  $orientation: null,
+  $ratio: null,
+  $gutter: null,
+  $bias: null,
+  $image: null,
+  $style: null,
+  $color-scheme: null,
+  $shadow: null,
+  $background-color: null,
+  $shadow-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser_orientation($orientation);
+  @include teaser_ratio($ratio);
+  @include teaser_gutter($gutter: $gutter);
+  @include teaser_bias($bias);
+  @include teaser_image($image);
+  @if ($style != null) { @include teaser_style($style); }
+  @include teaser_box_shadow($shadow);
+  @include teaser_color(
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $shadow-color: $shadow-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+@mixin teaser_stacked(
+  $orientation: stacked,
+  $ratio: 7 of 10,
+  $gutter: full,
+  $bias: text,
+  $image: landscape,
+  $style: null,
+  $shadow: null,
+  $color-scheme: null,
+  $background-color: null,
+  $shadow-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser(
+    $orientation: $orientation,
+    $ratio: $ratio,
+    $gutter: $gutter,
+    $bias: $bias,
+    $image: $image,
+    $style: $style,
+    $shadow: $shadow,
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $shadow-color: $shadow-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
+  );
+}
+
+@mixin teaser_aside(
+  $orientation: aside,
+  $ratio: 7 of 10,
+  $gutter: full,
+  $bias: text,
+  $image: landscape,
+  $style: null,
+  $color-scheme: null,
+  $background-color: null,
+  $shadow-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+
+  $target: nth($ratio, 1);
+  $context: nth($ratio, -1);
+
+  @if ($target >= $context) {
+    $image: none;
+  }
+
+  @include teaser(
+    $orientation: $orientation,
+    $ratio: $ratio,
+    $gutter: $gutter,
+    $bias: $bias,
+    $image: $image,
+    $style: $style,
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $shadow-color: $shadow-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @mixin teaser_xx-small($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
@@ -805,6 +1365,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.125rem;
   .text {
 
     h2,
@@ -830,10 +1391,10 @@
       @include font_size(font-size, xxx-small, regular, $kicker-ratio);
       letter-spacing: $thin * 0.5;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
+      // }
     }
 
     .meta {
@@ -914,6 +1475,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.125rem;
   .text {
 
     h2,
@@ -939,10 +1501,10 @@
       @include font_size(font-size, xx-small, regular, $kicker-ratio);
       letter-spacing: $thin * 0.5;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $small) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1022,6 +1584,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.1875rem;
   .text {
 
     h2,
@@ -1045,10 +1608,10 @@
       @include font_size(font-size, x-small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $regular) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $regular) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1128,6 +1691,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1151,10 +1715,10 @@
       @include font_size(font-size, small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1234,6 +1798,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1257,10 +1822,10 @@
       @include font_size(font-size, small, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $x-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $x-large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1336,6 +1901,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1359,10 +1925,10 @@
       @include font_size(font-size, regular, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $xx-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $xx-large) * $headline-ratio}em;
+      // }
     }
 
     .meta {
@@ -1443,6 +2009,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1466,10 +2033,10 @@
       @include font_size(font-size, large, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $xxx-large) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $xxx-large) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
@@ -1549,6 +2116,7 @@
     $kicker-ratio: $sans-ratio;
   }
 
+  // --teaser-text-spacing: 0.25rem;
   .text {
 
     h2,
@@ -1572,10 +2140,10 @@
       @include font_size(font-size, x-large, regular, $kicker-ratio);
       letter-spacing: $thin;
 
-      + h2,
-      + h5 {
-        margin-top: #{calc(0.25em / $display-2) * $headline-ratio}em;
-      }
+      // + h2,
+      // + h5 {
+      //   margin-top: #{calc(0.25em / $display-2) * $headline-ratio}em;
+      // }
     }
 
     .media-promo,
