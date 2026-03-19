@@ -814,11 +814,11 @@
       @include font_size(font-size, x-small, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 600; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -923,11 +923,11 @@
       @include font_size(font-size, small, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1030,11 +1030,11 @@
       @include font_size(font-size, regular, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1136,11 +1136,11 @@
       @include font_size(font-size, large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1242,11 +1242,11 @@
       @include font_size(font-size, x-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1344,11 +1344,11 @@
       @include font_size(font-size, xx-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1451,11 +1451,11 @@
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
@@ -1557,11 +1557,11 @@
       @include font_size(font-size, display-2, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 700; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 800; // Changed 03-19-2026
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
