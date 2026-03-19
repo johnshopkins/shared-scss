@@ -584,7 +584,7 @@
     > a {
       margin-bottom: #{calc(0.25em / $small)}em;
       font-size: $small;
-      font-weight: 700;
+      font-weight: 600; // Changed 03-19-2026
       display: table;
     }
   }
