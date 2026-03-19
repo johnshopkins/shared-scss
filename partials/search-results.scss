@@ -145,7 +145,7 @@
   .url {
     font-family: $sans;
     font-size: $xx-small;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
     color: $sparta;
     overflow: hidden;
   }
@@ -158,7 +158,7 @@
   p {
     margin: 0;
     font-size: $small;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
     // text-align: center;
   }
 
@@ -366,7 +366,7 @@
   background-color: $gray1;
   color: $gray4;
   cursor: pointer;
-  font-weight: 400; // Changed 03-19-2026
+  font-weight: 450; // Changed 03-19-2026
 }
 
 .no-js,
@@ -378,7 +378,7 @@
   #googleSearchResults .gsc-tabsArea .gsc-tabHeader.gsc-tabhInactive {
     background-color: $gray1;
     color: $gray4;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
 
     &:focus,
     &:hover {
@@ -424,7 +424,7 @@ ul.pagination {
   color: $sparta;
   font-family: $sans;
   font-size: $regular;
-  font-weight: 400; // Changed 03-19-2026
+  font-weight: 450; // Changed 03-19-2026
   margin: 0;
   @include transition-property(border-bottom-color, color);
   @include transition-duration($sprint, $sprint);
@@ -574,14 +574,14 @@ ul.pagination {
   .gs-promotion-text-cell .gs-visibleUrl,
   .gsc-url-top {
     font-size: $xx-small;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
     margin-top: 0.25rem;
   }
 
   .gs-promotion-text-cell .gs-snippet,
   .gsc-table-result {
     font-size: $x-small;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
     margin-top: 0.25rem;
 
       td {

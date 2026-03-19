@@ -36,7 +36,7 @@ body {
   // background-attachment: fixed;
   color: $gray5;
   font-family: $sans;
-  font-weight: 400; // Changed 03-19-2026
+  font-weight: 450; // Changed 03-19-2026
   line-height: 1.5;
   // @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
@@ -379,7 +379,7 @@ blockquote {
     // display: block;
     font-family: $sans;
     @include font_size(font-size, small, large);
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
     margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
     // text-align: right;
 
@@ -814,7 +814,7 @@ figure {
 table {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
   font-family: $sans;
-  font-weight: 400; // Changed 03-19-2026
+  font-weight: 450; // Changed 03-19-2026
   outline: $table_outline;
   width: 100%;
 

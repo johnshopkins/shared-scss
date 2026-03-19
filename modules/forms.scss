@@ -77,7 +77,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
   select,
   textarea {
     font-family: $sans;
-    font-weight: 400; // Changed 03-19-2026
+    font-weight: 450; // Changed 03-19-2026
   }
 
 	label {
@@ -490,7 +490,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
     .indicates-required {
       margin: #{calc(calc($standard_spacing / 3) / $small)}em 0 #{calc(calc($standard_spacing / 12) / $small)}em 0;
       font-size: $small;
-      font-weight: 400; // Changed 03-19-2026
+      font-weight: 450; // Changed 03-19-2026
       text-align: right;
       color: $gray4;
 
@@ -508,7 +508,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 
     #mce-responses {
       font-family: $sans;
-      font-weight: 400; // Changed 03-19-2026
+      font-weight: 450; // Changed 03-19-2026
       text-align: center;
 
       .response {
@@ -688,7 +688,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 
     ul {
       @include font_size(font-size, regular, large);
-      font-weight: 400; // Changed 03-19-2026
+      font-weight: 450; // Changed 03-19-2026
       margin-left: 1em;
       margin-top: 0.5em;
     }
