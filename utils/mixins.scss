@@ -52,7 +52,7 @@
 
 @mixin headline_bar($text-color: inherit, $bar-color: $jay) {
   font-size: $x-small;
-  font-weight: 700; // Changed 03-10
+  font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
   text-transform: uppercase;
   color: $text-color;
   white-space: nowrap;
@@ -389,6 +389,73 @@
    }
   }
 }
+
+// Font case mixin
+@mixin jhu-font-case($case: null) {
+  @if $case {
+    text-transform: $case;
+  }
+}
+
+@mixin jhu-font-family($family: null) {
+  @if $family == sans {
+    --jhu-font-size-normalizer: calc(660 / 660);
+    --jhu-font-weight-thin: 100;
+    --jhu-font-weight-extraLight: 217;
+    --jhu-font-weight-light: 333;
+    --jhu-font-weight-regular: 450;
+    --jhu-font-weight-medium: 525;
+    --jhu-font-weight-semiBold: 600;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 800;
+    --jhu-font-weight-black: 900;
+    font-family: var(--jhu-font-family-sans);
+  }
+
+  @else if $family == slab {
+    --jhu-font-size-normalizer: calc(660 / 700);
+    --jhu-font-weight-thin: 300;
+    --jhu-font-weight-extraLight: 300;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 500;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 700;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 900;
+    --jhu-font-weight-black: 900;
+    font-family: var(--jhu-font-family-slab);
+  }
+
+  @else if $family == serif {
+    --jhu-font-size-normalizer: calc(670 / 657);
+    --jhu-font-weight-thin: 200;
+    --jhu-font-weight-extraLight: 200;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 400;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 600;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 800;
+    --jhu-font-weight-black: 900;
+    font-family: var(--jhu-font-family-serif);
+  }
+
+  @else if $family == condensed {
+    --jhu-font-size-normalizer: calc(700 / 810);
+    --jhu-font-weight-thin: 200;
+    --jhu-font-weight-extraLight: 200;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 400;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 600;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 700;
+    --jhu-font-weight-black: 700;
+    @include jhu-font-case($case: uppercase);
+    font-family: var(--jhu-font-family-condensed);
+  }
+}
+
 
 // https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
 @mixin text-contrast($n, $property: color, $flag: null) {

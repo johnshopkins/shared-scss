@@ -4,7 +4,7 @@
   clear: both;
   display: flex;
   flex-wrap: wrap;
-  font-weight: 500;
+  font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
   gap: 0.25rem;
   justify-content: space-between;
   list-style: none;
@@ -93,7 +93,7 @@
   .current {
     background-color: $black;
     color: $white;
-    font-weight: 700; // Changed 03-10
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     // line-height: 1.1em;
     // padding-bottom: calc($standard_spacing / 24);
     // padding-top: calc($standard_spacing / 24);

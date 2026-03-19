@@ -35,8 +35,8 @@ body {
   // background-repeat: no-repeat;
   // background-attachment: fixed;
   color: $gray5;
-  font-family: $sans;
-  font-weight: 500;
+  @include jhu-font-family(sans);
+  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   line-height: 1.5;
   // @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
@@ -239,23 +239,23 @@ p {
 
   &.has-xxx-small-font-size,
   &.has-xx-small-font-size {
-    font-family: $sans;
-    font-weight: 700;
+    @include jhu-font-family(sans);
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
     strong {
-      font-weight: 900;
+      font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
     }
   }
 
 
   &.has-x-small-font-size {
-    font-family: $sans;
-    font-weight: 500;
+    @include jhu-font-family(sans);
+    font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
 
     b,
     strong {
-      font-weight: 700;
+      font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
     }
   }
 
@@ -284,25 +284,25 @@ p {
   }
 
   &.has-medium-font-size {
-    font-family: $sans;
+    @include jhu-font-family(sans);
     @include font_size(font-size, large, regular, sans, !important);
-    font-weight: 500;
+    font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
     line-height: 1.3;
 
     b,
     strong {
-      font-weight: 700;
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     }
   }
 
   &.has-large-font-size,
   &.has-x-large-font-size {
-    font-family: $sans;
-    font-weight: 700;
+    @include jhu-font-family(sans);
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
     strong {
-      font-weight: 900;
+      font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
     }
   }
 
@@ -314,8 +314,8 @@ p {
 
   &.has-xx-large-font-size,
   &.has-xxx-large-font-size {
-    font-family: $sans;
-    font-weight: 900;
+    @include jhu-font-family(sans);
+    font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
 
     b,
     strong {
@@ -363,9 +363,9 @@ blockquote,
 
 blockquote {
   border-left: solid $light $gray1;
-  font-family: $slab;
+  @include jhu-font-family(slab);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
   margin: 1em 0;
   padding: 0 1.5em;
 
@@ -377,9 +377,9 @@ blockquote {
   cite {
     color: $gray4;
     // display: block;
-    font-family: $sans;
+    @include jhu-font-family(sans);
     @include font_size(font-size, small, large);
-    font-weight: 500;
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     margin-top: #{calc(calc($standard_spacing / 6) / $small)}em;
     // text-align: right;
 
@@ -405,7 +405,7 @@ blockquote {
 b,
 strong {
   color: $black;
-  font-weight: 700;
+  font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
   a {
     font-weight: inherit;
@@ -453,8 +453,8 @@ em {
     summary {
       // color: $black;
       cursor: pointer;
-      font-family: $sans;
-      font-weight: 700;
+      @include jhu-font-family(sans);
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
       &::-webkit-details-marker {
         color: $sparta;
@@ -477,7 +477,7 @@ em {
 }
 
 dl {
-  font-family: $sans;
+  @include jhu-font-family(sans);
 
   dd {
     margin-left: 0.5em;
@@ -493,7 +493,7 @@ dl {
 
   dt {
     font-size: $x-small;
-    font-weight: 700;
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     + dd {
       margin-top: 0;
@@ -683,8 +683,8 @@ figure {
 
 .kicker {
   color: var(--teaser-kicker-color);
-  font-family: $sans;
-  font-weight: 500;
+  @include jhu-font-family(sans);
+  font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
   letter-spacing: $thin;
   // line-height: 90%;
   text-transform: uppercase;
@@ -813,8 +813,8 @@ figure {
 
 table {
   // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
-  font-family: $sans;
-  font-weight: 500;
+  @include jhu-font-family(sans);
+  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   outline: $table_outline;
   width: 100%;
 
@@ -825,7 +825,7 @@ table {
     padding: calc($standard_spacing / 6); // math for font-size
     background-color: $black;
     font-size: $regular;
-    font-weight: 700;
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     color: $white;
     text-align: center;
     text-transform: uppercase;
@@ -862,7 +862,7 @@ table {
       // border-color: $gray4;
       color: $white;
       font-size: $x-small;
-      font-weight: 700;
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       padding: #{calc(calc($standard_spacing / 6) / $x-small)}em;
       text-align: center;
       text-transform: uppercase;
@@ -911,9 +911,9 @@ table {
   @include border-radius(10em);
   color: $white;
   display: inline-block;
-  font-family: $sans;
+  @include jhu-font-family(sans);
   font-size: $xxx-small;
-  font-weight: 700;
+  font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
   height: #{calc(1em / $xxx-small)}em;
   line-height: 0.6em;
   padding: #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em $bold #{((calc(1em / $xxx-small) - 0.6) * 0.5)}em;

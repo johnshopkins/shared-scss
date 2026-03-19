@@ -297,8 +297,8 @@
     .media-promo,
     .meta,
     .summary + p {
-      font-family: $sans;
-      font-weight: 500; // Changed 03-10
+      @include jhu-font-family(sans);
+      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 
       .plus {
         display: inline-block;
@@ -373,8 +373,8 @@
 
     .summary {
       color: var(--teaser-summary-color);
-      font-family: $sans;
-      font-weight: 500; // Changed 03-10
+      @include jhu-font-family(sans);
+      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
       line-height: 1.3;
 
       p {
@@ -399,7 +399,7 @@
     }
 
     .source {
-      font-weight: 700; // Changed 03-10
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       line-height: 140%;
       font-style: italic;
     }

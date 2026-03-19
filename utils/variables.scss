@@ -87,10 +87,32 @@ $creep:  ($stroll * 5);         // 5000ms
 //\\//\\//\\//\\//\\//\\//\\
 
 //Font Families
-$sans: 'Work Sans', tahoma, sans-serif;
-$slab: 'factoria', tahoma, sans-serif;
-$condensed: 'Oswald', tahoma, sans-serif;
-$serif: 'Source Serif 4', georgia, serif;
+$sans: "Work Sans", tahoma, sans-serif;
+$slab: "Factoria", tahoma, sans-serif;
+$condensed: "Oswald", tahoma, sans-serif;
+$serif: "Source Serif 4", georgia, serif;
+
+:root {
+  --jhu-font-scale: 1.2;
+  --jhu-font-size-normalizer: 1;
+
+  // Font family variables
+  #{--jhu-font-family-sans}: $sans;
+  #{--jhu-font-family-slab}: $slab;
+  #{--jhu-font-family-serif}: $serif;
+  #{--jhu-font-family-condensed}: $condensed;
+
+  // Default font weight variables
+  --jhu-font-weight-thin: 100;
+  --jhu-font-weight-extraLight: 200;
+  --jhu-font-weight-light: 300;
+  --jhu-font-weight-regular: 400;
+  --jhu-font-weight-medium: 500;
+  --jhu-font-weight-semiBold: 600;
+  --jhu-font-weight-bold: 700;
+  --jhu-font-weight-extraBold: 800;
+  --jhu-font-weight-black: 900;
+}
 
 
 // Font Sizes
