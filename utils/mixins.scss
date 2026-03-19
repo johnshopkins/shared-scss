@@ -390,6 +390,13 @@
   }
 }
 
+// Font case mixin
+@mixin jhu-font-case($case: null) {
+  @if $case {
+    text-transform: $case;
+  }
+}
+
 @mixin jhu-font-family($family: null) {
   @if $family == sans {
     --jhu-font-size-normalizer: calc(660 / 660);
