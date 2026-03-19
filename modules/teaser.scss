@@ -93,7 +93,7 @@
     .meta,
     .summary + p {
       font-family: $sans;
-      font-weight: 500; // Changed 03-10
+      font-weight: 400; // Changed 03-19-2026
 
       .plus {
         display: inline-block;
@@ -163,7 +163,7 @@
     .summary {
       color: $gray5;
       font-family: $sans;
-      font-weight: 500; // Changed 03-10
+      font-weight: 400; // Changed 03-19-2026
       line-height: 1.3;
 
       p {
@@ -188,7 +188,7 @@
     }
 
     .source {
-      font-weight: 700; // Changed 03-10
+      font-weight: 600; // Changed 03-19-2026
       line-height: 140%;
       font-style: italic;
     }
