@@ -244,7 +244,7 @@ p {
 
     b,
     strong {
-      font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
+      font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026;
     }
   }
 
@@ -302,7 +302,7 @@ p {
 
     b,
     strong {
-      font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
+      font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026;
     }
   }
 
@@ -315,7 +315,7 @@ p {
   &.has-xx-large-font-size,
   &.has-xxx-large-font-size {
     @include jhu-font-family(sans);
-    font-weight: var(--jhu-font-weight-extraBold) // Changed 03-19-2026;
+    font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026;
 
     b,
     strong {
