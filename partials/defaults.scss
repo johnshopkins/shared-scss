@@ -262,25 +262,25 @@ p {
   &.has-xxx-small-font-size {
     @include font_size(font-size, xxx-small, regular, sans, !important);
     line-height: 1.55;
-    letter-spacing: 0.0625em;
+    // letter-spacing: 0.0625em;
   }
 
   &.has-xx-small-font-size {
     @include font_size(font-size, xx-small, regular, sans, !important);
     line-height: 1.5;
-    letter-spacing: 0.05em;
+    // letter-spacing: 0.05em;
   }
 
   &.has-x-small-font-size {
     @include font_size(font-size, x-small, regular, sans, !important);
     line-height: 1.45;
-    letter-spacing: 0.0375em;
+    // letter-spacing: 0.0375em;
   }
 
   &.has-small-font-size {
     @include font_size(font-size, small, regular, sans, !important);
     line-height: 1.4;
-    letter-spacing: 0.025em;
+    // letter-spacing: 0.025em;
   }
 
   &.has-medium-font-size {
