@@ -409,6 +409,8 @@
     --jhu-font-weight-bold: 717;
     --jhu-font-weight-extraBold: 808;
     --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: -0.01em;
     font-family: var(--jhu-font-family-sans);
   }
 
@@ -423,6 +425,8 @@
     --jhu-font-weight-bold: 700;
     --jhu-font-weight-extraBold: 900;
     --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: 0em;
     font-family: var(--jhu-font-family-slab);
   }
 
@@ -437,6 +441,8 @@
     --jhu-font-weight-bold: 700;
     --jhu-font-weight-extraBold: 800;
     --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: 0em;
     font-family: var(--jhu-font-family-serif);
   }
 
@@ -451,6 +457,8 @@
     --jhu-font-weight-bold: 700;
     --jhu-font-weight-extraBold: 700;
     --jhu-font-weight-black: 700;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: -0.03em;
     @include jhu-font-case($case: uppercase);
     font-family: var(--jhu-font-family-condensed);
   }
