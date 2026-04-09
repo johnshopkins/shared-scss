@@ -515,6 +515,19 @@
   }
 }
 
+@mixin jhu-font($family: null, $weight: null, $tracking: null, $case: null) {
+  @if $family {
+    @if $tracking {
+      @include jhu-font-family($family: $family, $tracking: null);
+    } @else {
+      @include jhu-font-family($family: $family);
+    }
+  }
+  @include jhu-font-weight($weight);
+  @include jhu-font-tracking($tracking);
+  @include jhu-font-case($case);
+}
+
 
 // https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
 @mixin text-contrast($n, $property: color, $flag: null) {
