@@ -278,7 +278,7 @@
     // @include responsive_ems(border-width, $thin, regular '/' xxx-small);
     @include font_size(font-size, xxx-small, regular, sans, !important);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-    letter-spacing: 0.0875em;
+    // letter-spacing: 0.0875em;
     // padding: #{($standard_spacing / 18) / $xx-small}em #{($standard_spacing / 8) / $xx-small}em;
     @include responsive_ems(padding, calc($standard_spacing / 10) calc($standard_spacing / 5), regular '/' xxx-small);
   }
@@ -287,14 +287,14 @@
     @include responsive_ems(border-width, $thin, regular '/' xx-small);
     @include font_size(font-size, xx-small, regular, sans, !important);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-    letter-spacing: 0.075em;
+    // letter-spacing: 0.075em;
     @include responsive_ems(padding, calc($standard_spacing / 8) calc($standard_spacing / 4), regular '/' xx-small);
   }
 
   @else if ($size == x-small) {
     @include responsive_ems(border-width, $thin, regular '/' x-small);
     @include font_size(font-size, x-small, regular, sans, !important);
-    letter-spacing: 0.0625em;
+    // letter-spacing: 0.0625em;
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     @include responsive_ems(padding, calc($standard_spacing / 6) calc($standard_spacing / 3), regular '/' x-small);
   }
@@ -302,7 +302,7 @@
   @else if ($size == small) {
     @include responsive_ems(border-width, $light, regular '/' small);
     @include font_size(font-size, small, regular, sans, !important);
-    letter-spacing: 0.05em;
+    // letter-spacing: 0.05em;
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     @include responsive_ems(padding, calc($standard_spacing / 5) calc($standard_spacing / 2.5), regular '/' small);
   }
@@ -364,9 +364,10 @@
   display: inline-block;
   // display: inline-flex;
   @include jhu-font-family($family: sans);
+  @include jhu-font-tracking(loose);
   // gap: 0.5em;
   // justify-content: center;
-  letter-spacing: 0.05em;
+  // letter-spacing: 0.05em;
   // line-height: 0.75em; // should set the line height to match the caps character height for each font
   line-height: 1.1;
   text-align: center;
