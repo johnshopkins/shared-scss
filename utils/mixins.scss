@@ -398,23 +398,35 @@
 }
 
 // Tracking mixin
-@mixin jhu-font-tracking($tracking: null) {
+@mixin jhu-font-tracking($tracking: null, $scale: null, $offset: null) {
   // Note: While there is no "inherit" value used for modifying this mixin, "inherit" is used when
   // this mixin is called in jhu-font-family to trigger the application of letter-spacing at the 
   // time that the font-family is changed, to correctly apply the appropriate --jhu-font-tracking-offset
   // value for each font family. This is the least worst solution I can come up with for the time being.
-  @if $tracking {
+  @if $tracking == normal {
+    --jhu-font-tracking: var(--jhu-font-tracking-normal);
+  } @else if $tracking == loose {
+    --jhu-font-tracking: var(--jhu-font-tracking-loose);
+  } @else if $tracking == tight {
+    --jhu-font-tracking: var(--jhu-font-tracking-tight);
+  } @else if $tracking and $tracking != inherit {
+    --jhu-font-tracking: #{$tracking};
+  }
 
-    @if $tracking == normal {
-      --jhu-font-tracking: var(--jhu-font-tracking-normal);
-    } @else if $tracking == loose {
-      --jhu-font-tracking: var(--jhu-font-tracking-loose);
-    } @else if $tracking == tight {
-      --jhu-font-tracking: var(--jhu-font-tracking-tight);
-    } @else if $tracking != inherit {
-      --jhu-font-tracking: #{$tracking};
-    }
+  @if $scale == none {
+    --jhu-font-tracking-scale: 0;
+  } @else if $scale {
+    --jhu-font-tracking-scale: #{$scale};
+  }
 
+  @if $offset == none {
+    --jhu-font-tracking-offset: 0;
+  } @else if $offset {
+    --jhu-font-tracking-offset: #{$offset};
+  }
+
+
+  @if $tracking or $scale or $offset {
     // Only dynamically adding additional letter-spacing if font size is below 16px rather than 1rem. 
     letter-spacing: calc(max(((16px - 1em) * var(--jhu-font-tracking-scale)), 0px) + var(--jhu-font-tracking) + var(--jhu-font-tracking-offset));
   }
@@ -435,7 +447,6 @@
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: -0.01em;
     font-family: var(--jhu-font-family-sans);
-    @include jhu-font-tracking($tracking);
   }
 
   @else if $family == slab {
@@ -452,7 +463,6 @@
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: 0em;
     font-family: var(--jhu-font-family-slab);
-    @include jhu-font-tracking($tracking);
   }
 
   @else if $family == serif {
@@ -469,7 +479,6 @@
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: 0em;
     font-family: var(--jhu-font-family-serif);
-    @include jhu-font-tracking($tracking);
   }
 
   @else if $family == condensed {
@@ -487,8 +496,8 @@
     --jhu-font-tracking-offset: -0.03em;
     @include jhu-font-case($case: uppercase);
     font-family: var(--jhu-font-family-condensed);
-    @include jhu-font-tracking($tracking);
   }
+  @include jhu-font-tracking($tracking);
 }
 
 @mixin jhu-font-weight($weight: null) {
