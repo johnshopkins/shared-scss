@@ -92,7 +92,7 @@
     .media-promo,
     .meta,
     .summary + p {
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
       font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 
       .plus {
@@ -162,7 +162,7 @@
 
     .summary {
       color: $gray5;
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
       font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
       line-height: 1.3;
 

@@ -43,7 +43,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
       border-bottom: $light solid $black;
       color: $black;
       display: block;
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
       font-size: $regular;
       font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       margin-bottom: calc($standard_spacing / 12);
@@ -76,7 +76,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
   input,
   select,
   textarea {
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   }
 
@@ -484,7 +484,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 
     .indicates-required,
     .mce_inline_error {
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
     }
 
     .indicates-required {
@@ -507,7 +507,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
     }
 
     #mce-responses {
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
       font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
       text-align: center;
 

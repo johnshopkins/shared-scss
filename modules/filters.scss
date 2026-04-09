@@ -90,7 +90,7 @@
 
     span {
       display: block;
-      @include jhu-font-family(sans);
+      @include jhu-font-family($family: sans);
       font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       padding: #{calc(calc($standard_spacing / 6) / $large)}em #{calc(calc($standard_spacing / 3) / $large)}em;
     }

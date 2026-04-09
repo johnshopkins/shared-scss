@@ -363,7 +363,7 @@
   cursor: pointer;
   display: inline-block;
   // display: inline-flex;
-  @include jhu-font-family(sans);
+  @include jhu-font-family($family: sans);
   // gap: 0.5em;
   // justify-content: center;
   letter-spacing: 0.05em;

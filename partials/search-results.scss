@@ -72,7 +72,7 @@
 
 .search-results,
 .key-matches {
-  @include jhu-font-family(sans);
+  @include jhu-font-family($family: sans);
   font-size: 1em;
   left: 0 !important;
   padding-left: 0 !important;
@@ -113,7 +113,7 @@
 
   .media-heading,
   .title {
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     font-size: $regular;
 
@@ -143,7 +143,7 @@
   }
 
   .url {
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     font-size: $xx-small;
     font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     color: $sparta;
@@ -281,7 +281,7 @@
     color: $gray4;
     content: 'Filter by:';
     display: table;
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -321,7 +321,7 @@
   span {
     color: $gray4;
     display: table;
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -340,7 +340,7 @@
   border: none;
   @include border-radius(10em);
   display: inline-block;
-  @include jhu-font-family(sans);
+  @include jhu-font-family($family: sans);
   @include font_size(font-size, x-small);
   @include responsive_ems(margin, 0 $semi-bold $semi-bold 0, regular '/' x-small);
   @include responsive_ems(padding, $semi-bold $heavy, regular '/' x-small);
@@ -422,7 +422,7 @@ ul.pagination {
   background: transparent;
   border-bottom: solid $thin transparent;
   color: $sparta;
-  @include jhu-font-family(sans);
+  @include jhu-font-family($family: sans);
   font-size: $regular;
   font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   margin: 0;
@@ -661,7 +661,7 @@ ul.pagination {
   }
 
   .gsc-control-cse {
-    @include jhu-font-family(sans);
+    @include jhu-font-family($family: sans);
     font-size: $regular;
 
     .gs-result .gs-title,
