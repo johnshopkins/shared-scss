@@ -112,6 +112,13 @@ $serif: "Source Serif 4", georgia, serif;
   --jhu-font-weight-bold: 700;
   --jhu-font-weight-extraBold: 800;
   --jhu-font-weight-black: 900;
+
+  --jhu-font-tracking-scale: calc(1 / 8);
+  --jhu-font-tracking-offset: 0em;
+  --jhu-font-tracking-normal: 0em;
+  --jhu-font-tracking-tight: -0.03em;
+  --jhu-font-tracking-loose: 0.1em;
+  --jhu-font-tracking: var(--jhu-font-tracking-normal);
 }
 
 
