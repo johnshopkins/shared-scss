@@ -683,9 +683,10 @@ figure {
 
 .kicker {
   color: $sparta;
-  @include jhu-font-family($family: sans);
+  @include jhu-font($family: sans, $tracking: inherit);
+  @include jhu-font-tracking($tracking: calc($thin * 0.75), $scale: calc(-1 / 8));
   font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
-  letter-spacing: $thin;
+  // letter-spacing: $thin;
   // line-height: 90%;
   text-transform: uppercase;
 
