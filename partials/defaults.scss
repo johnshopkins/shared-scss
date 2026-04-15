@@ -41,6 +41,14 @@ html {
   padding: env(safe-area-inset);
   overflow-x: hidden;
 
+  // @supports (text-wrap: balance) {
+  //   text-wrap: balance;
+  // }
+  @supports (text-wrap: pretty) {
+    text-wrap: pretty;
+  }
+
+
   font-size: $regular;
 
   @include breakpoint_lap_width() {
