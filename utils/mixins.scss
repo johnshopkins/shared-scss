@@ -435,9 +435,9 @@
 @mixin jhu-font-family($family: null, $tracking: inherit) {
   @if $family == sans {
     --jhu-font-size-normalizer: calc(660 / 660);
-    --jhu-font-weight-thin: 100;
-    --jhu-font-weight-extraLight: 217;
-    --jhu-font-weight-light: 333;
+    --jhu-font-weight-thin: 125;
+    --jhu-font-weight-extraLight: 233;
+    --jhu-font-weight-light: 342;
     --jhu-font-weight-regular: 450;
     --jhu-font-weight-medium: 538;
     --jhu-font-weight-semiBold: 625;
@@ -446,6 +446,9 @@
     --jhu-font-weight-black: 900;
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: -0.01em;
+    // --jhu-tracking-normal: -0.01em;
+    // --jhu-tracking-loose: 0.04em;
+    // --jhu-tracking-tight: -0.06em;
     font-family: var(--jhu-font-family-sans);
   }
 
@@ -462,6 +465,9 @@
     --jhu-font-weight-black: 900;
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: 0em;
+    // --jhu-tracking-normal: 0em;
+    // --jhu-tracking-loose: 0.05em;
+    // --jhu-tracking-tight: -0.05em;
     font-family: var(--jhu-font-family-slab);
   }
 
@@ -478,6 +484,9 @@
     --jhu-font-weight-black: 900;
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: 0em;
+    // --jhu-tracking-normal: 0em;
+    // --jhu-tracking-loose: 0.05em;
+    // --jhu-tracking-tight: -0.05em;
     font-family: var(--jhu-font-family-serif);
   }
 
@@ -494,6 +503,9 @@
     --jhu-font-weight-black: 700;
     --jhu-font-tracking-scale: calc(1 / 8);
     --jhu-font-tracking-offset: -0.03em;
+    // --jhu-tracking-normal: -0.04em;
+    // --jhu-tracking-loose: 0.01em;
+    // --jhu-tracking-tight: -0.09em;
     @include jhu-font-case($case: uppercase);
     font-family: var(--jhu-font-family-condensed);
   }
