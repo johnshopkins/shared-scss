@@ -501,7 +501,7 @@
     --jhu-font-weight-bold: 700;
     --jhu-font-weight-extraBold: 700;
     --jhu-font-weight-black: 700;
-    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-scale: calc(1 / 6);
     --jhu-font-tracking-offset: -0.03em;
     // --jhu-tracking-normal: -0.04em;
     // --jhu-tracking-loose: 0.01em;
@@ -509,6 +509,7 @@
     @include jhu-font-case($case: uppercase);
     font-family: var(--jhu-font-family-condensed);
   }
+
   @include jhu-font-tracking($tracking);
 }
 
