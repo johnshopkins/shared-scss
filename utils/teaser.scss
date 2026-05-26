@@ -4,10 +4,136 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-@mixin teaser_stacked($style: null, $context: null, $color: null) {
-  background-color: transparent;
+@mixin teaser_color(
+  $color-scheme: default,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @if ($color-scheme == default) { 
+    --teaser-background-color: #{$white};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-50};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-90};
+    --teaser-headline-color-hover: #{$jhu-blue-40};
+    --teaser-summary-color: #{$jhu-grayscale-70};
+    --teaser-meta-color: #{$jhu-grayscale-50};
+    --teaser-source-background-color: #{$jhu-blue-10};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @else if ($color-scheme == light-gray) {
+    --teaser-background-color: #{$background_gray};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-grayscale-100};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-grayscale-80};
+    --teaser-meta-color: #{$jhu-grayscale-60};
+    --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @else if ($color-scheme == light-blue) {
+    --teaser-background-color: #{$jhu-blue-10};
+    --teaser-image-hover-color: #{$jhu-blue-40};
+    --teaser-kicker-background-color: transparent;
+    --teaser-kicker-color: #{$jhu-blue-60};
+    --teaser-headline-background-color: transparent;
+    --teaser-headline-color: #{$jhu-blue-100};
+    --teaser-headline-color-hover: #{$jhu-blue-50};
+    --teaser-summary-color: #{$jhu-blue-80};
+    --teaser-meta-color: #{$jhu-blue-60};
+    --teaser-source-background-color: #{$jhu-blue-20};
+    --teaser-source-background-color-hover: #{$jhu-blue-50};
+    --teaser-source-color: inherit;
+    --teaser-source-color-hover: #{$white};  
+  }
+  @if ($background-color != null) { --teaser-background-color: #{$background-color}; }
+  @if ($image-hover-color != null) { --teaser-image-hover-color: #{$image-hover-color}; }
+  @if ($kicker-background-color != null) { --teaser-kicker-background-color: #{$kicker-background-color}; }
+  @if ($kicker-color != null) { --teaser-kicker-color: #{$kicker-color}; }
+  @if ($headline-background-color != null) { --teaser-headline-background-color: #{$headline-background-color}; }
+  @if ($headline-color != null) { --teaser-headline-color: #{$headline-color}; }
+  @if ($headline-color-hover != null) { --teaser-headline-color-hover: #{$headline-color-hover}; }
+  @if ($summary-color != null) { --teaser-summary-color: #{$summary-color}; }
+  @if ($meta-color != null) { --teaser-meta-color: #{$meta-color}; }
+  @if ($source-background-color != null) { --teaser-source-background-color: #{$source-background-color}; }
+  @if ($source-background-color-hover != null) { --teaser-source-background-color-hover: #{$source-background-color-hover}; }
+  @if ($source-color != null) { --teaser-source-color: #{$source-color}; }
+  @if ($source-color-hover != null) { --teaser-source-color-hover: #{$source-color-hover}; }
+}
+
+@mixin teaser_stacked(
+  $context: null,
+  $image: landscape,
+  $style: null,
+  $color-scheme: null,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser_color(
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
+  );
+  @if ($image == 'landscape') {
+    --teaser-image-aspect-ratio: 3 / 2;
+  }
+  @else if ($image == 'square') {
+    --teaser-image-aspect-ratio: 1 / 1;
+  }
+  @else if ($image == 'portrait') {
+    --teaser-image-aspect-ratio: 2 / 3;
+  }
+  @else {
+    --teaser-image-aspect-ratio: $image;
+  }
+  background-color: transparent; // leave transparent for now
   display: table;
   padding: 0;
+
+  .thumbnail {
+    aspect-ratio: unset;
+  }
 
   .text {
     display: table-cell;
@@ -32,11 +158,7 @@
     }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
+      background-color: var(--teaser-background-color);
       display: block;
       height: 0;
       min-height: 0;
@@ -49,8 +171,10 @@
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table;
+          display: flex;
+          flex-direction: column;
           height: auto;
+          justify-content: center;
           min-height: calc(get_span_width($context of 12) / 1%) * 1vw;
           padding-bottom: 1em;
           vertical-align: middle;
@@ -73,13 +197,13 @@
 
       @if ($context != null) {
         @supports (min-height: 1vw) {
-          display: table-cell;
+          display: block;
           left: 0;
           position: relative;
           right: 0;
           top: 0;
           @include transform(none);
-          vertical-align: middle;
+          // vertical-align: middle;
         }
       }
     }
@@ -106,15 +230,8 @@
   }
 
   @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
     padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
-
-    @if ($color != null) {
-      background-color: $color;
-    }
-
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
 
     .teaser {
       padding: 0;
@@ -141,13 +258,16 @@
       a {
         position: relative;
 
-        &:focus,
-        &:hover {
+        &:has(.image) {
 
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
+          &:focus,
+          &:hover {
+
+            img {
+              @include transform(translateX(0) scale(1.05, 1.05));
+            }
           }
-        }
+        }  
       }
 
       img {
@@ -244,9 +364,14 @@
         .kicker,
         .publish-date,
         .media-promo {
-          background-color: rgba($black, 0.8);
-          @include box-shadow(-4px 0 0 rgba($black, 0.8), 4px 0 0 rgba($black, 0.8));
-          color: $white;
+          --teaser-kicker-background-color: #{$black};
+          --teaser-kicker-color: #{$white};
+
+          // rgb(from var(--color)) documentation
+          //https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb
+          background-color: rgb(from var(--teaser-kicker-background-color) / 0.8);
+          @include box-shadow(-4px 0 0 rgb(from var(--teaser-kicker-background-color) / 0.8), 4px 0 0 rgba(from var(--teaser-kicker-background-color) / 0.8));
+          color: var(--teaser-kicker-color);
           display: inline-block;
           padding-bottom: $semi-bold;
           padding-top: $semi-bold;
@@ -260,8 +385,9 @@
           }
 
           a {
-            background-color: $white;
-            @include box-shadow(-4px 0 0 $white, 4px 0 0 $white);
+            --teaser-headline-background-color: $white;
+            background-color: var(--teaser-headline-background-color);
+            @include box-shadow(-4px 0 0 var(--teaser-headline-background-color), 4px 0 0 var(--teaser-headline-background-color));
             display: inline;
             line-height: 1.35;
             padding-bottom: $thin;
@@ -329,11 +455,60 @@
   }
 }
 
-@mixin teaser_aside($ratio: 7 of 10, $image: landscape, $gutter: full, $bias: text, $style: null, $color: null) {
+@mixin teaser_aside(
+  $ratio: 7 of 10,
+  $image: landscape,
+  $gutter: full,
+  $bias: text,
+  $style: null,
+  $color-scheme: null,
+  $background-color: null,
+  $image-hover-color: null,
+  $kicker-background-color: null,
+  $kicker-color: null,
+  $headline-background-color: null,
+  $headline-color: null,
+  $headline-color-hover: null,
+  $summary-color: null,
+  $meta-color: null,
+  $source-background-color: null,
+  $source-background-color-hover: null,
+  $source-color: null,
+  $source-color-hover: null
+) {
+  @include teaser_color(
+    $color-scheme: $color-scheme,
+    $background-color: $background-color,
+    $image-hover-color: $image-hover-color,
+    $kicker-background-color: $kicker-background-color,
+    $kicker-color: $kicker-color,
+    $headline-background-color: $headline-background-color,
+    $headline-color: $headline-color,
+    $headline-color-hover: $headline-color-hover,
+    $summary-color: $summary-color,
+    $meta-color: $meta-color,
+    $source-background-color: $source-background-color,
+    $source-background-color-hover: $source-background-color-hover,
+    $source-color: $source-color,
+    $source-color-hover: $source-color-hover
+  );
   // Accepts $ratio as 2 of 10
   // first = target, last = context
   $target: nth($ratio, 1);
   $context: nth($ratio, -1);
+
+  @if ($image == 'landscape') {
+    --teaser-image-aspect-ratio: 3 / 2;
+  }
+  @else if ($image == 'square') {
+    --teaser-image-aspect-ratio: 1 / 1;
+  }
+  @else if ($image == 'portrait') {
+    --teaser-image-aspect-ratio: 2 / 3;
+  }
+  @else {
+    --teaser-image-aspect-ratio: $image;
+  }
   display: table;
   min-height: 0;
 
@@ -379,55 +554,18 @@
 
       .thumbnail {
 
-        &:focus,
-        &:hover {
+        a {
+          
+          &:has(.image) {
 
-          img {
-            @include transform(translateX(0) scale(1.05, 1.05));
+            &:focus,
+            &:hover {
+
+              img {
+                @include transform(translateX(0) scale(1.05, 1.05));
+              }
+            }
           }
-        }
-
-        @if ($image == 'square') {
-          height: 0;
-          padding-bottom: 100%;
-
-          img {
-            height: auto;
-            margin-left: -25%;
-            width: 150%;
-          }
-
-          // .image-square {
-          //
-          //   img {
-          //     margin-left: 0;
-          //     width: 100%;
-          //   }
-          // }
-        }
-
-        @else {
-          height: auto;
-          padding-bottom: 0;
-
-          img {
-            height: auto;
-            margin-left: 0;
-            width: 100%;
-          }
-
-          // .image-square {
-          //   padding-bottom: 0;
-          //
-          //   img {
-          //     height: 100%;
-          //     left: 0;
-          //     position: static;
-          //     top: 0;
-          //     width: 100%;
-          //     z-index: $stack_normal;
-          //   }
-          // }
         }
       }
     }
@@ -528,6 +666,10 @@
 
   @if ($style == 'card') {
 
+    .thumbnail {
+      aspect-ratio: var(--teaser-image-aspect-ratio);
+    }
+
     &.has-image,
     &.video {
 
@@ -597,11 +739,14 @@
 
           a {
 
-            &:focus,
-            &:hover {
+            &:has(.image) {
 
-              img {
-                @include transform(translateX(-50%) scale(1.05, 1.05));
+              &:focus,
+              &:hover {
+
+                img {
+                  @include transform(translateX(-50%) scale(1.05, 1.05));
+                }
               }
             }
           }
@@ -672,11 +817,7 @@
     }
 
     .text {
-      @if ($color != null) {
-        background-color: $color;
-      } @else {
-        background-color: $white;
-      }
+      background-color: var(--teaser-background-color);
       display: table-cell;
       padding: 1em;
       vertical-align: middle;
@@ -692,6 +833,10 @@
     // clear: both;
     // float: none;
     // padding: ($standard_spacing / 2) ($standard_spacing * (2 / 3));
+
+    .thumbnail {
+      aspect-ratio: unset;
+    }
 
     &.has-image,
     &.video {
@@ -749,15 +894,8 @@
   }
 
   @if ($style == 'padded') {
+    background-color: var(--teaser-background-color);
     padding: ($standard_spacing * 0.5) ($standard_spacing * calc(2 / 3));
-
-    @if ($color != null) {
-      background-color: $color;
-    }
-
-    @else {
-      background-color: mix($black, $white, 4.25%);
-    }
 
     .teaser {
       padding: 0;

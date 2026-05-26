@@ -88,7 +88,16 @@
   }
 
   .teaser {
-    @include teaser_aside(7 of 10, square, full, text, card, transparent);
+    @include teaser_aside(
+      $image: square, 
+      $style: card, 
+      $background-color: transparent,
+      $headline-color: $white,
+      $headline-color-hover: $jay,
+      $kicker-color: $jay,
+      $summary-color: $jhu-grayscale-20,
+      $meta-color: $jhu-grayscale-30
+    );
     @include teaser_medium(sans);
 
     &,
@@ -105,27 +114,6 @@
         overflow: hidden;
       }
     }
-
-    .text {
-
-      h5 {
-        color: $white;
-      }
-
-      .kicker {
-        color: $jay;
-      }
-
-      .summary {
-        color: $gray1;
-      }
-
-      .publish-date,
-      .media-promo,
-      .meta {
-        color: $gray2;
-      }
-    }
   }
 }
 
@@ -138,23 +126,6 @@
     &:focus,
     &:focus-within {
       background-color: $black;
-    }
-
-    .teaser {
-
-      .text {
-
-        h5 {
-
-          a {
-
-            &:focus,
-            &:hover {
-              color: $jay;
-            }
-          }
-        }
-      }
     }
 
     .close-box-x {

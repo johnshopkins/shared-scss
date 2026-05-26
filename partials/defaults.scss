@@ -720,7 +720,7 @@ figure {
 }
 
 .kicker {
-  color: $sparta;
+  color: var(--teaser-kicker-color);
   @include jhu-font($family: sans, $tracking: inherit);
   font-size: 1em; // @Eric - Temp fix, remove after updating default teaser styles in jhu-wds. 
   @include jhu-font-tracking($tracking: calc($thin * 0.75), $scale: calc(-1 / 8));
