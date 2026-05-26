@@ -1,0 +1,21 @@
+// This MUST be EITHER:
+//   - absolute from the web root
+//     e.g.
+//          http://example.com/assets/fonts/MyFont.ttf
+//          => /assets/fonts
+//
+//   - relative to the compiled .css files (if always the same depth)
+//     e.g.
+//          http://example.com/assets/fonts/MyFont.ttf
+//          AND http://example.com/assets/css/style.css
+//          => ../fonts
+//
+
+$fonts_dir: '' !default;
+$family: '' !default;
+
+$font_list: (
+  // hop-serif: (
+  //   (800, normal, "HopkinsSerif-Black_ttf"),
+  // )
+);

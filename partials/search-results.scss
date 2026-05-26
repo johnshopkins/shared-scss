@@ -72,7 +72,7 @@
 
 .search-results,
 .key-matches {
-  font-family: $sans;
+  @include jhu-font-family($family: sans);
   font-size: 1em;
   left: 0 !important;
   padding-left: 0 !important;
@@ -113,8 +113,8 @@
 
   .media-heading,
   .title {
-    font-family: $sans;
-    font-weight: 700; // Changed 03-10
+    @include jhu-font-family($family: sans);
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     font-size: $regular;
 
     @include breakpoint_lap_width() { font-size: $large; }
@@ -130,7 +130,7 @@
     }
 
     b {
-      font-weight: 900; // Changed 03-10
+      font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
     }
   }
 
@@ -143,9 +143,9 @@
   }
 
   .url {
-    font-family: $sans;
+    @include jhu-font-family($family: sans);
     font-size: $xx-small;
-    font-weight: 500; // Changed 03-10
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     color: $sparta;
     overflow: hidden;
   }
@@ -158,7 +158,7 @@
   p {
     margin: 0;
     font-size: $small;
-    font-weight: 500; // Changed 03-10
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     // text-align: center;
   }
 
@@ -281,7 +281,7 @@
     color: $gray4;
     content: 'Filter by:';
     display: table;
-    font-family: $sans;
+    @include jhu-font-family($family: sans);
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -321,7 +321,7 @@
   span {
     color: $gray4;
     display: table;
-    font-family: $sans;
+    @include jhu-font-family($family: sans);
     @include font_size(font-size, x-small);
     left: 0;
     @include responsive_ems(padding-bottom, $light, regular '/' x-small);
@@ -340,7 +340,7 @@
   border: none;
   @include border-radius(10em);
   display: inline-block;
-  font-family: $sans;
+  @include jhu-font-family($family: sans);
   @include font_size(font-size, x-small);
   @include responsive_ems(margin, 0 $semi-bold $semi-bold 0, regular '/' x-small);
   @include responsive_ems(padding, $semi-bold $heavy, regular '/' x-small);
@@ -353,7 +353,7 @@
 #googleSearchResults .gsc-tabsArea .gsc-tabHeader {
   background-color: $sparta;
   color: $white;
-  font-weight: 700; // Changed 03-10
+  font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
   height: auto;
   line-height: normal;
   min-width: 0;
@@ -366,7 +366,7 @@
   background-color: $gray1;
   color: $gray4;
   cursor: pointer;
-  font-weight: 500; // Changed 03-10
+  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 }
 
 .no-js,
@@ -378,7 +378,7 @@
   #googleSearchResults .gsc-tabsArea .gsc-tabHeader.gsc-tabhInactive {
     background-color: $gray1;
     color: $gray4;
-    font-weight: 500; // Changed 03-10
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 
     &:focus,
     &:hover {
@@ -422,9 +422,9 @@ ul.pagination {
   background: transparent;
   border-bottom: solid $thin transparent;
   color: $sparta;
-  font-family: $sans;
+  @include jhu-font-family($family: sans);
   font-size: $regular;
-  font-weight: 500; // Changed 03-10
+  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   margin: 0;
   @include transition-property(border-bottom-color, color);
   @include transition-duration($sprint, $sprint);
@@ -434,7 +434,7 @@ ul.pagination {
     background: $sparta;
     border-bottom-color: $sparta;
     color: $white;
-    font-weight: 700; // Changed 03-10
+    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
     padding: $thin $semi-bold;
     padding-bottom: 0;
   }
@@ -574,14 +574,14 @@ ul.pagination {
   .gs-promotion-text-cell .gs-visibleUrl,
   .gsc-url-top {
     font-size: $xx-small;
-    font-weight: 500; // Changed 03-10
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     margin-top: 0.25rem;
   }
 
   .gs-promotion-text-cell .gs-snippet,
   .gsc-table-result {
     font-size: $x-small;
-    font-weight: 500; // Changed 03-10
+    font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
     margin-top: 0.25rem;
 
       td {
@@ -631,7 +631,7 @@ ul.pagination {
 
       b {
         font-style: normal;
-        font-weight: 700; // Changed 03-10
+        font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       }
     }
   }
@@ -661,14 +661,14 @@ ul.pagination {
   }
 
   .gsc-control-cse {
-    font-family: $sans;
+    @include jhu-font-family($family: sans);
     font-size: $regular;
 
     .gs-result .gs-title,
     .gs-result .gs-title * {
       color: $black;
       font-size: $large;
-      font-weight: 700; // Changed 03-10
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       // line-height: 1.3;
       margin: 0;
 
@@ -678,7 +678,7 @@ ul.pagination {
       }
 
       b {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         @include transition(inherit);
       }
     }

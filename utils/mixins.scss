@@ -52,7 +52,7 @@
 
 @mixin headline_bar($text-color: inherit, $bar-color: $jay) {
   font-size: $x-small;
-  font-weight: 700; // Changed 03-10
+  font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
   text-transform: uppercase;
   color: $text-color;
   white-space: nowrap;
@@ -389,6 +389,167 @@
    }
   }
 }
+
+// Font case mixin
+@mixin jhu-font-case($case: null) {
+  @if $case {
+    text-transform: $case;
+  }
+}
+
+// Tracking mixin
+@mixin jhu-font-tracking($tracking: null, $scale: null, $offset: null) {
+  // Note: While there is no "inherit" value used for modifying this mixin, "inherit" is used when
+  // this mixin is called in jhu-font-family to trigger the application of letter-spacing at the 
+  // time that the font-family is changed, to correctly apply the appropriate --jhu-font-tracking-offset
+  // value for each font family. This is the least worst solution I can come up with for the time being.
+  @if $tracking == normal {
+    --jhu-font-tracking: var(--jhu-font-tracking-normal);
+  } @else if $tracking == loose {
+    --jhu-font-tracking: var(--jhu-font-tracking-loose);
+  } @else if $tracking == tight {
+    --jhu-font-tracking: var(--jhu-font-tracking-tight);
+  } @else if $tracking and $tracking != inherit {
+    --jhu-font-tracking: #{$tracking};
+  }
+
+  @if $scale == none {
+    --jhu-font-tracking-scale: 0;
+  } @else if $scale {
+    --jhu-font-tracking-scale: #{$scale};
+  }
+
+  @if $offset == none {
+    --jhu-font-tracking-offset: 0;
+  } @else if $offset {
+    --jhu-font-tracking-offset: #{$offset};
+  }
+
+
+  @if $tracking or $scale or $offset {
+    // Only dynamically adding additional letter-spacing if font size is below 16px rather than 1rem. 
+    letter-spacing: calc(max(((16px - 1em) * var(--jhu-font-tracking-scale)), 0px) + var(--jhu-font-tracking) + var(--jhu-font-tracking-offset));
+  }
+}
+
+@mixin jhu-font-family($family: null, $tracking: inherit) {
+  @if $family == sans {
+    --jhu-font-size-normalizer: calc(660 / 660);
+    --jhu-font-weight-thin: 125;
+    --jhu-font-weight-extraLight: 233;
+    --jhu-font-weight-light: 342;
+    --jhu-font-weight-regular: 450;
+    --jhu-font-weight-medium: 538;
+    --jhu-font-weight-semiBold: 625;
+    --jhu-font-weight-bold: 717;
+    --jhu-font-weight-extraBold: 808;
+    --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: -0.01em;
+    // --jhu-tracking-normal: -0.01em;
+    // --jhu-tracking-loose: 0.04em;
+    // --jhu-tracking-tight: -0.06em;
+    font-family: var(--jhu-font-family-sans);
+  }
+
+  @else if $family == slab {
+    --jhu-font-size-normalizer: calc(660 / 700);
+    --jhu-font-weight-thin: 300;
+    --jhu-font-weight-extraLight: 300;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 500;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 700;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 900;
+    --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: 0em;
+    // --jhu-tracking-normal: 0em;
+    // --jhu-tracking-loose: 0.05em;
+    // --jhu-tracking-tight: -0.05em;
+    font-family: var(--jhu-font-family-slab);
+  }
+
+  @else if $family == serif {
+    --jhu-font-size-normalizer: calc(670 / 657);
+    --jhu-font-weight-thin: 200;
+    --jhu-font-weight-extraLight: 200;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 400;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 600;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 800;
+    --jhu-font-weight-black: 900;
+    --jhu-font-tracking-scale: calc(1 / 8);
+    --jhu-font-tracking-offset: 0em;
+    // --jhu-tracking-normal: 0em;
+    // --jhu-tracking-loose: 0.05em;
+    // --jhu-tracking-tight: -0.05em;
+    font-family: var(--jhu-font-family-serif);
+  }
+
+  @else if $family == condensed {
+    --jhu-font-size-normalizer: calc(700 / 810);
+    --jhu-font-weight-thin: 200;
+    --jhu-font-weight-extraLight: 200;
+    --jhu-font-weight-light: 300;
+    --jhu-font-weight-regular: 400;
+    --jhu-font-weight-medium: 500;
+    --jhu-font-weight-semiBold: 600;
+    --jhu-font-weight-bold: 700;
+    --jhu-font-weight-extraBold: 700;
+    --jhu-font-weight-black: 700;
+    --jhu-font-tracking-scale: calc(1 / 6);
+    --jhu-font-tracking-offset: -0.03em;
+    // --jhu-tracking-normal: -0.04em;
+    // --jhu-tracking-loose: 0.01em;
+    // --jhu-tracking-tight: -0.09em;
+    @include jhu-font-case($case: uppercase);
+    font-family: var(--jhu-font-family-condensed);
+  }
+
+  @include jhu-font-tracking($tracking);
+}
+
+@mixin jhu-font-weight($weight: null) {
+  @if $weight == thin {
+    font-weight: var(--jhu-font-weight-thin);
+  } @else if $weight == extraLight or $weight == extra-light {
+    font-weight: var(--jhu-font-weight-extraLight);
+  } @else if $weight == light {
+    font-weight: var(--jhu-font-weight-light);
+  } @else if $weight == regular {
+    font-weight: var(--jhu-font-weight-regular);
+  } @else if $weight == medium {
+    font-weight: var(--jhu-font-weight-medium);
+  } @else if $weight == semiBold or $weight == semi-bold {
+    font-weight: var(--jhu-font-weight-semiBold);
+  } @else if $weight == bold {
+    font-weight: var(--jhu-font-weight-bold);
+  } @else if $weight == extraBold or $weight == extra-bold {
+    font-weight: var(--jhu-font-weight-extraBold);
+  } @else if $weight == black {
+    font-weight: var(--jhu-font-weight-black);
+  } @else if $weight {
+    font-weight: $weight;
+  }
+}
+
+@mixin jhu-font($family: null, $weight: null, $tracking: null, $case: null) {
+  @if $family {
+    @if $tracking {
+      @include jhu-font-family($family: $family, $tracking: null);
+    } @else {
+      @include jhu-font-family($family: $family);
+    }
+  }
+  @include jhu-font-weight($weight);
+  @include jhu-font-tracking($tracking);
+  @include jhu-font-case($case);
+}
+
 
 // https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
 @mixin text-contrast($n, $property: color, $flag: null) {

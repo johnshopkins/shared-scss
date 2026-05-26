@@ -3,7 +3,7 @@
 .filters {
   border: solid $light $black;
   display: block;
-  font-weight: 500; // Changed 03-10
+  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
   margin: 0;
   // margin-bottom: ($standard_spacing / 3);
   width: 100%;
@@ -90,8 +90,8 @@
 
     span {
       display: block;
-      font-family: $sans;
-      font-weight: 700; // Changed 03-10
+      @include jhu-font-family($family: sans);
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       padding: #{calc(calc($standard_spacing / 6) / $large)}em #{calc(calc($standard_spacing / 3) / $large)}em;
     }
 
@@ -596,7 +596,7 @@
       color: $white;
       display: none;
       font-size: $large;
-      font-weight: 700; // Changed 03-10
+      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       left: 0;
       line-height: 1em;
       @include opacity(1);

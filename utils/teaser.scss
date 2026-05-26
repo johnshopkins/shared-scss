@@ -1338,30 +1338,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1370,26 +1370,26 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       // font-size: $x-small * $headline-ratio;
       @include font_size(font-size, x-small, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 700; // Changed 03-10
+        font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       // font-size: $xxx-small * $kicker-ratio;
       @include font_size(font-size, xxx-small, regular, $kicker-ratio);
-      letter-spacing: $thin * 0.5;
+      // letter-spacing: $thin * 0.5;
 
       // + h2,
       // + h5 {
@@ -1448,30 +1448,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1480,26 +1480,26 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       // font-size: $small * $headline-ratio;
       @include font_size(font-size, small, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker{
-      font-family: $headline-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       // font-size: $xx-small * $kicker-ratio;
       @include font_size(font-size, xx-small, regular, $kicker-ratio);
-      letter-spacing: $thin * 0.5;
+      // letter-spacing: $thin * 0.5;
 
       // + h2,
       // + h5 {
@@ -1557,30 +1557,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1589,24 +1589,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, regular, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, x-small, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
@@ -1664,30 +1664,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1696,24 +1696,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, small, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
@@ -1771,30 +1771,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1803,24 +1803,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, x-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, small, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
@@ -1874,30 +1874,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -1906,24 +1906,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, xx-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, regular, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
@@ -1982,30 +1982,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -2014,24 +2014,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, xxx-large, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, large, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
@@ -2089,30 +2089,30 @@
   $kicker-ratio: "";
 
   @if ($headline-font-family == slab) {
-    $headline-family: $slab;
+    $headline-family: slab;
     $headline-ratio: $slab-ratio;
   } @else if ($headline-font-family == serif) {
-    $headline-family: $serif;
+    $headline-family: serif;
     $headline-ratio: $serif-ratio;
   } @else if ($headline-font-family == condensed) {
-    $headline-family: $condensed;
+    $headline-family: condensed;
     $headline-ratio: $condensed-ratio;
   } @else {
-    $headline-family: $sans;
+    $headline-family: sans;
     $headline-ratio: $sans-ratio;
   }
 
   @if ($kicker-font-family == slab) {
-    $kicker-family: $slab;
+    $kicker-family: slab;
     $kicker-ratio: $slab-ratio;
   } @else if ($kicker-font-family == serif) {
-    $kicker-family: $serif;
+    $kicker-family: serif;
     $kicker-ratio: $serif-ratio;
   } @else if ($kicker-font-family == condensed) {
-    $kicker-family: $condensed;
+    $kicker-family: condensed;
     $kicker-ratio: $condensed-ratio;
   } @else {
-    $kicker-family: $sans;
+    $kicker-family: sans;
     $kicker-ratio: $sans-ratio;
   }
 
@@ -2121,24 +2121,24 @@
 
     h2,
     h5 {
-      font-family: $headline-family;
+      @include jhu-font-family($family: #{$headline-family});
       @include font_size(font-size, display-2, regular, $headline-ratio);
 
       @if ($headline-font-family == condensed) {
-        font-weight: 800; // Changed 03-10
+        font-weight: var(--jhu-font-weight-bold); // Changed 03-19-2026
         line-height: calc(1 / $headline-ratio);
         text-transform: uppercase;
       } @else {
-        font-weight: 900; // Changed 03-10
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
         line-height: calc(1.2 / $headline-ratio);
         text-transform: none;
       }
     }
 
     .kicker {
-      font-family: $kicker-family;
+      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
       @include font_size(font-size, x-large, regular, $kicker-ratio);
-      letter-spacing: $thin;
+      // letter-spacing: $thin;
 
       // + h2,
       // + h5 {
