@@ -52,14 +52,14 @@
 $white: #FFFFFF;
 $double_black: #000000;
 $black: #31261D;
-$gray5: color.mix($black, $white, (100% * calc(5 / 6)));
-$gray4: color.mix($black, $white, (100% * calc(4 / 6)));
-$gray3: color.mix($black, $white, (100% * calc(3 / 6)));
-$gray2: color.mix($black, $white, (100% * calc(2 / 6)));
-$gray1: color.mix($black, $white, (100% * calc(1 / 6)));
+$gray5: color.mix($black, $white, (100% * calc(5 / 6))); // #534a43 - 1.01 w/ --jhu-grayscale-70
+$gray4: color.mix($black, $white, (100% * calc(4 / 6))); // #766e68 - 1.07:1 (darker than) w/ --jhu-grayscale-50
+$gray3: color.mix($black, $white, (100% * calc(3 / 6))); // #98938e - 1:1 w/ --jhu-grayscale-40
+$gray2: color.mix($black, $white, (100% * calc(2 / 6))); // #bab7b4 - 1.02:1 w/ --jhu-grayscale-30
+$gray1: color.mix($black, $white, (100% * calc(1 / 6))); // #dddbd9 - 1.02:1 w/ --jhu-grayscale-20
 
 $sable: $black;
-$background_gray: color.mix($black, $white, 4.25%); // #f6f6f5
+$background_gray: color.mix($black, $white, 4.25%); // #f6f6f5 - 1.02 w/ --jhu-grayscale-5
 
 // $nursing_stairwell: #D9C89E;    // 7501 C
 $new_custard: #CBA052;           // 7407 C
@@ -121,11 +121,11 @@ $spearmint: #009B77;             // 3278 C
 $copper_petina: #86C8BC;         // 564 C
 // $bright_turquoise: #00AB8E;     // 3268 C
 
-$heritage_blue_5: color.mix($heritage_blue, $white, (100% * calc(5 / 6)));
-$heritage_blue_4: color.mix($heritage_blue, $white, (100% * calc(4 / 6)));
-$heritage_blue_3: color.mix($heritage_blue, $white, (100% * calc(3 / 6)));
-$heritage_blue_2: color.mix($heritage_blue, $white, (100% * calc(2 / 6)));
-$heritage_blue_1: color.mix($heritage_blue, $white, (100% * calc(1 / 6)));
+$heritage_blue_5: color.mix($heritage_blue, $white, (100% * calc(5 / 6))); // #2b508a - 1.11:1 (lighter than) w/ --jhu-blue-70 
+$heritage_blue_4: color.mix($heritage_blue, $white, (100% * calc(4 / 6))); // #5573a1 - 1.06:1 (darker than) w/ --jhu-blue-50
+$heritage_blue_3: color.mix($heritage_blue, $white, (100% * calc(3 / 6))); // #8096b9 - 1.02:1 w/ --jhu-blue-40
+$heritage_blue_2: color.mix($heritage_blue, $white, (100% * calc(2 / 6))); // #aab9d0 - 1.22:1 (lighter than) w/ --jhu-blue-30
+$heritage_blue_1: color.mix($heritage_blue, $white, (100% * calc(1 / 6))); // #d5dce8 - 1.04:1 w/ --jhu-blue-20
 
 $basin: $heritage_blue;
 $stained_glass: $brody_wall;
