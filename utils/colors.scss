@@ -135,11 +135,18 @@ $spearmint: #009B77;             // 3278 C
 $copper_petina: #86C8BC;         // 564 C
 // $bright_turquoise: #00AB8E;     // 3268 C
 
-$heritage_blue_5: color.mix($heritage_blue, $white, (100% * calc(5 / 6))); // #2b508a - 1.11:1 (lighter than) w/ --jhu-blue-70 
-$heritage_blue_4: color.mix($heritage_blue, $white, (100% * calc(4 / 6))); // #5573a1 - 1.06:1 (darker than) w/ --jhu-blue-50
-$heritage_blue_3: color.mix($heritage_blue, $white, (100% * calc(3 / 6))); // #8096b9 - 1.02:1 w/ --jhu-blue-40
-$heritage_blue_2: color.mix($heritage_blue, $white, (100% * calc(2 / 6))); // #aab9d0 - 1.22:1 (lighter than) w/ --jhu-blue-30
-$heritage_blue_1: color.mix($heritage_blue, $white, (100% * calc(1 / 6))); // #d5dce8 - 1.04:1 w/ --jhu-blue-20
+// $heritage_blue_5: color.mix($heritage_blue, $white, (100% * calc(5 / 6))); // #2b508a - 1.11:1 (lighter than) w/ --jhu-blue-70 
+// $heritage_blue_4: color.mix($heritage_blue, $white, (100% * calc(4 / 6))); // #5573a1 - 1.06:1 (darker than) w/ --jhu-blue-50
+// $heritage_blue_3: color.mix($heritage_blue, $white, (100% * calc(3 / 6))); // #8096b9 - 1.02:1 w/ --jhu-blue-40
+// $heritage_blue_2: color.mix($heritage_blue, $white, (100% * calc(2 / 6))); // #aab9d0 - 1.22:1 (lighter than) w/ --jhu-blue-30
+// $heritage_blue_1: color.mix($heritage_blue, $white, (100% * calc(1 / 6))); // #d5dce8 - 1.04:1 w/ --jhu-blue-20
+
+// Keep these blue scale values until other themes have been updated to use the new WDS variable names.
+$heritage_blue_5: $jhu-blue-70;
+$heritage_blue_4: $jhu-blue-50;
+$heritage_blue_3: $jhu-blue-40;
+$heritage_blue_2: $jhu-blue-30;
+$heritage_blue_1: $jhu-blue-20;
 
 $basin: $heritage_blue;
 $stained_glass: $brody_wall;
