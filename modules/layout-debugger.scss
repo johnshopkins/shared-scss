@@ -1,4 +1,5 @@
 @use '../utils/main' as *;
+@use '../variables/main' as *;
 
 // Colors to show breakpoint changes, dev only
 $color_hand: $stained_glass;

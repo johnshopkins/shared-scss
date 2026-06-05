@@ -1,0 +1,13 @@
+/**
+ * variables/main.scss
+ *
+ * Imports all other variables files
+ *
+ * Note: no sass/css should be written directly
+ * in this file, only imports.
+ *
+ */
+
+@forward "../node_modules/@johnshopkins/jhu-wds/src/shared/scss/variables/main";
+
+@forward 'variables';

@@ -1,8 +1,8 @@
+@use '../variables/main' as *;
 @use 'css3' as *;
 @use 'colors' as *;
 @use 'grid' as *;
 @use 'mixins' as *;
-@use 'variables' as *;
 
 @mixin teaser_stacked($style: null, $context: null, $color: null) {
   background-color: transparent;

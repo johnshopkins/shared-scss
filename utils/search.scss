@@ -1,5 +1,5 @@
+@use '../variables/main' as *;
 @use 'mixins' as *;
-@use 'variables' as *;
 
 @mixin search_input($layout, $input-ratio: 8 of 12, $font-size: large) {
   $input-column-width: nth($input-ratio, 1);

@@ -8,6 +8,8 @@
  *
  */
 
+@forward "../node_modules/@johnshopkins/jhu-wds/src/shared/scss/utils/main";
+
 @forward 'breakpoints';
 @forward 'breakpoint-util';
 @forward 'buttons';
@@ -17,6 +19,5 @@
 @forward 'mixins';
 @forward 'search';
 @forward 'teaser';
-@forward 'variables';
 
 @forward 'animations';
