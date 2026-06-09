@@ -514,29 +514,29 @@
 // }
 
 // Font weight mixin
-@mixin jhu-font-weight($weight: null) {
-  @if $weight == thin {
-    font-weight: var(--jhu-font-weight-thin);
-  } @else if $weight == extraLight or $weight == extra-light {
-    font-weight: var(--jhu-font-weight-extraLight);
-  } @else if $weight == light {
-    font-weight: var(--jhu-font-weight-light);
-  } @else if $weight == regular {
-    font-weight: var(--jhu-font-weight-regular);
-  } @else if $weight == medium {
-    font-weight: var(--jhu-font-weight-medium);
-  } @else if $weight == semiBold or $weight == semi-bold {
-    font-weight: var(--jhu-font-weight-semiBold);
-  } @else if $weight == bold {
-    font-weight: var(--jhu-font-weight-bold);
-  } @else if $weight == extraBold or $weight == extra-bold {
-    font-weight: var(--jhu-font-weight-extraBold);
-  } @else if $weight == black {
-    font-weight: var(--jhu-font-weight-black);
-  } @else if $weight {
-    font-weight: $weight;
-  }
-}
+// @mixin jhu-font-weight($weight: null) {
+//   @if $weight == thin {
+//     font-weight: var(--jhu-font-weight-thin);
+//   } @else if $weight == extraLight or $weight == extra-light {
+//     font-weight: var(--jhu-font-weight-extraLight);
+//   } @else if $weight == light {
+//     font-weight: var(--jhu-font-weight-light);
+//   } @else if $weight == regular {
+//     font-weight: var(--jhu-font-weight-regular);
+//   } @else if $weight == medium {
+//     font-weight: var(--jhu-font-weight-medium);
+//   } @else if $weight == semiBold or $weight == semi-bold {
+//     font-weight: var(--jhu-font-weight-semiBold);
+//   } @else if $weight == bold {
+//     font-weight: var(--jhu-font-weight-bold);
+//   } @else if $weight == extraBold or $weight == extra-bold {
+//     font-weight: var(--jhu-font-weight-extraBold);
+//   } @else if $weight == black {
+//     font-weight: var(--jhu-font-weight-black);
+//   } @else if $weight {
+//     font-weight: $weight;
+//   }
+// }
 
 // Font mixin
 // @mixin jhu-font($family: null, $weight: null, $tracking: null, $case: null) {
