@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "../node_modules/@johnshopkins/jhu-wds/src/shared/scss/variables/colors" as *;
-@forward "../node_modules/@johnshopkins/jhu-wds/src/shared/scss/variables/colors";
+@use "../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/variables/colors" as *;
+@forward "../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/variables/colors";
 
 // // Neutral Color Palette
 // $white: #FFFFFF;

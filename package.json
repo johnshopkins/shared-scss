@@ -1,9 +1,0 @@
-{
-  "name": "@johnshopkins/shared-scss",
-  "description": "SCSS that is shared across our projects.",
-  "version": "2.10.1",
-
-  "devDependencies": {
-    "@johnshopkins/jhu-wds": "github:johnshopkins/jhu-wds"
-  }
-}
