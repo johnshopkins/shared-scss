@@ -1,0 +1,126 @@
+@use '../utils/main' as *;
+@use '../variables/main' as *;
+
+:root {
+  --jhu-social-icon-base-size: 1.5em;
+  --jhu-social-icon-icon-size: 1em;
+  --jhu-social-icon-base-color: var(--jhu-blue-70);
+  --jhu-social-icon-contrast-color: var(--jhu-blue-20);
+  --jhu-social-icon-base-color-hover: var(--jhu-blue-50);
+  --jhu-social-icon-contrast-color-hover: var(--jhu-brand-white);
+}
+
+.social-links {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: $light;
+  list-style-type: none;
+
+  li {
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    background-color: transparent !important;
+    border: none;
+    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &:focus,
+    &:hover {
+      background-color: transparent !important;
+      box-shadow: none !important;
+
+      i {
+        color: var(--jhu-social-icon-base-color-hover);
+      }
+
+      .fa-circle,
+      .fa-square { 
+        color: var(--jhu-social-icon-contrast-color-hover); 
+      }
+
+      &.hub,
+      &.linkedin {
+
+        .fa-square { 
+          color: var(--jhu-social-icon-base-color-hover);
+
+          + i {
+            color: var(--jhu-social-icon-contrast-color-hover); 
+          }
+        }
+      }
+    }
+  }
+
+  i {
+    color: var(--jhu-social-icon-base-color);
+    font-size: var(--jhu-social-icon-base-size);
+    margin: 0;
+    transition: color;
+    transition-duration: $run;
+    transition-timing-function: ease-in-out;  
+  }
+
+  .fa-stack {
+    width: var(--jhu-social-icon-base-size);
+    height: var(--jhu-social-icon-base-size);
+    line-height: var(--jhu-social-icon-base-size);
+  }
+
+  .fa-circle,
+  .fa-square { 
+    color: var(--jhu-social-icon-contrast-color); 
+  }
+
+  .hub,
+  .linkedin {
+
+    .fa-square { 
+      color: var(--jhu-social-icon-base-color); 
+
+      + i {
+        font-size: 1em;
+        color: var(--jhu-social-icon-contrast-color);  
+      }
+    }
+  }
+
+  .x {
+    --jhu-social-icon-base-color-hover: var(--jhu-brand-harbor-blue);
+  }
+
+  .facebook {
+    --jhu-social-icon-base-color-hover: var(--jhu-blue-90); 
+  }
+
+  .linkedin {
+    --jhu-social-icon-base-color-hover: var(--jhu-blue-90);
+  }
+
+  .youtube {
+    --jhu-social-icon-base-color-hover: var(--jhu-brand-dark-red);
+  }
+
+  .instagram {
+    --jhu-social-icon-base-color-hover: var(--jhu-brand-purple);
+  }
+
+  .hub {
+    --jhu-social-icon-base-color-hover: var(--jhu-brand-harbor-blue);
+  }
+
+  .link-text {
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
