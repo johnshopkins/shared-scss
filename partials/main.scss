@@ -8,8 +8,12 @@
  *
  */
 @forward '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/partials/defaults';
+@forward '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/partials/fonts';
 @forward '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/partials/spacing';
+@forward '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/partials/stroke';
+@forward '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/partials/typography';
 @forward '../../../../node_modules/@johnshopkins/jhu-wds/src/components/List/list';
+@forward '../../../../node_modules/@johnshopkins/jhu-wds/src/components/Table/table';
 
 @forward 'normalize';
 @forward 'grid';
