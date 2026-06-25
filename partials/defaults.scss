@@ -2,14 +2,6 @@
 @use '../variables/main' as *;
 
 :root {
-  --jhu-font-scale: 1.2;
-  --jhu-font-size-normalizer: 1;
-
-  // Font family variables
-  #{--jhu-font-family-sans}: $sans;
-  #{--jhu-font-family-slab}: $slab;
-  #{--jhu-font-family-serif}: $serif;
-  #{--jhu-font-family-condensed}: $condensed;
 
   // Default font weight variables
   --jhu-font-weight-thin: 100;
