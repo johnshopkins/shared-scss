@@ -515,82 +515,8 @@ em {
   }
 }
 
-dl {
-  @include jhu-font-family($family: sans);
-
-  dd {
-    margin-left: 0.5em;
-
-    + dd {
-      margin-top: 0.25em;
-    }
-
-    + dt {
-      margin-top: #{calc(0.5em / $x-small)}em;
-    }
-  }
-
-  dt {
-    font-size: $x-small;
-    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-
-    + dd {
-      margin-top: 0;
-    }
-
-    + dt {
-      margin-top: #{calc(0.25em / $x-small)}em;
-    }
-  }
-}
-
 iframe {
   max-width: 100%;
-}
-
-ul,
-ol {
-  // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
-  padding: 0;
-
-  // &:first-child { margin-top: 0; }
-  // &:last-child { margin-bottom: 0; }
-
-  li {
-    // margin-bottom: ($standard_spacing / 12);
-    //
-    // &:first-child { margin-top: 0 !important; }
-    // &:last-child { margin-bottom: 0 !important; }
-
-    &::marker {
-      color: $sparta;
-    }
-
-    + li,
-    > ul,
-    > ol {
-      margin-top: calc($standard_spacing / 12);
-    }
-  }
-}
-
-ol {
-
-  ol {
-    list-style-type: upper-alpha;
-
-    ol {
-      list-style: lower-roman;
-
-      ol {
-        list-style-type: lower-alpha;
-
-        ol {
-          list-style-type: initial;
-        }
-      }
-    }
-  }
 }
 
 figure,
@@ -637,6 +563,26 @@ figure {
     height: auto;
     width: 100%;
   }
+}
+
+// Note: Using left property to indent the lists allows the indentation to properly
+// display when the list is wrapping around a left-floated element. Using margin or
+// padding does not achieve the same result.
+dd,
+ol,
+ul {
+  left: var(--jhu-list-indent);
+  position: relative;
+  width: calc(100% - var(--jhu-list-indent));
+}
+
+dd {
+  margin-inline-start: 0;
+}
+
+ol,
+ul {
+  padding-inline-start: 0;
 }
 
 .wp-caption {
