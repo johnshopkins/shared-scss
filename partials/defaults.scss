@@ -791,20 +791,9 @@ ul {
   }
 }
 
-table {
-  --jhu-table-caption-base-color: var(--jhu-brand-double-black);
-  --jhu-table-caption-contrast-color: var(--jhu-brand-white);
-
-  --jhu-table-heading-base-color: var(--jhu-brand-sable);
-  --jhu-table-heading-contrast-color: var(--jhu-brand-white);
-  --jhu-table-heading-border-color: var(--jhu-grayscale-60);
-
-  --jhu-table-cell-border-color: var(--jhu-grayscale-20);
-
-  --jhu-table-cell-alternate-base-color: var(--jhu-grayscale-5);
-  --jhu-table-cell-alternate-border-color: var(--jhu-grayscale-20);
-
-  --jhu-table-outline-color: var(--jhu-brand-double-black);
+table,
+.wp-block-table table {
+  @include jhu-table($theme: gray);
 }
 
 .page-container {
