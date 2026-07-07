@@ -193,6 +193,11 @@
       line-height: 140%;
       font-style: italic;
     }
+
+    .contact,
+    .titles {
+      --jhu-list-indent: 0;
+    }
   }
 
   &.event {
