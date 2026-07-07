@@ -11,40 +11,13 @@ button {
   @include button_spacing();
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button,
-.wp-block-button {
-
-  // &:not(.outline, .is-style-outline, .search-box button) {
-    
-  //   &,
-  //   .wp-block-button__link {
-  //     border-width: 0 !important;
-  //   }
-  // }
-}
-
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button),
 .wp-block-button .wp-block-button__link {
   @include button_defaults();
   @include button_radius(square);
   @include button_size(medium);
   @include button_style(solid);
   text-decoration: none;
-
-  // i,
-  // [lang="icon"] {
-  //  font-family: "Font Awesome 6 Free";
-  //  font-style: normal;
-  //  font-weight: normal;
-  // }
 
   img {
     display: inline-block;
@@ -58,116 +31,58 @@ input[type="reset"],
   }
 }
 
-// button,
-// input[type="button"],
-// input[type="submit"],
-// input[type="reset"],
-// .button,
-// .wp-block-button__link{
-//   @include button_style(solid);
-// }
-
-button.outline,
-input[type="button"].outline,
-input[type="submit"].outline,
-input[type="reset"].outline,
-.button.outline,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).outline,
 .wp-block-button.is-style-outline .wp-block-button__link{
   @include button_style(outline);
-
-  // &.has-text-color {
-  //   border-color: unset !important;
-  // }
 }
 
-button.rounded,
-input[type="button"].rounded,
-input[type="submit"].rounded,
-input[type="reset"].rounded,
-.button.rounded,
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).rounded,
 .wp-block-button.is-style-rounded .wp-block-button__link{
   @include button_radius(round);
 }
 
-button.xxx-small,
-input[type="button"].xxx-small,
-input[type="submit"].xxx-small,
-input[type="reset"].xxx-small,
-.button.xxx-small,
-.wp-block-button.has-xxx-small-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xxx-small,
+.wp-block-button .wp-block-button__link.has-xxx-small-font-size {
   @include button_size(xxx-small);
 }
 
-button.xx-small,
-input[type="button"].xx-small,
-input[type="submit"].xx-small,
-input[type="reset"].xx-small,
-.button.xx-small,
-.wp-block-button.has-xx-small-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xx-small,
+.wp-block-button .wp-block-button__link.has-xx-small-font-size {
   @include button_size(xx-small);
 }
 
-button.x-small,
-input[type="button"].x-small,
-input[type="submit"].x-small,
-input[type="reset"].x-small,
-.button.x-small,
-.wp-block-button.has-x-small-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).x-small,
+.wp-block-button .wp-block-button__link.has-x-small-font-size {
   @include button_size(x-small);
 }
 
-button.small,
-input[type="button"].small,
-input[type="submit"].small,
-input[type="reset"].small,
-.button.small,
-.wp-block-button.has-small-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).small,
+.wp-block-button .wp-block-button__link.has-small-font-size {
   @include button_size(small);
 }
 
-button.medium,
-input[type="button"].medium,
-input[type="submit"].medium,
-input[type="reset"].medium,
-.button.medium,
-.wp-block-button.has-medium-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).medium,
+.wp-block-button .wp-block-button__link.has-medium-font-size {
   @include button_size(medium);
 }
 
-
-button.large,
-input[type="button"].large,
-input[type="submit"].large,
-input[type="reset"].large,
-.button.large,
-.wp-block-button.has-large-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).large,
+.wp-block-button .wp-block-button__link.has-large-font-size {
   @include button_size(large);
 }
 
-button.x-large,
-input[type="button"].x-large,
-input[type="submit"].x-large,
-input[type="reset"].x-large,
-.button.x-large,
-.wp-block-button.has-x-large-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).x-large,
+.wp-block-button .wp-block-button__link.has-x-large-font-size {
   @include button_size(x-large);
 }
 
-button.xx-large,
-input[type="button"].xx-large,
-input[type="submit"].xx-large,
-input[type="reset"].xx-large,
-.button.xx-large,
-.wp-block-button.has-xx-large-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xx-large,
+.wp-block-button .wp-block-button__link.has-xx-large-font-size {
   @include button_size(xx-large);
 }
 
-button.xxx-large,
-input[type="button"].xxx-large,
-input[type="submit"].xxx-large,
-input[type="reset"].xxx-large,
-.button.xxx-large,
-.wp-block-button.has-xxx-large-font-size .wp-block-button__link {
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xxx-large,
+.wp-block-button .wp-block-button__link.has-xxx-large-font-size {
   @include button_size(xxx-large);
 }
 
