@@ -11,7 +11,10 @@ button {
   @include button_spacing();
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button),
+
+button, 
+input:is([type="button"], [type="submit"], [type="reset"]), 
+.button,
 .wp-block-button .wp-block-button__link {
   @include button_defaults();
   @include button_radius(square);
@@ -31,57 +34,79 @@ button {
   }
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).outline,
+button.outline, 
+input:is([type="button"], [type="submit"], [type="reset"]).outline, 
+.button.outline,
 .wp-block-button.is-style-outline .wp-block-button__link{
   @include button_style(outline);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).rounded,
+button.rounded, 
+input:is([type="button"], [type="submit"], [type="reset"]).rounded, 
+.button.rounded,
 .wp-block-button.is-style-rounded .wp-block-button__link{
   @include button_radius(round);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xxx-small,
+button.xxx-small, 
+input:is([type="button"], [type="submit"], [type="reset"]).xxx-small, 
+.button.xxx-small,
 .wp-block-button .wp-block-button__link.has-xxx-small-font-size {
   @include button_size(xxx-small);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xx-small,
+button.xx-small, 
+input:is([type="button"], [type="submit"], [type="reset"]).xx-small, 
+.button.xx-small,
 .wp-block-button .wp-block-button__link.has-xx-small-font-size {
   @include button_size(xx-small);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).x-small,
+button.x-small, 
+input:is([type="button"], [type="submit"], [type="reset"]).x-small, 
+.button.x-small,
 .wp-block-button .wp-block-button__link.has-x-small-font-size {
   @include button_size(x-small);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).small,
+button.small, 
+input:is([type="button"], [type="submit"], [type="reset"]).small, 
+.button.small,
 .wp-block-button .wp-block-button__link.has-small-font-size {
   @include button_size(small);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).medium,
+button.medium, 
+input:is([type="button"], [type="submit"], [type="reset"]).medium, 
+.button.medium,
 .wp-block-button .wp-block-button__link.has-medium-font-size {
   @include button_size(medium);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).large,
+button.large, 
+input:is([type="button"], [type="submit"], [type="reset"]).large, 
+.button.large,
 .wp-block-button .wp-block-button__link.has-large-font-size {
   @include button_size(large);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).x-large,
+button.x-large, 
+input:is([type="button"], [type="submit"], [type="reset"]).x-large, 
+.button.x-large,
 .wp-block-button .wp-block-button__link.has-x-large-font-size {
   @include button_size(x-large);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xx-large,
+button.xx-large, 
+input:is([type="button"], [type="submit"], [type="reset"]).xx-large, 
+.button.xx-large,
 .wp-block-button .wp-block-button__link.has-xx-large-font-size {
   @include button_size(xx-large);
 }
 
-:is(button, input[type="button"], input[type="submit"], input[type="reset"], .button).xxx-large,
+button.xxx-large, 
+input:is([type="button"], [type="submit"], [type="reset"]).xxx-large, 
+.button.xxx-large,
 .wp-block-button .wp-block-button__link.has-xxx-large-font-size {
   @include button_size(xxx-large);
 }
@@ -272,6 +297,7 @@ $colors: (
   display: flex;
   flex-wrap: wrap;
   gap: calc($standard_spacing / 6);
+  line-height: inherit;
 
   .button,
   .wp-block-button {
