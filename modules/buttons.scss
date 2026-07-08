@@ -51,63 +51,72 @@ input:is([type="button"], [type="submit"], [type="reset"]).rounded,
 button.xxx-small, 
 input:is([type="button"], [type="submit"], [type="reset"]).xxx-small, 
 .button.xxx-small,
-.wp-block-button .wp-block-button__link.has-xxx-small-font-size {
+.wp-block-button .wp-block-button__link.has-xxx-small-font-size,
+.wp-block-button.has-xxx-small-font-size .wp-block-button__link {
   @include button_size(xxx-small);
 }
 
 button.xx-small, 
 input:is([type="button"], [type="submit"], [type="reset"]).xx-small, 
 .button.xx-small,
-.wp-block-button .wp-block-button__link.has-xx-small-font-size {
+.wp-block-button .wp-block-button__link.has-xx-small-font-size,
+.wp-block-button.has-xx-small-font-size .wp-block-button__link {
   @include button_size(xx-small);
 }
 
 button.x-small, 
 input:is([type="button"], [type="submit"], [type="reset"]).x-small, 
 .button.x-small,
-.wp-block-button .wp-block-button__link.has-x-small-font-size {
+.wp-block-button .wp-block-button__link.has-x-small-font-size,
+.wp-block-button.has-x-small-font-size .wp-block-button__link {
   @include button_size(x-small);
 }
 
 button.small, 
 input:is([type="button"], [type="submit"], [type="reset"]).small, 
 .button.small,
-.wp-block-button .wp-block-button__link.has-small-font-size {
+.wp-block-button .wp-block-button__link.has-small-font-size,
+.wp-block-button.has-small-font-size .wp-block-button__link {
   @include button_size(small);
 }
 
 button.medium, 
 input:is([type="button"], [type="submit"], [type="reset"]).medium, 
 .button.medium,
-.wp-block-button .wp-block-button__link.has-medium-font-size {
+.wp-block-button .wp-block-button__link.has-medium-font-size,
+.wp-block-button.has-medium-font-size .wp-block-button__link {
   @include button_size(medium);
 }
 
 button.large, 
 input:is([type="button"], [type="submit"], [type="reset"]).large, 
 .button.large,
-.wp-block-button .wp-block-button__link.has-large-font-size {
+.wp-block-button .wp-block-button__link.has-large-font-size,
+.wp-block-button.has-large-font-size .wp-block-button__link {
   @include button_size(large);
 }
 
 button.x-large, 
 input:is([type="button"], [type="submit"], [type="reset"]).x-large, 
 .button.x-large,
-.wp-block-button .wp-block-button__link.has-x-large-font-size {
+.wp-block-button .wp-block-button__link.has-x-large-font-size,
+.wp-block-button.has-x-large-font-size .wp-block-button__link {
   @include button_size(x-large);
 }
 
 button.xx-large, 
 input:is([type="button"], [type="submit"], [type="reset"]).xx-large, 
 .button.xx-large,
-.wp-block-button .wp-block-button__link.has-xx-large-font-size {
+.wp-block-button .wp-block-button__link.has-xx-large-font-size,
+.wp-block-button.has-xx-large-font-size .wp-block-button__link {
   @include button_size(xx-large);
 }
 
 button.xxx-large, 
 input:is([type="button"], [type="submit"], [type="reset"]).xxx-large, 
 .button.xxx-large,
-.wp-block-button .wp-block-button__link.has-xxx-large-font-size {
+.wp-block-button .wp-block-button__link.has-xxx-large-font-size,
+.wp-block-button.has-xxx-large-font-size .wp-block-button__link {
   @include button_size(xxx-large);
 }
 
