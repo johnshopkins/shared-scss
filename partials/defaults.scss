@@ -270,7 +270,7 @@ p {
 
   &.has-xxx-small-font-size,
   &.has-xx-small-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
@@ -281,7 +281,7 @@ p {
 
 
   &.has-x-small-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
 
     b,
@@ -315,7 +315,7 @@ p {
   }
 
   &.has-medium-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     @include font_size(font-size, large, regular, sans, !important);
     font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
     line-height: 1.3;
@@ -328,7 +328,7 @@ p {
 
   &.has-large-font-size,
   &.has-x-large-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
@@ -345,7 +345,7 @@ p {
 
   &.has-xx-large-font-size,
   &.has-xxx-large-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026;
 
     b,
