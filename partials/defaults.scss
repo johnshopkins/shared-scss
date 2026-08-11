@@ -671,7 +671,7 @@ figure {
   color: $sparta;
   @include jhu-font($family: sans, $tracking: inherit);
   font-size: 1em; // @Eric - Temp fix, remove after updating default teaser styles in jhu-wds. 
-  @include jhu-font-tracking($tracking: calc($thin * 0.75), $scale: calc(-1 / 8));
+  @include jhu-font-tracking($tracking: calc($thin * 0.75));
   font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
   // letter-spacing: $thin;
   // line-height: 90%;
