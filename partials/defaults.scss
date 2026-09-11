@@ -560,21 +560,30 @@ figure {
 // Note: Using left property to indent the lists allows the indentation to properly
 // display when the list is wrapping around a left-floated element. Using margin or
 // padding does not achieve the same result.
-dd,
-ol,
-ul {
-  left: var(--jhu-list-indent);
-  position: relative;
-  width: calc(100% - var(--jhu-list-indent));
-}
+.alignleft, 
+.align-left {
 
-dd {
-  margin-inline-start: 0;
-}
+  &,
+  + *:not(.inline),
+  + *:not(.inline) + *:not(.inline) {
 
-ol,
-ul {
-  padding-inline-start: 0;
+    + dl dd,
+    + ol,
+    + ul {
+      left: var(--jhu-list-indent);
+      position: relative;
+      width: calc(100% - var(--jhu-list-indent));
+    }
+
+    + dl dd {
+      margin-inline-start: 0;
+    }
+
+    + ol,
+    + ul {
+      padding-inline-start: 0;
+    }
+  }
 }
 
 .wp-caption {
