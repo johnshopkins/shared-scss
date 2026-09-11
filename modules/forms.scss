@@ -14,7 +14,7 @@ form + * {
   margin-top: 0;
 }
 
-form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
+form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup *)) {
 
 	fieldset {
     border: none;
@@ -442,92 +442,100 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 
 // email signup form
 #mc_embed_signup {
-  background: transparent;
 
-  form {
-    padding: 0;
+  &:where(style + *) {
+    display: flow-root;
+    max-width: 600px;
+  }
 
-    label {
-      width: 100%;
-      margin-right: 0;
-      overflow: visible;
+  &:where(:not(style + *)) {
+    background: transparent;
 
-      .asterisk {
-        display: inline-block;
-        line-height: 0.5;
-        transform: scale(2);  
+    form {
+      padding: 0;
+
+      label {
+        width: 100%;
+        margin-right: 0;
+        overflow: visible;
+
+        .asterisk {
+          display: inline-block;
+          line-height: 0.5;
+          transform: scale(2);  
+        }
       }
-    }
 
-    input[not=".submit"] {
-      color: $black;
-
-      &.mce_inline_error {
-        border-color: $newer_hut_glass;
-        color: $newer_hut_glass;
-      }
-    }
-
-    div {
-
-      &.mce_inline_error {
-        padding: #{calc(calc($standard_spacing / 12) / $small)}em #{calc(($standard_spacing * 0.125) / $small)}em;
-        background-color: $newer_hut_glass;
-        font-size: $small;
-        font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-      }
-    }
-
-    .asterisk {
-      color: $newer_hut_glass;
-      font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
-    }
-
-    .indicates-required,
-    .mce_inline_error {
-      @include jhu-font-family($family: sans);
-    }
-
-    .indicates-required {
-      margin: #{calc(calc($standard_spacing / 3) / $small)}em 0 #{calc(calc($standard_spacing / 12) / $small)}em 0;
-      font-size: $small;
-      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
-      text-align: right;
-      color: $gray4;
-
-      &:first-child { margin-top: 0; }
-
-      + .mc-field-group { margin-top: 0; }
-    }
-
-    .mc-field-group {
-      // matches label margin-top
-      margin-top: calc($standard_spacing / 3);
-
-      &:first-child { margin-top: 0; }
-    }
-
-    #mce-responses {
-      @include jhu-font-family($family: sans);
-      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
-      text-align: center;
-
-      .response {
-        border: solid #{calc($light / $small)}em $black;
-        padding: #{calc(calc($standard_spacing / 6) / $small)}em;
-        font-size: $small;
+      input[not=".submit"] {
         color: $black;
 
-        &#mce-error-response { border-color: $newer_hut_glass; }
-        &#mce-success-response { border-color: $oak_leaves; }
+        &.mce_inline_error {
+          border-color: $newer_hut_glass;
+          color: $newer_hut_glass;
+        }
       }
-    }
 
-    .clear {
-      margin-top: calc($standard_spacing / 3);
-      text-align: center;
+      div {
 
-      &:first-child { margin-top: 0; }
+        &.mce_inline_error {
+          padding: #{calc(calc($standard_spacing / 12) / $small)}em #{calc(($standard_spacing * 0.125) / $small)}em;
+          background-color: $newer_hut_glass;
+          font-size: $small;
+          font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
+        }
+      }
+
+      .asterisk {
+        color: $newer_hut_glass;
+        font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026
+      }
+
+      .indicates-required,
+      .mce_inline_error {
+        @include jhu-font-family($family: sans);
+      }
+
+      .indicates-required {
+        margin: #{calc(calc($standard_spacing / 3) / $small)}em 0 #{calc(calc($standard_spacing / 12) / $small)}em 0;
+        font-size: $small;
+        font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
+        text-align: right;
+        color: $gray4;
+
+        &:first-child { margin-top: 0; }
+
+        + .mc-field-group { margin-top: 0; }
+      }
+
+      .mc-field-group {
+        // matches label margin-top
+        margin-top: calc($standard_spacing / 3);
+
+        &:first-child { margin-top: 0; }
+      }
+
+      #mce-responses {
+        @include jhu-font-family($family: sans);
+        font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
+        text-align: center;
+
+        .response {
+          border: solid #{calc($light / $small)}em $black;
+          padding: #{calc(calc($standard_spacing / 6) / $small)}em;
+          font-size: $small;
+          color: $black;
+
+          &#mce-error-response { border-color: $newer_hut_glass; }
+          &#mce-success-response { border-color: $oak_leaves; }
+        }
+      }
+
+      .clear {
+        margin-top: calc($standard_spacing / 3);
+        text-align: center;
+
+        &:first-child { margin-top: 0; }
+      }
     }
   }
 }
@@ -581,7 +589,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 
 .sidebar {
 
-  form {
+  form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup *)) {
 
     label {
       @include responsive_ems(margin-top, ($standard_spacing * 0.25), regular '/' x-small);
@@ -616,7 +624,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
   }
 
   // email signup form
-  #mc_embed_signup {
+  #mc_embed_signup:where(:not(style + *)) {
 
     form {
 
@@ -700,7 +708,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools)) {
 .no-js,
 .no-touchevents {
 
-  form {
+  form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup *)) {
 
     input {
 
