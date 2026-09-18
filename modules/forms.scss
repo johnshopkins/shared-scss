@@ -98,11 +98,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
     }
 	}
 
-	input[type='email'],
-  input[type='tel'],
-  input[type='text'],
-  input[type='date'],
-  input[type='time'],
+	input:is([type='date'], [type='email'], [type='number'], [type='tel'], [type='text'], [type='time'], [type='url']),
   select,
   textarea,
   .faq_question {
@@ -114,25 +110,18 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
     min-height: 2em + ($light * 2);
     width: 100%;
 
-		&[type='checkbox'],
-		&[type='radio'],
-		&[type='button'],
-		&[type='submit'] {
+		&:is([type='checkbox'], [type='radio'], [type='button'], [type='submit']) {
       width: auto;
     }
 	}
 
-  input[type='email'],
-  input[type='text'],
-  input[type='date'],
-  input[type='time'],
+  input:is([type='email'], [type='text'], [type='date'], [type='time']),
   textarea,
   .faq_question {
     padding: 0.5em;
   }
 
-  input[type="text"],
-  input[type="email"],
+  input:is([type="text"], [type="email"]),
   select {
     min-height: 2em + ($light * 2);
   }
@@ -148,8 +137,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
     }
   }
 
-  input[type="button"],
-  input[type="submit"],
+  input:is([type="button"], [type="submit"]),
   button {
     height: auto;
 
@@ -353,8 +341,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
     &.first {
       border-top: solid $light $black;
 
-      input[type="checkbox"],
-      input[type="radio"] {
+      input:is([type="checkbox"], [type="radio"]) {
         // top: 0.125em;
       }
     }
@@ -606,10 +593,7 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
       }
   	}
 
-    input[type='email'],
-    input[type='text'],
-    input[type='date'],
-    input[type='time'],
+    input:is([type='email'], [type='text'], [type='date'], [type='time']),
     select,
     textarea {
       padding: calc($standard_spacing / 12) ($standard_spacing * 0.125);
