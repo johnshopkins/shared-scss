@@ -1,4 +1,5 @@
 @use '../utils/main' as *;
+@use '../variables/main' as *;
 
 :root {
   @include teaser_color(default);
@@ -281,6 +282,7 @@
         background-color: transparent;
         border: none;
         @include box-shadow(none);
+        line-height: inherit;
         text-decoration: none;
       }
 
@@ -402,6 +404,11 @@
       font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       line-height: 140%;
       font-style: italic;
+    }
+
+    .contact,
+    .titles {
+      --jhu-list-indent: 0;
     }
   }
 

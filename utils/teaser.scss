@@ -1,8 +1,8 @@
+@use '../../../../node_modules/@johnshopkins/jhu-wds/src/shared/scss/utils/main' as *;
+@use '../variables/main' as *;
 @use 'css3' as *;
-@use 'colors' as *;
 @use 'grid' as *;
 @use 'mixins' as *;
-@use 'variables' as *;
 
 @mixin teaser_color(
   $color-scheme: default,
@@ -1386,7 +1386,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       // font-size: $xxx-small * $kicker-ratio;
       @include font_size(font-size, xxx-small, regular, $kicker-ratio);
       // letter-spacing: $thin * 0.5;
@@ -1496,7 +1496,7 @@
     }
 
     .kicker{
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       // font-size: $xx-small * $kicker-ratio;
       @include font_size(font-size, xx-small, regular, $kicker-ratio);
       // letter-spacing: $thin * 0.5;
@@ -1604,7 +1604,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, x-small, regular, $kicker-ratio);
       // letter-spacing: $thin;
 
@@ -1711,7 +1711,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, small, regular, $kicker-ratio);
       // letter-spacing: $thin;
 
@@ -1818,7 +1818,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, small, regular, $kicker-ratio);
       // letter-spacing: $thin;
 
@@ -1921,7 +1921,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, regular, regular, $kicker-ratio);
       // letter-spacing: $thin;
 
@@ -2029,7 +2029,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, large, regular, $kicker-ratio);
       // letter-spacing: $thin;
 
@@ -2136,7 +2136,7 @@
     }
 
     .kicker {
-      @include jhu-font($family: #{$kicker-family}, $tracking: inherit);
+      @include jhu-font($family: #{$kicker-family});
       @include font_size(font-size, x-large, regular, $kicker-ratio);
       // letter-spacing: $thin;
 

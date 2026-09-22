@@ -1,14 +1,7 @@
 @use '../utils/main' as *;
+@use '../variables/main' as *;
 
 :root {
-  --jhu-font-scale: 1.2;
-  --jhu-font-size-normalizer: 1;
-
-  // Font family variables
-  #{--jhu-font-family-sans}: $sans;
-  #{--jhu-font-family-slab}: $slab;
-  #{--jhu-font-family-serif}: $serif;
-  #{--jhu-font-family-condensed}: $condensed;
 
   // Default font weight variables
   --jhu-font-weight-thin: 100;
@@ -277,7 +270,7 @@ p {
 
   &.has-xxx-small-font-size,
   &.has-xx-small-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
@@ -288,7 +281,7 @@ p {
 
 
   &.has-x-small-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
 
     b,
@@ -322,7 +315,7 @@ p {
   }
 
   &.has-medium-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     @include font_size(font-size, large, regular, sans, !important);
     font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
     line-height: 1.3;
@@ -335,7 +328,7 @@ p {
 
   &.has-large-font-size,
   &.has-x-large-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
 
     b,
@@ -352,7 +345,7 @@ p {
 
   &.has-xx-large-font-size,
   &.has-xxx-large-font-size {
-    @include jhu-font-family($family: sans);
+    // @include jhu-font-family($family: sans);
     font-weight: var(--jhu-font-weight-extraBold); // Changed 03-19-2026;
 
     b,
@@ -514,82 +507,8 @@ em {
   }
 }
 
-dl {
-  @include jhu-font-family($family: sans);
-
-  dd {
-    margin-left: 0.5em;
-
-    + dd {
-      margin-top: 0.25em;
-    }
-
-    + dt {
-      margin-top: #{calc(0.5em / $x-small)}em;
-    }
-  }
-
-  dt {
-    font-size: $x-small;
-    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-
-    + dd {
-      margin-top: 0;
-    }
-
-    + dt {
-      margin-top: #{calc(0.25em / $x-small)}em;
-    }
-  }
-}
-
 iframe {
   max-width: 100%;
-}
-
-ul,
-ol {
-  // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
-  padding: 0;
-
-  // &:first-child { margin-top: 0; }
-  // &:last-child { margin-bottom: 0; }
-
-  li {
-    // margin-bottom: ($standard_spacing / 12);
-    //
-    // &:first-child { margin-top: 0 !important; }
-    // &:last-child { margin-bottom: 0 !important; }
-
-    &::marker {
-      color: $sparta;
-    }
-
-    + li,
-    > ul,
-    > ol {
-      margin-top: calc($standard_spacing / 12);
-    }
-  }
-}
-
-ol {
-
-  ol {
-    list-style-type: upper-alpha;
-
-    ol {
-      list-style: lower-roman;
-
-      ol {
-        list-style-type: lower-alpha;
-
-        ol {
-          list-style-type: initial;
-        }
-      }
-    }
-  }
 }
 
 figure,
@@ -635,6 +554,35 @@ figure {
   img {
     height: auto;
     width: 100%;
+  }
+}
+
+// Note: Using left property to indent the lists allows the indentation to properly
+// display when the list is wrapping around a left-floated element. Using margin or
+// padding does not achieve the same result.
+.alignleft, 
+.align-left {
+
+  &,
+  + *:not(.inline),
+  + *:not(.inline) + *:not(.inline) {
+
+    + dl dd,
+    + ol,
+    + ul {
+      left: var(--jhu-list-indent);
+      position: relative;
+      width: calc(100% - var(--jhu-list-indent));
+    }
+
+    + dl dd {
+      margin-inline-start: 0;
+    }
+
+    + ol,
+    + ul {
+      padding-inline-start: 0;
+    }
   }
 }
 
@@ -720,8 +668,7 @@ figure {
 }
 
 .kicker {
-  @include jhu-font($family: sans, $tracking: inherit);
-  @include jhu-font-tracking($tracking: calc($thin * 0.75), $scale: calc(-1 / 8));
+  @include jhu-font($family: sans);
   color: var(--teaser-kicker-color);
   font-size: 1em; // @Eric - Temp fix, remove after updating default teaser styles in jhu-wds. 
   font-weight: var(--jhu-font-weight-medium); // Changed 03-19-2026
@@ -844,84 +791,9 @@ figure {
   }
 }
 
-* {
-
-  + table {
-    margin-top: calc($standard_spacing / 6);
-  }
-}
-
-table {
-  // margin: ($standard_spacing / 12) 0 ($standard_spacing / 3) 0;
-  @include jhu-font-family($family: sans);
-  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
-  outline: $table_outline;
-  width: 100%;
-
-  // &:first-child { margin-top: 0; }
-  // &:last-child { margin-bottom: 0; }
-
-  caption {
-    padding: calc($standard_spacing / 6); // math for font-size
-    background-color: $black;
-    font-size: $regular;
-    font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-    color: $white;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  tr {
-    border-bottom: $table_cell_border;
-
-    &:last-child {
-      border-bottom: 0;
-    }
-
-    th,
-    td {
-      border-right: $table_cell_border;
-      overflow: hidden;
-
-      b,
-      strong {
-        color: inherit;
-      }
-
-      &:focus-within {
-        overflow: visible;
-      }
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    th {
-      background-color: $black;
-      // border-color: $gray4;
-      color: $white;
-      font-size: $x-small;
-      font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
-      padding: #{calc(calc($standard_spacing / 6) / $x-small)}em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    td {
-      font-size: $small;
-      padding: #{calc(calc($standard_spacing / 6) / $small)}em;
-      width: auto;
-    }
-  }
-
-  &.has-fixed-layout {
-    table-layout: fixed;
-  }
-
-  + * {
-    margin-top: calc($standard_spacing / 3);
-  }
+table,
+.wp-block-table table {
+  @include jhu-table($theme: gray);
 }
 
 .page-container {

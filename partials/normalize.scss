@@ -1,4 +1,5 @@
 @use '../utils/main' as *;
+@use '../variables/main' as *;
 
 /**
  * Prevent iOS text size adjust after orientation change, without disabling
