@@ -14,7 +14,8 @@ button {
 
 
 button, 
-input:is([type="button"], [type="submit"], [type="reset"]), 
+input:is([type="button"], [type="submit"], [type="reset"]),
+input::file-selector-button,
 .button,
 .wp-block-button .wp-block-button__link {
   @include button_defaults();

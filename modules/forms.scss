@@ -128,13 +128,17 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
 
   input {
 
-    &[type="submit"] {
-      @include button(large, rounded, $magnolia_leaves, solid);
+    &::file-selector-button {
+      @include button($size: x-small, $corners: round, $color: $black);
     }
 
     &.required {
       padding-right: ($standard_spacing * 0.5);
     }
+  }
+
+  :is(button, input)[type="submit"] {
+    @include button($size: medium, $corners: round, $color: $magnolia_leaves, $style: solid);
   }
 
   input:is([type="button"], [type="submit"]),
@@ -406,6 +410,98 @@ form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup
     font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
   }
 }
+
+.gform_wrapper {
+
+  &.gravity-theme {
+
+    .gform_validation_errors {
+      --jhu-marker-color: currentColor;
+
+      > ol li a:not(:focus, :hover) {
+        background-color: transparent;
+      }
+    }
+
+    .ginput_container {
+
+      > select:not([multiple]) {
+        appearance: none;
+        line-height: normal;
+        padding-right: 1rem;
+      }
+
+      &:has(> select:not([multiple])) {
+        position: relative;
+        z-index: $stack-normal;
+
+        &:after {
+          align-items: center;
+          content: "";
+          display: flex;
+          font-family: "Font Awesome 6 Free" !important;
+          font-size: 1rem;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 900;
+          height: 100%;
+          pointer-events: none;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          right: 0;
+          width: 1em;
+          z-index: calc($stack-positioned);
+        }
+      }
+    }
+
+    .ginput_preview {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+
+    .gfield_fileupload_filename {
+      background: var(--jhu-brand-white);
+      padding: 0.25em 0.5em;
+      @include jhu-font($size: sm, $weight: semi-bold);
+    }
+
+    .gfield_fileupload_percent {
+      color: var(--jhu-gray-60);
+      @include jhu-font($size: xs);
+    }
+
+    :is(.gfield--datepicker-custom-icon, .gfield--datepicker-default-icon) .ginput_container_date button {
+      margin-top: 0;
+    }
+
+    .gform-datepicker-calendar {
+
+      table.calendar th span {
+        color: unset;
+      }
+
+      .nav:is(.next, .prev) {
+        vertical-align: middle;
+      }
+    }
+
+    .gform_delete_file {
+      // @include button($size: xxx-small, $corners: round, $color: $black);
+      align-items: center;
+      background: unset;
+      color: unset;
+      display: inline-flex;;
+      line-height: unset;
+      margin: unset;
+      padding: unset;
+    }
+  }
+}
+
 
 .gfield_checkbox {
 
