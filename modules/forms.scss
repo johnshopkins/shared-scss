@@ -14,7 +14,7 @@ form + * {
   margin-top: 0;
 }
 
-form:where(:not(.gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup *)) {
+form:where(:not(.search-box, .search-box *, .gsc-search-box, .gsc-search-box-tools, style + #mc_embed_signup *)) {
 
 	fieldset {
     border: none;
