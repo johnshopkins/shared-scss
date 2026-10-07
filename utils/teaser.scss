@@ -1331,7 +1331,7 @@
 
 
 
-@mixin teaser_xx-small($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_xx-small-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -1550,7 +1550,7 @@
   }
 }
 
-@mixin teaser_small($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_small-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -1657,7 +1657,7 @@
   }
 }
 
-@mixin teaser_medium($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_medium-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -1764,7 +1764,7 @@
   }
 }
 
-@mixin teaser_large($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_large-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -1867,7 +1867,7 @@
   }
 }
 
-@mixin teaser_x-large($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_x-large-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -1975,7 +1975,7 @@
   }
 }
 
-@mixin teaser_xx-large($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_xx-large-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -2082,7 +2082,7 @@
   }
 }
 
-@mixin teaser_xxx-large($headline-font-family: sans, $kicker-font-family: sans) {
+@mixin teaser_xxx-large-old($headline-font-family: sans, $kicker-font-family: sans) {
   $headline-family: "";
   $headline-ratio: "";
   $kicker-family: "";
@@ -2187,4 +2187,191 @@
       }
     }
   }
+}
+
+@mixin teaser_size(
+  $size: null, 
+  $headline-size: null, 
+  $headline-weight: null,
+  $kicker-size: null,
+  $meta-size: null,
+  $summary-size: null
+) {
+
+  @if $size == 2xs or $size == xx-small {
+    --teaser-headline-size: var(--jhu-font-size-xs);
+    // --teaser-headline-weight: var(--jhu-font-weight-semiBold);
+    --teaser-kicker-size: var(--jhu-font-size-3xs);
+    --teaser-meta-size: var(--jhu-font-size-3xs);
+    --teaser-summary-size: var(--jhu-font-size-2xs);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: semi-bold);
+    }
+  }
+
+  @if $size == xs or $size == x-small {
+    --teaser-headline-size: var(--jhu-font-size-sm);
+    // --teaser-headline-weight: var(--jhu-font-weight-bold);
+    --teaser-kicker-size: var(--jhu-font-size-2xs);
+    --teaser-meta-size: var(--jhu-font-size-3xs);
+    --teaser-summary-size: var(--jhu-font-size-xs);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: bold);
+    }
+  }
+
+  @if $size == sm or $size == small {
+    --teaser-headline-size: var(--jhu-font-size-md);
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-xs);
+    --teaser-meta-size: var(--jhu-font-size-2xs);
+    --teaser-summary-size: var(--jhu-font-size-xs);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+
+  @if $size == md or $size == medium {
+    --teaser-headline-size: var(--jhu-font-size-lg);
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-sm);
+    --teaser-meta-size: var(--jhu-font-size-2xs);
+    --teaser-summary-size: var(--jhu-font-size-sm);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+
+  @if $size == lg or $size == large {
+    --teaser-headline-size: var(--jhu-font-size-xl);
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-sm);
+    --teaser-meta-size: var(--jhu-font-size-xs);
+    --teaser-summary-size: var(--jhu-font-size-sm);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+
+  @if $size == xl or $size == x-large {
+    --teaser-headline-size: var(--jhu-font-size-2xl);
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-md);
+    --teaser-meta-size: var(--jhu-font-size-xs);
+    --teaser-summary-size: var(--jhu-font-size-sm);
+    
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+  
+  @if $size == 2xl or $size == xx-large {
+    --teaser-headline-size: var(--jhu-font-size-3xl);
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-lg);
+    --teaser-meta-size: var(--jhu-font-size-sm);
+    --teaser-summary-size: var(--jhu-font-size-md);
+
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+
+  @if $size == 3xl or $size == xxx-large {
+    --teaser-headline-size: calc(var(--jhu-font-size-3xl) * var(--jhu-font-scale));
+    // --teaser-headline-weight: var(--jhu-font-weight-extraBold);
+    --teaser-kicker-size: var(--jhu-font-size-xl);
+    --teaser-meta-size: var(--jhu-font-size-sm);
+    --teaser-summary-size: var(--jhu-font-size-md);
+
+    .text :is(h2, h5) {
+      @include jhu-font($weight: extra-bold);
+    }
+  }
+
+  @if $headline-size {
+    --teaser-headline-size: var(--jhu-font-size-#{$headline-size});
+  }
+  @if $headline-weight {
+    --teaser-headline-weight: var(--jhu-font-weight-#{$headline-weight});
+  }
+  @if $kicker-size {
+    --teaser-kicker-size: var(--jhu-font-size-#{$kicker-size});
+  }
+  @if $meta-size {
+    --teaser-meta-size: var(--jhu-font-size-#{$meta-size});
+  }
+  @if $summary-size {
+    --teaser-summary-size: var(--jhu-font-size-#{$summary-size});
+  }
+}
+
+@mixin teaser_fonts($headline-family: null, $kicker-family: null) {
+  @if $headline-family {
+
+    .text :is(h2, h5) {
+      @include jhu-font($family: #{$headline-family});
+    }
+
+    @if $headline-family == condensed {
+      .text :is(h2, h5) {
+        @include jhu-font($leading: tightest, $case: uppercase);
+      }
+    } @else {
+      .text :is(h2, h5) {
+        @include jhu-font($leading: tighter, $case: unset);
+      }
+    }
+  }
+
+  @if $kicker-family {
+    .text .kicker {
+      @include jhu-font($family: #{$kicker-family});
+    }
+  }
+}
+
+@mixin teaser_xx-small($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: xx-small);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_x-small($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: x-small);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_small($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: small);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_medium($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: medium);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_large($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: large);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_x-large($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: x-large);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_xx-large($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: xx-large);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
+}
+
+@mixin teaser_xxx-large($headline-family: null, $kicker-family: null) {
+  @include teaser_size($size: xxx-large);
+  @include teaser_fonts($headline-family: $headline-family, $kicker-family: $kicker-family);
 }
