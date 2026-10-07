@@ -275,6 +275,7 @@
 
     h2,
     h5 {
+      @include jhu-font($size: var(--teaser-headline-size));
       color: var(--teaser-headline-color);
       width: auto;
 
@@ -282,7 +283,7 @@
         background-color: transparent;
         border: none;
         @include box-shadow(none);
-        line-height: inherit;
+        // line-height: inherit;
         text-decoration: none;
       }
 
@@ -312,8 +313,23 @@
     }
 
     .kicker {
-      line-height: 1.2;
+      @include jhu-font($size: var(--teaser-kicker-size));
+      // line-height: 1.2;
       width: auto;
+
+      .meta {
+        color: inherit !important;
+        font-size: 1em !important;
+        // padding-left: 0;
+        position: static;
+
+        .fa {
+          width: auto;
+          position: static;
+          line-height: normal;
+        }
+      }
+
 
       + h2,
       + h5 {
@@ -321,15 +337,17 @@
       }
     }
 
-    .publish-date,
     .media-promo,
-    .meta,
+    .meta:where(:not(.kicker *)),
+    .publish-date,
+    .source,
     .summary + p {
+      @include jhu-font($size: var(--teaser-meta-size));
       color: var(--teaser-meta-color);
     }
 
-    .publish-date,
-    .media-promo {
+    .media-promo,
+    .publish-date {
       display: inline-block;
       white-space: nowrap;
 
@@ -345,9 +363,12 @@
 
     .meta {
       line-height: normal;
-      padding-left: 1.125em;
       position: relative;
       z-index: $stack_normal;
+
+      &:where(:not(.kicker *)) {
+        padding-left: 1.125em;
+      }
 
       &.location {
 
@@ -373,11 +394,21 @@
       }
     }
 
+    .contact,
+    .summary,
+    .titles {
+      @include jhu-font($size: var(--teaser-summary-size));
+
+      dd,
+      li,
+      p {
+        font-size: 1em;
+      }
+    }
+
     .summary {
+      @include jhu-font($family: sans, $weight: regular, $leading: tight);
       color: var(--teaser-summary-color);
-      @include jhu-font-family($family: sans);
-      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
-      line-height: 1.3;
 
       p {
 
@@ -404,6 +435,21 @@
       font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       line-height: 140%;
       font-style: italic;
+    }
+
+    .expertise {
+
+      h3 {
+        @include jhu-font($size: var(--teaser-summary-size));
+      }
+
+      ul {
+        @include jhu-font($size: var(--teaser-meta-size));
+
+        li {
+          font-size: 1em;
+        }
+      }
     }
 
     .contact,
