@@ -275,7 +275,7 @@
 
     h2,
     h5 {
-      @include jhu-font($size: var(--teaser-headline-size));
+      @include jhu-font($size: var(--teaser-headline-size), $leading: tighter);
       color: var(--teaser-headline-color);
       width: auto;
 
