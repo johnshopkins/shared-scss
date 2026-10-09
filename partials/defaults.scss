@@ -66,9 +66,9 @@ body {
   // background-repeat: no-repeat;
   // background-attachment: fixed;
   color: $gray5;
-  @include jhu-font-family($family: sans);
-  font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
-  line-height: 1.5;
+  @include jhu-font($family: sans, $weight: regular, $leading: normal);
+  // font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
+  // line-height: 1.5;
   // @include linear-gradient($double_black, to bottom, $logo_blue 33.33%, $black 33.34%);
 
   // Now that main-nav, modals, and overlays are outside of .page-container for
@@ -232,7 +232,8 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1em;
+  // line-height: 1em;
+  @include jhu-font($leading: tighter);
   
   a {
     color: inherit;
