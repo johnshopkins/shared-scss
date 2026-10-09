@@ -108,6 +108,7 @@
 
 :where(.teaser) {
   @include teaser(
+    $size: medium,
     $orientation: aside,
     $ratio: 7 of 10,
     $gutter: full,
@@ -115,7 +116,7 @@
     $image: landscape,
     $style: padded
   );
-  @include teaser_medium();
+  // @include teaser_medium();
   align-content: flex-start;
   box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
 
@@ -300,8 +301,8 @@
     .media-promo,
     .meta,
     .summary + p {
-      @include jhu-font-family($family: sans);
-      font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
+      @include jhu-font($family: sans, $weight: regular);
+      // font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 
       .plus {
         display: inline-block;
@@ -614,9 +615,9 @@
 }
 
 .teaser-aside {
-  @include teaser_orientation(aside);
+  @include teaser($orientation: aside);
 }
 
 .teaser-stacked {
-  @include teaser_orientation(stacked);
+  @include teaser($orientation: stacked);
 }
