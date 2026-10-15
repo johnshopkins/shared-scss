@@ -914,7 +914,6 @@
 
 
 
-
 @mixin teaser_size(
   $size: null, 
   $headline-size: null, 
@@ -1122,9 +1121,11 @@
     --teaser-text-align: var(--teaser-aside-text-align);
     --teaser-text-justify: var(--teaser-aside-text-justify);
     --teaser-image-z-index: var(--teaser-aside-image-z-index);
-    --teaser-text-z-index: var(--teaser-aside-text-z-index);
+    // --teaser-text-z-index: var(--teaser-aside-text-z-index);
     --teaser-image-bias: var(--teaser-aside-image-bias);
     --teaser-text-bias: var(--teaser-aside-text-bias);
+    --teaser-image-stack-top-active: var(--teaser-aside-image-stack-top-active);
+    // @include teaser_overlap($stack-priority: image);
 
     .thumbnail {
       flex-basis: var(--teaser-image-width);
@@ -1145,9 +1146,11 @@
     --teaser-text-align: var(--teaser-stacked-text-align);
     --teaser-text-justify: var(--teaser-stacked-text-justify);
     --teaser-image-z-index: var(--teaser-stacked-image-z-index);
-    --teaser-text-z-index: var(--teaser-stacked-text-z-index);
+    // --teaser-text-z-index: var(--teaser-stacked-text-z-index);
     --teaser-image-bias: var(--teaser-stacked-image-bias);
     --teaser-text-bias: var(--teaser-stacked-text-bias);
+    --teaser-image-stack-top-active: var(--teaser-stacked-image-stack-top-active);
+    // @include teaser_overlap($stack-priority: text);
 
     .thumbnail {
       flex-basis: auto;
@@ -1213,7 +1216,7 @@
   }
 }
 
-@mixin teaser_bias($bias) {
+@mixin teaser_bias($bias: null) {
   @if ($bias == 'image') {
     --teaser-aside-bias-offset-active: 1;
     --teaser-aside-image-bias: 1; 
@@ -1225,16 +1228,16 @@
   }
 }
 
-@mixin teaser_style($style) {
+@mixin teaser_style($style: null) {
 
   @if ($style == 'card') {
     --teaser-column-gap-active: 0;
     --teaser-row-gap-active: 0;
     --teaser-aside-image-align: center;
-    --teaser-aside-image-z-index: calc(#{$stack-normal} + 1);
-    --teaser-aside-text-z-index: #{$stack-normal};
-    --teaser-stacked-image-z-index: #{$stack-normal};
-    --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
+    // --teaser-aside-image-z-index: calc(#{$stack-normal} + (1 * var(--teaser-image-stack-top-active)));
+    // --teaser-aside-text-z-index: #{$stack-normal};
+    // --teaser-stacked-image-z-index: calc(#{$stack-normal} + ((2 * var(--teaser-image-stack-top-active)) - 1));
+    // --teaser-stacked-text-z-index: calc(#{$stack-normal} + 1);
 
     &:where(.has-image, .video) {
       --teaser-stacked-text-width: calc(100% - ((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-image-active)) * 2));
@@ -1268,10 +1271,10 @@
     --teaser-stacked-text-justify: flex-start;
     // --teaser-aside-text-overlap-value: 0px;
     // --teaser-stacked-text-overlap-value: 0px;
-    --teaser-aside-image-z-index: #{$stack-normal};
-    --teaser-aside-text-z-index: #{$stack-normal};
-    --teaser-stacked-image-z-index: #{$stack-normal};
-    --teaser-stacked-text-z-index: #{$stack-normal};
+    // --teaser-aside-image-z-index: #{$stack-normal};
+    // --teaser-aside-text-z-index: #{$stack-normal};
+    // --teaser-stacked-image-z-index: #{$stack-normal};
+    // --teaser-stacked-text-z-index: #{$stack-normal};
     --teaser-main-shadow-active: 0;
     --teaser-image-shadow-active: 1;
     --teaser-text-shadow-active: 0;
