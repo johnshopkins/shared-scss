@@ -1062,6 +1062,42 @@
   }
 }
 
+@mixin teaser_overlap($size: null, $aside-size: null, $stacked-size: null, $stack-priority: null) {
+
+  @if $size {
+
+    @if $aside-size is null {
+      --teaser-aside-text-overlap-value: #{$size};
+    }
+    @if $stacked-size is null {
+      --teaser-stacked-text-overlap-value: #{$size};
+    }
+  }
+
+  @if $aside-size {
+    --teaser-aside-text-overlap-value: #{$aside-size};
+  }
+  @if $stacked-size {
+    --teaser-stacked-text-overlap-value: #{$stacked-size};
+  }
+
+  @if $stack-priority == image {
+    --teaser-aside-image-z-index: calc(#{$stack-normal} + 1);
+    --teaser-stacked-image-z-index: calc(#{$stack-normal} + 1);
+    --teaser-image-z-index: calc(#{$stack-normal} + 1);
+    --teaser-aside-image-stack-top-active: 1;
+    --teaser-stacked-image-stack-top-active: 1;
+    --teaser-image-stack-top-active: 1;
+  } @else if $stack-priority == text {
+    --teaser-aside-image-z-index: #{$stack-normal};
+    --teaser-stacked-image-z-index: #{$stack-normal};
+    --teaser-image-z-index: #{$stack-normal};
+    --teaser-aside-image-stack-top-active: 0;
+    --teaser-stacked-image-stack-top-active: 0;
+    --teaser-image-stack-top-active: 0;
+  }
+}
+
 @mixin teaser_orientation($orientation: null) {
 
   @if ($orientation == 'aside') {
