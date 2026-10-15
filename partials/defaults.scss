@@ -41,7 +41,6 @@ html {
     text-wrap: pretty;
   }
 
-
   font-size: $regular;
 
   @include breakpoint_lap_width() {
@@ -796,7 +795,7 @@ table,
 
 .center {
   position: relative;
-  z-index: $stack-normal;
+  // z-index: $stack-normal;
 }
 
 .icon-fallback {
