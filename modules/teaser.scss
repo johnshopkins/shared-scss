@@ -2,7 +2,7 @@
 @use '../variables/main' as *;
 
 :root {
-  @include teaser_color(default);
+  @include teaser_color($scheme: default);
   --teaser-display-default-value: flex;
   --teaser-display: var(--teaser-display-default-value);
 
@@ -93,18 +93,22 @@
   --teaser-stacked-image-z-index: #{$stack-normal};
   // --teaser-stacked-text-z-index: #{$stack-normal};
   --teaser-image-z-index: unset;
-  --teaser-text-z-index: unset;
+  --teaser-text-z-index: initial;
 
   // Set in the teaser_shadow() mixin, 
   // applied in the teaser_style() mixin
+  --teaser-box-shadow-opacity: 0.4;
   --teaser-box-shadow-size: 0.5rem;
   --teaser-box-shadow-x-offset: -1;
   --teaser-box-shadow-y-offset: 1;
-  --teaser-main-shadow-active: 0;
-  --teaser-image-shadow-active: 0;
-  --teaser-text-shadow-active: 0;
+  --teaser-main-shadow-available: 0;
+  --teaser-image-shadow-available: 0;
+  --teaser-text-shadow-available: 0;
   --teaser-box-shadow-active: 0;
-  --teaser-box-shadow: none;
+  // --teaser-image-shadow-active: 0;
+  // --teaser-text-shadow-active: 0;
+
+  --teaser-accent-active: 0;
 
   --teaser-headline-box-shadow-offset: var(--jhu-spacing-105);
 }
@@ -121,7 +125,8 @@
   );
   // @include teaser_medium();
   align-content: flex-start;
-  box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-main-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+  background-color: rgb(from var(--teaser-background-color) r g b / var(--teaser-background-opacity));
+  box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset)) 0 0 rgb(from var(--teaser-accent-shadow-color) r g b / calc(var(--teaser-box-shadow-opacity) * var(--teaser-main-shadow-available) * var(--teaser-box-shadow-active)));
 
   display: var(--teaser-display);
   flex-direction: var(--teaser-direction);
@@ -141,7 +146,7 @@
   .thumbnail {
     align-self: var(--teaser-image-align);
     aspect-ratio: var(--teaser-image-aspect-ratio);
-    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-image-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset)) 0 0 rgb(from var(--teaser-accent-shadow-color) r g b / calc(var(--teaser-box-shadow-opacity) * var(--teaser-image-shadow-available) * var(--teaser-box-shadow-active) * var(--teaser-image-stack-top-active)));
     display: var(--teaser-image-display);
     flex-grow: var(--teaser-image-bias);
     margin-bottom: calc(((var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)) * -1) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active)));
@@ -248,7 +253,8 @@
   .text {
     // align-content: flex-start;
     align-self: var(--teaser-text-align);
-    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset) * var(--teaser-text-shadow-active) * var(--teaser-shadow-active)) 0 0 var(--teaser-shadow-color);
+    background-color: rgb(from var(--teaser-background-color) r g b / var(--teaser-text-background-opacity));
+    box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset)) 0 0 rgb(from var(--teaser-accent-shadow-color) r g b / calc(var(--teaser-box-shadow-opacity) * var(--teaser-text-shadow-available) * var(--teaser-box-shadow-active) * ((var(--teaser-image-stack-top-active) - 1) * -1)));
     // display: var(--teaser-text-display);
     // flex-direction: column;
     flex-grow: var(--teaser-text-bias);
@@ -283,6 +289,10 @@
       // flex-direction: column;
       // flex-wrap: nowrap;
       // justify-items: stretch;
+    }
+
+    &:where(:not(.thumbnail + *)) {
+      --teaser-image-stack-top-active: 0;
     }
 
     * {
