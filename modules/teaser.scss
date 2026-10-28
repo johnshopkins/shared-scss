@@ -280,7 +280,6 @@
       gap: var(--teaser-text-spacing) 0;
       left: 0;
       padding: calc(var(--teaser-text-padding) * var(--teaser-text-padding-active));
-      position: static;
       right: 0;
       top: 0;
       @include transform(none);
@@ -289,6 +288,10 @@
       // flex-direction: column;
       // flex-wrap: nowrap;
       // justify-items: stretch;
+    }
+
+    .accent-element {
+      position: static;
     }
 
     &:where(:not(.thumbnail + *)) {
