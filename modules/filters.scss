@@ -163,6 +163,13 @@
     }
   }
 
+  [data-filter-group='active-filters'] {
+
+    button {
+      @include button_size($size: x-small);
+    }
+  }
+
   [data-filter-group='keyword'] {
 
     legend {
