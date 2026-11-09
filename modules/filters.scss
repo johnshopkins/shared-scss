@@ -46,10 +46,11 @@
   }
 
   .display-nav {
+    align-items: center;
     cursor: pointer;
+    display: flex;
     font-size: $large;
     line-height: 100%;
-    padding-right: #{calc(2.25em / $large)}em; // matches .open/.close width
     position: relative;
     text-transform: uppercase;
     z-index: $stack_normal;
@@ -61,7 +62,6 @@
     button,
     span {
       @include transition(background-color $run ease-in-out, color $run ease-in-out);
-      height: #{calc(2.25em / $large)}em;
     }
 
     button {
@@ -73,12 +73,8 @@
       line-height: inherit;
       margin: 0;
       padding: #{calc(calc($standard_spacing / 6) / $large)}em 0;
-      position: absolute;
-      right: 0;
       text-align: center;
-      top: 0;
       width: #{calc(2.25em / $large)}em;
-      z-index: $stack_positioned;
 
       &.close {
         display: block;
@@ -91,6 +87,7 @@
 
     span {
       display: block;
+      flex-grow: 1;
       @include jhu-font-family($family: sans);
       font-weight: var(--jhu-font-weight-semiBold); // Changed 03-19-2026
       padding: #{calc(calc($standard_spacing / 6) / $large)}em #{calc(calc($standard_spacing / 3) / $large)}em;
