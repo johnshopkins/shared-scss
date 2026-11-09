@@ -71,12 +71,14 @@
   --teaser-text-display: var(--teaser-text-display-default-value);
 
   --teaser-image-align: auto;
-  --teaser-text-align: auto;
+  --teaser-text-block-align: auto;
+  --teaser-text-align: left;
+  --teaser-text-align-items: flex-start;
   --teaser-text-justify: auto;
   --teaser-aside-image-align: flex-start;
   --teaser-stacked-image-align: stretch;
-  --teaser-aside-text-align: stretch;
-  --teaser-stacked-text-align: center;
+  --teaser-aside-text-block-align: stretch;
+  --teaser-stacked-text-block-align: center;
   --teaser-aside-text-justify: flex-start;
   --teaser-stacked-text-justify: flex-start;
 
@@ -252,7 +254,7 @@
 
   .text {
     // align-content: flex-start;
-    align-self: var(--teaser-text-align);
+    align-self: var(--teaser-text-block-align);
     background-color: rgb(from var(--teaser-background-color) r g b / var(--teaser-text-background-opacity));
     box-shadow: calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-x-offset)) calc(var(--teaser-box-shadow-size) * var(--teaser-box-shadow-y-offset)) 0 0 rgb(from var(--teaser-accent-shadow-color) r g b / calc(var(--teaser-box-shadow-opacity) * var(--teaser-text-shadow-available) * var(--teaser-box-shadow-active) * ((var(--teaser-image-stack-top-active) - 1) * -1)));
     // display: var(--teaser-text-display);
@@ -268,12 +270,13 @@
     .accent-element {
       display: var(--teaser-text-display);
       flex-direction: column;
+      text-align: var(--teaser-text-align);
     }
 
     &:where(:not(:has(.accent-element))),
     .accent-element {
       // align-content: flex-start;
-      align-items: flex-start;
+      align-items: var(--teaser-text-align-items);
       // display: flex;
       // flex-direction: row;
       // flex-wrap: wrap;

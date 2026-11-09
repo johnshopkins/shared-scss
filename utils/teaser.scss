@@ -312,7 +312,7 @@
     --teaser-text-width: var(--teaser-aside-text-width);
     --teaser-aside-text-overlap-active: 1;
     --teaser-stacked-text-overlap-active: 0;
-    --teaser-text-align: var(--teaser-aside-text-align);
+    --teaser-text-block-align: var(--teaser-aside-text-block-align);
     --teaser-text-justify: var(--teaser-aside-text-justify);
     --teaser-image-z-index: var(--teaser-aside-image-z-index);
     // --teaser-text-z-index: var(--teaser-aside-text-z-index);
@@ -337,7 +337,7 @@
     --teaser-text-width: var(--teaser-stacked-text-width);
     --teaser-aside-text-overlap-active: 0;
     --teaser-stacked-text-overlap-active: 1;
-    --teaser-text-align: var(--teaser-stacked-text-align);
+    --teaser-text-block-align: var(--teaser-stacked-text-block-align);
     --teaser-text-justify: var(--teaser-stacked-text-justify);
     --teaser-image-z-index: var(--teaser-stacked-image-z-index);
     // --teaser-text-z-index: var(--teaser-stacked-text-z-index);
@@ -449,7 +449,7 @@
       // --teaser-image-shadow-available: 0;
       // --teaser-text-shadow-available: 1;
     }
-    --teaser-aside-text-align: stretch;
+    --teaser-aside-text-block-align: stretch;
     --teaser-aside-text-justify: center;
     --teaser-stacked-text-justify: flex-start;
     // --teaser-aside-text-overlap-value: 1rem;
@@ -464,7 +464,7 @@
     --teaser-row-gap-active: 1;
     --teaser-aside-image-align: flex-start;
     --teaser-stacked-text-width: 100%;
-    --teaser-aside-text-align: stretch;
+    --teaser-aside-text-block-align: stretch;
     --teaser-aside-text-justify: center;
     --teaser-stacked-text-justify: flex-start;
     // --teaser-aside-text-overlap-value: 0px;
@@ -549,6 +549,18 @@
 
 
 
+@mixin teaser_align($align: null) {
+  @if $align == left {
+    --teaser-text-align: left;
+    --teaser-text-align-items: flex-start;
+  } @elseif $align == center {
+    --teaser-text-align: center;
+    --teaser-text-align-items: center;
+  } @elseif $align == right {
+    --teaser-text-align: right;
+    --teaser-text-align-items: flex-end;
+  }
+}
 
 @mixin teaser(
   $size: null, 
@@ -587,7 +599,8 @@
   $source-background-color: null,
   $source-background-color-hover: null,
   $source-color: null,
-  $source-color-hover: null
+  $source-color-hover: null,
+  $text-align: null,
 ) {
   @include teaser_size(
     $size: $size, 
@@ -626,6 +639,7 @@
     $source-color: $source-color,
     $source-color-hover: $source-color-hover
   );
+  @include teaser_align($align: $text-align);
 }
 
 
@@ -752,7 +766,7 @@
   // @else {
   //   --teaser-image-aspect-ratio: $image;
   // }
-  // --teaser-text-align: flex-start;
+  // --teaser-text-block-align: flex-start;
   // background-color: transparent; // leave transparent for now
   // display: table;
   // padding: 0;
@@ -1260,7 +1274,7 @@
   }
 
   @if ($style == 'card') {
-    --teaser-text-align: center;
+    --teaser-text-block-align: center;
 
     .thumbnail {
       aspect-ratio: var(--teaser-image-aspect-ratio);
@@ -1411,7 +1425,7 @@
   }
 
   @else {
-    --teaser-text-align: flex-start;
+    --teaser-text-block-align: flex-start;
     // background-color: lighten($gray1, 5%);
     // clear: both;
     // float: none;
