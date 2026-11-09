@@ -449,9 +449,6 @@
       // --teaser-image-shadow-available: 0;
       // --teaser-text-shadow-available: 1;
     }
-    --teaser-aside-text-block-align: stretch;
-    --teaser-aside-text-justify: center;
-    --teaser-stacked-text-justify: flex-start;
     // --teaser-aside-text-overlap-value: 1rem;
     // --teaser-stacked-text-overlap-value: 1rem;
 
@@ -464,9 +461,6 @@
     --teaser-row-gap-active: 1;
     --teaser-aside-image-align: flex-start;
     --teaser-stacked-text-width: 100%;
-    --teaser-aside-text-block-align: stretch;
-    --teaser-aside-text-justify: center;
-    --teaser-stacked-text-justify: flex-start;
     // --teaser-aside-text-overlap-value: 0px;
     // --teaser-stacked-text-overlap-value: 0px;
     // --teaser-aside-image-z-index: #{$stack-normal};
@@ -482,6 +476,10 @@
     --teaser-style-text-overlap-active: 1;
     --teaser-text-padding-active: 1;
     --teaser-text-background-opacity: 1;
+    --teaser-aside-text-block-align: stretch;
+    --teaser-aside-text-justify: center;
+    --teaser-stacked-text-justify: flex-start;
+
     // .text {
     //   background-color: var(--teaser-background-color);
     // }
@@ -489,6 +487,10 @@
     --teaser-style-text-overlap-active: 0;
     --teaser-text-padding-active: 0;
     --teaser-text-background-opacity: 0;
+    --teaser-aside-text-block-align: stretch;
+    --teaser-aside-text-justify: flex-start;
+    --teaser-stacked-text-justify: flex-start;
+
     // .text {
     //   background-color: transparent;
     // }
