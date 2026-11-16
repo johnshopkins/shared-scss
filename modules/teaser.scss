@@ -165,7 +165,7 @@
     position: relative;
     transform: translate3d(0, 0, 0);
     // z-index: calc(var(--teaser-image-z-index) + ((2 * var(--teaser-image-stack-top-active)) - 1));
-    z-index: var(--teaser-image-z-index);
+    z-index: calc(var(--teaser-image-z-index) + var(--teaser-image-stack-top-active));
 
     a {
       // Need aspect ratio repeated here in case image is 404 to stop
@@ -175,30 +175,9 @@
       border: none;
       box-shadow: none !important;
       cursor: pointer;
+      display: block;
       position: relative;
       z-index: $stack_normal;
-
-      .image {
-        overflow: hidden;
-        position: relative;
-        z-index: $stack_normal;
-
-        &:before {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: $stack_positioned;
-          background-color: var(--teaser-image-hover-color);
-          content: ' ';
-          display: block;
-          @include transform(translateZ(0) scale(1.1, 1.1));
-          @include opacity(0);
-          @include transition(opacity $sprint ease-in-out);
-          @include backface-visibility(hidden);
-        }
-      }
 
       &:not(:has(.image)) {
         background-color: var(--teaser-image-hover-color) !important;
@@ -211,8 +190,7 @@
           transition: opacity $sprint ease-in-out, transform $sprint ease-in-out !important;
         }
 
-        &:focus,
-        &:hover {
+        &:is(:focus, :hover) {
 
           img {
             opacity: calc(2 / 3) !important;
@@ -220,35 +198,51 @@
         }
       }
 
-      &,
-      img {
-        display: block;
-      }
-
-      img {
-        aspect-ratio: var(--teaser-image-aspect-ratio);
-        @include backface-visibility(hidden);
-        height: auto;
-        object-fit: cover;
-        margin: 0;
-        max-width: none;
-        @include transform(scale(1, 1));
-        @include transition(transform);
-        @include transition-duration($sprint);
-        @include transition-timing-function(ease-in-out);
-        width: 100%;
-      }
-
       > .column {
         margin-right: 0;
         width: 100%;
       }
     }
+
+    img {
+      aspect-ratio: var(--teaser-image-aspect-ratio);
+      @include backface-visibility(hidden);
+      display: block;
+      height: auto;
+      object-fit: cover;
+      margin: 0;
+      max-width: none;
+      @include transform(scale(1, 1));
+      @include transition(transform);
+      @include transition-duration($sprint);
+      @include transition-timing-function(ease-in-out);
+      width: 100%;
+    }
+
+    .image {
+      overflow: hidden;
+      position: relative;
+      z-index: $stack_normal;
+
+      &:before {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $stack_positioned;
+        background-color: var(--teaser-image-hover-color);
+        content: ' ';
+        display: block;
+        @include transform(translateZ(0) scale(1.1, 1.1));
+        @include opacity(0);
+        @include transition(opacity $sprint ease-in-out);
+        @include backface-visibility(hidden);
+      }
+    }
   }
 
-  .image-portrait,
-  .image-square,
-  .image-landscape {
+  :is(.image-portrait, .image-square, .image-landscape) {
     padding: 0;
   }
 
@@ -305,16 +299,7 @@
       margin-block: 0;
     }
 
-    h2,
-    h5,
-    .kicker,
-    .summary,
-    .summary + p {
-      // flex-basis: 100%;
-    }
-
-    h2,
-    h5 {
+    :is(h2, h5) {
       @include jhu-font($size: var(--teaser-headline-size), $leading: tighter);
       color: var(--teaser-headline-color);
       width: auto;
@@ -327,19 +312,12 @@
         text-decoration: none;
       }
 
-      + .media-promo,
-      + .meta,
-      + .publish-date,
-      + .summary {
+      + :is(.media-promo, .meta, .publish-date, .summary) {
         margin-top: 0;
       }
     }
 
-    .kicker,
-    .publish-date,
-    .media-promo,
-    .meta:where(:not(.kicker *)),
-    .summary + p {
+    :is(.kicker, .publish-date, .media-promo, .meta:where(:not(.kicker *)), .summary + p) {
       @include jhu-font($family: sans, $weight: regular);
       // font-weight: var(--jhu-font-weight-regular); // Changed 03-19-2026
 
@@ -371,8 +349,7 @@
       }
 
 
-      + h2,
-      + h5 {
+      + :is(h2, h5) {
         margin-top: 0;
       }
     }
@@ -382,17 +359,12 @@
       flex-wrap: wrap;
     }
 
-    .media-promo,
-    .meta:where(:not(.kicker *)),
-    .publish-date,
-    .source,
-    .summary + p {
+    :is(.media-promo, .meta:where(:not(.kicker *)), .publish-date, .source, .summary + p) {
       @include jhu-font($size: var(--teaser-meta-size));
       color: var(--teaser-meta-color);
     }
 
-    .media-promo,
-    .publish-date {
+    :is(.media-promo, .publish-date) {
       display: inline-block;
       white-space: nowrap;
 
@@ -417,15 +389,12 @@
 
       &.location {
 
-        .address,
-        .building a,
-        .campus {
+        :is(.address, .building a, .campus) {
           display: none;
         }
       }
 
-      &.location,
-      &.time {
+      &:is(.location, .time) {
         display: none;
       }
 
@@ -439,14 +408,10 @@
       }
     }
 
-    .contact,
-    .summary,
-    .titles {
+    :is(.contact, .summary, .titles) {
       @include jhu-font($size: var(--teaser-summary-size));
 
-      dd,
-      li,
-      p {
+      :is(dd, li, p) {
         font-size: 1em;
       }
     }
@@ -497,8 +462,7 @@
       }
     }
 
-    .contact,
-    .titles {
+    :is(.contact, .titles) {
       --jhu-list-indent: 0;
     }
   }
@@ -509,9 +473,10 @@
 
       &:where(:not(:has(.accent-element))),
       .accent-element {
-        padding-top: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active) * var(--teaser-image-stack-top-active)));
+        padding-block-start: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-stacked-text-overlap-value) * var(--teaser-stacked-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active) * var(--teaser-image-stack-top-active)));
 
-        padding-left: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active) * var(--teaser-image-stack-top-active)));
+        // @Eric can this math be adjusted to allow for $gutter: half? Currently, because this is being applied to .accent-element in most cases, the percentage calculation is wrong because the context of .accent element width is .text, not .teaser.
+        padding-inline-start: calc((var(--teaser-text-padding) * var(--teaser-text-padding-active)) + (var(--teaser-aside-text-overlap-value) * var(--teaser-aside-text-overlap-active) * var(--teaser-style-text-overlap-active) * var(--teaser-image-active) * var(--teaser-image-stack-top-active)));
       }
     }
   }
@@ -623,8 +588,7 @@
 
       a {
 
-        &:focus,
-        &:hover {
+        &:is(:focus, :hover) {
 
           .image {
 
@@ -646,8 +610,7 @@
 
         a {
 
-          &:focus,
-          &:hover {
+          &:is(:focus, :hover) {
             background-color: transparent;
             @include box_shadow(none);
             color: var(--teaser-headline-color-hover);
@@ -659,8 +622,7 @@
 
         a {
 
-          &:focus,
-          &:hover {
+          &:is(:focus, :hover) {
             color: var(--teaser-source-color-hover);
           }
         }
