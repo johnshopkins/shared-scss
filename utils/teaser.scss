@@ -410,6 +410,7 @@
     $target: nth($ratio, 1);
     $context: nth($ratio, -1);
     --teaser-column-gap: #{get_gutter_width(of $context)};
+    --teaser-aside-bias-offset-value: calc(var(--teaser-column-gap) * var(--teaser-column-gap-modifier));
 
     --teaser-aside-image-width: #{get_span_width(($context - $target) of $context)};
     --teaser-aside-text-width: #{get_span_width($target of $context)};
