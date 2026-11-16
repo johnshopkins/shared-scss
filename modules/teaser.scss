@@ -521,6 +521,11 @@
     .text {
       // Covers situations where teaser_bias() is set to image
       flex-grow: 1 !important;
+
+      &:where(:not(:has(.accent-element))),
+      .accent-element {
+        padding: calc(var(--teaser-padding) * var(--teaser-text-padding-active));
+      }
     }
   }
 
