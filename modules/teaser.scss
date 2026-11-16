@@ -83,10 +83,10 @@
   --teaser-stacked-text-justify: flex-start;
 
   // Needs a unit for some reason
-  --teaser-padding: #{($standard_spacing * 0.5)};
+  --teaser-padding: var(--jhu-spacing-3);
   --teaser-padding-active: 0;
 
-  --teaser-text-padding: 1rem;
+  --teaser-text-padding: var(--jhu-spacing-2);
   --teaser-text-padding-active: 0;
 
   // Z-indexes for overlapping .thumbnail and .image

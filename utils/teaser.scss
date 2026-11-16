@@ -122,6 +122,9 @@
     --teaser-summary-size: var(--jhu-font-size-2xs);
     --teaser-text-spacing: var(--jhu-spacing-0375);
     
+    --teaser-padding: var(--jhu-spacing-105);
+    --teaser-text-padding: var(--jhu-spacing-105);
+
     .text :is(h2, h5) {
       @include jhu-font($weight: semi-bold);
     }
@@ -135,6 +138,9 @@
     --teaser-summary-size: var(--jhu-font-size-xs);
     --teaser-text-spacing: var(--jhu-spacing-0375);
 
+    --teaser-padding: var(--jhu-spacing-2);
+    --teaser-text-padding: var(--jhu-spacing-1075);
+
     .text :is(h2, h5) {
       @include jhu-font($weight: bold);
     }
@@ -147,6 +153,10 @@
     --teaser-meta-size: var(--jhu-font-size-2xs);
     --teaser-summary-size: var(--jhu-font-size-xs);
     --teaser-text-spacing: var(--jhu-spacing-05);
+
+    --teaser-padding: calc(var(--jhu-spacing-2) + var(--jhu-spacing-05));
+    --teaser-text-padding: var(--jhu-spacing-2);
+
     
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
@@ -160,6 +170,9 @@
     --teaser-meta-size: var(--jhu-font-size-2xs);
     --teaser-summary-size: var(--jhu-font-size-sm);
     --teaser-text-spacing: var(--jhu-spacing-05);
+
+    --teaser-padding: var(--jhu-spacing-3);
+    --teaser-text-padding: calc(var(--jhu-spacing-2) + var(--jhu-spacing-025));
     
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
@@ -173,6 +186,9 @@
     --teaser-meta-size: var(--jhu-font-size-xs);
     --teaser-summary-size: var(--jhu-font-size-sm);
     --teaser-text-spacing: var(--jhu-spacing-075);
+
+    --teaser-padding: var(--jhu-spacing-4);
+    --teaser-text-padding: calc(var(--jhu-spacing-2) + var(--jhu-spacing-05));
     
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
@@ -187,6 +203,9 @@
     --teaser-summary-size: var(--jhu-font-size-sm);
     --teaser-text-spacing: var(--jhu-spacing-1);
     
+    --teaser-padding: var(--jhu-spacing-5);
+    --teaser-text-padding: var(--jhu-spacing-3);
+
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
     }
@@ -200,6 +219,9 @@
     --teaser-summary-size: var(--jhu-font-size-md);
     --teaser-text-spacing: var(--jhu-spacing-105);
 
+    --teaser-padding: var(--jhu-spacing-6);
+    --teaser-text-padding: calc(var(--jhu-spacing-3) + var(--jhu-spacing-05));
+
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
     }
@@ -212,6 +234,9 @@
     --teaser-meta-size: var(--jhu-font-size-sm);
     --teaser-summary-size: var(--jhu-font-size-md);
     --teaser-text-spacing: var(--jhu-spacing-2);
+
+    --teaser-padding: var(--jhu-spacing-8);
+    --teaser-text-padding: var(--jhu-spacing-4);
 
     .text :is(h2, h5) {
       @include jhu-font($weight: extra-bold);
