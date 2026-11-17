@@ -581,10 +581,10 @@
   @if $align == left {
     --teaser-text-align: left;
     --teaser-text-align-items: flex-start;
-  } @elseif $align == center {
+  } @else if $align == center {
     --teaser-text-align: center;
     --teaser-text-align-items: center;
-  } @elseif $align == right {
+  } @else if $align == right {
     --teaser-text-align: right;
     --teaser-text-align-items: flex-end;
   }
